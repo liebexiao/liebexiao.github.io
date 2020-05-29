@@ -18,4 +18,93 @@
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 ]]></content>
   </entry>
+  <entry>
+    <title>常用Markdown语法</title>
+    <url>/2020/05/29/%E5%B8%B8%E7%94%A8Markdown%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<p>这篇主要来记录我初步建立 markdown 文章一些基本操作。</p>
+<a id="more"></a>
+
+<h3 id="一、标题"><a href="#一、标题" class="headerlink" title="一、标题"></a>一、标题</h3><p>一级标题前面一个#，二级标题前面两个#，以此类推，总共到六级标题，#与文字之间一定要有空格。</p>
+<h3 id="二、代码块"><a href="#二、代码块" class="headerlink" title="二、代码块"></a>二、代码块</h3><p>用前后 三个` 包裹着, ```后面写什么语言即展示怎样的高亮样式，例如：html、javascript</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="行内代码"><a href="#行内代码" class="headerlink" title="行内代码"></a>行内代码</h4><p>前后一个 ` 包裹，例：</p>
+<p><code>行内代码</code></p>
+<h3 id="三、引用"><a href="#三、引用" class="headerlink" title="三、引用"></a>三、引用</h3><p>使用 &gt; 表示引用， &gt;&gt; 表示引用里面再套一层引用，依次类推。</p>
+<blockquote>
+<p>‘&gt;’这是一级引用</p>
+<blockquote>
+<p>‘&gt;&gt;’这是二级引用</p>
+<blockquote>
+<p>‘&gt;&gt;&gt;’这是三级引用</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h3 id="四、链接"><a href="#四、链接" class="headerlink" title="四、链接"></a>四、链接</h3><p>使用 “ <a href="link"> </a> ” 表示行内链接。其中：</p>
+<p>[] 内的内容为要添加链接的文字。</p>
+<p>link 为链接地址。例如：<a href="https://www.baidu.com" target="_blank" rel="noopener">百度</a></p>
+<blockquote>
+<p><a href="https://www.baidu.com" target="_blank" rel="noopener">百度</a></p>
+</blockquote>
+<h3 id="五、导入图片"><a href="#五、导入图片" class="headerlink" title="五、导入图片"></a>五、导入图片</h3><p>使用 “ <img src="png" alt="Alt text"> ” 导入图片。其中：</p>
+<p>Alt text 为如果图片无法显示时显示的文字；<br>png 为图片所在路径；<br>本地引用是图片直接存储到本地通过相对路径引用，无需网络连接<br>上传图片将把图片上传至图床，这样在文档或图片移动时认可访问图片<br>示例：<br><img src="https://fech.in/static/images/cover/ml01-overview.jpeg" alt="图片无法显示时显示的文字"></p>
+<h3 id="六、Todo-List"><a href="#六、Todo-List" class="headerlink" title="六、Todo List"></a>六、Todo List</h3><p>小写 x 表示已完成， 空格表示未完成</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 选中</li>
+<li><input disabled="" type="checkbox"> 未选中<pre><code>方法：</code></pre><blockquote>
+<p>-与[]之间须有空格 -[x] 例 1 -[ ] 例 2</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="七、粗体，斜体，高亮和删除线"><a href="#七、粗体，斜体，高亮和删除线" class="headerlink" title="七、粗体，斜体，高亮和删除线"></a>七、粗体，斜体，高亮和删除线</h3><p>例如<strong>粗体</strong></p>
+<blockquote>
+<p>** 粗体示例 **</p>
+</blockquote>
+<p><em>斜体</em></p>
+<blockquote>
+<p>_斜体 _</p>
+</blockquote>
+<p><strong><em>粗加斜体</em></strong></p>
+<blockquote>
+<p><strong>_ 粗加斜体 _</strong></p>
+</blockquote>
+<blockquote>
+<p>==高亮==<br>部分编辑器不支持高亮</p>
+</blockquote>
+<p><del>删除线</del></p>
+<blockquote>
+<p><del>~ 删除线 ~</del></p>
+</blockquote>
+<h3 id="八、列表"><a href="#八、列表" class="headerlink" title="八、列表"></a>八、列表</h3><p>使用 1. 1. 1. 表示有序列表，使用 * 或 - 或 + 表示无序列表。</p>
+<ol>
+<li>列表一</li>
+<li>列表二</li>
+<li>列表三</li>
+</ol>
+<blockquote>
+<p>1.列表一 1.列表二 1.列表三<br>记得 1. 与列表文字之间需要有空格</p>
+</blockquote>
+<ul>
+<li>1 列表一<ul>
+<li>2 列表二</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>*1 列表一<br>*2 列表二<br>二级列表需要缩进一个字符</p>
+</blockquote>
+<h3 id="九、分割线"><a href="#九、分割线" class="headerlink" title="九、分割线"></a>九、分割线</h3><p>分割线：— 或者*** 自动出来分割线</p>
+<hr>
+<h3 id="十、emoji"><a href="#十、emoji" class="headerlink" title="十、emoji"></a>十、emoji</h3><p>使用 :emoji代码: 在 markdown 里添加 emoji 😲</p>
+<p><a href="https://www.webfx.com/tools/emoji-cheat-sheet/" target="_blank" rel="noopener">点击这里查看所有支持的 emoji 代码</a></p>
+<p>❗ 部分编辑器不支持 emoji code </p>
+<p>建议直接输入 emoji，<a href="https://www.emojidaquan.com" target="_blank" rel="noopener">点击这里查看并复制 emoji</a></p>
+]]></content>
+      <categories>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>markdown</tag>
+      </tags>
+  </entry>
 </search>
