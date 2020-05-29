@@ -22,8 +22,6 @@
     <title>常用Markdown语法</title>
     <url>/2020/05/29/%E5%B8%B8%E7%94%A8Markdown%E8%AF%AD%E6%B3%95/</url>
     <content><![CDATA[<p>这篇主要来记录我初步建立 markdown 文章一些基本操作。</p>
-<a id="more"></a>
-
 <h3 id="一、标题"><a href="#一、标题" class="headerlink" title="一、标题"></a>一、标题</h3><p>一级标题前面一个#，二级标题前面两个#，以此类推，总共到六级标题，#与文字之间一定要有空格。</p>
 <h3 id="二、代码块"><a href="#二、代码块" class="headerlink" title="二、代码块"></a>二、代码块</h3><p>用前后 三个` 包裹着, ```后面写什么语言即展示怎样的高亮样式，例如：html、javascript</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
