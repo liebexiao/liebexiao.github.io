@@ -11,8 +11,10 @@
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="liebexiao,"> 
     <meta name="description" content="日常前端小工具,这篇主要来记录我初步建立 markdown 文章一些基本操作。
-一、标题一级标题前面一个#，二级标题前面两个#，以此类推，总共到六级标题，#与文字之间一定要有空格。
-二、代码块用前后 三个` 包裹着,"> 
+新建page1hexo new page-name
+
+
+一、标题一级标题前面一个#，二级标题前面两个#，以此类推，总共到六级标题，#与,"> 
     <meta name="author" content="晓晓"> 
     <link rel="alternative" href="atom.xml" title="小窝" type="application/atom+xml"> 
     <link rel="icon" href="https://s1.ax1x.com/2020/05/28/telmDJ.png"> 
@@ -65,6 +67,9 @@
         </div>
         <div class="content markdown">
             <p>这篇主要来记录我初步建立 markdown 文章一些基本操作。</p>
+<h2 id="新建page"><a href="#新建page" class="headerlink" title="新建page"></a>新建page</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page-name</span><br></pre></td></tr></table></figure>
+
+
 <h3 id="一、标题"><a href="#一、标题" class="headerlink" title="一、标题"></a>一、标题</h3><p>一级标题前面一个#，二级标题前面两个#，以此类推，总共到六级标题，#与文字之间一定要有空格。</p>
 <h3 id="二、代码块"><a href="#二、代码块" class="headerlink" title="二、代码块"></a>二、代码块</h3><p>用前后 三个` 包裹着, ```后面写什么语言即展示怎样的高亮样式，例如：html、javascript</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -87,12 +92,12 @@
 <blockquote>
 <p><a href="https://www.baidu.com" target="_blank" rel="noopener">百度</a></p>
 </blockquote>
-<h3 id="五、导入图片"><a href="#五、导入图片" class="headerlink" title="五、导入图片"></a>五、导入图片</h3><p>使用 “ <img src="png" alt="Alt text"> ” 导入图片。其中：</p>
+<h3 id="五、导入图片"><a href="#五、导入图片" class="headerlink" title="五、导入图片"></a>五、导入图片</h3><p>使用 “ ![Alt text] (png) ” 导入图片。其中：</p>
 <p>Alt text 为如果图片无法显示时显示的文字；<br>png 为图片所在路径；<br>本地引用是图片直接存储到本地通过相对路径引用，无需网络连接<br>上传图片将把图片上传至图床，这样在文档或图片移动时认可访问图片<br>示例：<br><img src="https://fech.in/static/images/cover/ml01-overview.jpeg" alt="图片无法显示时显示的文字"></p>
 <h3 id="六、Todo-List"><a href="#六、Todo-List" class="headerlink" title="六、Todo List"></a>六、Todo List</h3><p>小写 x 表示已完成， 空格表示未完成</p>
 <ul>
 <li><input checked="" disabled="" type="checkbox"> 选中</li>
-<li><input disabled="" type="checkbox"> 未选中<pre><code>方法：</code></pre><blockquote>
+<li><input disabled="" type="checkbox"> 未选中<br>方法：<blockquote>
 <p>-与[]之间须有空格 -[x] 例 1 -[ ] 例 2</p>
 </blockquote>
 </li>
@@ -191,7 +196,7 @@
     </div>
     
         <div class='side'>
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、标题"><span class="toc-number">1.</span> <span class="toc-text">一、标题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、代码块"><span class="toc-number">2.</span> <span class="toc-text">二、代码块</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#行内代码"><span class="toc-number">2.1.</span> <span class="toc-text">行内代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、引用"><span class="toc-number">3.</span> <span class="toc-text">三、引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、链接"><span class="toc-number">4.</span> <span class="toc-text">四、链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、导入图片"><span class="toc-number">5.</span> <span class="toc-text">五、导入图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#六、Todo-List"><span class="toc-number">6.</span> <span class="toc-text">六、Todo List</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#七、粗体，斜体，高亮和删除线"><span class="toc-number">7.</span> <span class="toc-text">七、粗体，斜体，高亮和删除线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#八、列表"><span class="toc-number">8.</span> <span class="toc-text">八、列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#九、分割线"><span class="toc-number">9.</span> <span class="toc-text">九、分割线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#十、emoji"><span class="toc-number">10.</span> <span class="toc-text">十、emoji</span></a></li></ol>	
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#新建page"><span class="toc-number">1.</span> <span class="toc-text">新建page</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、标题"><span class="toc-number">1.1.</span> <span class="toc-text">一、标题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、代码块"><span class="toc-number">1.2.</span> <span class="toc-text">二、代码块</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#行内代码"><span class="toc-number">1.2.1.</span> <span class="toc-text">行内代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、引用"><span class="toc-number">1.3.</span> <span class="toc-text">三、引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、链接"><span class="toc-number">1.4.</span> <span class="toc-text">四、链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、导入图片"><span class="toc-number">1.5.</span> <span class="toc-text">五、导入图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#六、Todo-List"><span class="toc-number">1.6.</span> <span class="toc-text">六、Todo List</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#七、粗体，斜体，高亮和删除线"><span class="toc-number">1.7.</span> <span class="toc-text">七、粗体，斜体，高亮和删除线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#八、列表"><span class="toc-number">1.8.</span> <span class="toc-text">八、列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#九、分割线"><span class="toc-number">1.9.</span> <span class="toc-text">九、分割线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#十、emoji"><span class="toc-number">1.10.</span> <span class="toc-text">十、emoji</span></a></li></ol></li></ol>	
         </div>
     
 </div>

@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>wx支付分享 - 小窝</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="liebexiao,"> 
+    <meta name="description" content="日常前端小工具,wx支付
+请求后台接口获取wx需要数据
+
+将请求接口得来的数据存到全局变量里面 payData 。
+12345678910111213141516171819Ajax(&#39;post&#39;, &#39;/api&#39;,,"> 
+    <meta name="author" content="晓晓"> 
+    <link rel="alternative" href="atom.xml" title="小窝" type="application/atom+xml"> 
+    <link rel="icon" href="https://s1.ax1x.com/2020/05/28/telmDJ.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">小窝</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://liebexiao.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">wx支付分享</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">wx支付分享</h1>
+        <div class="stuff">
+            <span>六月 17, 2020</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="wx支付"><a href="#wx支付" class="headerlink" title="wx支付"></a><strong>wx支付</strong></h3><blockquote>
+<p>请求后台接口获取wx需要数据</p>
+</blockquote>
+<p>将请求接口得来的数据存到全局变量里面 payData 。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Ajax(<span class="string">'post'</span>, <span class="string">'/api'</span>, obj).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">let</span> data = res.data;</span><br><span class="line">      <span class="keyword">this</span>.payData = data;</span><br><span class="line">       <span class="comment">//wx判断支付环境是否可用，若环境准备好接着调用 onBridgeReady()方法                </span></span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">typeof</span> WeixinJSBridge == <span class="string">"undefined"</span>)&#123;</span><br><span class="line">             <span class="keyword">if</span>( <span class="built_in">document</span>.addEventListener )&#123;</span><br><span class="line">              <span class="built_in">document</span>.addEventListener(<span class="string">'WeixinJSBridgeReady'</span>, onBridgeReady, <span class="literal">false</span>);</span><br><span class="line">             &#125;<span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">document</span>.attachEvent)&#123;</span><br><span class="line">              <span class="built_in">document</span>.attachEvent(<span class="string">'WeixinJSBridgeReady'</span>, onBridgeReady);</span><br><span class="line">              <span class="built_in">document</span>.attachEvent(<span class="string">'onWeixinJSBridgeReady'</span>, onBridgeReady);</span><br><span class="line">              &#125;</span><br><span class="line">      &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">          <span class="keyword">this</span>.onBridgeReady();</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">  &#125;).catch(<span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">     alert(e)</span><br><span class="line">     <span class="keyword">this</span>.canSubmit=<span class="literal">true</span>;</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>将后台返回的参数传到wx</p>
+</blockquote>
+<p>  调用wx支付方法，将上面请求后台接口返回的参数传给wx 。在用户支付成功后进行下一步操作。</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//微信支付</span></span><br><span class="line">          onBridgeReady() &#123;</span><br><span class="line">              <span class="keyword">let</span> that = <span class="keyword">this</span>;</span><br><span class="line">              WeixinJSBridge.invoke(</span><br><span class="line">                  <span class="string">'getBrandWCPayRequest'</span>, &#123;</span><br><span class="line">                      <span class="string">"appId"</span>: <span class="keyword">this</span>.payData.appId,     <span class="comment">//公众号名称，由商户传入</span></span><br><span class="line">                      <span class="string">"timeStamp"</span>: <span class="keyword">this</span>.payData.timeStamp,         <span class="comment">//时间戳，自1970年以来的秒数</span></span><br><span class="line">                      <span class="string">"nonceStr"</span>: <span class="keyword">this</span>.payData.nonceStr, <span class="comment">//随机串</span></span><br><span class="line">                      <span class="string">"package"</span>: <span class="keyword">this</span>.payData.package,</span><br><span class="line">                      <span class="string">"signType"</span>: <span class="keyword">this</span>.payData.signType,         <span class="comment">//微信签名方式：</span></span><br><span class="line">                      <span class="string">"paySign"</span>: <span class="keyword">this</span>.payData.paySign <span class="comment">//微信签名</span></span><br><span class="line">                  &#125;,</span><br><span class="line">                  <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">                      <span class="keyword">if</span> (res.err_msg == <span class="string">"get_brand_wcpay_request:ok"</span>) &#123;</span><br><span class="line">                          <span class="comment">//支付成功</span></span><br><span class="line">                          <span class="built_in">window</span>.location.href=<span class="string">"/activity"</span>;</span><br><span class="line">                          </span><br><span class="line">                      &#125;<span class="keyword">else</span> <span class="keyword">if</span> (res.err_msg == <span class="string">"get_brand_wcpay_request:fail"</span>) &#123;</span><br><span class="line">                          <span class="comment">// 使用以上方式判断前端返回,微信团队郑重提示：</span></span><br><span class="line">                          <span class="comment">//res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。</span></span><br><span class="line">                          alert(res.err_msg);</span><br><span class="line">                      &#125;</span><br><span class="line">                  &#125;);</span><br><span class="line">          &#125;,</span><br></pre></td></tr></table></figure>
+
+<h3 id="wx分享"><a href="#wx分享" class="headerlink" title="wx分享"></a><strong>wx分享</strong></h3><blockquote>
+<p>jquery引入标签</p>
+</blockquote>
+<p>还需要引入  jweixin-1.4.0.js  文件。此文件在E盘“引用的文件”js文件中。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--微信分享--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/js/jweixin-1.4.0.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>vue在main.js中引入</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引入微信分享</span></span><br><span class="line"><span class="keyword">import</span> wx <span class="keyword">from</span> <span class="string">"weixin-js-sdk"</span>;</span><br><span class="line">Vue.use(wx);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>在h5.js里面进行封装</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引入微信分享</span></span><br><span class="line"><span class="keyword">import</span> wx <span class="keyword">from</span> <span class="string">"weixin-js-sdk"</span>;</span><br><span class="line"><span class="comment">//微信分享</span></span><br><span class="line"><span class="keyword">let</span> wxShareIntval;</span><br><span class="line"><span class="keyword">let</span> wxShareIntvalIndex=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> iosEdition = navigator.userAgent;</span><br><span class="line"><span class="keyword">let</span> isIphone = !!iosEdition.match(<span class="regexp">/\(i[^;]+;( U;)? CPU.+Mac OS X/</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//禁止微信分享</span></span><br><span class="line">    prohibitShare() &#123;</span><br><span class="line">        <span class="comment">// 禁止分享</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">typeof</span> WeixinJSBridge == <span class="string">"undefined"</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (<span class="built_in">document</span>.addEventListener) &#123;</span><br><span class="line">                    <span class="built_in">document</span>.addEventListener(<span class="string">'WeixinJSBridgeReady'</span>, <span class="keyword">this</span>.onBridgeReady(), <span class="literal">false</span>);</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">document</span>.attachEvent) &#123;</span><br><span class="line">                    <span class="built_in">document</span>.attachEvent(<span class="string">'WeixinJSBridgeReady'</span>, <span class="keyword">this</span>.onBridgeReady());</span><br><span class="line">                    <span class="built_in">document</span>.attachEvent(<span class="string">'onWeixinJSBridgeReady'</span>, <span class="keyword">this</span>.onBridgeReady());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">this</span>.onBridgeReady();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(e)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">//初始化时屏蔽分享按钮防止点击</span></span><br><span class="line">    onBridgeReady() &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            WeixinJSBridge.call(<span class="string">'hideOptionMenu'</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">//定时器，请求完数据之后才可以进行wx分享</span></span><br><span class="line">    shareTimer(shareObj) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(process.env.NODE_ENV);</span><br><span class="line">        <span class="keyword">if</span> (process.env.NODE_ENV === <span class="string">"development"</span> || !Vue.prototype.isWechat) &#123;</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// wxShareIntval = setInterval(() =&gt; &#123;</span></span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (<span class="built_in">document</span>.readyState == <span class="string">"complete"</span>) &#123; <span class="comment">//当页面加载状态为完全结束时进入</span></span><br><span class="line">                    <span class="keyword">if</span> (<span class="keyword">typeof</span> WeixinJSBridge == <span class="string">"undefined"</span>) &#123;</span><br><span class="line">                        <span class="keyword">if</span> (<span class="built_in">document</span>.addEventListener) &#123;</span><br><span class="line">                            <span class="built_in">document</span>.addEventListener(<span class="string">'WeixinJSBridgeReady'</span>, <span class="keyword">this</span>.getWxShare(shareObj), <span class="literal">false</span>);</span><br><span class="line">                        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">document</span>.attachEvent) &#123;</span><br><span class="line">                            <span class="built_in">document</span>.attachEvent(<span class="string">'WeixinJSBridgeReady'</span>, <span class="keyword">this</span>.getWxShare(shareObj));</span><br><span class="line">                            <span class="built_in">document</span>.attachEvent(<span class="string">'onWeixinJSBridgeReady'</span>, <span class="keyword">this</span>.getWxShare(shareObj));</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="comment">//微信分享配置</span></span><br><span class="line">                        <span class="keyword">this</span>.getWxShare(shareObj);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// wxShareIntvalIndex++;</span></span><br><span class="line">            <span class="comment">// if (wxShareIntvalIndex &gt; 10) &#123;</span></span><br><span class="line">            <span class="comment">//     clearInterval(wxShareIntval);</span></span><br><span class="line">            <span class="comment">// &#125;</span></span><br><span class="line">        <span class="comment">// &#125;, 500)</span></span><br><span class="line">    &#125;,</span><br><span class="line">    getWxShare(shareObj) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> href = location.href.split(<span class="string">'#'</span>)[<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">if</span> (!isIphone) &#123;</span><br><span class="line">                href = location.href.split(<span class="string">'#'</span>)[<span class="number">0</span>].split(<span class="string">'?from'</span>)[<span class="number">0</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">let</span> obj = &#123;</span><br><span class="line">                url: href</span><br><span class="line">            &#125;</span><br><span class="line">            Vue.prototype.$http.get(<span class="string">'/api/user/wx/share'</span>, obj,<span class="string">'hideLoad'</span>).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">                <span class="keyword">let</span> data = res.data;</span><br><span class="line">                setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">                    <span class="keyword">this</span>.wxShare(data, shareObj);</span><br><span class="line">                &#125;, <span class="number">500</span>)</span><br><span class="line">            &#125;).catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    wxShare(data, shareObj) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            wx.config(&#123;</span><br><span class="line">                debug: <span class="literal">false</span>,</span><br><span class="line">                appId: data.data.appId, <span class="comment">// 和获取Ticke的必须一样------必填，公众号的唯一标识</span></span><br><span class="line">                timestamp: data.data.timestamp, <span class="comment">// 必填，生成签名的时间戳</span></span><br><span class="line">                nonceStr: data.data.nonceStr, <span class="comment">// 必填，生成签名的随机串</span></span><br><span class="line">                signature: data.data.signature, <span class="comment">// 必填，签名，见附录1</span></span><br><span class="line">                <span class="comment">//需要分享的列表项:发送给朋友，分享到朋友圈</span></span><br><span class="line">                jsApiList: [<span class="string">"updateTimelineShareData"</span>, <span class="string">"updateAppMessageShareData"</span>, <span class="string">"onMenuShareTimeline"</span>, <span class="string">"onMenuShareAppMessage"</span>, <span class="string">'checkJsApi'</span>, <span class="string">'openLocation'</span>, <span class="string">'getLocation'</span>]</span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="comment">//处理验证失败的信息</span></span><br><span class="line">            wx.error(<span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">                <span class="comment">// alert(JSON.stringify(res));</span></span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// // //微信分享配置</span></span><br><span class="line">            <span class="comment">// if (isIphone) &#123;</span></span><br><span class="line">            <span class="comment">//     shareObj.share_url = encodeURI(shareObj.share_url)</span></span><br><span class="line">            <span class="comment">// &#125;</span></span><br><span class="line">            <span class="comment">//微信分享配置</span></span><br><span class="line">            history.replaceState(&#123;&#125;, shareObj.share_title, shareObj.share_url);</span><br><span class="line">            shareObj.share_url = <span class="built_in">window</span>.location.href;</span><br><span class="line">            wx.ready(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">                WeixinJSBridge.call(<span class="string">'showOptionMenu'</span>);</span><br><span class="line">                clearInterval(wxShareIntval);</span><br><span class="line">                <span class="keyword">if</span> (isIphone) &#123;</span><br><span class="line">                    <span class="comment">//分享到朋友圈</span></span><br><span class="line">                    wx.updateTimelineShareData(&#123;</span><br><span class="line">                        title: shareObj.share_title, <span class="comment">// 分享标题</span></span><br><span class="line">                        desc: shareObj.share_des, <span class="comment">// 分享描述</span></span><br><span class="line">                        link: shareObj.share_url, <span class="comment">// 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致</span></span><br><span class="line">                        imgUrl: shareObj.share_img, <span class="comment">// 分享图标</span></span><br><span class="line">                        success: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">                            <span class="comment">// 用户确认分享后执行的回调函数</span></span><br><span class="line"><span class="comment">//                            showTips("成功分享朋友圈")</span></span><br><span class="line">                        &#125;,</span><br><span class="line">                        cancel: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">                            <span class="comment">// 用户取消分享后执行的回调函数</span></span><br><span class="line">                            <span class="comment">// showTips("取消分享到朋友圈返回:" + res);</span></span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;);</span><br><span class="line">                    <span class="comment">//分享给朋友</span></span><br><span class="line">                    wx.updateAppMessageShareData(&#123;</span><br><span class="line">                        title: shareObj.share_title, <span class="comment">// 分享标题</span></span><br><span class="line">                        desc: shareObj.share_des, <span class="comment">// 分享描述</span></span><br><span class="line">                        link: shareObj.share_url, <span class="comment">// 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致</span></span><br><span class="line">                        imgUrl: shareObj.share_img, <span class="comment">// 分享图标</span></span><br><span class="line">                        type: <span class="string">""</span>, <span class="comment">// 分享类型,music、video或link，不填默认为link</span></span><br><span class="line">                        dataUrl: <span class="string">""</span>, <span class="comment">// 如果type是music或video，则要提供数据链接，默认为空</span></span><br><span class="line">                        success: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">                            <span class="comment">// 用户确认分享后执行的回调函数</span></span><br><span class="line"><span class="comment">//                            showTips("成功分享给朋友")</span></span><br><span class="line">                        &#125;,</span><br><span class="line">                        cancel: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">                            <span class="comment">// 用户取消分享后执行的回调函数</span></span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">//分享到朋友圈</span></span><br><span class="line">                    wx.onMenuShareTimeline(&#123;</span><br><span class="line">                        title: shareObj.share_title, <span class="comment">// 分享标题</span></span><br><span class="line">                        desc: shareObj.share_des, <span class="comment">// 分享描述</span></span><br><span class="line">                        link: shareObj.share_url, <span class="comment">// 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致</span></span><br><span class="line">                        imgUrl: shareObj.share_img, <span class="comment">// 分享图标</span></span><br><span class="line">                        success: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">                            <span class="comment">// 用户确认分享后执行的回调函数</span></span><br><span class="line"></span><br><span class="line">                        &#125;,</span><br><span class="line">                        cancel: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">                            <span class="comment">// 用户取消分享后执行的回调函数</span></span><br><span class="line">                            <span class="comment">// showTips("取消分享到朋友圈返回:" + res);</span></span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;);</span><br><span class="line">                    <span class="comment">//分享给朋友</span></span><br><span class="line">                    wx.onMenuShareAppMessage(&#123;</span><br><span class="line">                        title: shareObj.share_title, <span class="comment">// 分享标题</span></span><br><span class="line">                        desc: shareObj.share_des, <span class="comment">// 分享描述</span></span><br><span class="line">                        link: shareObj.share_url, <span class="comment">// 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致</span></span><br><span class="line">                        imgUrl: shareObj.share_img, <span class="comment">// 分享图标</span></span><br><span class="line">                        type: <span class="string">""</span>, <span class="comment">// 分享类型,music、video或link，不填默认为link</span></span><br><span class="line">                        dataUrl: <span class="string">""</span>, <span class="comment">// 如果type是music或video，则要提供数据链接，默认为空</span></span><br><span class="line">                        success: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">                            <span class="comment">// 用户确认分享后执行的回调函数</span></span><br><span class="line">                        &#125;,</span><br><span class="line">                        cancel: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">                            <span class="comment">// 用户取消分享后执行的回调函数</span></span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>引用</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">mounted() &#123;</span><br><span class="line">    <span class="comment">//禁止分享</span></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        prohibitShare();</span><br><span class="line">        <span class="keyword">this</span>.shareWx();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">        alert(e);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;,</span><br><span class="line">methods: &#123;</span><br><span class="line">    shareWx() &#123;</span><br><span class="line">        <span class="keyword">let</span> shareObj = &#123;</span><br><span class="line">            share_title: <span class="string">"分享标题"</span>,</span><br><span class="line">            share_des: <span class="string">"分享描述"</span>,</span><br><span class="line">            share_img: <span class="string">'分享图片'</span>,</span><br><span class="line">            share_url: <span class="string">`url`</span></span><br><span class="line">        &#125;</span><br><span class="line">        shareTimer(shareObj)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='https://ddcz.oss-cn-beijing.aliyuncs.com/images/file-15907455327707H0n.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='https://ddcz.oss-cn-beijing.aliyuncs.com/images/file-1590745808611iMGP.mp3'></li>
+                        
+                    
+                        
+                            <li title='2' data-url='https://ddcz.oss-cn-beijing.aliyuncs.com/images/file-1590745994297wVkB.mp3'></li>
+                        
+                    
+                        
+                            <li title='3' data-url='https://ddcz.oss-cn-beijing.aliyuncs.com/images/file-1590746334499BAN4.mp3'></li>
+                        
+                    
+                        
+                            <li title='4' data-url='https://ddcz.oss-cn-beijing.aliyuncs.com/images/file-15907467860895g8J.mp3'></li>
+                        
+                    
+                        
+                            <li title='5' data-url='https://ddcz.oss-cn-beijing.aliyuncs.com/images/file-1590746934261bb2Q.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#wx支付"><span class="toc-number">1.</span> <span class="toc-text">wx支付</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#wx分享"><span class="toc-number">2.</span> <span class="toc-text">wx分享</span></a></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":200,"height":260},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
