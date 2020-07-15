@@ -5,20 +5,20 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>拖拽排序 -  </title>
+    <title>下拉分页 -  </title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="liebexiao,"> 
-    <meta name="description" content="日常前端小工具,基础使用
-安装引用
+    <meta name="description" content="日常前端小工具,
+定义变量
 
-1cnpm install awe-dnd --save
+123allLIst:[],//列表数据page:0,loadNextPage:true,//是否请求下一页
 
 
-使用
+在 mounted 里面监听分页滚动条
 
-123在main.js中全局引用;import VueDND from &#34;awe-dnd&#34;;Vue.use,"> 
+12//分页监听滚动条win,"> 
     <meta name="author" content="晓晓"> 
     <link rel="alternative" href="atom.xml" title=" " type="application/atom+xml"> 
     <link rel="icon" href="https://s1.ax1x.com/2020/05/28/telmDJ.png"> 
@@ -46,7 +46,7 @@
     <div class="bar" style="width: 0;"></div>
     <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://liebexiao.github.io"></a>
     <div title="播放/暂停" class="iconfont icon-play"></div>
-    <h3 class="subtitle">拖拽排序</h3>
+    <h3 class="subtitle">下拉分页</h3>
     <div class="social">
         <div>
             <div class="share">
@@ -61,34 +61,34 @@
     <div class="section">
         <div class="article">
     <div class='main'>
-        <h1 class="title">拖拽排序</h1>
+        <h1 class="title">下拉分页</h1>
         <div class="stuff">
-            <span>七月 14, 2020</span>
+            <span>七月 15, 2020</span>
             
-  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/vue/" rel="tag">vue</a></li></ul>
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
 
 
         </div>
         <div class="content markdown">
-            <h3 id="基础使用"><a href="#基础使用" class="headerlink" title="基础使用"></a><strong>基础使用</strong></h3><blockquote>
-<p>安装引用</p>
+            <blockquote>
+<p>定义变量</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install awe-dnd --save</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">allLIst:[],<span class="comment">//列表数据</span></span><br><span class="line">page:<span class="number">0</span>,</span><br><span class="line">loadNextPage:<span class="literal">true</span>,<span class="comment">//是否请求下一页</span></span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>使用</p>
+<p>在 mounted 里面监听分页滚动条</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在main.js中全局引用;</span><br><span class="line"><span class="keyword">import</span> VueDND <span class="keyword">from</span> <span class="string">"awe-dnd"</span>;</span><br><span class="line">Vue.use(VueDND);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//分页监听滚动条</span></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"scroll"</span>, <span class="keyword">this</span>.handleScroll);</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span></span></span><br><span class="line"><span class="tag">  <span class="attr">class</span>=<span class="string">"color-item"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-for</span>=<span class="string">"color in colors"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-dragging</span>=<span class="string">"&#123; item: color, list: colors, group: 'color' &#125;"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">:key</span>=<span class="string">"color.text"</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br><span class="line">  &#123;&#123;color.text&#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mounted () &#123;</span><br><span class="line">   <span class="keyword">this</span>.$dragging.$on(<span class="string">'dragged'</span>, (&#123; value &#125;) =&gt; &#123;</span><br><span class="line">     <span class="built_in">console</span>.log(value.item)</span><br><span class="line">     <span class="built_in">console</span>.log(value.list)</span><br><span class="line">     <span class="built_in">console</span>.log(value.otherData)</span><br><span class="line">   &#125;)</span><br><span class="line">   <span class="keyword">this</span>.$dragging.$on(<span class="string">'dragend'</span>, () =&gt; &#123;</span><br><span class="line"></span><br><span class="line">   &#125;)</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="嵌套列表排序"><a href="#嵌套列表排序" class="headerlink" title="嵌套列表排序"></a><strong>嵌套列表排序</strong></h3><p>只有在html这个地方有区别，其他使用均相同</p>
 <blockquote>
-<p>使用</p>
+<p>在 methods 里面写 handleScroll 方法</p>
 </blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span></span></span><br><span class="line"><span class="tag">  <span class="attr">class</span>=<span class="string">"select"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-for</span>=<span class="string">"(item2,index2) in item.volunteerMajor"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">:key</span>=<span class="string">"index2"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-dragging</span>=<span class="string">"&#123; item: item2, list: item.volunteerMajor, group: 'name'+index&#125;"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//分页——滚动条触碰到底部</span></span><br><span class="line">handleScroll() &#123;</span><br><span class="line">    <span class="keyword">let</span> scrollTop = <span class="built_in">document</span>.documentElement.scrollTop || <span class="built_in">document</span>.body.scrollTop;</span><br><span class="line">    <span class="comment">//判断 如果文档的距离减200小于  屏幕可视距离  加上  滚动条距离顶部的距离，并且 loadNextPage为true ，则page++；</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">document</span>.documentElement.scrollHeight - <span class="number">200</span> &lt; <span class="built_in">document</span>.documentElement.clientHeight + scrollTop) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.loadNextPage) &#123;</span><br><span class="line">            <span class="comment">// console.log("下一页");</span></span><br><span class="line">            <span class="keyword">this</span>.loadNextPage = <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">this</span>.page++;</span><br><span class="line">            <span class="keyword">this</span>.getArticle();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>请求数据列表之后给变量 list 赋值</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//请求数据列表</span></span><br><span class="line">getList() &#123;</span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">page: <span class="keyword">this</span>.page,</span><br><span class="line">size: <span class="number">10</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">this</span>.$http.post(<span class="string">"/api/total/list"</span>, obj).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line"><span class="comment">//分页进入下一页</span></span><br><span class="line"><span class="keyword">let</span> data = res.data.result.data;</span><br><span class="line"><span class="comment">//判断 如果数据个数小于10，不进入下一页，否则loadNextPage设为true进入下一页</span></span><br><span class="line">data.length &lt; <span class="number">10</span> ? <span class="keyword">this</span>.loadNextPage = <span class="literal">false</span> : <span class="keyword">this</span>.loadNextPage = <span class="literal">true</span>;</span><br><span class="line"><span class="comment">//分页连接数组</span></span><br><span class="line"><span class="keyword">this</span>.allList = [...this.allList, ...data];</span><br><span class="line"><span class="comment">// console.log(JSON.stringify(this.allList));</span></span><br><span class="line">&#125;);</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
@@ -140,7 +140,7 @@
     </div>
     
         <div class='side'>
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#基础使用"><span class="toc-number">1.</span> <span class="toc-text">基础使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#嵌套列表排序"><span class="toc-number">2.</span> <span class="toc-text">嵌套列表排序</span></a></li></ol>	
+				
         </div>
     
 </div>

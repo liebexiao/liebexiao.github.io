@@ -1,0 +1,225 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>视频播放器 -  </title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="liebexiao,"> 
+    <meta name="description" content="日常前端小工具,
+样例展示
+
+
+渲染
+区分 ios 与 Android
+
+12345678910111213141516171819202122232425262728293031323334353637&amp;lt;d,"> 
+    <meta name="author" content="晓晓"> 
+    <link rel="alternative" href="atom.xml" title=" " type="application/atom+xml"> 
+    <link rel="icon" href="https://s1.ax1x.com/2020/05/28/telmDJ.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none"> </span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://liebexiao.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">视频播放器</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">视频播放器</h1>
+        <div class="stuff">
+            <span>七月 15, 2020</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <blockquote>
+<p>样例展示</p>
+</blockquote>
+<p><img src="https://s1.ax1x.com/2020/07/15/Ud8tc4.png" alt="播放样式"></p>
+<h3 id="渲染"><a href="#渲染" class="headerlink" title="渲染"></a><strong>渲染</strong></h3><blockquote>
+<p>区分 ios 与 Android</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"video_box wrap"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"video_cont"</span> <span class="attr">v-if</span>=<span class="string">"isiOS"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">video</span></span></span><br><span class="line"><span class="tag">      <span class="attr">id</span>=<span class="string">"video"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">class</span>=<span class="string">"video_box"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">webkit-playsinline</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">x5-playsinline</span>=<span class="string">""</span></span></span><br><span class="line"><span class="tag">      <span class="attr">x5-video-player-type</span>=<span class="string">"h5-page"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">x5-video-player-fullscreen</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">playsinline</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">poster</span>=<span class="string">"http://bendipin.oss-cn-beijing.aliyuncs.com/images/file-1554818270419.png"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">src</span>=<span class="string">"http://video.jishiyoo.com/customerTrans/2d6d4561e207fdc5bae73662f6543bad/1f242163-169fc168513-0005-5026-102-f36a3.mp4"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">preload</span>=<span class="string">"none"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">x-webkit-airplay</span>=<span class="string">"allow"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">x5-video-orientation</span>=<span class="string">"portrait"</span></span></span><br><span class="line"><span class="tag">      @<span class="attr">click</span>=<span class="string">"pauseVideo"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">loop</span>=<span class="string">"loop"</span></span></span><br><span class="line"><span class="tag">    &gt;</span><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"video_cont"</span> <span class="attr">v-if</span>=<span class="string">"!isiOS"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">video</span></span></span><br><span class="line"><span class="tag">      <span class="attr">id</span>=<span class="string">"video"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">class</span>=<span class="string">"video_box"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">webkit-playsinline</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">x5-playsinline</span>=<span class="string">""</span></span></span><br><span class="line"><span class="tag">      <span class="attr">playsinline</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">poster</span>=<span class="string">"http://bendipin.oss-cn-beijing.aliyuncs.com/images/file-1554818270419.png"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">src</span>=<span class="string">"http://video.jishiyoo.com/customerTrans/2d6d4561e207fdc5bae73662f6543bad/1f242163-169fc168513-0005-5026-102-f36a3.mp4"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">preload</span>=<span class="string">"none"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">x-webkit-airplay</span>=<span class="string">"allow"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">x5-video-orientation</span>=<span class="string">"portrait"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">x5-video-player-type</span>=<span class="string">"h5-page"</span></span></span><br><span class="line"><span class="tag">      @<span class="attr">click</span>=<span class="string">"pauseVideo"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">loop</span>=<span class="string">"loop"</span></span></span><br><span class="line"><span class="tag">    &gt;</span><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在 h5 微信端实现不跳转微信浏览器  ，在 android 有效  x5-video-player-type=”h5-page”</p>
+<h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a><strong>操作</strong></h3><blockquote>
+<p>全局变量</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> u = navigator.userAgent; <span class="comment">//在vue渲染的上面定义</span></span><br><span class="line">isiOS: !!u.match(<span class="regexp">/\(i[^;]+;( U;)? CPU.+Mac OS X/</span>), <span class="comment">// ios终端</span></span><br><span class="line">playOrPause: <span class="literal">false</span>,<span class="comment">//是否正在播放</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>播放控制</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">pauseVideo() &#123; <span class="comment">//暂停\播放</span></span><br><span class="line"><span class="keyword">let</span> video = <span class="built_in">document</span>.getElementById(<span class="string">'video'</span>);</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">this</span>.playOrPause) &#123;</span><br><span class="line">    video.pause();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        video.play();</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">this</span>.playOrPause = !<span class="keyword">this</span>.playOrPause</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>css</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrap</span> &#123;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">10px</span> <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">z-index</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.video_cont</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#000</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#video</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='https://ddcz.oss-cn-beijing.aliyuncs.com/images/file-15907455327707H0n.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='https://ddcz.oss-cn-beijing.aliyuncs.com/images/file-1590745808611iMGP.mp3'></li>
+                        
+                    
+                        
+                            <li title='2' data-url='https://ddcz.oss-cn-beijing.aliyuncs.com/images/file-1590745994297wVkB.mp3'></li>
+                        
+                    
+                        
+                            <li title='3' data-url='https://ddcz.oss-cn-beijing.aliyuncs.com/images/file-1590746334499BAN4.mp3'></li>
+                        
+                    
+                        
+                            <li title='4' data-url='https://ddcz.oss-cn-beijing.aliyuncs.com/images/file-15907467860895g8J.mp3'></li>
+                        
+                    
+                        
+                            <li title='5' data-url='https://ddcz.oss-cn-beijing.aliyuncs.com/images/file-1590746934261bb2Q.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#渲染"><span class="toc-number">1.</span> <span class="toc-text">渲染</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#操作"><span class="toc-number">2.</span> <span class="toc-text">操作</span></a></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":200,"height":260},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
