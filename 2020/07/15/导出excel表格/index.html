@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>导出excel表格 -  </title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="liebexiao,"> 
+    <meta name="description" content="日常前端小工具,引用
+1、在 style.js 中引入方法
+
+12345678910111213141516171819202122232425export default &amp;#123;  //下载文件流  ope,"> 
+    <meta name="author" content="晓晓"> 
+    <link rel="alternative" href="atom.xml" title=" " type="application/atom+xml"> 
+    <link rel="icon" href="https://s1.ax1x.com/2020/05/28/telmDJ.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none"> </span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://liebexiao.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">导出excel表格</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">导出excel表格</h1>
+        <div class="stuff">
+            <span>七月 15, 2020</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/vue/" rel="tag">vue</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h4 id="引用"><a href="#引用" class="headerlink" title="引用"></a><strong>引用</strong></h4><blockquote>
+<p>1、在 style.js 中引入方法</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="comment">//下载文件流</span></span><br><span class="line">  operateFile(file, filename) &#123;</span><br><span class="line">    <span class="comment">// let fileName = filename + "-" + new Date().getFullYear() + '' +( new Date().getMonth()+1)  + '' +new Date() .getDate()+".xls";</span></span><br><span class="line">    <span class="comment">// let blobObject = new Blob([file], &#123;type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"&#125;);</span></span><br><span class="line">    <span class="comment">// //是IE浏览器</span></span><br><span class="line">    <span class="comment">// if(!!window.ActiveXObject || "ActiveXObject" in window)&#123;</span></span><br><span class="line">    <span class="comment">//     window.navigator.msSaveOrOpenBlob(blobObject,fileName);</span></span><br><span class="line">    <span class="comment">// &#125;else&#123;//火狐谷歌都兼容</span></span><br><span class="line">    <span class="comment">//     //模板中要有一个预定义好的a标签</span></span><br><span class="line">    <span class="comment">//     let link = document.getElementById('a_id')</span></span><br><span class="line">    <span class="comment">//     link.href = URL.createObjectURL(blobObject);</span></span><br><span class="line">    <span class="comment">//     link.download = fileName</span></span><br><span class="line">    <span class="comment">//     link.click();</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line">    <span class="keyword">var</span> filename = <span class="string">"订单记录"</span>;</span><br><span class="line">    <span class="keyword">let</span> url = <span class="built_in">window</span>.URL.createObjectURL(file.data);</span><br><span class="line">    <span class="keyword">let</span> link = <span class="built_in">document</span>.createElement(<span class="string">"a"</span>);</span><br><span class="line">    link.style.display = <span class="string">"none"</span>;</span><br><span class="line">    link.href = url;</span><br><span class="line">    link.setAttribute(<span class="string">"download"</span>, filename + <span class="string">".xls"</span>);</span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(link);</span><br><span class="line">    link.click();</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>2、在页面中引用</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> style <span class="keyword">from</span> <span class="string">"@/static/js/style"</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a><strong>使用</strong></h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//导出表格</span></span><br><span class="line">            exportDialog() &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="keyword">this</span>.supplierId)</span><br><span class="line">                <span class="keyword">let</span> obj = &#123;</span><br><span class="line">                    page: <span class="number">0</span>,</span><br><span class="line">                    size: <span class="number">100000</span>,</span><br><span class="line">                    start_time: <span class="keyword">this</span>.startTime,</span><br><span class="line">                    end_time: <span class="keyword">this</span>.endTime,</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">this</span>.$http.getFile(<span class="string">"/api"</span>, obj).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">                    style.operateFile(res, <span class="string">'订单记录'</span>)</span><br><span class="line">                    <span class="comment">/*var filename = '订单记录';</span></span><br><span class="line"><span class="comment">                    let url = window.URL.createObjectURL(res)</span></span><br><span class="line"><span class="comment">                    let link = document.createElement('a')</span></span><br><span class="line"><span class="comment">                    link.style.display = 'none'</span></span><br><span class="line"><span class="comment">                    link.href = url</span></span><br><span class="line"><span class="comment">                    link.setAttribute('download', filename + '.xls')</span></span><br><span class="line"><span class="comment">                    document.body.appendChild(link)</span></span><br><span class="line"><span class="comment">                    link.click()*/</span></span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;,</span><br></pre></td></tr></table></figure>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='https://ddcz.oss-cn-beijing.aliyuncs.com/images/file-15907455327707H0n.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='https://ddcz.oss-cn-beijing.aliyuncs.com/images/file-1590745808611iMGP.mp3'></li>
+                        
+                    
+                        
+                            <li title='2' data-url='https://ddcz.oss-cn-beijing.aliyuncs.com/images/file-1590745994297wVkB.mp3'></li>
+                        
+                    
+                        
+                            <li title='3' data-url='https://ddcz.oss-cn-beijing.aliyuncs.com/images/file-1590746334499BAN4.mp3'></li>
+                        
+                    
+                        
+                            <li title='4' data-url='https://ddcz.oss-cn-beijing.aliyuncs.com/images/file-15907467860895g8J.mp3'></li>
+                        
+                    
+                        
+                            <li title='5' data-url='https://ddcz.oss-cn-beijing.aliyuncs.com/images/file-1590746934261bb2Q.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#引用"><span class="toc-number">1.</span> <span class="toc-text">引用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用"><span class="toc-number">2.</span> <span class="toc-text">使用</span></a></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":200,"height":260},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

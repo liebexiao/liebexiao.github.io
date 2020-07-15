@@ -149,7 +149,7 @@
 </ol>
 ]]></content>
       <categories>
-        <category>vue性能优化</category>
+        <category>vue配置</category>
       </categories>
       <tags>
         <tag>vue</tag>
@@ -841,10 +841,60 @@
 
 ]]></content>
       <categories>
-        <category>PC工具</category>
+        <category>常用工具</category>
       </categories>
       <tags>
-        <tag>js</tag>
+        <tag>pc</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>导出excel表格</title>
+    <url>/2020/07/15/%E5%AF%BC%E5%87%BAexcel%E8%A1%A8%E6%A0%BC/</url>
+    <content><![CDATA[<h4 id="引用"><a href="#引用" class="headerlink" title="引用"></a><strong>引用</strong></h4><blockquote>
+<p>1、在 style.js 中引入方法</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="comment">//下载文件流</span></span><br><span class="line">  operateFile(file, filename) &#123;</span><br><span class="line">    <span class="comment">// let fileName = filename + "-" + new Date().getFullYear() + '' +( new Date().getMonth()+1)  + '' +new Date() .getDate()+".xls";</span></span><br><span class="line">    <span class="comment">// let blobObject = new Blob([file], &#123;type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"&#125;);</span></span><br><span class="line">    <span class="comment">// //是IE浏览器</span></span><br><span class="line">    <span class="comment">// if(!!window.ActiveXObject || "ActiveXObject" in window)&#123;</span></span><br><span class="line">    <span class="comment">//     window.navigator.msSaveOrOpenBlob(blobObject,fileName);</span></span><br><span class="line">    <span class="comment">// &#125;else&#123;//火狐谷歌都兼容</span></span><br><span class="line">    <span class="comment">//     //模板中要有一个预定义好的a标签</span></span><br><span class="line">    <span class="comment">//     let link = document.getElementById('a_id')</span></span><br><span class="line">    <span class="comment">//     link.href = URL.createObjectURL(blobObject);</span></span><br><span class="line">    <span class="comment">//     link.download = fileName</span></span><br><span class="line">    <span class="comment">//     link.click();</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line">    <span class="keyword">var</span> filename = <span class="string">"订单记录"</span>;</span><br><span class="line">    <span class="keyword">let</span> url = <span class="built_in">window</span>.URL.createObjectURL(file.data);</span><br><span class="line">    <span class="keyword">let</span> link = <span class="built_in">document</span>.createElement(<span class="string">"a"</span>);</span><br><span class="line">    link.style.display = <span class="string">"none"</span>;</span><br><span class="line">    link.href = url;</span><br><span class="line">    link.setAttribute(<span class="string">"download"</span>, filename + <span class="string">".xls"</span>);</span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(link);</span><br><span class="line">    link.click();</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>2、在页面中引用</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> style <span class="keyword">from</span> <span class="string">"@/static/js/style"</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a><strong>使用</strong></h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//导出表格</span></span><br><span class="line">            exportDialog() &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="keyword">this</span>.supplierId)</span><br><span class="line">                <span class="keyword">let</span> obj = &#123;</span><br><span class="line">                    page: <span class="number">0</span>,</span><br><span class="line">                    size: <span class="number">100000</span>,</span><br><span class="line">                    start_time: <span class="keyword">this</span>.startTime,</span><br><span class="line">                    end_time: <span class="keyword">this</span>.endTime,</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">this</span>.$http.getFile(<span class="string">"/api"</span>, obj).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">                    style.operateFile(res, <span class="string">'订单记录'</span>)</span><br><span class="line">                    <span class="comment">/*var filename = '订单记录';</span></span><br><span class="line"><span class="comment">                    let url = window.URL.createObjectURL(res)</span></span><br><span class="line"><span class="comment">                    let link = document.createElement('a')</span></span><br><span class="line"><span class="comment">                    link.style.display = 'none'</span></span><br><span class="line"><span class="comment">                    link.href = url</span></span><br><span class="line"><span class="comment">                    link.setAttribute('download', filename + '.xls')</span></span><br><span class="line"><span class="comment">                    document.body.appendChild(link)</span></span><br><span class="line"><span class="comment">                    link.click()*/</span></span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;,</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>常用工具</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>keep-alive保持页面活性</title>
+    <url>/2020/07/15/keep-alive%E4%BF%9D%E6%8C%81%E9%A1%B5%E9%9D%A2%E6%B4%BB%E6%80%A7/</url>
+    <content><![CDATA[<p><strong>keep-alive</strong>是 Vue 内置的一个组件，可以使被包含的组件保留状态</p>
+<h3 id="一般的保持活性"><a href="#一般的保持活性" class="headerlink" title="一般的保持活性"></a><strong>一般的保持活性</strong></h3><p>在页面翻页时进入另一页返回之后仍在原始页。</p>
+<blockquote>
+<p>1、<strong>在 App.vue 里面：</strong></p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">router-view</span> <span class="attr">v-if</span>=<span class="string">"!$route.meta.keepAlive"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">router-view</span> <span class="attr">v-if</span>=<span class="string">"$route.meta.keepAlive"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>2、<strong>在 router.js 里面使用 meta</strong></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">           path: <span class="string">"/manage/market/groupSet"</span>,<span class="comment">//拼团设置</span></span><br><span class="line">           name: <span class="string">"groupSet"</span>,</span><br><span class="line">           component: groupSet,</span><br><span class="line">           meta: &#123;</span><br><span class="line">               keepAlive: <span class="literal">true</span></span><br><span class="line">           &#125;,</span><br><span class="line">       &#125;,</span><br></pre></td></tr></table></figure>
+
+<h3 id="根据链接选择性保持活性"><a href="#根据链接选择性保持活性" class="headerlink" title="根据链接选择性保持活性"></a><strong>根据链接选择性保持活性</strong></h3><p>从 /test 链接过来的保持页面活性。配合上面<strong>keepAlive</strong>一起使用</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">beforeRouteEnter(to, <span class="keyword">from</span>, next) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">from</span>.path == <span class="string">"/test"</span>) &#123;</span><br><span class="line">                to.meta.isBack = <span class="literal">true</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                to.meta.isBack = <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            next();</span><br><span class="line">        &#125;,</span><br><span class="line">activated() &#123;</span><br><span class="line">            <span class="keyword">if</span> (!<span class="keyword">this</span>.$route.meta.isBack) &#123;</span><br><span class="line">                <span class="comment">//不保持页面活性</span></span><br><span class="line">                <span class="keyword">this</span>.keyword=<span class="string">''</span>;<span class="comment">/*清空查询条件*/</span></span><br><span class="line">                <span class="keyword">this</span>.loadList();<span class="comment">/*列表重新加载*/</span></span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="comment">//保持页面活性</span></span><br><span class="line">                <span class="keyword">this</span>.$route.meta.isBack = <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">this</span>.loadList();<span class="comment">/*列表重新加载*/</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  path: <span class="string">"/test"</span>,</span><br><span class="line">  name: <span class="string">"test"</span>,</span><br><span class="line">  component: test,</span><br><span class="line">  meta: &#123;</span><br><span class="line">        keepAlive: <span class="literal">true</span>,</span><br><span class="line">        isBack: <span class="literal">true</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>vue配置</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
       </tags>
   </entry>
 </search>
