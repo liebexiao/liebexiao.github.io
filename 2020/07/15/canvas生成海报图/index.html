@@ -1,0 +1,449 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>canvas生成海报图 -  </title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="liebexiao,"> 
+    <meta name="description" content="日常前端小工具,样例展示源码地址
+左上角为头像位置，右下角为二维码位置。
+
+使用
+1、安装引用
+
+123456789cnpm i vue-canvas-poster --save/*单独使用*/import &amp;#1,"> 
+    <meta name="author" content="晓晓"> 
+    <link rel="alternative" href="atom.xml" title=" " type="application/atom+xml"> 
+    <link rel="icon" href="https://s1.ax1x.com/2020/05/28/telmDJ.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none"> </span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://liebexiao.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">canvas生成海报图</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">canvas生成海报图</h1>
+        <div class="stuff">
+            <span>七月 15, 2020</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/h5/" rel="tag">h5</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="样例展示"><a href="#样例展示" class="headerlink" title="样例展示"></a><strong>样例展示</strong></h3><p><a href="https://github.com/sunniejs/vue_canvas_poster" target="_blank" rel="noopener">源码地址</a></p>
+<p>左上角为头像位置，右下角为二维码位置。</p>
+<p><img src="https://s1.ax1x.com/2020/07/15/UdrlMq.png" alt="UdrlMq.png"></p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a><strong>使用</strong></h3><blockquote>
+<p>1、安装引用</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cnpm i vue-canvas-poster --save</span><br><span class="line"><span class="comment">/*单独使用*/</span></span><br><span class="line"><span class="keyword">import</span> &#123;vueCanvasPoster&#125; <span class="keyword">from</span> <span class="string">'vue-canvas-poster'</span></span><br><span class="line">components: &#123;</span><br><span class="line">            vueCanvasPoster</span><br><span class="line">        &#125;,</span><br><span class="line"><span class="comment">/*全局引用*/</span></span><br><span class="line"><span class="keyword">import</span> CanvasPoster <span class="keyword">from</span> <span class="string">'vue-canvas-poster'</span></span><br><span class="line">Vue.use(CanvasPoster)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>2、html 使用</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content_container"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">vue-canvas-poster</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:widthPixels</span>=<span class="string">"1000"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:painting</span>=<span class="string">"painting"</span></span></span><br><span class="line"><span class="tag">    @<span class="attr">success</span>=<span class="string">"success"</span></span></span><br><span class="line"><span class="tag">    @<span class="attr">fail</span>=<span class="string">"fail"</span></span></span><br><span class="line"><span class="tag">  &gt;</span><span class="tag">&lt;/<span class="name">vue-canvas-poster</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--生成的海报--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">:src</span>=<span class="string">"posterImg"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>3、变量、海报布局</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">posterImg: <span class="string">''</span>,</span><br><span class="line">                <span class="comment">//生成的海报</span></span><br><span class="line">                painting: &#123;</span><br><span class="line">                    width: <span class="string">'550px'</span>,</span><br><span class="line">                    height: <span class="string">'876px'</span>,</span><br><span class="line">                    background: <span class="string">'背景图'</span>,</span><br><span class="line">                    views: [&#123;</span><br><span class="line">                        type: <span class="string">'image'</span>,</span><br><span class="line">                        url: <span class="string">'图片链接'</span>,</span><br><span class="line">                        css: &#123;</span><br><span class="line">                            top: <span class="string">'20px'</span>,</span><br><span class="line">                            left: <span class="string">'36px'</span>,</span><br><span class="line">                            borderRadius: <span class="string">'40px'</span>,</span><br><span class="line">                            width: <span class="string">'80px'</span>,</span><br><span class="line">                            height: <span class="string">'80px'</span>,</span><br><span class="line">                        &#125;,</span><br><span class="line">                    &#125;, &#123;</span><br><span class="line">                        type: <span class="string">'text'</span>,</span><br><span class="line">                        text: <span class="string">'我的名字'</span>,</span><br><span class="line">                        css: &#123;</span><br><span class="line">                            top: <span class="string">'48px'</span>,</span><br><span class="line">                            left: <span class="string">'136px'</span>,</span><br><span class="line">                            width: <span class="string">'360px'</span>,</span><br><span class="line">                            maxLines: <span class="number">1</span>,</span><br><span class="line">                            fontSize: <span class="string">'26px'</span>,</span><br><span class="line">                        &#125;,</span><br><span class="line">                    &#125;, &#123;</span><br><span class="line">                        type: <span class="string">'qrcode'</span>,</span><br><span class="line">                        content: <span class="string">'这里写二维码链接地址'</span>,</span><br><span class="line">                        css: &#123;</span><br><span class="line">                            bottom: <span class="string">'50px'</span>,</span><br><span class="line">                            right: <span class="string">'26px'</span>,</span><br><span class="line">                            color: <span class="string">'#000'</span>,</span><br><span class="line">                            background: <span class="string">'#fff'</span>,</span><br><span class="line">                            width: <span class="string">'130px'</span>,</span><br><span class="line">                            height: <span class="string">'130px'</span>,</span><br><span class="line">                            borderWidth: <span class="string">'10px'</span>,</span><br><span class="line">                            borderColor: <span class="string">'#fff'</span></span><br><span class="line">                        &#125;,</span><br><span class="line">                    &#125;,],</span><br><span class="line">                &#125;,</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>4、js</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//成功生成海报</span></span><br><span class="line">            success(src) &#123;</span><br><span class="line">                <span class="keyword">this</span>.posterImg = src;</span><br><span class="line">                <span class="built_in">console</span>.log(src)</span><br><span class="line">            &#125;,</span><br><span class="line">            fail(err) &#123;</span><br><span class="line">                alert(err)</span><br><span class="line">            &#125;,</span><br></pre></td></tr></table></figure>
+
+<h3 id="规范"><a href="#规范" class="headerlink" title="规范"></a><strong>规范</strong></h3><p>Canvas 需要根据一定的规范来进行图片绘制，当然比直接画 canvas 简单的多。</p>
+<h4 id="调色板属性"><a href="#调色板属性" class="headerlink" title="调色板属性"></a><strong>调色板属性</strong></h4><p>一个调色板首先需要给予一些整体属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">background: 可以是颜色值，也可以为网络图片的链接，默认为白色，支持渐变色</span><br><span class="line">width: 宽度</span><br><span class="line">height: 高度</span><br><span class="line">borderRadius: 边框的圆角（该属性也同样适用于子 view）</span><br><span class="line">views: 里面承载子 view</span><br></pre></td></tr></table></figure>
+
+<h4 id="View-属性"><a href="#View-属性" class="headerlink" title="View 属性"></a><strong>View 属性</strong></h4><p>当我们把整体的调色板属性构建起来后，里面就可以添加子 View 来进行绘制了。</p>
+<table>
+<thead>
+<tr>
+<th>type</th>
+<th align="center">内容</th>
+<th align="center">description</th>
+<th align="center">自有 css</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>image</td>
+<td align="center">url</td>
+<td align="center">表示图片资源的地址，本地或网络</td>
+<td align="center">见 image 小节</td>
+</tr>
+<tr>
+<td>text</td>
+<td align="center">text</td>
+<td align="center">文本的内容</td>
+<td align="center">见 text 小节</td>
+</tr>
+<tr>
+<td>rect</td>
+<td align="center">无</td>
+<td align="center">矩形</td>
+<td align="center">color: 颜色，支持渐变色</td>
+</tr>
+<tr>
+<td>qrcode</td>
+<td align="center">content</td>
+<td align="center">画二维码</td>
+<td align="center">background: 背景颜色（默认为透明色）color: 二维码颜色（默认黑色）</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>1、image</p>
+</blockquote>
+<p>image 可以设置成本地图片或者网络图片， 本地用require()引入图片。 并且如果未设置 image 的长宽，则长宽的属性值会默认设为auto。</p>
+<table>
+<thead>
+<tr>
+<th align="center">属性名称</th>
+<th align="center">说明</th>
+<th align="center">默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">width</td>
+<td align="center">image的宽度</td>
+<td align="center">auto</td>
+</tr>
+<tr>
+<td align="center">height</td>
+<td align="center">image的高度</td>
+<td align="center">auto</td>
+</tr>
+<tr>
+<td align="center">mode</td>
+<td align="center">图片裁剪、缩放的模式</td>
+<td align="center">aspectFill</td>
+</tr>
+</tbody></table>
+<p><strong>scaleToFill</strong>：不保持纵横比缩放图片，使图片的宽高完全拉伸至填满 image 元素</p>
+<p><strong>aspectFill</strong>：保持纵横比缩放图片，只保证图片的短边能完全显示出来。也就是说，图片通常只在水平或垂直方向是完整的，另一个方向将会发生截取。</p>
+<p><strong>注：mode 属性和小程序 image 的 mode 属性功能一致，只是支持的类型只有两种，且默认值不同。 当 width 或 height 属性设置为 auto 时，mode 属性失效</strong></p>
+<blockquote>
+<p>2、text</p>
+</blockquote>
+<p>因为 text 的特殊性，此处对 text 进行单独说明。</p>
+<table>
+<thead>
+<tr>
+<th align="center">属性名称</th>
+<th align="center">说明</th>
+<th align="center">默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">fontSize</td>
+<td align="center">字体大小</td>
+<td align="center">20px</td>
+</tr>
+<tr>
+<td align="center">color</td>
+<td align="center">字体颜色</td>
+<td align="center">black</td>
+</tr>
+<tr>
+<td align="center">maxLines</td>
+<td align="center">最大行数</td>
+<td align="center">不限，根据 width 来</td>
+</tr>
+<tr>
+<td align="center">lineHeight</td>
+<td align="center">行高（上下两行文字baseline的距离）</td>
+<td align="center">fontSize 大小</td>
+</tr>
+<tr>
+<td align="center">fontWeight</td>
+<td align="center">字体粗细。仅支持 normal, bold</td>
+<td align="center">normal</td>
+</tr>
+<tr>
+<td align="center">textDecoration</td>
+<td align="center">文本修饰，支持 underline、 overline、 line-through，也可组合使用</td>
+<td align="center">无效果</td>
+</tr>
+<tr>
+<td align="center">textStyle</td>
+<td align="center">fill： 填充样式，stroke：镂空样式</td>
+<td align="center">fill</td>
+</tr>
+<tr>
+<td align="center">fontFamily</td>
+<td align="center">字体</td>
+<td align="center">sans-serif</td>
+</tr>
+<tr>
+<td align="center">background</td>
+<td align="center">文字背景颜色</td>
+<td align="center">无</td>
+</tr>
+<tr>
+<td align="center">padding</td>
+<td align="center">文字背景颜色边际与文字间距</td>
+<td align="center">0px</td>
+</tr>
+<tr>
+<td align="center">textAlign</td>
+<td align="center">文字的对齐方式，分为 left, center, right，view 的对齐方式请看 align 属性</td>
+<td align="center">left</td>
+</tr>
+</tbody></table>
+<p>当文字设置 width 属性后，则文字布局的最大宽度不会超过该 width 。如果内容超过 width，则会进行换行，如果此时未设置 maxLines 属性，则会把所有内容进行换行处理，行数由内容和 width 决定。如果此时设置了 maxLines 属性，则最大展示所设置的行数，如果还有多余内容未展示出来，则后面会带上 … 。</p>
+<h4 id="布局属性"><a href="#布局属性" class="headerlink" title="布局属性"></a><strong>布局属性</strong></h4><p>以上 View ，除去自己拥有的特别属性外，还有以下的通用布局属性</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+<th>默认</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>rotate</td>
+<td>旋转，按照顺时针旋转的度数</td>
+<td>不旋转</td>
+</tr>
+<tr>
+<td>width、height</td>
+<td>view 的宽度和高度，其中 image 和 text 可不设置</td>
+<td></td>
+</tr>
+<tr>
+<td>top、right、bottom、left</td>
+<td>如 css 中为 absolute 布局时的作用，可为 负值</td>
+<td>默认 top 和 left 为 0</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>相对布局方法</p>
+</blockquote>
+<p>很多人有获得文本宽度的需求，因为文本宽度随着字数不同而动态变化，如果想在文本后面加个图标，那么我们就需要获得文本宽度。 解决方案如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1，首先你需要为检测长度的文本添加一个 id。如下</span><br><span class="line">&#123;</span><br><span class="line">  id: &#39;my-text-id&#39;,</span><br><span class="line">  type: &#39;text&#39;,</span><br><span class="line">  </span><br><span class="line">2，然后在后面的 view 中，你可以在 left 和 right 属性中使用这个id。如下</span><br><span class="line">left: [&#39;10px&#39;, &#39;my-text-id&#39;, 比例] </span><br><span class="line">表示布局在距离左边（10px + 该text文本宽度 * 比例） 的距离，比例默认为 1，可省去，你也可以使用负数或小数来做计算，最终的 left 会加上文本宽度乘以该数的值。</span><br><span class="line"></span><br><span class="line">注意：比例一定为一个 number</span><br></pre></td></tr></table></figure>
+
+<p>如果想获得高度，top 也支持上述用法，并且除文本外，你可以对任何 view 设置一个 id，然后使用上述方法进行相对布局。</p>
+<p><strong>注：相对布局的那个 view 代码一定需要在被相对的 view 的下面。</strong></p>
+<blockquote>
+<p>1、border 类型</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+<th>默认</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>borderRadius</td>
+<td>边界圆角程度，如果是正方形布局，该属性为一半宽或高时，则为圆形</td>
+<td>0</td>
+</tr>
+<tr>
+<td>borderWidth</td>
+<td>边界宽度，外边界</td>
+<td>必设值，否则无边框效果</td>
+</tr>
+<tr>
+<td>borderColor</td>
+<td>边框颜色</td>
+<td>black</td>
+</tr>
+</tbody></table>
+<p>align</p>
+<p>Painter 的 align 类型与 css 中的 align 有些许不同。在 Painter 中 align 表示 view 本身的对齐方式，而不像 css 中表示对其子 view 的操作。align 可以作用在 Painter 支持的所有 view 上。它以设置的 left、top、right、bottom 的位置为基准，然后做不同的对齐操作。并且 align 在文字多行情况下，会影响多行文字的对齐方式。</p>
+<p><strong>注意：如果布局使用了 right 确定位置，则该 view 会默认右对齐布局，但此时文字还是从左边绘制。</strong></p>
+<h4 id="CSS3-支持"><a href="#CSS3-支持" class="headerlink" title="CSS3 支持"></a><strong>CSS3 支持</strong></h4><blockquote>
+<p>1、shadow</p>
+</blockquote>
+<p>shadow 可以同时修饰 image、rect、text、qrcode 等 。在修饰 text 时则相当于 text-shadow；修饰 image 和 rect 时相当于 box-shadow；修饰 qrcode 时，则相当于二维码有效区域的投影。</p>
+<p>使用方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">shadow: &#39;h-shadow v-shadow blur color&#39;;</span><br><span class="line">h-shadow: 必需。水平阴影的位置。允许负值。</span><br><span class="line">v-shadow: 必需。垂直阴影的位置。允许负值。</span><br><span class="line">blur: 必需。模糊的距离。</span><br><span class="line">color: 必需。阴影的颜色。</span><br></pre></td></tr></table></figure>
+
+<p>渐变色支持</p>
+<p>你可以在画布的 background 属性或者 rect 的 color 属性中使用以下方式实现 css 3 的渐变色，其中 radial-gradient 渐变的圆心为 view 中点，半径为最长边，目前不支持自己设置。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">linear-gradient(-135deg, blue 0%, rgba(18, 52, 86, 1) 20%, #987 80%)</span><br><span class="line">radial-gradient(rgba(0, 0, 0, 0) 5%, #0ff 15%, #f0f 60%)</span><br></pre></td></tr></table></figure>
+
+<p><strong>！！！注意：颜色后面的百分比一定得写。</strong></p>
+<h4 id="事件"><a href="#事件" class="headerlink" title="事件"></a><strong>事件</strong></h4><blockquote>
+<p>success</p>
+</blockquote>
+<p>返回生成 base64 图片的本地 url,设置 src</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">  success(src) &#123;</span><br><span class="line">    &#x2F;&#x2F; 设置img的src</span><br><span class="line">    this.src &#x3D; src</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>fail</p>
+</blockquote>
+<p>返回失败信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fail(err) &#123;</span><br><span class="line">     console.log(&#39;fail&#39;, err)</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='https://ddcz.oss-cn-beijing.aliyuncs.com/images/file-15907455327707H0n.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='https://ddcz.oss-cn-beijing.aliyuncs.com/images/file-1590745808611iMGP.mp3'></li>
+                        
+                    
+                        
+                            <li title='2' data-url='https://ddcz.oss-cn-beijing.aliyuncs.com/images/file-1590745994297wVkB.mp3'></li>
+                        
+                    
+                        
+                            <li title='3' data-url='https://ddcz.oss-cn-beijing.aliyuncs.com/images/file-1590746334499BAN4.mp3'></li>
+                        
+                    
+                        
+                            <li title='4' data-url='https://ddcz.oss-cn-beijing.aliyuncs.com/images/file-15907467860895g8J.mp3'></li>
+                        
+                    
+                        
+                            <li title='5' data-url='https://ddcz.oss-cn-beijing.aliyuncs.com/images/file-1590746934261bb2Q.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#样例展示"><span class="toc-number">1.</span> <span class="toc-text">样例展示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用"><span class="toc-number">2.</span> <span class="toc-text">使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#规范"><span class="toc-number">3.</span> <span class="toc-text">规范</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#调色板属性"><span class="toc-number">3.1.</span> <span class="toc-text">调色板属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#View-属性"><span class="toc-number">3.2.</span> <span class="toc-text">View 属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#布局属性"><span class="toc-number">3.3.</span> <span class="toc-text">布局属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS3-支持"><span class="toc-number">3.4.</span> <span class="toc-text">CSS3 支持</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#事件"><span class="toc-number">3.5.</span> <span class="toc-text">事件</span></a></li></ol></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":200,"height":260},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

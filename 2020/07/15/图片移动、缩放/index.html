@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>图片移动、缩放 -  </title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="liebexiao,"> 
+    <meta name="description" content="日常前端小工具,html1234567891011&amp;lt;div class&amp;#x3D;&amp;quot;template_move_box&amp;quot;&amp;gt;    &amp;lt;div class&amp;#x3D;&amp;quot;t,"> 
+    <meta name="author" content="晓晓"> 
+    <link rel="alternative" href="atom.xml" title=" " type="application/atom+xml"> 
+    <link rel="icon" href="https://s1.ax1x.com/2020/05/28/telmDJ.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none"> </span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://liebexiao.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">图片移动、缩放</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">图片移动、缩放</h1>
+        <div class="stuff">
+            <span>七月 15, 2020</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h4 id="html"><a href="#html" class="headerlink" title="html"></a><strong>html</strong></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;template_move_box&quot;&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;template_move&quot;&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;temp_url_box&quot;&gt;</span><br><span class="line">            &lt;img class&#x3D;&quot;template_url&quot; :src&#x3D;&quot;imageUrl&quot;&gt;</span><br><span class="line">            &lt;div class&#x3D;&quot;code_box&quot;&gt;</span><br><span class="line">                &lt;img class&#x3D;&quot;code_img&quot; src&#x3D;&quot;&#x2F;images&#x2F;test_code_img.jpg&quot;&gt;</span><br><span class="line">                &lt;div id&#x3D;&quot;zoom_id&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">            &lt;&#x2F;div&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="css"><a href="#css" class="headerlink" title="css"></a><strong>css</strong></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">.template_move_box &#123;</span><br><span class="line">    float: left;</span><br><span class="line">&#125;</span><br><span class="line">.template_move &#123;</span><br><span class="line">    width: 400px;</span><br><span class="line">    height: 600px;</span><br><span class="line">    position: relative;</span><br><span class="line">    background: #CCCCCC;</span><br><span class="line">    text-align: center;</span><br><span class="line">&#125;</span><br><span class="line">.temp_url_box &#123;</span><br><span class="line">    width: 337px;</span><br><span class="line">    height: 600px;</span><br><span class="line">    position: relative;</span><br><span class="line">    display: inline-block;</span><br><span class="line">&#125;</span><br><span class="line">.template_url &#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">&#125;</span><br><span class="line">.code_box &#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    bottom: 0;</span><br><span class="line">    left: 0;</span><br><span class="line">    z-index: 1;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line">&#125;</span><br><span class="line">.code_img &#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">    cursor: move;</span><br><span class="line">&#125;</span><br><span class="line">#zoom_id &#123;</span><br><span class="line">    width: 10px;</span><br><span class="line">    height: 10px;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">    cursor: se-resize;</span><br><span class="line">    position: absolute;</span><br><span class="line">    right: 0;</span><br><span class="line">    bottom: 0;</span><br><span class="line">    background-color: rgb(122, 191, 238);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="js"><a href="#js" class="headerlink" title="js"></a><strong>js</strong></h4><p>js 原生JavaScript，不需要引入插件</p>
+<blockquote>
+<p>在需要移动缩放的方法里面直接调用此方法就好。</p>
+<p>此处有个小细节，在用JavaScript取 class 中dom文件的时候取到的是数组，需要在后面加【0】。例如：<strong>document.getElementsByClassName(“code_box”)[0]</strong></p>
+<p>若是取 id 中的dom结构时则不需要加【0】。例如： <strong>document.getElementById(“zoom_id”)</strong></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;移动缩放海报</span><br><span class="line">moveTeamp() &#123;</span><br><span class="line">    let that &#x3D; this;</span><br><span class="line">    setTimeout(() &#x3D;&gt; &#123;</span><br><span class="line">        &#x2F;&#x2F; box是装图片的容器,temp是图片移动缩放的范围,scale是控制缩放的小图标</span><br><span class="line">        let box &#x3D; document.getElementsByClassName(&quot;code_box&quot;)[0];</span><br><span class="line">        let temp &#x3D; document.getElementsByClassName(&#39;temp_url_box&#39;)[0];</span><br><span class="line">        let scale &#x3D; document.getElementById(&quot;zoom_id&quot;);</span><br><span class="line"></span><br><span class="line">        var codeOriginalW &#x3D; that.qrWidth;&#x2F;&#x2F;二维码图片原始宽度</span><br><span class="line">        var codeOriginalH &#x3D; that.qrHeight;&#x2F;&#x2F;二维码图片原始高度</span><br><span class="line">        var codeScale &#x3D; 0;&#x2F;&#x2F;图片缩放</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 图片移动效果</span><br><span class="line">        box.onmousedown &#x3D; function (ev) &#123;</span><br><span class="line">            var oEvent &#x3D; ev;</span><br><span class="line">            &#x2F;&#x2F; 浏览器有一些图片的默认事件,这里要阻止</span><br><span class="line">            oEvent.preventDefault();</span><br><span class="line">            var disX &#x3D; oEvent.clientX - box.offsetLeft;</span><br><span class="line">            var disY &#x3D; oEvent.clientY - box.offsetTop;</span><br><span class="line"></span><br><span class="line">            &#x2F;*console.table(&#123;</span><br><span class="line">                &#39;鼠标点击事件&#39;:0,</span><br><span class="line">                &#39;鼠标指针距离页面左侧距离&#39;:oEvent.clientX,</span><br><span class="line">                &#39;图片距离父容器左侧距离&#39;:box.offsetLeft,</span><br><span class="line">                &#39;父容器加鼠标指针相对于图片点击位置 距离页面左侧距离&#39;:disX,</span><br><span class="line">            &#125;)*&#x2F;</span><br><span class="line"></span><br><span class="line">            temp.onmousemove &#x3D; function (ev) &#123;</span><br><span class="line">                oEvent &#x3D; ev;</span><br><span class="line">                oEvent.preventDefault();</span><br><span class="line">                var x &#x3D; oEvent.clientX - disX;</span><br><span class="line">                var y &#x3D; oEvent.clientY - disY;</span><br><span class="line"></span><br><span class="line">                &#x2F;&#x2F; 图形移动的边界判断</span><br><span class="line">                x &#x3D; x &lt;&#x3D; 0 ? 0 : x;</span><br><span class="line">                x &#x3D; x &gt;&#x3D; temp.offsetWidth - box.offsetWidth ? temp.offsetWidth - box.offsetWidth : x;</span><br><span class="line">                y &#x3D; y &lt;&#x3D; 0 ? 0 : y;</span><br><span class="line">                y &#x3D; y &gt;&#x3D; temp.offsetHeight - box.offsetHeight ? temp.offsetHeight - box.offsetHeight : y;</span><br><span class="line">                box.style.left &#x3D; x + &#39;px&#39;;</span><br><span class="line">                box.style.top &#x3D; y + &#39;px&#39;;</span><br><span class="line"></span><br><span class="line">                that.qrLeft &#x3D; x;</span><br><span class="line">                that.qrTop &#x3D; y;</span><br><span class="line"></span><br><span class="line">                &#x2F;*console.table(&#123;</span><br><span class="line">                    &#39;鼠标移动事件&#39;:1,</span><br><span class="line">                    &#39;图片相对于父元素左侧距离 &#39;:x,</span><br><span class="line">                    &#39;图片相对于父元素上方距离&#39;:y,</span><br><span class="line">                &#125;)*&#x2F;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            &#x2F;&#x2F; 图形移出父盒子取消移动事件,防止移动过快触发鼠标移出事件,导致鼠标弹起事件失效</span><br><span class="line">            temp.onmouseleave &#x3D; function () &#123;</span><br><span class="line">                temp.onmousemove &#x3D; null;</span><br><span class="line">                temp.onmouseup &#x3D; null;</span><br><span class="line">            &#125;</span><br><span class="line">            &#x2F;&#x2F; 鼠标弹起后停止移动</span><br><span class="line">            temp.onmouseup &#x3D; function () &#123;</span><br><span class="line">                temp.onmousemove &#x3D; null;</span><br><span class="line">                temp.onmouseup &#x3D; null;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F; 图片缩放效果</span><br><span class="line">        scale.onmousedown &#x3D; function (e) &#123;</span><br><span class="line">            &#x2F;&#x2F; 阻止冒泡,避免缩放时触发移动事件</span><br><span class="line">            e.stopPropagation();</span><br><span class="line">            e.preventDefault();</span><br><span class="line">            var pos &#x3D; &#123;</span><br><span class="line">                &#39;w&#39;: box.offsetWidth,</span><br><span class="line">                &#39;h&#39;: box.offsetHeight,</span><br><span class="line">                &#39;x&#39;: e.clientX,</span><br><span class="line">                &#39;y&#39;: e.clientY</span><br><span class="line">            &#125;;</span><br><span class="line">            temp.onmousemove &#x3D; function (ev) &#123;</span><br><span class="line">                ev.preventDefault();</span><br><span class="line">                &#x2F;&#x2F; 设置图片的最小缩放为30*30</span><br><span class="line">                &#x2F;&#x2F;Math.max() 函数返回一组数中的最大值,</span><br><span class="line">                var w &#x3D; Math.max(30, ev.clientX - pos.x + pos.w);</span><br><span class="line">                &#x2F;&#x2F;缩放率</span><br><span class="line">                codeScale &#x3D; parseFloat((w &#x2F; codeOriginalW).toFixed(2));</span><br><span class="line">                &#x2F;&#x2F;设置宽高比例固定缩放</span><br><span class="line">                var h &#x3D; parseInt(codeOriginalH * codeScale);</span><br><span class="line">                &#x2F;&#x2F; console.log(w,h)</span><br><span class="line">                &#x2F;&#x2F; 设置图片的最大宽高，不超过父容器宽高</span><br><span class="line">                &#x2F;&#x2F;当宽度大于父元素</span><br><span class="line">                w &#x3D; w &gt;&#x3D; temp.offsetWidth - box.offsetLeft ? temp.offsetWidth - box.offsetLeft : w;</span><br><span class="line">                &#x2F;&#x2F; h &#x3D; h &gt;&#x3D; temp.offsetHeight-box.offsetTop ? temp.offsetHeight-box.offsetTop : h;</span><br><span class="line">                box.style.width &#x3D; w + &#39;px&#39;;</span><br><span class="line">                box.style.height &#x3D; h + &#39;px&#39;;</span><br><span class="line">                &#x2F;&#x2F; console.log(box.offsetWidth,box.offsetHeight)</span><br><span class="line">                &#x2F;* console.table(&#123;</span><br><span class="line">                     &#39;鼠标拖动事件&#39;: 1,</span><br><span class="line">                     &#39;改变后图片的宽度 &#39;: w,</span><br><span class="line">                     &#39;改变后图片的高度&#39;: h,</span><br><span class="line">                     &#39;图片缩放倍数&#39;: codeScale</span><br><span class="line">                 &#125;)*&#x2F;</span><br><span class="line"></span><br><span class="line">                that.codeWeight &#x3D; w;</span><br><span class="line">                that.codeHeight &#x3D; h;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            temp.onmouseleave &#x3D; function () &#123;</span><br><span class="line">                temp.onmousemove &#x3D; null;</span><br><span class="line">                temp.onmouseup &#x3D; null;</span><br><span class="line">            &#125;</span><br><span class="line">            temp.onmouseup &#x3D; function () &#123;</span><br><span class="line">                temp.onmousemove &#x3D; null;</span><br><span class="line">                temp.onmouseup &#x3D; null;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, 1000)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='https://ddcz.oss-cn-beijing.aliyuncs.com/images/file-15907455327707H0n.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='https://ddcz.oss-cn-beijing.aliyuncs.com/images/file-1590745808611iMGP.mp3'></li>
+                        
+                    
+                        
+                            <li title='2' data-url='https://ddcz.oss-cn-beijing.aliyuncs.com/images/file-1590745994297wVkB.mp3'></li>
+                        
+                    
+                        
+                            <li title='3' data-url='https://ddcz.oss-cn-beijing.aliyuncs.com/images/file-1590746334499BAN4.mp3'></li>
+                        
+                    
+                        
+                            <li title='4' data-url='https://ddcz.oss-cn-beijing.aliyuncs.com/images/file-15907467860895g8J.mp3'></li>
+                        
+                    
+                        
+                            <li title='5' data-url='https://ddcz.oss-cn-beijing.aliyuncs.com/images/file-1590746934261bb2Q.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#html"><span class="toc-number">1.</span> <span class="toc-text">html</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#css"><span class="toc-number">2.</span> <span class="toc-text">css</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#js"><span class="toc-number">3.</span> <span class="toc-text">js</span></a></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":200,"height":260},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

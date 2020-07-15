@@ -88,6 +88,45 @@
 </blockquote>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">line-height</span>: initial;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h3 id="获取和修改网址链接参数"><a href="#获取和修改网址链接参数" class="headerlink" title="获取和修改网址链接参数"></a><strong>获取和修改网址链接参数</strong></h3><h4 id="获取参数"><a href="#获取参数" class="headerlink" title="获取参数"></a><strong>获取参数</strong></h4><h5 id="原生"><a href="#原生" class="headerlink" title="原生"></a><strong>原生</strong></h5><blockquote>
+<p>1、定义方法</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">GetQueryString</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"(^|&amp;)"</span> + name + <span class="string">"=([^&amp;]*)(&amp;|$)"</span>);</span><br><span class="line">  <span class="keyword">var</span> r = <span class="built_in">window</span>.location.search.substr(<span class="number">1</span>).match(reg);</span><br><span class="line">  <span class="keyword">if</span> (r != <span class="literal">null</span>) <span class="keyword">return</span> <span class="built_in">unescape</span>(r[<span class="number">2</span>]);</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>2、使用</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a=GetQueryString(<span class="string">"name"</span>)；</span><br></pre></td></tr></table></figure>
+
+<h5 id="vue"><a href="#vue" class="headerlink" title="vue"></a><strong>vue</strong></h5><blockquote>
+<p>1、跳转页面并传参</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$router.push(&#123;</span><br><span class="line">    path: <span class="string">'/PC/wish/fill/collegesPriority'</span>,</span><br><span class="line">    query: &#123;</span><br><span class="line">        filltype: <span class="string">''</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>2、取参</p>
+</blockquote>
+<p>其中 ‘filltype’ 为链接参数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$route.query.filltype</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="修改参数"><a href="#修改参数" class="headerlink" title="修改参数"></a><strong>修改参数</strong></h4><h5 id="修改链接及参数"><a href="#修改链接及参数" class="headerlink" title="修改链接及参数"></a><strong>修改链接及参数</strong></h5><p>*<em>/m/m_url_example *</em>是相对链接，</p>
+<p>此方法是直接替换域名后面的链接。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">history.replaceState(&#123;&#125;,&#39;&#39;, &#39;&#x2F;m&#x2F;m_url_example&#39;);</span><br></pre></td></tr></table></figure>
+
+<h5 id="添加参数"><a href="#添加参数" class="headerlink" title="添加参数"></a><strong>添加参数</strong></h5><blockquote>
+<p>1、定义方法</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">changeURLArg</span>(<span class="params">url, arg, arg_val</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> pattern = arg + <span class="string">"=([^&amp;]*)"</span>;</span><br><span class="line">  <span class="keyword">var</span> replaceText = arg + <span class="string">"="</span> + arg_val;</span><br><span class="line">  <span class="keyword">if</span> (url.match(pattern)) &#123;</span><br><span class="line">    <span class="keyword">var</span> tmp = <span class="string">"/("</span> + arg + <span class="string">"=)([^&amp;]*)/gi"</span>;</span><br><span class="line">    tmp = url.replace(<span class="built_in">eval</span>(tmp), replaceText);</span><br><span class="line">    <span class="keyword">return</span> tmp;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (url.match(<span class="string">"[?]"</span>)) &#123;</span><br><span class="line">      <span class="keyword">return</span> url + <span class="string">"&amp;"</span> + replaceText;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> url + <span class="string">"?"</span> + replaceText;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>2、使用</p>
+</blockquote>
+<p>此方法是在当前链接后面追加参数 ，“name” 为参数名，“123” 为值。</p>
+<p>若连接上没有“name”参数，则会添加这个参数并赋值，若链接本就有这个参数，则会将值替换为“123”。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.location.href = changeURLArg(<span class="built_in">window</span>.location.href, <span class="string">"name"</span>, <span class="number">123</span>);</span><br></pre></td></tr></table></figure>
+
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
                 <source type="audio/mpeg" src="">
@@ -138,7 +177,7 @@
     </div>
     
         <div class='side'>
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#点击复制文本"><span class="toc-number">1.</span> <span class="toc-text">点击复制文本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#禁止微信用户修改字体大小"><span class="toc-number">2.</span> <span class="toc-text">禁止微信用户修改字体大小</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#px-与-rem-换算"><span class="toc-number">3.</span> <span class="toc-text">px 与 rem 换算</span></a></li></ol>	
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#点击复制文本"><span class="toc-number">1.</span> <span class="toc-text">点击复制文本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#禁止微信用户修改字体大小"><span class="toc-number">2.</span> <span class="toc-text">禁止微信用户修改字体大小</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#px-与-rem-换算"><span class="toc-number">3.</span> <span class="toc-text">px 与 rem 换算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获取和修改网址链接参数"><span class="toc-number">4.</span> <span class="toc-text">获取和修改网址链接参数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#获取参数"><span class="toc-number">4.1.</span> <span class="toc-text">获取参数</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#原生"><span class="toc-number">4.1.1.</span> <span class="toc-text">原生</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#vue"><span class="toc-number">4.1.2.</span> <span class="toc-text">vue</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#修改参数"><span class="toc-number">4.2.</span> <span class="toc-text">修改参数</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#修改链接及参数"><span class="toc-number">4.2.1.</span> <span class="toc-text">修改链接及参数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#添加参数"><span class="toc-number">4.2.2.</span> <span class="toc-text">添加参数</span></a></li></ol></li></ol></li></ol>	
         </div>
     
 </div>

@@ -358,6 +358,45 @@
 <p>2、在 style.css 里面</p>
 </blockquote>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">line-height</span>: initial;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取和修改网址链接参数"><a href="#获取和修改网址链接参数" class="headerlink" title="获取和修改网址链接参数"></a><strong>获取和修改网址链接参数</strong></h3><h4 id="获取参数"><a href="#获取参数" class="headerlink" title="获取参数"></a><strong>获取参数</strong></h4><h5 id="原生"><a href="#原生" class="headerlink" title="原生"></a><strong>原生</strong></h5><blockquote>
+<p>1、定义方法</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">GetQueryString</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"(^|&amp;)"</span> + name + <span class="string">"=([^&amp;]*)(&amp;|$)"</span>);</span><br><span class="line">  <span class="keyword">var</span> r = <span class="built_in">window</span>.location.search.substr(<span class="number">1</span>).match(reg);</span><br><span class="line">  <span class="keyword">if</span> (r != <span class="literal">null</span>) <span class="keyword">return</span> <span class="built_in">unescape</span>(r[<span class="number">2</span>]);</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>2、使用</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a=GetQueryString(<span class="string">"name"</span>)；</span><br></pre></td></tr></table></figure>
+
+<h5 id="vue"><a href="#vue" class="headerlink" title="vue"></a><strong>vue</strong></h5><blockquote>
+<p>1、跳转页面并传参</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">this</span>.$router.push(&#123;</span><br><span class="line">    path: <span class="string">'/PC/wish/fill/collegesPriority'</span>,</span><br><span class="line">    query: &#123;</span><br><span class="line">        filltype: <span class="string">''</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>2、取参</p>
+</blockquote>
+<p>其中 ‘filltype’ 为链接参数。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">this</span>.$route.query.filltype</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="修改参数"><a href="#修改参数" class="headerlink" title="修改参数"></a><strong>修改参数</strong></h4><h5 id="修改链接及参数"><a href="#修改链接及参数" class="headerlink" title="修改链接及参数"></a><strong>修改链接及参数</strong></h5><p>*<em>/m/m_url_example *</em>是相对链接，</p>
+<p>此方法是直接替换域名后面的链接。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">history.replaceState(&#123;&#125;,&#39;&#39;, &#39;&#x2F;m&#x2F;m_url_example&#39;);</span><br></pre></td></tr></table></figure>
+
+<h5 id="添加参数"><a href="#添加参数" class="headerlink" title="添加参数"></a><strong>添加参数</strong></h5><blockquote>
+<p>1、定义方法</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">changeURLArg</span>(<span class="params">url, arg, arg_val</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> pattern = arg + <span class="string">"=([^&amp;]*)"</span>;</span><br><span class="line">  <span class="keyword">var</span> replaceText = arg + <span class="string">"="</span> + arg_val;</span><br><span class="line">  <span class="keyword">if</span> (url.match(pattern)) &#123;</span><br><span class="line">    <span class="keyword">var</span> tmp = <span class="string">"/("</span> + arg + <span class="string">"=)([^&amp;]*)/gi"</span>;</span><br><span class="line">    tmp = url.replace(<span class="built_in">eval</span>(tmp), replaceText);</span><br><span class="line">    <span class="keyword">return</span> tmp;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (url.match(<span class="string">"[?]"</span>)) &#123;</span><br><span class="line">      <span class="keyword">return</span> url + <span class="string">"&amp;"</span> + replaceText;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> url + <span class="string">"?"</span> + replaceText;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>2、使用</p>
+</blockquote>
+<p>此方法是在当前链接后面追加参数 ，“name” 为参数名，“123” 为值。</p>
+<p>若连接上没有“name”参数，则会添加这个参数并赋值，若链接本就有这个参数，则会将值替换为“123”。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">window</span>.location.href = changeURLArg(<span class="built_in">window</span>.location.href, <span class="string">"name"</span>, <span class="number">123</span>);</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>常用方法</category>
@@ -396,6 +435,413 @@
 ]]></content>
       <categories>
         <category>常用工具</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>弹幕</title>
+    <url>/2020/07/15/%E5%BC%B9%E5%B9%95/</url>
+    <content><![CDATA[<p><a href="https://github.com/superhos/vue-baberrage#readme" target="_blank" rel="noopener">弹幕源码</a></p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a><strong>使用</strong></h3><blockquote>
+<p>1、安装引用</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">cnpm install vue-baberrage</span><br><span class="line"><span class="keyword">import</span> &#123; vueBaberrage &#125; <span class="keyword">from</span> <span class="string">'vue-baberrage'</span></span><br><span class="line">Vue.use(vueBaberrage)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>2、html</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--弹幕--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"barrages-drop"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">vue-baberrage</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:isShow</span>=<span class="string">"barrageIsShow"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:barrageList</span>=<span class="string">"barrageList"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:maxWordCount</span>=<span class="string">"maxWordCount"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:throttleGap</span>=<span class="string">"throttleGap"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:loop</span>=<span class="string">"barrageLoop"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:boxHeight</span>=<span class="string">"boxHeight"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:messageHeight</span>=<span class="string">"messageHeight"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:lanesCount</span>=<span class="string">"2"</span></span></span><br><span class="line"><span class="tag">    @<span class="attr">barrage-list-empty</span>=<span class="string">"getUserBuyList"</span></span></span><br><span class="line"><span class="tag">  &gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">vue-baberrage</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>3、变量</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">this</span>.userBuyList = [</span><br><span class="line">  &#123; <span class="attr">avatar</span>: <span class="string">""</span>, <span class="attr">nickname</span>: <span class="string">"超"</span> &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    avatar:</span><br><span class="line">      <span class="string">"http://thirdwx.qlogo.cn/mmopen/vi_32/eU2DIpM10gpXSfjr42QKtgTF3UatMA8uQNCTOfnl8b0bU6rhH3m619X8c0WfcZLuywPz685DjvlAvA2diaKLlfg/132"</span>,</span><br><span class="line">    nickname: <span class="string">"晓"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    avatar:</span><br><span class="line">      <span class="string">"http://thirdwx.qlogo.cn/mmopen/vi_32/eU2DIpM10gpXSfjr42QKtgTF3UatMA8uQNCTOfnl8b0bU6rhH3m619X8c0WfcZLuywPz685DjvlAvA2diaKLlfg/132"</span>,</span><br><span class="line">    nickname: <span class="string">"晓"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123; <span class="attr">avatar</span>: <span class="string">""</span>, <span class="attr">nickname</span>: <span class="string">"超m"</span> &#125;,</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>4、js</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*弹幕</span></span><br><span class="line"><span class="comment">            * */</span></span><br><span class="line">            addToList() &#123;</span><br><span class="line">                <span class="keyword">this</span>.userBuyList.map(<span class="function">(<span class="params">v2, i2</span>) =&gt;</span> &#123;</span><br><span class="line">                    v2.userBuyId = i2;</span><br><span class="line">                    <span class="keyword">this</span>.barrageList.push(&#123;</span><br><span class="line">                        id: v2.userBuyId,</span><br><span class="line">                        avatar: v2.avatar,</span><br><span class="line">                        msg: v2.nickname + <span class="string">'已购买'</span>,</span><br><span class="line">                        time: <span class="number">4</span>,</span><br><span class="line">                        type: MESSAGE_TYPE.NORMAL,</span><br><span class="line">                        <span class="comment">// barrageStyle: v.barrageStyle</span></span><br><span class="line">                    &#125;);</span><br><span class="line">                &#125;);</span><br><span class="line"></span><br><span class="line">            &#125;,</span><br></pre></td></tr></table></figure>
+
+<h3 id="Plugin-Options"><a href="#Plugin-Options" class="headerlink" title="Plugin Options"></a><strong>Plugin Options</strong></h3><blockquote>
+<p>1、isShow</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- Default: &#96;true&#96;</span><br><span class="line">- Acceptable-Values: Boolean</span><br><span class="line">- Function: 是否显示弹幕</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>2、barrageList</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- Default: &#96;[]&#96;</span><br><span class="line">- Acceptable-Values: Array</span><br><span class="line">- Function: 弹幕数据列表</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>3、boxWidth</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- Default: &#96;parent&#39;s Width&#96;</span><br><span class="line">- Acceptable-Values: Number</span><br><span class="line">- Function: 显示弹幕区域的宽度</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>4、boxHeight</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- Default: &#96;window&#39;s Height&#96;</span><br><span class="line">- Acceptable-Values: Number</span><br><span class="line">- Function: 显示弹幕区域的高度</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>5、messageHeight</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- Default: &#96;message&#39;s Height&#96;</span><br><span class="line">- Acceptable-Values: Number</span><br><span class="line">- Function: 弹幕高度</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>6、maxWordCount</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- Default: &#96;60&#96;</span><br><span class="line">- Acceptable-Values: Number</span><br><span class="line">- Function: 弹幕最大字数长度，超过则忽略（中文占2长度，英文占1长度）</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>7、loop</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- Default: &#96;false&#96;</span><br><span class="line">- Acceptable-Values: Boolean</span><br><span class="line">- Function: 是否循环</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>8、throttleGap</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- Default: 2000</span><br><span class="line">- Acceptable-Values: Number</span><br><span class="line">- Function: 弹幕之间的节流时间</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>9、posRender</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- Default: null</span><br><span class="line">- Acceptable-Values: Function</span><br><span class="line">- Function: 自定义弹幕显示的泳道</span><br><span class="line">- Return: 需要返回泳道的索引</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>10、lanesCount</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- Default: 0</span><br><span class="line">- Acceptable-Values: Number</span><br><span class="line">- Function: 泳道的数量。</span><br></pre></td></tr></table></figure>
+
+<h3 id="弹幕数据选项"><a href="#弹幕数据选项" class="headerlink" title="弹幕数据选项"></a><strong>弹幕数据选项</strong></h3><blockquote>
+<p>1、id</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- Default: &#96;null&#96;</span><br><span class="line">- Acceptable-Values: Number</span><br><span class="line">- Function: 用以区分每条弹幕</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>2、avatar</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- Default: &#96;#&#96;</span><br><span class="line">- Acceptable-Values: String</span><br><span class="line">- Function: 弹幕的头像</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>3、msg</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- Default: &#96;null&#96;</span><br><span class="line">- Acceptable-Values: String</span><br><span class="line">- Function: 弹幕内容</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>4、barrageStyle</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- Default: &#96;normal&#96;</span><br><span class="line">- Acceptable-Values: String</span><br><span class="line">- Function: 额外的弹幕的样式</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>5、time</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- Default: &#96;10&#96;</span><br><span class="line">- Acceptable-Values: Number</span><br><span class="line">- Function: 弹幕展示的时间（单位：秒）</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>6、type</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- Default: MESSAGE_TYPE.NORMAL</span><br><span class="line">- Acceptable-Values: Symbol</span><br><span class="line">- Function: 弹幕的类型</span><br><span class="line">MESSAGE_TYPE.NORMAL ： 正常从右到左滚动</span><br><span class="line">MESSAGE_TYPE.FROM_TOP ： 固定在弹幕区域上方</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>7、position</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- Default: &#96;top&#96;</span><br><span class="line">- Acceptable-Values: Boolean</span><br><span class="line">- Function: 目前为固定值，之后功能更新。</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>8、extraWidth</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- Default: 0</span><br><span class="line">- Acceptable-Values: Number</span><br><span class="line">- Function: 弹幕的额外宽度。</span><br></pre></td></tr></table></figure>
+
+<h3 id="Events"><a href="#Events" class="headerlink" title="Events"></a><strong>Events</strong></h3><p>当 <code>barrageList</code> 为空的时候会调用 <code>barrage-list-empty</code>。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;vue-baberrage</span><br><span class="line">	:is-show&#x3D; &quot;barrageIsShow&quot;</span><br><span class="line">	:barrage-list &#x3D; &quot;barrageList&quot;</span><br><span class="line">	:loop &#x3D; &quot;barrageLoop&quot;</span><br><span class="line">	@barrage-list-empty&#x3D;&quot;sayHi&quot;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>vue组件</category>
+      </categories>
+      <tags>
+        <tag>vue js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>canvas生成海报图</title>
+    <url>/2020/07/15/canvas%E7%94%9F%E6%88%90%E6%B5%B7%E6%8A%A5%E5%9B%BE/</url>
+    <content><![CDATA[<h3 id="样例展示"><a href="#样例展示" class="headerlink" title="样例展示"></a><strong>样例展示</strong></h3><p><a href="https://github.com/sunniejs/vue_canvas_poster" target="_blank" rel="noopener">源码地址</a></p>
+<p>左上角为头像位置，右下角为二维码位置。</p>
+<p><img src="https://s1.ax1x.com/2020/07/15/UdrlMq.png" alt="UdrlMq.png"></p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a><strong>使用</strong></h3><blockquote>
+<p>1、安装引用</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">cnpm i vue-canvas-poster --save</span><br><span class="line"><span class="comment">/*单独使用*/</span></span><br><span class="line"><span class="keyword">import</span> &#123;vueCanvasPoster&#125; <span class="keyword">from</span> <span class="string">'vue-canvas-poster'</span></span><br><span class="line">components: &#123;</span><br><span class="line">            vueCanvasPoster</span><br><span class="line">        &#125;,</span><br><span class="line"><span class="comment">/*全局引用*/</span></span><br><span class="line"><span class="keyword">import</span> CanvasPoster <span class="keyword">from</span> <span class="string">'vue-canvas-poster'</span></span><br><span class="line">Vue.use(CanvasPoster)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>2、html 使用</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content_container"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">vue-canvas-poster</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:widthPixels</span>=<span class="string">"1000"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:painting</span>=<span class="string">"painting"</span></span></span><br><span class="line"><span class="tag">    @<span class="attr">success</span>=<span class="string">"success"</span></span></span><br><span class="line"><span class="tag">    @<span class="attr">fail</span>=<span class="string">"fail"</span></span></span><br><span class="line"><span class="tag">  &gt;</span><span class="tag">&lt;/<span class="name">vue-canvas-poster</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--生成的海报--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">:src</span>=<span class="string">"posterImg"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>3、变量、海报布局</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">posterImg: <span class="string">''</span>,</span><br><span class="line">                <span class="comment">//生成的海报</span></span><br><span class="line">                painting: &#123;</span><br><span class="line">                    width: <span class="string">'550px'</span>,</span><br><span class="line">                    height: <span class="string">'876px'</span>,</span><br><span class="line">                    background: <span class="string">'背景图'</span>,</span><br><span class="line">                    views: [&#123;</span><br><span class="line">                        type: <span class="string">'image'</span>,</span><br><span class="line">                        url: <span class="string">'图片链接'</span>,</span><br><span class="line">                        css: &#123;</span><br><span class="line">                            top: <span class="string">'20px'</span>,</span><br><span class="line">                            left: <span class="string">'36px'</span>,</span><br><span class="line">                            borderRadius: <span class="string">'40px'</span>,</span><br><span class="line">                            width: <span class="string">'80px'</span>,</span><br><span class="line">                            height: <span class="string">'80px'</span>,</span><br><span class="line">                        &#125;,</span><br><span class="line">                    &#125;, &#123;</span><br><span class="line">                        type: <span class="string">'text'</span>,</span><br><span class="line">                        text: <span class="string">'我的名字'</span>,</span><br><span class="line">                        css: &#123;</span><br><span class="line">                            top: <span class="string">'48px'</span>,</span><br><span class="line">                            left: <span class="string">'136px'</span>,</span><br><span class="line">                            width: <span class="string">'360px'</span>,</span><br><span class="line">                            maxLines: <span class="number">1</span>,</span><br><span class="line">                            fontSize: <span class="string">'26px'</span>,</span><br><span class="line">                        &#125;,</span><br><span class="line">                    &#125;, &#123;</span><br><span class="line">                        type: <span class="string">'qrcode'</span>,</span><br><span class="line">                        content: <span class="string">'这里写二维码链接地址'</span>,</span><br><span class="line">                        css: &#123;</span><br><span class="line">                            bottom: <span class="string">'50px'</span>,</span><br><span class="line">                            right: <span class="string">'26px'</span>,</span><br><span class="line">                            color: <span class="string">'#000'</span>,</span><br><span class="line">                            background: <span class="string">'#fff'</span>,</span><br><span class="line">                            width: <span class="string">'130px'</span>,</span><br><span class="line">                            height: <span class="string">'130px'</span>,</span><br><span class="line">                            borderWidth: <span class="string">'10px'</span>,</span><br><span class="line">                            borderColor: <span class="string">'#fff'</span></span><br><span class="line">                        &#125;,</span><br><span class="line">                    &#125;,],</span><br><span class="line">                &#125;,</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>4、js</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//成功生成海报</span></span><br><span class="line">            success(src) &#123;</span><br><span class="line">                <span class="keyword">this</span>.posterImg = src;</span><br><span class="line">                <span class="built_in">console</span>.log(src)</span><br><span class="line">            &#125;,</span><br><span class="line">            fail(err) &#123;</span><br><span class="line">                alert(err)</span><br><span class="line">            &#125;,</span><br></pre></td></tr></table></figure>
+
+<h3 id="规范"><a href="#规范" class="headerlink" title="规范"></a><strong>规范</strong></h3><p>Canvas 需要根据一定的规范来进行图片绘制，当然比直接画 canvas 简单的多。</p>
+<h4 id="调色板属性"><a href="#调色板属性" class="headerlink" title="调色板属性"></a><strong>调色板属性</strong></h4><p>一个调色板首先需要给予一些整体属性</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">background: 可以是颜色值，也可以为网络图片的链接，默认为白色，支持渐变色</span><br><span class="line">width: 宽度</span><br><span class="line">height: 高度</span><br><span class="line">borderRadius: 边框的圆角（该属性也同样适用于子 view）</span><br><span class="line">views: 里面承载子 view</span><br></pre></td></tr></table></figure>
+
+<h4 id="View-属性"><a href="#View-属性" class="headerlink" title="View 属性"></a><strong>View 属性</strong></h4><p>当我们把整体的调色板属性构建起来后，里面就可以添加子 View 来进行绘制了。</p>
+<table>
+<thead>
+<tr>
+<th>type</th>
+<th align="center">内容</th>
+<th align="center">description</th>
+<th align="center">自有 css</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>image</td>
+<td align="center">url</td>
+<td align="center">表示图片资源的地址，本地或网络</td>
+<td align="center">见 image 小节</td>
+</tr>
+<tr>
+<td>text</td>
+<td align="center">text</td>
+<td align="center">文本的内容</td>
+<td align="center">见 text 小节</td>
+</tr>
+<tr>
+<td>rect</td>
+<td align="center">无</td>
+<td align="center">矩形</td>
+<td align="center">color: 颜色，支持渐变色</td>
+</tr>
+<tr>
+<td>qrcode</td>
+<td align="center">content</td>
+<td align="center">画二维码</td>
+<td align="center">background: 背景颜色（默认为透明色）color: 二维码颜色（默认黑色）</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>1、image</p>
+</blockquote>
+<p>image 可以设置成本地图片或者网络图片， 本地用require()引入图片。 并且如果未设置 image 的长宽，则长宽的属性值会默认设为auto。</p>
+<table>
+<thead>
+<tr>
+<th align="center">属性名称</th>
+<th align="center">说明</th>
+<th align="center">默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">width</td>
+<td align="center">image的宽度</td>
+<td align="center">auto</td>
+</tr>
+<tr>
+<td align="center">height</td>
+<td align="center">image的高度</td>
+<td align="center">auto</td>
+</tr>
+<tr>
+<td align="center">mode</td>
+<td align="center">图片裁剪、缩放的模式</td>
+<td align="center">aspectFill</td>
+</tr>
+</tbody></table>
+<p><strong>scaleToFill</strong>：不保持纵横比缩放图片，使图片的宽高完全拉伸至填满 image 元素</p>
+<p><strong>aspectFill</strong>：保持纵横比缩放图片，只保证图片的短边能完全显示出来。也就是说，图片通常只在水平或垂直方向是完整的，另一个方向将会发生截取。</p>
+<p><strong>注：mode 属性和小程序 image 的 mode 属性功能一致，只是支持的类型只有两种，且默认值不同。 当 width 或 height 属性设置为 auto 时，mode 属性失效</strong></p>
+<blockquote>
+<p>2、text</p>
+</blockquote>
+<p>因为 text 的特殊性，此处对 text 进行单独说明。</p>
+<table>
+<thead>
+<tr>
+<th align="center">属性名称</th>
+<th align="center">说明</th>
+<th align="center">默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">fontSize</td>
+<td align="center">字体大小</td>
+<td align="center">20px</td>
+</tr>
+<tr>
+<td align="center">color</td>
+<td align="center">字体颜色</td>
+<td align="center">black</td>
+</tr>
+<tr>
+<td align="center">maxLines</td>
+<td align="center">最大行数</td>
+<td align="center">不限，根据 width 来</td>
+</tr>
+<tr>
+<td align="center">lineHeight</td>
+<td align="center">行高（上下两行文字baseline的距离）</td>
+<td align="center">fontSize 大小</td>
+</tr>
+<tr>
+<td align="center">fontWeight</td>
+<td align="center">字体粗细。仅支持 normal, bold</td>
+<td align="center">normal</td>
+</tr>
+<tr>
+<td align="center">textDecoration</td>
+<td align="center">文本修饰，支持 underline、 overline、 line-through，也可组合使用</td>
+<td align="center">无效果</td>
+</tr>
+<tr>
+<td align="center">textStyle</td>
+<td align="center">fill： 填充样式，stroke：镂空样式</td>
+<td align="center">fill</td>
+</tr>
+<tr>
+<td align="center">fontFamily</td>
+<td align="center">字体</td>
+<td align="center">sans-serif</td>
+</tr>
+<tr>
+<td align="center">background</td>
+<td align="center">文字背景颜色</td>
+<td align="center">无</td>
+</tr>
+<tr>
+<td align="center">padding</td>
+<td align="center">文字背景颜色边际与文字间距</td>
+<td align="center">0px</td>
+</tr>
+<tr>
+<td align="center">textAlign</td>
+<td align="center">文字的对齐方式，分为 left, center, right，view 的对齐方式请看 align 属性</td>
+<td align="center">left</td>
+</tr>
+</tbody></table>
+<p>当文字设置 width 属性后，则文字布局的最大宽度不会超过该 width 。如果内容超过 width，则会进行换行，如果此时未设置 maxLines 属性，则会把所有内容进行换行处理，行数由内容和 width 决定。如果此时设置了 maxLines 属性，则最大展示所设置的行数，如果还有多余内容未展示出来，则后面会带上 … 。</p>
+<h4 id="布局属性"><a href="#布局属性" class="headerlink" title="布局属性"></a><strong>布局属性</strong></h4><p>以上 View ，除去自己拥有的特别属性外，还有以下的通用布局属性</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+<th>默认</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>rotate</td>
+<td>旋转，按照顺时针旋转的度数</td>
+<td>不旋转</td>
+</tr>
+<tr>
+<td>width、height</td>
+<td>view 的宽度和高度，其中 image 和 text 可不设置</td>
+<td></td>
+</tr>
+<tr>
+<td>top、right、bottom、left</td>
+<td>如 css 中为 absolute 布局时的作用，可为 负值</td>
+<td>默认 top 和 left 为 0</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>相对布局方法</p>
+</blockquote>
+<p>很多人有获得文本宽度的需求，因为文本宽度随着字数不同而动态变化，如果想在文本后面加个图标，那么我们就需要获得文本宽度。 解决方案如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1，首先你需要为检测长度的文本添加一个 id。如下</span><br><span class="line">&#123;</span><br><span class="line">  id: &#39;my-text-id&#39;,</span><br><span class="line">  type: &#39;text&#39;,</span><br><span class="line">  </span><br><span class="line">2，然后在后面的 view 中，你可以在 left 和 right 属性中使用这个id。如下</span><br><span class="line">left: [&#39;10px&#39;, &#39;my-text-id&#39;, 比例] </span><br><span class="line">表示布局在距离左边（10px + 该text文本宽度 * 比例） 的距离，比例默认为 1，可省去，你也可以使用负数或小数来做计算，最终的 left 会加上文本宽度乘以该数的值。</span><br><span class="line"></span><br><span class="line">注意：比例一定为一个 number</span><br></pre></td></tr></table></figure>
+
+<p>如果想获得高度，top 也支持上述用法，并且除文本外，你可以对任何 view 设置一个 id，然后使用上述方法进行相对布局。</p>
+<p><strong>注：相对布局的那个 view 代码一定需要在被相对的 view 的下面。</strong></p>
+<blockquote>
+<p>1、border 类型</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+<th>默认</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>borderRadius</td>
+<td>边界圆角程度，如果是正方形布局，该属性为一半宽或高时，则为圆形</td>
+<td>0</td>
+</tr>
+<tr>
+<td>borderWidth</td>
+<td>边界宽度，外边界</td>
+<td>必设值，否则无边框效果</td>
+</tr>
+<tr>
+<td>borderColor</td>
+<td>边框颜色</td>
+<td>black</td>
+</tr>
+</tbody></table>
+<p>align</p>
+<p>Painter 的 align 类型与 css 中的 align 有些许不同。在 Painter 中 align 表示 view 本身的对齐方式，而不像 css 中表示对其子 view 的操作。align 可以作用在 Painter 支持的所有 view 上。它以设置的 left、top、right、bottom 的位置为基准，然后做不同的对齐操作。并且 align 在文字多行情况下，会影响多行文字的对齐方式。</p>
+<p><strong>注意：如果布局使用了 right 确定位置，则该 view 会默认右对齐布局，但此时文字还是从左边绘制。</strong></p>
+<h4 id="CSS3-支持"><a href="#CSS3-支持" class="headerlink" title="CSS3 支持"></a><strong>CSS3 支持</strong></h4><blockquote>
+<p>1、shadow</p>
+</blockquote>
+<p>shadow 可以同时修饰 image、rect、text、qrcode 等 。在修饰 text 时则相当于 text-shadow；修饰 image 和 rect 时相当于 box-shadow；修饰 qrcode 时，则相当于二维码有效区域的投影。</p>
+<p>使用方法：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">shadow: &#39;h-shadow v-shadow blur color&#39;;</span><br><span class="line">h-shadow: 必需。水平阴影的位置。允许负值。</span><br><span class="line">v-shadow: 必需。垂直阴影的位置。允许负值。</span><br><span class="line">blur: 必需。模糊的距离。</span><br><span class="line">color: 必需。阴影的颜色。</span><br></pre></td></tr></table></figure>
+
+<p>渐变色支持</p>
+<p>你可以在画布的 background 属性或者 rect 的 color 属性中使用以下方式实现 css 3 的渐变色，其中 radial-gradient 渐变的圆心为 view 中点，半径为最长边，目前不支持自己设置。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">linear-gradient(-135deg, blue 0%, rgba(18, 52, 86, 1) 20%, #987 80%)</span><br><span class="line">radial-gradient(rgba(0, 0, 0, 0) 5%, #0ff 15%, #f0f 60%)</span><br></pre></td></tr></table></figure>
+
+<p><strong>！！！注意：颜色后面的百分比一定得写。</strong></p>
+<h4 id="事件"><a href="#事件" class="headerlink" title="事件"></a><strong>事件</strong></h4><blockquote>
+<p>success</p>
+</blockquote>
+<p>返回生成 base64 图片的本地 url,设置 src</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">  success(src) &#123;</span><br><span class="line">    &#x2F;&#x2F; 设置img的src</span><br><span class="line">    this.src &#x3D; src</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>fail</p>
+</blockquote>
+<p>返回失败信息</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fail(err) &#123;</span><br><span class="line">     console.log(&#39;fail&#39;, err)</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>vue组件</category>
+      </categories>
+      <tags>
+        <tag>h5</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>图片移动、缩放</title>
+    <url>/2020/07/15/%E5%9B%BE%E7%89%87%E7%A7%BB%E5%8A%A8%E3%80%81%E7%BC%A9%E6%94%BE/</url>
+    <content><![CDATA[<h4 id="html"><a href="#html" class="headerlink" title="html"></a><strong>html</strong></h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;template_move_box&quot;&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;template_move&quot;&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;temp_url_box&quot;&gt;</span><br><span class="line">            &lt;img class&#x3D;&quot;template_url&quot; :src&#x3D;&quot;imageUrl&quot;&gt;</span><br><span class="line">            &lt;div class&#x3D;&quot;code_box&quot;&gt;</span><br><span class="line">                &lt;img class&#x3D;&quot;code_img&quot; src&#x3D;&quot;&#x2F;images&#x2F;test_code_img.jpg&quot;&gt;</span><br><span class="line">                &lt;div id&#x3D;&quot;zoom_id&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">            &lt;&#x2F;div&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="css"><a href="#css" class="headerlink" title="css"></a><strong>css</strong></h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.template_move_box &#123;</span><br><span class="line">    float: left;</span><br><span class="line">&#125;</span><br><span class="line">.template_move &#123;</span><br><span class="line">    width: 400px;</span><br><span class="line">    height: 600px;</span><br><span class="line">    position: relative;</span><br><span class="line">    background: #CCCCCC;</span><br><span class="line">    text-align: center;</span><br><span class="line">&#125;</span><br><span class="line">.temp_url_box &#123;</span><br><span class="line">    width: 337px;</span><br><span class="line">    height: 600px;</span><br><span class="line">    position: relative;</span><br><span class="line">    display: inline-block;</span><br><span class="line">&#125;</span><br><span class="line">.template_url &#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">&#125;</span><br><span class="line">.code_box &#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    bottom: 0;</span><br><span class="line">    left: 0;</span><br><span class="line">    z-index: 1;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line">&#125;</span><br><span class="line">.code_img &#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">    cursor: move;</span><br><span class="line">&#125;</span><br><span class="line">#zoom_id &#123;</span><br><span class="line">    width: 10px;</span><br><span class="line">    height: 10px;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">    cursor: se-resize;</span><br><span class="line">    position: absolute;</span><br><span class="line">    right: 0;</span><br><span class="line">    bottom: 0;</span><br><span class="line">    background-color: rgb(122, 191, 238);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="js"><a href="#js" class="headerlink" title="js"></a><strong>js</strong></h4><p>js 原生JavaScript，不需要引入插件</p>
+<blockquote>
+<p>在需要移动缩放的方法里面直接调用此方法就好。</p>
+<p>此处有个小细节，在用JavaScript取 class 中dom文件的时候取到的是数组，需要在后面加【0】。例如：<strong>document.getElementsByClassName(“code_box”)[0]</strong></p>
+<p>若是取 id 中的dom结构时则不需要加【0】。例如： <strong>document.getElementById(“zoom_id”)</strong></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;移动缩放海报</span><br><span class="line">moveTeamp() &#123;</span><br><span class="line">    let that &#x3D; this;</span><br><span class="line">    setTimeout(() &#x3D;&gt; &#123;</span><br><span class="line">        &#x2F;&#x2F; box是装图片的容器,temp是图片移动缩放的范围,scale是控制缩放的小图标</span><br><span class="line">        let box &#x3D; document.getElementsByClassName(&quot;code_box&quot;)[0];</span><br><span class="line">        let temp &#x3D; document.getElementsByClassName(&#39;temp_url_box&#39;)[0];</span><br><span class="line">        let scale &#x3D; document.getElementById(&quot;zoom_id&quot;);</span><br><span class="line"></span><br><span class="line">        var codeOriginalW &#x3D; that.qrWidth;&#x2F;&#x2F;二维码图片原始宽度</span><br><span class="line">        var codeOriginalH &#x3D; that.qrHeight;&#x2F;&#x2F;二维码图片原始高度</span><br><span class="line">        var codeScale &#x3D; 0;&#x2F;&#x2F;图片缩放</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 图片移动效果</span><br><span class="line">        box.onmousedown &#x3D; function (ev) &#123;</span><br><span class="line">            var oEvent &#x3D; ev;</span><br><span class="line">            &#x2F;&#x2F; 浏览器有一些图片的默认事件,这里要阻止</span><br><span class="line">            oEvent.preventDefault();</span><br><span class="line">            var disX &#x3D; oEvent.clientX - box.offsetLeft;</span><br><span class="line">            var disY &#x3D; oEvent.clientY - box.offsetTop;</span><br><span class="line"></span><br><span class="line">            &#x2F;*console.table(&#123;</span><br><span class="line">                &#39;鼠标点击事件&#39;:0,</span><br><span class="line">                &#39;鼠标指针距离页面左侧距离&#39;:oEvent.clientX,</span><br><span class="line">                &#39;图片距离父容器左侧距离&#39;:box.offsetLeft,</span><br><span class="line">                &#39;父容器加鼠标指针相对于图片点击位置 距离页面左侧距离&#39;:disX,</span><br><span class="line">            &#125;)*&#x2F;</span><br><span class="line"></span><br><span class="line">            temp.onmousemove &#x3D; function (ev) &#123;</span><br><span class="line">                oEvent &#x3D; ev;</span><br><span class="line">                oEvent.preventDefault();</span><br><span class="line">                var x &#x3D; oEvent.clientX - disX;</span><br><span class="line">                var y &#x3D; oEvent.clientY - disY;</span><br><span class="line"></span><br><span class="line">                &#x2F;&#x2F; 图形移动的边界判断</span><br><span class="line">                x &#x3D; x &lt;&#x3D; 0 ? 0 : x;</span><br><span class="line">                x &#x3D; x &gt;&#x3D; temp.offsetWidth - box.offsetWidth ? temp.offsetWidth - box.offsetWidth : x;</span><br><span class="line">                y &#x3D; y &lt;&#x3D; 0 ? 0 : y;</span><br><span class="line">                y &#x3D; y &gt;&#x3D; temp.offsetHeight - box.offsetHeight ? temp.offsetHeight - box.offsetHeight : y;</span><br><span class="line">                box.style.left &#x3D; x + &#39;px&#39;;</span><br><span class="line">                box.style.top &#x3D; y + &#39;px&#39;;</span><br><span class="line"></span><br><span class="line">                that.qrLeft &#x3D; x;</span><br><span class="line">                that.qrTop &#x3D; y;</span><br><span class="line"></span><br><span class="line">                &#x2F;*console.table(&#123;</span><br><span class="line">                    &#39;鼠标移动事件&#39;:1,</span><br><span class="line">                    &#39;图片相对于父元素左侧距离 &#39;:x,</span><br><span class="line">                    &#39;图片相对于父元素上方距离&#39;:y,</span><br><span class="line">                &#125;)*&#x2F;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            &#x2F;&#x2F; 图形移出父盒子取消移动事件,防止移动过快触发鼠标移出事件,导致鼠标弹起事件失效</span><br><span class="line">            temp.onmouseleave &#x3D; function () &#123;</span><br><span class="line">                temp.onmousemove &#x3D; null;</span><br><span class="line">                temp.onmouseup &#x3D; null;</span><br><span class="line">            &#125;</span><br><span class="line">            &#x2F;&#x2F; 鼠标弹起后停止移动</span><br><span class="line">            temp.onmouseup &#x3D; function () &#123;</span><br><span class="line">                temp.onmousemove &#x3D; null;</span><br><span class="line">                temp.onmouseup &#x3D; null;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F; 图片缩放效果</span><br><span class="line">        scale.onmousedown &#x3D; function (e) &#123;</span><br><span class="line">            &#x2F;&#x2F; 阻止冒泡,避免缩放时触发移动事件</span><br><span class="line">            e.stopPropagation();</span><br><span class="line">            e.preventDefault();</span><br><span class="line">            var pos &#x3D; &#123;</span><br><span class="line">                &#39;w&#39;: box.offsetWidth,</span><br><span class="line">                &#39;h&#39;: box.offsetHeight,</span><br><span class="line">                &#39;x&#39;: e.clientX,</span><br><span class="line">                &#39;y&#39;: e.clientY</span><br><span class="line">            &#125;;</span><br><span class="line">            temp.onmousemove &#x3D; function (ev) &#123;</span><br><span class="line">                ev.preventDefault();</span><br><span class="line">                &#x2F;&#x2F; 设置图片的最小缩放为30*30</span><br><span class="line">                &#x2F;&#x2F;Math.max() 函数返回一组数中的最大值,</span><br><span class="line">                var w &#x3D; Math.max(30, ev.clientX - pos.x + pos.w);</span><br><span class="line">                &#x2F;&#x2F;缩放率</span><br><span class="line">                codeScale &#x3D; parseFloat((w &#x2F; codeOriginalW).toFixed(2));</span><br><span class="line">                &#x2F;&#x2F;设置宽高比例固定缩放</span><br><span class="line">                var h &#x3D; parseInt(codeOriginalH * codeScale);</span><br><span class="line">                &#x2F;&#x2F; console.log(w,h)</span><br><span class="line">                &#x2F;&#x2F; 设置图片的最大宽高，不超过父容器宽高</span><br><span class="line">                &#x2F;&#x2F;当宽度大于父元素</span><br><span class="line">                w &#x3D; w &gt;&#x3D; temp.offsetWidth - box.offsetLeft ? temp.offsetWidth - box.offsetLeft : w;</span><br><span class="line">                &#x2F;&#x2F; h &#x3D; h &gt;&#x3D; temp.offsetHeight-box.offsetTop ? temp.offsetHeight-box.offsetTop : h;</span><br><span class="line">                box.style.width &#x3D; w + &#39;px&#39;;</span><br><span class="line">                box.style.height &#x3D; h + &#39;px&#39;;</span><br><span class="line">                &#x2F;&#x2F; console.log(box.offsetWidth,box.offsetHeight)</span><br><span class="line">                &#x2F;* console.table(&#123;</span><br><span class="line">                     &#39;鼠标拖动事件&#39;: 1,</span><br><span class="line">                     &#39;改变后图片的宽度 &#39;: w,</span><br><span class="line">                     &#39;改变后图片的高度&#39;: h,</span><br><span class="line">                     &#39;图片缩放倍数&#39;: codeScale</span><br><span class="line">                 &#125;)*&#x2F;</span><br><span class="line"></span><br><span class="line">                that.codeWeight &#x3D; w;</span><br><span class="line">                that.codeHeight &#x3D; h;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            temp.onmouseleave &#x3D; function () &#123;</span><br><span class="line">                temp.onmousemove &#x3D; null;</span><br><span class="line">                temp.onmouseup &#x3D; null;</span><br><span class="line">            &#125;</span><br><span class="line">            temp.onmouseup &#x3D; function () &#123;</span><br><span class="line">                temp.onmousemove &#x3D; null;</span><br><span class="line">                temp.onmouseup &#x3D; null;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, 1000)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>PC工具</category>
       </categories>
       <tags>
         <tag>js</tag>
