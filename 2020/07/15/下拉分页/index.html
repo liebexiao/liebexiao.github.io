@@ -489,9 +489,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/' rel="nofollow">
+    <a href='/categories/%E5%B8%B8%E7%94%A8/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>常用工具</p>
+      <p>常用/常用工具</p>
     </a>
   </div>
 
@@ -526,25 +526,19 @@
         <div class="article-entry" itemprop="articleBody">
           
           
-          <blockquote>
-<p>定义变量</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">allLIst:[],<span class="comment">//列表数据</span></span><br><span class="line">page:<span class="number">0</span>,</span><br><span class="line">loadNextPage:<span class="literal">true</span>,<span class="comment">//是否请求下一页</span></span><br></pre></td></tr></table></figure>
+          <p><img src="https://cdn.jsdelivr.net/gh/liebexiao/myImgs/20200717165343.png" alt=""></p>
+<a id="more"></a>
 
-<blockquote>
-<p>在 mounted 里面监听分页滚动条</p>
-</blockquote>
+<h4 id="1、定义变量"><a href="#1、定义变量" class="headerlink" title="1、定义变量"></a>1、定义变量</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">allLIst:[],<span class="comment">//列表数据</span></span><br><span class="line">page:<span class="number">0</span>,</span><br><span class="line">loadNextPage:<span class="literal">true</span>,<span class="comment">//是否请求下一页</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2、监听滚动条"><a href="#2、监听滚动条" class="headerlink" title="2、监听滚动条"></a>2、监听滚动条</h4><p>在 mounted 里面监听分页滚动条</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//分页监听滚动条</span></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"scroll"</span>, <span class="keyword">this</span>.handleScroll);</span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>在 methods 里面写 handleScroll 方法</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//分页——滚动条触碰到底部</span></span><br><span class="line">handleScroll() &#123;</span><br><span class="line">    <span class="keyword">let</span> scrollTop = <span class="built_in">document</span>.documentElement.scrollTop || <span class="built_in">document</span>.body.scrollTop;</span><br><span class="line">    <span class="comment">//判断 如果文档的距离减200小于  屏幕可视距离  加上  滚动条距离顶部的距离，并且 loadNextPage为true ，则page++；</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">document</span>.documentElement.scrollHeight - <span class="number">200</span> &lt; <span class="built_in">document</span>.documentElement.clientHeight + scrollTop) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.loadNextPage) &#123;</span><br><span class="line">            <span class="comment">// console.log("下一页");</span></span><br><span class="line">            <span class="keyword">this</span>.loadNextPage = <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">this</span>.page++;</span><br><span class="line">            <span class="keyword">this</span>.getArticle();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<h4 id="3、定义方法"><a href="#3、定义方法" class="headerlink" title="3、定义方法"></a>3、定义方法</h4><p>在 methods 里面写 handleScroll 方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//分页——滚动条触碰到底部</span></span><br><span class="line">handleScroll() &#123;</span><br><span class="line">    <span class="keyword">let</span> scrollTop = <span class="built_in">document</span>.documentElement.scrollTop || <span class="built_in">document</span>.body.scrollTop;</span><br><span class="line">    <span class="comment">//判断 如果文档的距离减200小于  屏幕可视距离  加上  滚动条距离顶部的距离，并且 loadNextPage为true ，则page++；</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">document</span>.documentElement.scrollHeight - <span class="number">200</span> &lt; <span class="built_in">document</span>.documentElement.clientHeight + scrollTop) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.loadNextPage) &#123;</span><br><span class="line">            <span class="comment">// console.log("下一页");</span></span><br><span class="line">            <span class="keyword">this</span>.loadNextPage = <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">this</span>.page++;</span><br><span class="line">            <span class="keyword">this</span>.getList();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>请求数据列表之后给变量 list 赋值</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//请求数据列表</span></span><br><span class="line">getList() &#123;</span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">page: <span class="keyword">this</span>.page,</span><br><span class="line">size: <span class="number">10</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">this</span>.$http.post(<span class="string">"/api/total/list"</span>, obj).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line"><span class="comment">//分页进入下一页</span></span><br><span class="line"><span class="keyword">let</span> data = res.data.result.data;</span><br><span class="line"><span class="comment">//判断 如果数据个数小于10，不进入下一页，否则loadNextPage设为true进入下一页</span></span><br><span class="line">data.length &lt; <span class="number">10</span> ? <span class="keyword">this</span>.loadNextPage = <span class="literal">false</span> : <span class="keyword">this</span>.loadNextPage = <span class="literal">true</span>;</span><br><span class="line"><span class="comment">//分页连接数组</span></span><br><span class="line"><span class="keyword">this</span>.allList = [...this.allList, ...data];</span><br><span class="line"><span class="comment">// console.log(JSON.stringify(this.allList));</span></span><br><span class="line">&#125;);</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<h4 id="4、赋值"><a href="#4、赋值" class="headerlink" title="4、赋值"></a>4、赋值</h4><p>请求数据列表之后给变量 list 赋值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//请求数据列表</span></span><br><span class="line">getList() &#123;</span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">page: <span class="keyword">this</span>.page,</span><br><span class="line">size: <span class="number">10</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">this</span>.$http.post(<span class="string">"/api/"</span>, obj).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line"><span class="comment">//分页进入下一页</span></span><br><span class="line"><span class="keyword">let</span> data = res.data.result.data;</span><br><span class="line"><span class="comment">//判断 如果数据个数小于10，不进入下一页，否则loadNextPage设为true进入下一页</span></span><br><span class="line">data.length &lt; <span class="number">10</span> ? <span class="keyword">this</span>.loadNextPage = <span class="literal">false</span> : <span class="keyword">this</span>.loadNextPage = <span class="literal">true</span>;</span><br><span class="line"><span class="comment">//分页连接数组</span></span><br><span class="line"><span class="keyword">this</span>.allList = [...this.allList, ...data];</span><br><span class="line"><span class="comment">// console.log(JSON.stringify(this.allList));</span></span><br><span class="line">&#125;);</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
 
           
             <div class='article_footer'>
@@ -600,20 +594,6 @@
 
   <div class='content article-entry'>
     
-      
-        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
-        
-          height='64px'
-        ></div>
-      
-    
-      
-        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
-        
-          height='64px'
-        ></div>
-      
-    
   </div>
 </section>
 
@@ -632,10 +612,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-15T11:32:33+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-17T17:58:44+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年7月15日</p>
+    <p>更新于：2020年7月17日</p>
   </a>
 </div>
 
@@ -712,20 +692,19 @@
             
               <a class='prev' href='/2020/07/15/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95-js/'>
                 <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>常用方法-js</p>
-                <p class='content'>点击复制文本12345678910let httpUrl = this.herfAddress; //此处为需要被复制的文本let oInput = document.createElement...</p>
+                <p class='content'>
+
+
+一、点击复制文本12345678910let httpUrl = this.herfAddress; //此处为需要被复制的文本let oInput = document.createEl...</p>
               </a>
             
             
               <a class='next' href='/2020/07/15/%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E5%99%A8/'>
                 <p class='title'>视频播放器<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
                 <p class='content'>
-样例展示
 
 
-渲染
-区分 ios 与 Android
-
-12345678910111213141516171819202122232425262728293031323334353637&lt...</p>
+一、渲染1、区分 ios 与 Android12345678910111213141516171819202122232425262728293031323334353637&lt;div...</p>
               </a>
             
           </div>
@@ -768,6 +747,20 @@
     
 
 
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、定义变量"><span class="toc-text">1、定义变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、监听滚动条"><span class="toc-text">2、监听滚动条</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、定义方法"><span class="toc-text">3、定义方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、赋值"><span class="toc-text">4、赋值</span></a></li></ol>
+    </div>
+  </section>
 
 
   
@@ -901,7 +894,7 @@
 
     <script type="text/javascript">
       $(function(){
-        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/BBC19066-E176-47C2-9D22-48C81EE5DF6B.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/B18FCBB3-67FD-48CC-B4F3-457BA145F17A.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/00E0F0ED-9F1C-407A-9AA6-545649D919F4.jpeg"];
+        var imgs=["https://fech.in/static/images/cover/convert-excel-to-markdown-table.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/B18FCBB3-67FD-48CC-B4F3-457BA145F17A.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/00E0F0ED-9F1C-407A-9AA6-545649D919F4.jpeg", "https://fech.in/static/images/cover/ml01-overview.jpeg", "https://fech.in/static/images/cover/export-excel-use-template.jpeg", "https://fech.in/static/images/cover/2017-1024.jpeg", "https://fech.in/static/images/cover/install-burg-on-ubuntu-manual.jpeg", "https://fech.in/static/images/cover/install-burg-on-ubuntu.jpeg"];
         if ('true' == 'true') {
           function shuffle(arr){
             /*From countercurrent-time*/

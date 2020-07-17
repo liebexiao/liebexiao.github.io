@@ -489,9 +489,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/vue%E9%85%8D%E7%BD%AE/' rel="nofollow">
+    <a href='/categories/vue/%E9%85%8D%E7%BD%AE/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>vue配置</p>
+      <p>vue/配置</p>
     </a>
   </div>
 
@@ -526,56 +526,29 @@
         <div class="article-entry" itemprop="articleBody">
           
           
-          <h3 id="Gzip压缩"><a href="#Gzip压缩" class="headerlink" title="Gzip压缩"></a><strong>Gzip压缩</strong></h3><p>gizp 压缩是一种 http 请求优化方式，通过减少文件体积来提高加载速度，对于用户量多的网站，开启 gizp 压缩会大大降低服务器压力，提高加载速度，降低服务器流量成本</p>
+          <p><img src="https://s1.ax1x.com/2020/06/04/t0Rsk8.png" alt=""></p>
+<a id="more"></a>
+
+<h3 id="一、Gzip压缩"><a href="#一、Gzip压缩" class="headerlink" title="一、Gzip压缩"></a><strong>一、Gzip压缩</strong></h3><p>gizp 压缩是一种 http 请求优化方式，通过减少文件体积来提高加载速度，对于用户量多的网站，开启 gizp 压缩会大大降低服务器压力，提高加载速度，降低服务器流量成本</p>
 <p><strong>压缩完成示例</strong></p>
 <p><img src="https://s1.ax1x.com/2020/06/17/NEaSSS.png" alt="NEaSSS.png"></p>
-<blockquote>
-<p>安装插件</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install compression-webpack-plugin --save-de</span><br></pre></td></tr></table></figure>
+<h4 id="1、安装插件"><a href="#1、安装插件" class="headerlink" title="1、安装插件"></a>1、安装插件</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install compression-webpack-plugin --save-de</span><br></pre></td></tr></table></figure>
 
+<h4 id="2、在vue-config-js中配置"><a href="#2、在vue-config-js中配置" class="headerlink" title="2、在vue.config.js中配置"></a>2、在vue.config.js中配置</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 导入compression-webpack-plugin</span></span><br><span class="line"><span class="keyword">const</span> CompressionWebpackPlugin = <span class="built_in">require</span>(<span class="string">"compression-webpack-plugin"</span>);</span><br><span class="line"><span class="comment">// 定义压缩文件类型</span></span><br><span class="line"><span class="keyword">const</span> productionGzipExtensions = [<span class="string">"js"</span>, <span class="string">"css"</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">//统一配置打包插件</span></span><br><span class="line">  configureWebpack: &#123;</span><br><span class="line">    plugins: [</span><br><span class="line">      <span class="keyword">new</span> CompressionWebpackPlugin(&#123;</span><br><span class="line">        filename: <span class="string">"[path].gz[query]"</span>,</span><br><span class="line">        algorithm: <span class="string">"gzip"</span>,</span><br><span class="line">        test: <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"\\.("</span> + productionGzipExtensions.join(<span class="string">"|"</span>) + <span class="string">")$"</span>), <span class="comment">//匹配文件名</span></span><br><span class="line">        threshold: <span class="number">10240</span>, <span class="comment">//对10K以上的数据进行压缩</span></span><br><span class="line">        minRatio: <span class="number">0.8</span>,</span><br><span class="line">        deleteOriginalAssets: <span class="literal">false</span>, <span class="comment">//是否删除源文件</span></span><br><span class="line">      &#125;),</span><br><span class="line">    ],</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>在vue.config.js中配置</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 导入compression-webpack-plugin</span></span><br><span class="line"><span class="keyword">const</span> CompressionWebpackPlugin = <span class="built_in">require</span>(<span class="string">"compression-webpack-plugin"</span>);</span><br><span class="line"><span class="comment">// 定义压缩文件类型</span></span><br><span class="line"><span class="keyword">const</span> productionGzipExtensions = [<span class="string">"js"</span>, <span class="string">"css"</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">//统一配置打包插件</span></span><br><span class="line">  configureWebpack: &#123;</span><br><span class="line">    plugins: [</span><br><span class="line">      <span class="keyword">new</span> CompressionWebpackPlugin(&#123;</span><br><span class="line">        filename: <span class="string">"[path].gz[query]"</span>,</span><br><span class="line">        algorithm: <span class="string">"gzip"</span>,</span><br><span class="line">        test: <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"\\.("</span> + productionGzipExtensions.join(<span class="string">"|"</span>) + <span class="string">")$"</span>), <span class="comment">//匹配文件名</span></span><br><span class="line">        threshold: <span class="number">10240</span>, <span class="comment">//对10K以上的数据进行压缩</span></span><br><span class="line">        minRatio: <span class="number">0.8</span>,</span><br><span class="line">        deleteOriginalAssets: <span class="literal">false</span>, <span class="comment">//是否删除源文件</span></span><br><span class="line">      &#125;),</span><br><span class="line">    ],</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="3、在服务器的-nginx的http中配置-Gzip"><a href="#3、在服务器的-nginx的http中配置-Gzip" class="headerlink" title="3、在服务器的 nginx的http中配置 Gzip"></a>3、在服务器的 nginx的http中配置 Gzip</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">gzip on; #开启或关闭gzip on off</span><br><span class="line">gzip_min_length 5k; #gzip压缩最小文件大小，超出进行压缩（自行调节）</span><br><span class="line">gzip_buffers 4 16k; #buffer 不用修改</span><br><span class="line">gzip_comp_level 4; #压缩级别:1-10，数字越大压缩的越好，时间也越长</span><br><span class="line">gzip_types text/plain application/x-javascript application/javascript text/css application/xml text/javascript application/x-httpd-php image/jpeg image/gif image/png; #  压缩文件类型</span><br><span class="line">gzip_vary on; # 和http头有关系，加个vary头，给代理服务器用的，有的浏览器支持压缩，有的不支持，所以避免浪费不支持的也压缩，所以根据客户端的HTTP头来判断，是否需要压缩</span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>在服务器的 nginx的http中配置 Gzip</p>
-</blockquote>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">gzip on; #开启或关闭gzip on off</span><br><span class="line">gzip_min_length 5k; #gzip压缩最小文件大小，超出进行压缩（自行调节）</span><br><span class="line">gzip_buffers 4 16k; #buffer 不用修改</span><br><span class="line">gzip_comp_level 4; #压缩级别:1-10，数字越大压缩的越好，时间也越长</span><br><span class="line">gzip_types text/plain application/x-javascript application/javascript text/css application/xml text/javascript application/x-httpd-php image/jpeg image/gif image/png; #  压缩文件类型</span><br><span class="line">gzip_vary on; # 和http头有关系，加个vary头，给代理服务器用的，有的浏览器支持压缩，有的不支持，所以避免浪费不支持的也压缩，所以根据客户端的HTTP头来判断，是否需要压缩</span><br></pre></td></tr></table></figure>
+<h4 id="4、修改后记得执行-nginx-s-reload"><a href="#4、修改后记得执行-nginx-s-reload" class="headerlink" title="4、修改后记得执行 nginx -s reload"></a>4、修改后记得执行 nginx -s reload</h4><h3 id="二、去掉打包后的-console"><a href="#二、去掉打包后的-console" class="headerlink" title="二、去掉打包后的 console"></a><strong>二、去掉打包后的 console</strong></h3><h4 id="1、安裝插件"><a href="#1、安裝插件" class="headerlink" title="1、安裝插件"></a>1、安裝插件</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install babel-plugin-transform-remove-<span class="built_in">console</span> --save-dev</span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>修改后记得执行 nginx -s reload</p>
-</blockquote>
-<h3 id="去掉打包后的-console"><a href="#去掉打包后的-console" class="headerlink" title="去掉打包后的 console"></a><strong>去掉打包后的 console</strong></h3><blockquote>
-<p>安裝插件</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install babel-plugin-transform-remove-<span class="built_in">console</span> --save-dev</span><br></pre></td></tr></table></figure>
+<h4 id="2、【babel-config-js】配置如下"><a href="#2、【babel-config-js】配置如下" class="headerlink" title="2、【babel.config.js】配置如下"></a>2、【babel.config.js】配置如下</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> plugins = [<span class="string">"@vue/babel-plugin-transform-vue-jsx"</span>];</span><br><span class="line"><span class="comment">// 生产环境移除console</span></span><br><span class="line"><span class="keyword">if</span> (process.env.NODE_ENV === <span class="string">"production"</span>) &#123;</span><br><span class="line">  plugins.push(<span class="string">"transform-remove-console"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  plugins: plugins,</span><br><span class="line">  presets: [<span class="string">"@vue/cli-plugin-babel/preset"</span>],</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="3、打包部署后，生产环境的-console-就全部去掉了"><a href="#3、打包部署后，生产环境的-console-就全部去掉了" class="headerlink" title="3、打包部署后，生产环境的 console 就全部去掉了~"></a>3、打包部署后，生产环境的 console 就全部去掉了~</h4><h3 id="三、图片懒加载"><a href="#三、图片懒加载" class="headerlink" title="三、图片懒加载"></a><strong>三、图片懒加载</strong></h3><h4 id="1、安装依赖"><a href="#1、安装依赖" class="headerlink" title="1、安装依赖"></a>1、安装依赖</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm i vue-lazyload -S</span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>【babel.config.js】配置如下</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> plugins = [<span class="string">"@vue/babel-plugin-transform-vue-jsx"</span>];</span><br><span class="line"><span class="comment">// 生产环境移除console</span></span><br><span class="line"><span class="keyword">if</span> (process.env.NODE_ENV === <span class="string">"production"</span>) &#123;</span><br><span class="line">  plugins.push(<span class="string">"transform-remove-console"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  plugins: plugins,</span><br><span class="line">  presets: [<span class="string">"@vue/cli-plugin-babel/preset"</span>],</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>打包部署后，生产环境的 console 就全部去掉了~</p>
-</blockquote>
-<h3 id="图片懒加载"><a href="#图片懒加载" class="headerlink" title="图片懒加载"></a><strong>图片懒加载</strong></h3><blockquote>
-<p>安装依赖</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm i vue-lazyload -S</span><br></pre></td></tr></table></figure>
+<h4 id="2、main-js-中直接引用"><a href="#2、main-js-中直接引用" class="headerlink" title="2、main.js 中直接引用"></a>2、main.js 中直接引用</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> VueLazyload <span class="keyword">from</span> <span class="string">"vue-lazyload"</span>;</span><br><span class="line"></span><br><span class="line">Vue.use(VueLazyload);</span><br><span class="line"></span><br><span class="line"><span class="comment">// or with options</span></span><br><span class="line">Vue.use(VueLazyload, &#123;</span><br><span class="line">  <span class="comment">//预加载高度</span></span><br><span class="line">  preLoad: <span class="number">1.3</span>,</span><br><span class="line">  <span class="comment">//错误时显示的图片</span></span><br><span class="line">  error: <span class="string">"static/about111.jpg"</span>,</span><br><span class="line">  <span class="comment">//图片加载中显示的图片</span></span><br><span class="line">  loading: <span class="string">"static/img/loading.gif"</span>,</span><br><span class="line">  <span class="comment">//尝试加载次数</span></span><br><span class="line">  attempt: <span class="number">1</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>main.js 中直接引用</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> VueLazyload <span class="keyword">from</span> <span class="string">"vue-lazyload"</span>;</span><br><span class="line"></span><br><span class="line">Vue.use(VueLazyload);</span><br><span class="line"></span><br><span class="line"><span class="comment">// or with options</span></span><br><span class="line">Vue.use(VueLazyload, &#123;</span><br><span class="line">  <span class="comment">//预加载高度</span></span><br><span class="line">  preLoad: <span class="number">1.3</span>,</span><br><span class="line">  <span class="comment">//错误时显示的图片</span></span><br><span class="line">  error: <span class="string">"static/about111.jpg"</span>,</span><br><span class="line">  <span class="comment">//图片加载中显示的图片</span></span><br><span class="line">  loading: <span class="string">"static/img/loading.gif"</span>,</span><br><span class="line">  <span class="comment">//尝试加载次数</span></span><br><span class="line">  attempt: <span class="number">1</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>在组件中使用时，将 img 标签的 src 换成 v-lazy：</p>
-</blockquote>
+<h4 id="3、使用"><a href="#3、使用" class="headerlink" title="3、使用"></a>3、使用</h4><p>在组件中使用时，将 img 标签的 src 换成 v-lazy：</p>
 <ol>
-<li>未使用懒加载前的代码：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;li&gt;&lt;img class&#x3D;&quot;g-img1&quot; src&#x3D;&quot;static&#x2F;1.jpg&quot; alt&#x3D;&quot;&quot; &#x2F;&gt;&lt;&#x2F;li&gt;</span><br></pre></td></tr></table></figure></li>
-<li>使用懒加载后的代码：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;li&gt;&lt;img class&#x3D;&quot;g-img1&quot; v-lazy&#x3D;&quot;&#39;static&#x2F;1.jpg&#39;&quot; alt&#x3D;&quot;&quot; &#x2F;&gt;&lt;&#x2F;li&gt;</span><br></pre></td></tr></table></figure>
+<li>未使用懒加载前的代码：<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"g-img1"</span> <span class="attr">src</span>=<span class="string">"static/1.jpg"</span> <span class="attr">alt</span>=<span class="string">""</span> /&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>使用懒加载后的代码：<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"g-img1"</span> <span class="attr">v-lazy</span>=<span class="string">"'static/1.jpg'"</span> <span class="attr">alt</span>=<span class="string">""</span> /&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 
 </li>
@@ -635,20 +608,6 @@
 
   <div class='content article-entry'>
     
-      
-        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
-        
-          height='64px'
-        ></div>
-      
-    
-      
-        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
-        
-          height='64px'
-        ></div>
-      
-    
   </div>
 </section>
 
@@ -667,10 +626,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-15T17:39:59+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-17T17:55:21+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年7月15日</p>
+    <p>更新于：2020年7月17日</p>
   </a>
 </div>
 
@@ -747,21 +706,24 @@
             
               <a class='prev' href='/2020/06/17/wx%E6%94%AF%E4%BB%98%E5%88%86%E4%BA%AB/'>
                 <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>wx支付分享</p>
-                <p class='content'>wx 支付
-请求后台接口获取 wx 需要数据
+                <p class='content'>
 
-将请求接口得来的数据存到全局变量里面  payData 。
-1234567891011121314151617181920Ajax("post",...</p>
+
+一、wx 支付1、请求后台接口获取 wx 需要数据将请求接口得来的数据存到全局变量里面  payData 。
+1234567891011121314151617181920Ajax("po...</p>
               </a>
             
             
               <a class='next' href='/2020/05/29/%E5%B8%B8%E7%94%A8Markdown%E8%AF%AD%E6%B3%95/'>
                 <p class='title'>常用Markdown语法<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
                 <p class='content'>这篇主要来记录我初步建立 markdown 文章一些基本操作。
+
+
+
 新建page1hexo new page-name
 
 
-一、标题一级标题前面一个#，二级标题前面两个#，以此类推，总共到六级标题，...</p>
+一、标题一级标题前面一个#，二级标题前面两个#，以此类推，总共到六级...</p>
               </a>
             
           </div>
@@ -815,7 +777,7 @@
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Gzip压缩"><span class="toc-text">Gzip压缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#去掉打包后的-console"><span class="toc-text">去掉打包后的 console</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图片懒加载"><span class="toc-text">图片懒加载</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、Gzip压缩"><span class="toc-text">一、Gzip压缩</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、安装插件"><span class="toc-text">1、安装插件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、在vue-config-js中配置"><span class="toc-text">2、在vue.config.js中配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、在服务器的-nginx的http中配置-Gzip"><span class="toc-text">3、在服务器的 nginx的http中配置 Gzip</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、修改后记得执行-nginx-s-reload"><span class="toc-text">4、修改后记得执行 nginx -s reload</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、去掉打包后的-console"><span class="toc-text">二、去掉打包后的 console</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、安裝插件"><span class="toc-text">1、安裝插件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、【babel-config-js】配置如下"><span class="toc-text">2、【babel.config.js】配置如下</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、打包部署后，生产环境的-console-就全部去掉了"><span class="toc-text">3、打包部署后，生产环境的 console 就全部去掉了~</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、图片懒加载"><span class="toc-text">三、图片懒加载</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、安装依赖"><span class="toc-text">1、安装依赖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、main-js-中直接引用"><span class="toc-text">2、main.js 中直接引用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、使用"><span class="toc-text">3、使用</span></a></li></ol></li></ol>
     </div>
   </section>
 
@@ -951,7 +913,7 @@
 
     <script type="text/javascript">
       $(function(){
-        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/BBC19066-E176-47C2-9D22-48C81EE5DF6B.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/B18FCBB3-67FD-48CC-B4F3-457BA145F17A.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/00E0F0ED-9F1C-407A-9AA6-545649D919F4.jpeg"];
+        var imgs=["https://fech.in/static/images/cover/convert-excel-to-markdown-table.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/B18FCBB3-67FD-48CC-B4F3-457BA145F17A.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/00E0F0ED-9F1C-407A-9AA6-545649D919F4.jpeg", "https://fech.in/static/images/cover/ml01-overview.jpeg", "https://fech.in/static/images/cover/export-excel-use-template.jpeg", "https://fech.in/static/images/cover/2017-1024.jpeg", "https://fech.in/static/images/cover/install-burg-on-ubuntu-manual.jpeg", "https://fech.in/static/images/cover/install-burg-on-ubuntu.jpeg"];
         if ('true' == 'true') {
           function shuffle(arr){
             /*From countercurrent-time*/

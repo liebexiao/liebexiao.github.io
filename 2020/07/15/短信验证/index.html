@@ -489,9 +489,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/' rel="nofollow">
+    <a href='/categories/%E5%B8%B8%E7%94%A8/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>常用工具</p>
+      <p>常用/常用工具</p>
     </a>
   </div>
 
@@ -526,18 +526,18 @@
         <div class="article-entry" itemprop="articleBody">
           
           
-          <blockquote>
+          <p><img src="https://cdn.jsdelivr.net/gh/liebexiao/myImgs/20200717173419.png" alt=""></p>
+<a id="more"></a>
+
+<h4 id="1、html"><a href="#1、html" class="headerlink" title="1、html"></a>1、html</h4><blockquote>
 <p>验证码渲染</p>
 </blockquote>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"get_code"</span> @<span class="attr">click</span>=<span class="string">"getCode"</span>&gt;</span>&#123;&#123;codeDes&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>定义变量</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> isClick = <span class="number">0</span>;<span class="comment">//防连击</span></span><br><span class="line"><span class="keyword">let</span> timeOut = <span class="number">60</span>;</span><br><span class="line">codeDes: <span class="string">'获取验证码'</span>,<span class="comment">//验证码描述</span></span><br><span class="line">codeNum: <span class="number">60</span>,<span class="comment">//验证码时间</span></span><br><span class="line">userphone: <span class="string">''</span>,</span><br><span class="line">usercode: <span class="string">''</span>,</span><br></pre></td></tr></table></figure>
+<h4 id="2、定义变量"><a href="#2、定义变量" class="headerlink" title="2、定义变量"></a>2、定义变量</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> isClick = <span class="number">0</span>;<span class="comment">//防连击</span></span><br><span class="line"><span class="keyword">let</span> timeOut = <span class="number">60</span>;</span><br><span class="line">codeDes: <span class="string">'获取验证码'</span>,<span class="comment">//验证码描述</span></span><br><span class="line">codeNum: <span class="number">60</span>,<span class="comment">//验证码时间</span></span><br><span class="line">userphone: <span class="string">''</span>,</span><br><span class="line">usercode: <span class="string">''</span>,</span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>获取验证码</p>
+<h4 id="3、js"><a href="#3、js" class="headerlink" title="3、js"></a>3、js</h4><blockquote>
+<p> 获取验证码并进行验证</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//点击获取验证码倒计时</span></span><br><span class="line">          getCodeNum() &#123;</span><br><span class="line">              <span class="keyword">let</span> timer = setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">                  <span class="keyword">this</span>.codeNum--;</span><br><span class="line">                  <span class="keyword">if</span> (<span class="keyword">this</span>.codeNum &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">                      <span class="keyword">this</span>.codeDes = <span class="string">"重新获取验证码"</span>;</span><br><span class="line">                      isClick = <span class="number">0</span>;</span><br><span class="line">                      <span class="keyword">this</span>.codeNum = timeOut;</span><br><span class="line">                      clearInterval(timer);</span><br><span class="line">                  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                      <span class="keyword">this</span>.codeDes = <span class="keyword">this</span>.codeNum + <span class="string">"秒"</span>;</span><br><span class="line">                      isClick = <span class="number">1</span>;</span><br><span class="line">                  &#125;</span><br><span class="line">              &#125;, <span class="number">1000</span>);</span><br><span class="line">          &#125;,</span><br><span class="line"></span><br><span class="line">          <span class="comment">//获取验证码</span></span><br><span class="line">          getCode() &#123;</span><br><span class="line">              <span class="keyword">if</span> (<span class="keyword">this</span>.userphone == <span class="string">''</span>) &#123;</span><br><span class="line">                  vant.Toast(<span class="string">'手机号不能为空！'</span>);</span><br><span class="line">              &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                  <span class="keyword">if</span> (isClick == <span class="number">0</span>) &#123;</span><br><span class="line">                      isClick = <span class="number">1</span>;</span><br><span class="line">                      <span class="keyword">this</span>.getCodeNum();</span><br><span class="line">                      <span class="keyword">let</span> obj = &#123;</span><br><span class="line">                          mobile: <span class="keyword">this</span>.userphone,</span><br><span class="line">                          action: <span class="string">"send_code"</span>,</span><br><span class="line">                      &#125;</span><br><span class="line">                      Ajax(<span class="string">'get'</span>, <span class="string">'/api'</span>, obj).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">                          isClick = <span class="number">0</span>;</span><br><span class="line">                      &#125;)</span><br><span class="line">                  &#125;</span><br><span class="line"></span><br><span class="line">              &#125;</span><br><span class="line">          &#125;,</span><br><span class="line"></span><br><span class="line">          <span class="comment">//确认</span></span><br><span class="line">          addNewUser() &#123;</span><br><span class="line">              <span class="keyword">if</span> (<span class="keyword">this</span>.userphone == <span class="string">''</span>) &#123;</span><br><span class="line">                  vant.Toast(<span class="string">'手机号不能为空！'</span>);</span><br><span class="line">              &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">this</span>.usercode == <span class="string">''</span>) &#123;</span><br><span class="line">                  vant.Toast(<span class="string">'验证码不能为空！'</span>);</span><br><span class="line">              &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                  <span class="keyword">let</span> obj = &#123;</span><br><span class="line">                      mobile: <span class="keyword">this</span>.userphone,</span><br><span class="line">                      action: <span class="string">'check_code'</span>,</span><br><span class="line">                      code: <span class="keyword">this</span>.usercode,</span><br><span class="line">                  &#125;</span><br><span class="line">                  Ajax(<span class="string">'get'</span>, <span class="string">'/api'</span>, obj).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">                  &#125;)</span><br><span class="line">              &#125;</span><br><span class="line"></span><br><span class="line">          &#125;,</span><br></pre></td></tr></table></figure>
 
@@ -595,20 +595,6 @@
 
   <div class='content article-entry'>
     
-      
-        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
-        
-          height='64px'
-        ></div>
-      
-    
-      
-        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
-        
-          height='64px'
-        ></div>
-      
-    
   </div>
 </section>
 
@@ -627,10 +613,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-15T10:47:26+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-17T18:01:18+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年7月15日</p>
+    <p>更新于：2020年7月17日</p>
   </a>
 </div>
 
@@ -708,27 +694,18 @@
               <a class='prev' href='/2020/07/15/%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E5%99%A8/'>
                 <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>视频播放器</p>
                 <p class='content'>
-样例展示
 
 
-渲染
-区分 ios 与 Android
-
-12345678910111213141516171819202122232425262728293031323334353637&lt...</p>
+一、渲染1、区分 ios 与 Android12345678910111213141516171819202122232425262728293031323334353637&lt;div...</p>
               </a>
             
             
               <a class='next' href='/2020/07/14/%E6%8B%96%E6%8B%BD%E6%8E%92%E5%BA%8F/'>
                 <p class='title'>拖拽排序<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>基础使用
-安装引用
-
-1cnpm install awe-dnd --save
+                <p class='content'>
 
 
-使用
-
-123在main.js中全局引用;import VueDND from "awe-dnd";Vue.u...</p>
+安装引用12345cnpm install awe-dnd --save//在main.js中全局引用;import VueDND from "awe-dnd";Vue.use(VueDN...</p>
               </a>
             
           </div>
@@ -771,6 +748,20 @@
     
 
 
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、html"><span class="toc-text">1、html</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、定义变量"><span class="toc-text">2、定义变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、js"><span class="toc-text">3、js</span></a></li></ol>
+    </div>
+  </section>
 
 
   
@@ -904,7 +895,7 @@
 
     <script type="text/javascript">
       $(function(){
-        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/BBC19066-E176-47C2-9D22-48C81EE5DF6B.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/B18FCBB3-67FD-48CC-B4F3-457BA145F17A.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/00E0F0ED-9F1C-407A-9AA6-545649D919F4.jpeg"];
+        var imgs=["https://fech.in/static/images/cover/convert-excel-to-markdown-table.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/B18FCBB3-67FD-48CC-B4F3-457BA145F17A.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/00E0F0ED-9F1C-407A-9AA6-545649D919F4.jpeg", "https://fech.in/static/images/cover/ml01-overview.jpeg", "https://fech.in/static/images/cover/export-excel-use-template.jpeg", "https://fech.in/static/images/cover/2017-1024.jpeg", "https://fech.in/static/images/cover/install-burg-on-ubuntu-manual.jpeg", "https://fech.in/static/images/cover/install-burg-on-ubuntu.jpeg"];
         if ('true' == 'true') {
           function shuffle(arr){
             /*From countercurrent-time*/

@@ -463,6 +463,8 @@
         
           
         
+          
+        
       
     
     
@@ -507,9 +509,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/' rel="nofollow">
+    <a href='/categories/%E5%B8%B8%E7%94%A8/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>常用方法</p>
+      <p>常用/常用方法</p>
     </a>
   </div>
 
@@ -531,7 +533,7 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：444字</p>
+      <p>字数：447字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -592,64 +594,159 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="解析动态json数据"><a href="#解析动态json数据" class="headerlink" title="解析动态json数据"></a><strong>解析动态json数据</strong></h3><p><img src="https://s1.ax1x.com/2020/07/17/UsYa5Q.png" alt="UsYa5Q.png"></p>
-<h4 id="1、取出key和value的值。再封装到一个数组里面。"><a href="#1、取出key和value的值。再封装到一个数组里面。" class="headerlink" title="*1、取出key和value的值。再封装到一个数组里面。 *"></a>*<em>1、取出key和value的值。再封装到一个数组里面。 *</em></h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> userData = res.data.data;</span><br><span class="line"><span class="keyword">let</span> userArray=[];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> [key, value] <span class="keyword">of</span> <span class="built_in">Object</span>.entries(userData)) &#123;</span><br><span class="line">  userArray.push(&#123;<span class="string">"时间"</span>:key,<span class="string">"人数"</span>:value&#125;);</span><br><span class="line">  <span class="built_in">console</span>.log(userArray)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="2、只取key值"><a href="#2、只取key值" class="headerlink" title="2、只取key值"></a><strong>2、只取key值</strong></h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">of</span> <span class="built_in">Object</span>.keys(obj)) &#123;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="3、只取value值"><a href="#3、只取value值" class="headerlink" title="3、只取value值"></a><strong>3、只取value值</strong></h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> value <span class="keyword">of</span> <span class="built_in">Object</span>.values(obj)) &#123;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="vue"><a href="#vue" class="headerlink" title="vue"></a><strong>vue</strong></h3><h4 id="1、设置当前页面color"><a href="#1、设置当前页面color" class="headerlink" title="1、设置当前页面color"></a><strong>1、设置当前页面color</strong></h4><blockquote>
-<p>在mounted 里面写：</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'body'</span>).setAttribute(<span class="string">'style'</span>, <span class="string">'background-color:#fff'</span>)</span><br></pre></td></tr></table></figure>
-
-<h4 id="2、判断页面是否存在上层路由"><a href="#2、判断页面是否存在上层路由" class="headerlink" title="2、判断页面是否存在上层路由"></a><strong>2、判断页面是否存在上层路由</strong></h4><blockquote>
-<p>不存在：window.history.length &lt;= 1</p>
-</blockquote>
-<blockquote>
-<p>返回上层路由：this.$router.go(-1)</p>
-</blockquote>
-<h3 id="js"><a href="#js" class="headerlink" title="js"></a><strong>js</strong></h3><h4 id="1、屏幕可用区域高宽"><a href="#1、屏幕可用区域高宽" class="headerlink" title="1、屏幕可用区域高宽"></a><strong>1、屏幕可用区域高宽</strong></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">window.screen.availWidth</span><br><span class="line">window.screen.availHeight</span><br></pre></td></tr></table></figure>
-
-<h4 id="2、判断ios"><a href="#2、判断ios" class="headerlink" title="2、判断ios"></a>2、判断ios</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> u = navigator.userAgent;</span><br><span class="line">isiOS: !!u.match(<span class="regexp">/\(i[^;]+;( U;)? CPU.+Mac OS X/</span>), <span class="comment">// ios终端</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="3、替换字符串"><a href="#3、替换字符串" class="headerlink" title="3、替换字符串"></a>3、替换字符串</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//替换第一个字符串</span></span><br><span class="line">replace(<span class="string">'http'</span>, <span class="string">'https'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//替换所有</span></span><br><span class="line">replace(<span class="regexp">/http/g</span>, <span class="string">'https'</span>);</span><br></pre></td></tr></table></figure>
-
-<h4 id="4、判断是否是数字还是字符串"><a href="#4、判断是否是数字还是字符串" class="headerlink" title="4、判断是否是数字还是字符串"></a>4、判断是否是数字还是字符串</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a=<span class="string">'1234'</span>;</span><br><span class="line"><span class="keyword">typeof</span>(a); <span class="comment">//number</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> b=<span class="string">'aasfgfgh'</span>;</span><br><span class="line"><span class="keyword">typeof</span>(b); <span class="comment">//string</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="5、取整"><a href="#5、取整" class="headerlink" title="5、取整"></a>5、取整</h4><h5 id="1、只保留整数部分"><a href="#1、只保留整数部分" class="headerlink" title="1、只保留整数部分"></a>1、只保留整数部分</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">parseInt</span>(<span class="number">5.1234</span>);      <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="2、向下取整-（效果等同于parseInt）"><a href="#2、向下取整-（效果等同于parseInt）" class="headerlink" title="2、向下取整 （效果等同于parseInt）"></a>2、向下取整 （效果等同于parseInt）</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Math</span>.floor(<span class="number">5.1234</span>);     <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="3、向上取整-（有小数，整数部分-1）"><a href="#3、向上取整-（有小数，整数部分-1）" class="headerlink" title="3、向上取整 （有小数，整数部分+1）"></a>3、向上取整 （有小数，整数部分+1）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Math.ceil(5.1234);     &#x2F;&#x2F; 6</span><br></pre></td></tr></table></figure>
-
-<h5 id="4、四舍五入"><a href="#4、四舍五入" class="headerlink" title="4、四舍五入"></a>4、四舍五入</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Math.round(5.1234);      &#x2F;&#x2F; 5</span><br><span class="line">Math.round(5.6789);     &#x2F;&#x2F; 6</span><br></pre></td></tr></table></figure>
-
-<h5 id="5、绝对值"><a href="#5、绝对值" class="headerlink" title="5、绝对值"></a>5、绝对值</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Math.abs(-1);      &#x2F;&#x2F; 1</span><br></pre></td></tr></table></figure>
-
-<h5 id="6、返回两数中的较大者"><a href="#6、返回两数中的较大者" class="headerlink" title="6、返回两数中的较大者"></a>6、返回两数中的较大者</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Math.max(1,2);     &#x2F;&#x2F; 2</span><br></pre></td></tr></table></figure>
-
-<h5 id="7、返回两数中的较小者"><a href="#7、返回两数中的较小者" class="headerlink" title="7、返回两数中的较小者"></a>7、返回两数中的较小者</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Math.min(1,2);    &#x2F;&#x2F; 1</span><br></pre></td></tr></table></figure>
-
-<h5 id="8、随机数"><a href="#8、随机数" class="headerlink" title="8、随机数"></a>8、随机数</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Math.random();</span><br></pre></td></tr></table></figure>
-
-<h4 id="6、拷贝"><a href="#6、拷贝" class="headerlink" title="6、拷贝"></a>6、拷贝</h4><h5 id="1、浅拷贝"><a href="#1、浅拷贝" class="headerlink" title="1、浅拷贝"></a>1、浅拷贝</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="keyword">let</span> b=a;</span><br><span class="line">b.push(<span class="number">4</span>);</span><br><span class="line"><span class="comment">//这时输出a的值为[1,2,3,4];  b的值也是[1,2,3,4]</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="2、深拷贝"><a href="#2、深拷贝" class="headerlink" title="2、深拷贝"></a>2、深拷贝</h5><blockquote>
-<p>方法一</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="keyword">let</span> b=a.concat();</span><br><span class="line">b.push(<span class="number">4</span>);</span><br><span class="line"><span class="comment">//此时 a的值为[1, 2, 3]，b的值为[1,2,3,4]</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>方法二</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="keyword">let</span> b=<span class="built_in">Object</span>.assign(&#123;&#125;, a);</span><br><span class="line">b.push(<span class="number">4</span>);</span><br><span class="line"><span class="comment">//此时 a的值为[1, 2, 3]，b的值为[1,2,3,4]</span></span><br></pre></td></tr></table></figure>
-
-
+        <p><img src="https://s1.ax1x.com/2020/07/17/Uyyv36.jpg" alt=""></p>
       
     </div>
     
+      
+        <div class="button readmore">
+          <a href="/2020/07/17/%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B9-js/">
+            阅读全文 <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/2020/07/16/%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E5%9F%9F%E5%90%8D/">
+      使用阿里云服务器配置域名
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="" rel="nofollow">
+    <img no-lazy src="https://s1.ax1x.com/2020/07/17/Us4aoF.jpg">
+    <p>晓晓</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/%E9%98%BF%E9%87%8C%E4%BA%91/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>阿里云</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年7月16日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  <div class="new-meta-item wordcount">
+    <a class='notlink'>
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：176字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class='notlink'>
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：1分钟</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
+  <div class="new-meta-item browse valine">
+    <a class='notlink'>
+      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+      
+      <span id="/2020/07/16/%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E5%9F%9F%E5%90%8D/" class="leancloud_visitors" data-flag-title="使用阿里云服务器配置域名">
+      <p>
+        <span class="leancloud-visitors-count"></span>
+      </p>
+      </span>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
+<div class="new-meta-item comments-count">
+  
+  <a href="/2020/07/16/%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E5%9F%9F%E5%90%8D/#comments">
+    <i class="fas fa-comment-dots fa-fw"></i>
+    <span class="valine-comment-count" data-xid="/2020/07/16/%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E5%9F%9F%E5%90%8D/">0</span>
+    <span class="leancloud-comments-count">&nbsp;</span>
+  </a>
+</div>
+
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://cdn.jsdelivr.net/gh/liebexiao/myImgs/20200717172235.png" alt=""></p>
+      
+    </div>
+    
+      
+        <div class="button readmore">
+          <a href="/2020/07/16/%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E5%9F%9F%E5%90%8D/">
+            阅读全文 <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
       
     
   </section>
@@ -698,9 +795,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/' rel="nofollow">
+    <a href='/categories/%E5%B8%B8%E7%94%A8/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>常用方法</p>
+      <p>常用/常用方法</p>
     </a>
   </div>
 
@@ -722,7 +819,7 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：983字</p>
+      <p>字数：994字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -783,85 +880,16 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="点击复制文本"><a href="#点击复制文本" class="headerlink" title="点击复制文本"></a><strong>点击复制文本</strong></h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> httpUrl = <span class="keyword">this</span>.herfAddress; <span class="comment">//此处为需要被复制的文本</span></span><br><span class="line"><span class="keyword">let</span> oInput = <span class="built_in">document</span>.createElement(<span class="string">"input"</span>);</span><br><span class="line">oInput.value = httpUrl;</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(oInput);</span><br><span class="line">oInput.select(); <span class="comment">// 选择对象</span></span><br><span class="line"><span class="built_in">document</span>.execCommand(<span class="string">"Copy"</span>); <span class="comment">// 执行浏览器复制命令</span></span><br><span class="line">oInput.className = <span class="string">"oInput"</span>;</span><br><span class="line">oInput.style.display = <span class="string">"none"</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"链接复制成功"</span>);</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="禁止微信用户修改字体大小"><a href="#禁止微信用户修改字体大小" class="headerlink" title="禁止微信用户修改字体大小"></a><strong>禁止微信用户修改字体大小</strong></h3><p>微信 webview 内置了调整字体大小的功能，用户可以根据实际情况进行调整。</p>
-<blockquote>
-<p>1、android 手机</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">       (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">           <span class="keyword">if</span> (<span class="keyword">typeof</span> WeixinJSBridge == <span class="string">"object"</span> &amp;&amp; <span class="keyword">typeof</span> WeixinJSBridge.invoke == <span class="string">"function"</span>) &#123;</span><br><span class="line">               handleFontSize();</span><br><span class="line">           &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">               <span class="keyword">if</span> (<span class="built_in">document</span>.addEventListener) &#123;</span><br><span class="line">                   <span class="built_in">document</span>.addEventListener(<span class="string">"WeixinJSBridgeReady"</span>, handleFontSize, <span class="literal">false</span>);</span><br><span class="line">               &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">document</span>.attachEvent) &#123;</span><br><span class="line">                   <span class="built_in">document</span>.attachEvent(<span class="string">"WeixinJSBridgeReady"</span>, handleFontSize);</span><br><span class="line">                   <span class="built_in">document</span>.attachEvent(<span class="string">"onWeixinJSBridgeReady"</span>, handleFontSize);  &#125;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="function"><span class="keyword">function</span> <span class="title">handleFontSize</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">               <span class="comment">// 设置网页字体为默认大小</span></span><br><span class="line">               WeixinJSBridge.invoke(<span class="string">'setFontSizeCallback'</span>, &#123; <span class="string">'fontSize'</span> : <span class="number">0</span> &#125;);</span><br><span class="line">               <span class="comment">// 重写设置网页字体大小的事件</span></span><br><span class="line">               WeixinJSBridge.on(<span class="string">'menu:setfont'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                   WeixinJSBridge.invoke(<span class="string">'setFontSizeCallback'</span>, &#123; <span class="string">'fontSize'</span> : <span class="number">0</span> &#125;);</span><br><span class="line">               &#125;);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;)();</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>2、IOS</p>
-</blockquote>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="comment">/* IOS禁止微信调整字体大小 */</span></span><br><span class="line">  <span class="attribute">-webkit-text-size-adjust</span>: <span class="number">100%</span> <span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">text-size-adjust</span>: <span class="number">100%</span> <span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">-moz-text-size-adjust</span>: <span class="number">100%</span> <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="px-与-rem-换算"><a href="#px-与-rem-换算" class="headerlink" title="px 与 rem 换算"></a><strong>px 与 rem 换算</strong></h3><p>rem 是根据 iPhone6 换算的，根据设计出的 px 尺寸除以 100 带上 rem 单位即可，平常 14px 换算成 rem 是 0.28rem</p>
-<blockquote>
-<p>1、在 style.js 里面引用</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//rem换算</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">doc, win</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> docEl = doc.documentElement,</span><br><span class="line">    resizeEvt = <span class="string">"orientationchange"</span> <span class="keyword">in</span> <span class="built_in">window</span> ? <span class="string">"orientationchange"</span> : <span class="string">"resize"</span>,</span><br><span class="line">    recalc = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> clientWidth = docEl.clientWidth;</span><br><span class="line">      <span class="keyword">if</span> (!clientWidth) <span class="keyword">return</span>;</span><br><span class="line">      <span class="keyword">if</span> (clientWidth &gt;= <span class="number">750</span>) &#123;</span><br><span class="line">        docEl.style.fontSize = <span class="string">"100px"</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        docEl.style.fontSize = <span class="number">100</span> * (clientWidth / <span class="number">750</span>) + <span class="string">"px"</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">  <span class="keyword">if</span> (!doc.addEventListener) <span class="keyword">return</span>;</span><br><span class="line">  win.addEventListener(resizeEvt, recalc, <span class="literal">false</span>);</span><br><span class="line">  doc.addEventListener(<span class="string">"DOMContentLoaded"</span>, recalc, <span class="literal">false</span>);</span><br><span class="line">&#125;)(<span class="built_in">document</span>, <span class="built_in">window</span>);</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>2、在 style.css 里面</p>
-</blockquote>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">line-height</span>: initial;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>返回上层路由：</p>
-<h4 id="获取参数"><a href="#获取参数" class="headerlink" title="获取参数"></a><strong>获取参数</strong></h4><h5 id="原生"><a href="#原生" class="headerlink" title="原生"></a><strong>原生</strong></h5><blockquote>
-<p>1、定义方法</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">GetQueryString</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"(^|&amp;)"</span> + name + <span class="string">"=([^&amp;]*)(&amp;|$)"</span>);</span><br><span class="line">  <span class="keyword">var</span> r = <span class="built_in">window</span>.location.search.substr(<span class="number">1</span>).match(reg);</span><br><span class="line">  <span class="keyword">if</span> (r != <span class="literal">null</span>) <span class="keyword">return</span> <span class="built_in">unescape</span>(r[<span class="number">2</span>]);</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>2、使用</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a=GetQueryString(<span class="string">"name"</span>)；</span><br></pre></td></tr></table></figure>
-
-<h5 id="vue"><a href="#vue" class="headerlink" title="vue"></a><strong>vue</strong></h5><blockquote>
-<p>1、跳转页面并传参</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$router.push(&#123;</span><br><span class="line">    path: <span class="string">'/PC/wish/fill/collegesPriority'</span>,</span><br><span class="line">    query: &#123;</span><br><span class="line">        filltype: <span class="string">''</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>2、取参</p>
-</blockquote>
-<p>其中 ‘filltype’ 为链接参数。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$route.query.filltype</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="修改参数"><a href="#修改参数" class="headerlink" title="修改参数"></a><strong>修改参数</strong></h4><h5 id="修改链接及参数"><a href="#修改链接及参数" class="headerlink" title="修改链接及参数"></a><strong>修改链接及参数</strong></h5><p>*<em>/m/m_url_example *</em>是相对链接，</p>
-<p>此方法是直接替换域名后面的链接。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">history.replaceState(&#123;&#125;,&#39;&#39;, &#39;&#x2F;m&#x2F;m_url_example&#39;);</span><br></pre></td></tr></table></figure>
-
-<h5 id="添加参数"><a href="#添加参数" class="headerlink" title="添加参数"></a><strong>添加参数</strong></h5><blockquote>
-<p>1、定义方法</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">changeURLArg</span>(<span class="params">url, arg, arg_val</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> pattern = arg + <span class="string">"=([^&amp;]*)"</span>;</span><br><span class="line">  <span class="keyword">var</span> replaceText = arg + <span class="string">"="</span> + arg_val;</span><br><span class="line">  <span class="keyword">if</span> (url.match(pattern)) &#123;</span><br><span class="line">    <span class="keyword">var</span> tmp = <span class="string">"/("</span> + arg + <span class="string">"=)([^&amp;]*)/gi"</span>;</span><br><span class="line">    tmp = url.replace(<span class="built_in">eval</span>(tmp), replaceText);</span><br><span class="line">    <span class="keyword">return</span> tmp;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (url.match(<span class="string">"[?]"</span>)) &#123;</span><br><span class="line">      <span class="keyword">return</span> url + <span class="string">"&amp;"</span> + replaceText;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> url + <span class="string">"?"</span> + replaceText;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>2、使用</p>
-</blockquote>
-<p>此方法是在当前链接后面追加参数 ，“name” 为参数名，“123” 为值。</p>
-<p>若连接上没有“name”参数，则会添加这个参数并赋值，若链接本就有这个参数，则会将值替换为“123”。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.location.href = changeURLArg(<span class="built_in">window</span>.location.href, <span class="string">"name"</span>, <span class="number">123</span>);</span><br></pre></td></tr></table></figure>
-
-<h3 id="时间转化"><a href="#时间转化" class="headerlink" title="时间转化"></a><strong>时间转化</strong></h3><blockquote>
-<p>获取当前整形时间戳</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">parseInt</span>(<span class="keyword">new</span> <span class="built_in">Date</span>().getTime())</span><br></pre></td></tr></table></figure>
-
-<h4 id="时间戳转化为时间"><a href="#时间戳转化为时间" class="headerlink" title="时间戳转化为时间"></a><strong>时间戳转化为时间</strong></h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//将时间戳转化为日期</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">timestampToTime</span>(<span class="params">timestamp</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>(timestamp); <span class="comment">//时间戳为10位需*1000，时间戳为13位的话不需乘1000</span></span><br><span class="line">  <span class="keyword">var</span> Y = date.getFullYear() + <span class="string">"-"</span>;</span><br><span class="line">  <span class="keyword">var</span> M =</span><br><span class="line">    (date.getMonth() + <span class="number">1</span> &lt; <span class="number">10</span></span><br><span class="line">      ? <span class="string">"0"</span> + (date.getMonth() + <span class="number">1</span>)</span><br><span class="line">      : date.getMonth() + <span class="number">1</span>) + <span class="string">"-"</span>;</span><br><span class="line">  <span class="keyword">var</span> D = (date.getDate() &lt; <span class="number">10</span> ? <span class="string">"0"</span> + date.getDate() : date.getDate()) + <span class="string">" "</span>;</span><br><span class="line">  <span class="keyword">var</span> h =</span><br><span class="line">    (date.getHours() &lt; <span class="number">10</span> ? <span class="string">"0"</span> + date.getHours() : date.getHours()) + <span class="string">":"</span>;</span><br><span class="line">  <span class="keyword">var</span> m =</span><br><span class="line">    (date.getMinutes() &lt; <span class="number">10</span> ? <span class="string">"0"</span> + date.getMinutes() : date.getMinutes()) +</span><br><span class="line">    <span class="string">":"</span>;</span><br><span class="line">  <span class="keyword">var</span> s = date.getSeconds() &lt; <span class="number">10</span> ? <span class="string">"0"</span> + date.getSeconds() : date.getSeconds();</span><br><span class="line">  <span class="keyword">return</span> Y + M + D + h + m + s;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="计算两个时间相差日期"><a href="#计算两个时间相差日期" class="headerlink" title="计算两个时间相差日期"></a><strong>计算两个时间相差日期</strong></h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//startData,endData均为时间戳</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">timesDiffer</span>(<span class="params">startData, endData</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> date1 = startData; <span class="comment">//开始时间</span></span><br><span class="line">  <span class="keyword">var</span> date2 = endData; <span class="comment">//结束时间</span></span><br><span class="line">  <span class="keyword">var</span> date3 = <span class="built_in">parseInt</span>(date2) - <span class="built_in">parseInt</span>(date1); <span class="comment">//时间差的毫秒数</span></span><br><span class="line">  <span class="comment">//计算出相差天数</span></span><br><span class="line">  <span class="keyword">var</span> days = <span class="built_in">Math</span>.floor(date3 / (<span class="number">24</span> * <span class="number">3600</span> * <span class="number">1000</span>));</span><br><span class="line">  <span class="comment">//计算出小时数</span></span><br><span class="line">  <span class="keyword">var</span> leave1 = date3 % (<span class="number">24</span> * <span class="number">3600</span> * <span class="number">1000</span>); <span class="comment">//计算天数后剩余的毫秒数</span></span><br><span class="line">  <span class="keyword">var</span> hours = <span class="built_in">Math</span>.floor(leave1 / (<span class="number">3600</span> * <span class="number">1000</span>));</span><br><span class="line">  <span class="comment">//计算相差分钟数</span></span><br><span class="line">  <span class="keyword">var</span> leave2 = leave1 % (<span class="number">3600</span> * <span class="number">1000</span>); <span class="comment">//计算小时数后剩余的毫秒数</span></span><br><span class="line">  <span class="keyword">var</span> minutes = <span class="built_in">Math</span>.floor(leave2 / (<span class="number">60</span> * <span class="number">1000</span>));</span><br><span class="line"></span><br><span class="line">  <span class="comment">//计算相差秒数</span></span><br><span class="line">  <span class="keyword">var</span> leave3 = leave2 % (<span class="number">60</span> * <span class="number">1000</span>); <span class="comment">//计算分钟数后剩余的毫秒数</span></span><br><span class="line">  <span class="keyword">var</span> seconds = <span class="built_in">Math</span>.round(leave3 / <span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (hours &lt;= <span class="number">0</span> &amp;&amp; minutes &lt;= <span class="number">0</span> &amp;&amp; seconds &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="comment">//时间小于0s的操作</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    hours = hours &lt; <span class="number">10</span> ? <span class="string">"0"</span> + hours : hours;</span><br><span class="line">    minutes = minutes &lt; <span class="number">10</span> ? <span class="string">"0"</span> + minutes : minutes;</span><br><span class="line">    seconds = seconds &lt; <span class="number">10</span> ? <span class="string">"0"</span> + seconds : seconds;</span><br><span class="line">    <span class="keyword">return</span> hours + <span class="string">":"</span> + minutes + <span class="string">":"</span> + seconds;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
+        <p><img src="https://cdn.jsdelivr.net/gh/liebexiao/myImgs/20200717173139.jpg" alt=""></p>
       
     </div>
     
+      
+        <div class="button readmore">
+          <a href="/2020/07/15/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95-js/">
+            阅读全文 <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
       
     
   </section>
@@ -910,9 +938,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/' rel="nofollow">
+    <a href='/categories/%E5%B8%B8%E7%94%A8/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>常用工具</p>
+      <p>常用/常用工具</p>
     </a>
   </div>
 
@@ -934,7 +962,7 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：251字</p>
+      <p>字数：264字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -995,29 +1023,16 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<p>定义变量</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">allLIst:[],<span class="comment">//列表数据</span></span><br><span class="line">page:<span class="number">0</span>,</span><br><span class="line">loadNextPage:<span class="literal">true</span>,<span class="comment">//是否请求下一页</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>在 mounted 里面监听分页滚动条</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//分页监听滚动条</span></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"scroll"</span>, <span class="keyword">this</span>.handleScroll);</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>在 methods 里面写 handleScroll 方法</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//分页——滚动条触碰到底部</span></span><br><span class="line">handleScroll() &#123;</span><br><span class="line">    <span class="keyword">let</span> scrollTop = <span class="built_in">document</span>.documentElement.scrollTop || <span class="built_in">document</span>.body.scrollTop;</span><br><span class="line">    <span class="comment">//判断 如果文档的距离减200小于  屏幕可视距离  加上  滚动条距离顶部的距离，并且 loadNextPage为true ，则page++；</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">document</span>.documentElement.scrollHeight - <span class="number">200</span> &lt; <span class="built_in">document</span>.documentElement.clientHeight + scrollTop) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.loadNextPage) &#123;</span><br><span class="line">            <span class="comment">// console.log("下一页");</span></span><br><span class="line">            <span class="keyword">this</span>.loadNextPage = <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">this</span>.page++;</span><br><span class="line">            <span class="keyword">this</span>.getArticle();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>请求数据列表之后给变量 list 赋值</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//请求数据列表</span></span><br><span class="line">getList() &#123;</span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">page: <span class="keyword">this</span>.page,</span><br><span class="line">size: <span class="number">10</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">this</span>.$http.post(<span class="string">"/api/total/list"</span>, obj).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line"><span class="comment">//分页进入下一页</span></span><br><span class="line"><span class="keyword">let</span> data = res.data.result.data;</span><br><span class="line"><span class="comment">//判断 如果数据个数小于10，不进入下一页，否则loadNextPage设为true进入下一页</span></span><br><span class="line">data.length &lt; <span class="number">10</span> ? <span class="keyword">this</span>.loadNextPage = <span class="literal">false</span> : <span class="keyword">this</span>.loadNextPage = <span class="literal">true</span>;</span><br><span class="line"><span class="comment">//分页连接数组</span></span><br><span class="line"><span class="keyword">this</span>.allList = [...this.allList, ...data];</span><br><span class="line"><span class="comment">// console.log(JSON.stringify(this.allList));</span></span><br><span class="line">&#125;);</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-
+        <p><img src="https://cdn.jsdelivr.net/gh/liebexiao/myImgs/20200717165343.png" alt=""></p>
       
     </div>
     
+      
+        <div class="button readmore">
+          <a href="/2020/07/15/%E4%B8%8B%E6%8B%89%E5%88%86%E9%A1%B5/">
+            阅读全文 <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
       
     
   </section>
@@ -1066,9 +1081,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/' rel="nofollow">
+    <a href='/categories/%E5%B8%B8%E7%94%A8/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>常用工具</p>
+      <p>常用/常用工具</p>
     </a>
   </div>
 
@@ -1151,34 +1166,16 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<p>样例展示</p>
-</blockquote>
-<p><img src="https://s1.ax1x.com/2020/07/15/Ud8tc4.png" alt="播放样式"></p>
-<h3 id="渲染"><a href="#渲染" class="headerlink" title="渲染"></a><strong>渲染</strong></h3><blockquote>
-<p>区分 ios 与 Android</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"video_box wrap"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"video_cont"</span> <span class="attr">v-if</span>=<span class="string">"isiOS"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">video</span></span></span><br><span class="line"><span class="tag">      <span class="attr">id</span>=<span class="string">"video"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">class</span>=<span class="string">"video_box"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">webkit-playsinline</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">x5-playsinline</span>=<span class="string">""</span></span></span><br><span class="line"><span class="tag">      <span class="attr">x5-video-player-type</span>=<span class="string">"h5-page"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">x5-video-player-fullscreen</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">playsinline</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">poster</span>=<span class="string">"http://bendipin.oss-cn-beijing.aliyuncs.com/images/file-1554818270419.png"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">src</span>=<span class="string">"http://video.jishiyoo.com/customerTrans/2d6d4561e207fdc5bae73662f6543bad/1f242163-169fc168513-0005-5026-102-f36a3.mp4"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">preload</span>=<span class="string">"none"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">x-webkit-airplay</span>=<span class="string">"allow"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">x5-video-orientation</span>=<span class="string">"portrait"</span></span></span><br><span class="line"><span class="tag">      @<span class="attr">click</span>=<span class="string">"pauseVideo"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">loop</span>=<span class="string">"loop"</span></span></span><br><span class="line"><span class="tag">    &gt;</span><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"video_cont"</span> <span class="attr">v-if</span>=<span class="string">"!isiOS"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">video</span></span></span><br><span class="line"><span class="tag">      <span class="attr">id</span>=<span class="string">"video"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">class</span>=<span class="string">"video_box"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">webkit-playsinline</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">x5-playsinline</span>=<span class="string">""</span></span></span><br><span class="line"><span class="tag">      <span class="attr">playsinline</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">poster</span>=<span class="string">"http://bendipin.oss-cn-beijing.aliyuncs.com/images/file-1554818270419.png"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">src</span>=<span class="string">"http://video.jishiyoo.com/customerTrans/2d6d4561e207fdc5bae73662f6543bad/1f242163-169fc168513-0005-5026-102-f36a3.mp4"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">preload</span>=<span class="string">"none"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">x-webkit-airplay</span>=<span class="string">"allow"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">x5-video-orientation</span>=<span class="string">"portrait"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">x5-video-player-type</span>=<span class="string">"h5-page"</span></span></span><br><span class="line"><span class="tag">      @<span class="attr">click</span>=<span class="string">"pauseVideo"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">loop</span>=<span class="string">"loop"</span></span></span><br><span class="line"><span class="tag">    &gt;</span><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>在 h5 微信端实现不跳转微信浏览器  ，在 android 有效  x5-video-player-type=”h5-page”</p>
-<h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a><strong>操作</strong></h3><blockquote>
-<p>全局变量</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> u = navigator.userAgent; <span class="comment">//在vue渲染的上面定义</span></span><br><span class="line">isiOS: !!u.match(<span class="regexp">/\(i[^;]+;( U;)? CPU.+Mac OS X/</span>), <span class="comment">// ios终端</span></span><br><span class="line">playOrPause: <span class="literal">false</span>,<span class="comment">//是否正在播放</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>播放控制</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">pauseVideo() &#123; <span class="comment">//暂停\播放</span></span><br><span class="line"><span class="keyword">let</span> video = <span class="built_in">document</span>.getElementById(<span class="string">'video'</span>);</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">this</span>.playOrPause) &#123;</span><br><span class="line">    video.pause();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        video.play();</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">this</span>.playOrPause = !<span class="keyword">this</span>.playOrPause</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>css</p>
-</blockquote>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrap</span> &#123;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">10px</span> <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">z-index</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.video_cont</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#000</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#video</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+        <p><img src="https://s1.ax1x.com/2020/07/15/Ud8tc4.png" alt="播放样式"></p>
       
     </div>
     
+      
+        <div class="button readmore">
+          <a href="/2020/07/15/%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E5%99%A8/">
+            阅读全文 <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
       
     
   </section>
@@ -1251,7 +1248,7 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：1.5k字</p>
+      <p>字数：1.6k字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -1312,52 +1309,16 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="wx-支付"><a href="#wx-支付" class="headerlink" title="wx 支付"></a><strong>wx 支付</strong></h3><blockquote>
-<p>请求后台接口获取 wx 需要数据</p>
-</blockquote>
-<p>将请求接口得来的数据存到全局变量里面  payData 。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Ajax(<span class="string">"post"</span>, <span class="string">"/api"</span>, obj)</span><br><span class="line">  .then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> data = res.data;</span><br><span class="line">    <span class="keyword">this</span>.payData = data;</span><br><span class="line">    <span class="comment">//wx判断支付环境是否可用，若环境准备好接着调用 onBridgeReady()方法</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> WeixinJSBridge == <span class="string">"undefined"</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="built_in">document</span>.addEventListener) &#123;</span><br><span class="line">        <span class="built_in">document</span>.addEventListener(<span class="string">"WeixinJSBridgeReady"</span>, onBridgeReady, <span class="literal">false</span>);</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">document</span>.attachEvent) &#123;</span><br><span class="line">        <span class="built_in">document</span>.attachEvent(<span class="string">"WeixinJSBridgeReady"</span>, onBridgeReady);</span><br><span class="line">        <span class="built_in">document</span>.attachEvent(<span class="string">"onWeixinJSBridgeReady"</span>, onBridgeReady);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">this</span>.onBridgeReady();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(<span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">    alert(e);</span><br><span class="line">    <span class="keyword">this</span>.canSubmit = <span class="literal">true</span>;</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>将后台返回的参数传到 wx</p>
-</blockquote>
-<p>调用 wx 支付方法，将上面请求后台接口返回的参数传给 wx 。在用户支付成功后进行下一步操作。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//微信支付</span></span><br><span class="line">          onBridgeReady() &#123;</span><br><span class="line">              <span class="keyword">let</span> that = <span class="keyword">this</span>;</span><br><span class="line">              WeixinJSBridge.invoke(</span><br><span class="line">                  <span class="string">'getBrandWCPayRequest'</span>, &#123;</span><br><span class="line">                      <span class="string">"appId"</span>: <span class="keyword">this</span>.payData.appId,     <span class="comment">//公众号名称，由商户传入</span></span><br><span class="line">                      <span class="string">"timeStamp"</span>: <span class="keyword">this</span>.payData.timeStamp,         <span class="comment">//时间戳，自1970年以来的秒数</span></span><br><span class="line">                      <span class="string">"nonceStr"</span>: <span class="keyword">this</span>.payData.nonceStr, <span class="comment">//随机串</span></span><br><span class="line">                      <span class="string">"package"</span>: <span class="keyword">this</span>.payData.package,</span><br><span class="line">                      <span class="string">"signType"</span>: <span class="keyword">this</span>.payData.signType,         <span class="comment">//微信签名方式：</span></span><br><span class="line">                      <span class="string">"paySign"</span>: <span class="keyword">this</span>.payData.paySign <span class="comment">//微信签名</span></span><br><span class="line">                  &#125;,</span><br><span class="line">                  <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">                      <span class="keyword">if</span> (res.err_msg == <span class="string">"get_brand_wcpay_request:ok"</span>) &#123;</span><br><span class="line">                          <span class="comment">//支付成功</span></span><br><span class="line">                          <span class="built_in">window</span>.location.href=<span class="string">"/activity"</span>;</span><br><span class="line"></span><br><span class="line">                      &#125;<span class="keyword">else</span> <span class="keyword">if</span> (res.err_msg == <span class="string">"get_brand_wcpay_request:fail"</span>) &#123;</span><br><span class="line">                          <span class="comment">// 使用以上方式判断前端返回,微信团队郑重提示：</span></span><br><span class="line">                          <span class="comment">//res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。</span></span><br><span class="line">                          alert(res.err_msg);</span><br><span class="line">                      &#125;</span><br><span class="line">                  &#125;);</span><br><span class="line">          &#125;,</span><br></pre></td></tr></table></figure>
-
-<h3 id="wx-扫码支付-QRcode-二维码"><a href="#wx-扫码支付-QRcode-二维码" class="headerlink" title="wx 扫码支付-QRcode 二维码"></a><strong>wx 扫码支付-QRcode 二维码</strong></h3><blockquote>
-<p>引入 QRcode</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cnpm install qrcodejs2</span><br><span class="line"><span class="keyword">import</span> QRCode <span class="keyword">from</span> <span class="string">"qrcodejs2"</span>; <span class="comment">// 引入qrcode</span></span><br><span class="line"><span class="keyword">let</span> qrcode;</span><br><span class="line">&lt;div id=<span class="string">"qrcode"</span>&gt;&lt;<span class="regexp">/div&gt;;</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>从接口获取二维码地址 并生成二维码</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">"qrcode"</span>).innerHTML = <span class="string">""</span>;</span><br><span class="line">  qrcode = <span class="keyword">new</span> QRCode(<span class="string">"qrcode"</span>, &#123;</span><br><span class="line">    width: <span class="number">280</span>,</span><br><span class="line">    height: <span class="number">280</span>,</span><br><span class="line">    text: res.data.data, <span class="comment">// 二维码地址</span></span><br><span class="line">    colorDark: <span class="string">"#000"</span>,</span><br><span class="line">    colorLight: <span class="string">"#fff"</span>,</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;, <span class="number">100</span>);</span><br></pre></td></tr></table></figure>
-
-<h3 id="wx-分享"><a href="#wx-分享" class="headerlink" title="wx 分享"></a><strong>wx 分享</strong></h3><blockquote>
-<p>jquery 引入标签</p>
-</blockquote>
-<p>还需要引入   jweixin-1.4.0.js  文件。此文件在 E 盘“引用的文件”js 文件中。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--微信分享--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/js/jweixin-1.4.0.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>vue 在 main.js 中引入</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引入微信分享</span></span><br><span class="line"><span class="keyword">import</span> wx <span class="keyword">from</span> <span class="string">"weixin-js-sdk"</span>;</span><br><span class="line">Vue.use(wx);</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>在 h5.js 里面进行封装</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引入微信分享</span></span><br><span class="line"><span class="keyword">import</span> wx <span class="keyword">from</span> <span class="string">"weixin-js-sdk"</span>;</span><br><span class="line"><span class="comment">//微信分享</span></span><br><span class="line"><span class="keyword">let</span> wxShareIntval;</span><br><span class="line"><span class="keyword">let</span> wxShareIntvalIndex=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> iosEdition = navigator.userAgent;</span><br><span class="line"><span class="keyword">let</span> isIphone = !!iosEdition.match(<span class="regexp">/\(i[^;]+;( U;)? CPU.+Mac OS X/</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//禁止微信分享</span></span><br><span class="line">    prohibitShare() &#123;</span><br><span class="line">        <span class="comment">// 禁止分享</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">typeof</span> WeixinJSBridge == <span class="string">"undefined"</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (<span class="built_in">document</span>.addEventListener) &#123;</span><br><span class="line">                    <span class="built_in">document</span>.addEventListener(<span class="string">'WeixinJSBridgeReady'</span>, <span class="keyword">this</span>.onBridgeReady(), <span class="literal">false</span>);</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">document</span>.attachEvent) &#123;</span><br><span class="line">                    <span class="built_in">document</span>.attachEvent(<span class="string">'WeixinJSBridgeReady'</span>, <span class="keyword">this</span>.onBridgeReady());</span><br><span class="line">                    <span class="built_in">document</span>.attachEvent(<span class="string">'onWeixinJSBridgeReady'</span>, <span class="keyword">this</span>.onBridgeReady());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">this</span>.onBridgeReady();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(e)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">//初始化时屏蔽分享按钮防止点击</span></span><br><span class="line">    onBridgeReady() &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            WeixinJSBridge.call(<span class="string">'hideOptionMenu'</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">//定时器，请求完数据之后才可以进行wx分享</span></span><br><span class="line">    shareTimer(shareObj) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(process.env.NODE_ENV);</span><br><span class="line">        <span class="keyword">if</span> (process.env.NODE_ENV === <span class="string">"development"</span> || !Vue.prototype.isWechat) &#123;</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// wxShareIntval = setInterval(() =&gt; &#123;</span></span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (<span class="built_in">document</span>.readyState == <span class="string">"complete"</span>) &#123; <span class="comment">//当页面加载状态为完全结束时进入</span></span><br><span class="line">                    <span class="keyword">if</span> (<span class="keyword">typeof</span> WeixinJSBridge == <span class="string">"undefined"</span>) &#123;</span><br><span class="line">                        <span class="keyword">if</span> (<span class="built_in">document</span>.addEventListener) &#123;</span><br><span class="line">                            <span class="built_in">document</span>.addEventListener(<span class="string">'WeixinJSBridgeReady'</span>, <span class="keyword">this</span>.getWxShare(shareObj), <span class="literal">false</span>);</span><br><span class="line">                        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">document</span>.attachEvent) &#123;</span><br><span class="line">                            <span class="built_in">document</span>.attachEvent(<span class="string">'WeixinJSBridgeReady'</span>, <span class="keyword">this</span>.getWxShare(shareObj));</span><br><span class="line">                            <span class="built_in">document</span>.attachEvent(<span class="string">'onWeixinJSBridgeReady'</span>, <span class="keyword">this</span>.getWxShare(shareObj));</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="comment">//微信分享配置</span></span><br><span class="line">                        <span class="keyword">this</span>.getWxShare(shareObj);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// wxShareIntvalIndex++;</span></span><br><span class="line">            <span class="comment">// if (wxShareIntvalIndex &gt; 10) &#123;</span></span><br><span class="line">            <span class="comment">//     clearInterval(wxShareIntval);</span></span><br><span class="line">            <span class="comment">// &#125;</span></span><br><span class="line">        <span class="comment">// &#125;, 500)</span></span><br><span class="line">    &#125;,</span><br><span class="line">    getWxShare(shareObj) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> href = location.href.split(<span class="string">'#'</span>)[<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">if</span> (!isIphone) &#123;</span><br><span class="line">                href = location.href.split(<span class="string">'#'</span>)[<span class="number">0</span>].split(<span class="string">'?from'</span>)[<span class="number">0</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">let</span> obj = &#123;</span><br><span class="line">                url: href</span><br><span class="line">            &#125;</span><br><span class="line">            Vue.prototype.$http.get(<span class="string">'/api/user/wx/share'</span>, obj,<span class="string">'hideLoad'</span>).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">                <span class="keyword">let</span> data = res.data;</span><br><span class="line">                setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">                    <span class="keyword">this</span>.wxShare(data, shareObj);</span><br><span class="line">                &#125;, <span class="number">500</span>)</span><br><span class="line">            &#125;).catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    wxShare(data, shareObj) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            wx.config(&#123;</span><br><span class="line">                debug: <span class="literal">false</span>,</span><br><span class="line">                appId: data.data.appId, <span class="comment">// 和获取Ticke的必须一样------必填，公众号的唯一标识</span></span><br><span class="line">                timestamp: data.data.timestamp, <span class="comment">// 必填，生成签名的时间戳</span></span><br><span class="line">                nonceStr: data.data.nonceStr, <span class="comment">// 必填，生成签名的随机串</span></span><br><span class="line">                signature: data.data.signature, <span class="comment">// 必填，签名，见附录1</span></span><br><span class="line">                <span class="comment">//需要分享的列表项:发送给朋友，分享到朋友圈</span></span><br><span class="line">                jsApiList: [<span class="string">"updateTimelineShareData"</span>, <span class="string">"updateAppMessageShareData"</span>, <span class="string">"onMenuShareTimeline"</span>, <span class="string">"onMenuShareAppMessage"</span>, <span class="string">'checkJsApi'</span>, <span class="string">'openLocation'</span>, <span class="string">'getLocation'</span>]</span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="comment">//处理验证失败的信息</span></span><br><span class="line">            wx.error(<span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">                <span class="comment">// alert(JSON.stringify(res));</span></span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// // //微信分享配置</span></span><br><span class="line">            <span class="comment">// if (isIphone) &#123;</span></span><br><span class="line">            <span class="comment">//     shareObj.share_url = encodeURI(shareObj.share_url)</span></span><br><span class="line">            <span class="comment">// &#125;</span></span><br><span class="line">            <span class="comment">//微信分享配置</span></span><br><span class="line">            history.replaceState(&#123;&#125;, shareObj.share_title, shareObj.share_url);</span><br><span class="line">            shareObj.share_url = <span class="built_in">window</span>.location.href;</span><br><span class="line">            wx.ready(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">                WeixinJSBridge.call(<span class="string">'showOptionMenu'</span>);</span><br><span class="line">                clearInterval(wxShareIntval);</span><br><span class="line">                <span class="keyword">if</span> (isIphone) &#123;</span><br><span class="line">                    <span class="comment">//分享到朋友圈</span></span><br><span class="line">                    wx.updateTimelineShareData(&#123;</span><br><span class="line">                        title: shareObj.share_title, <span class="comment">// 分享标题</span></span><br><span class="line">                        desc: shareObj.share_des, <span class="comment">// 分享描述</span></span><br><span class="line">                        link: shareObj.share_url, <span class="comment">// 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致</span></span><br><span class="line">                        imgUrl: shareObj.share_img, <span class="comment">// 分享图标</span></span><br><span class="line">                        success: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">                            <span class="comment">// 用户确认分享后执行的回调函数</span></span><br><span class="line"><span class="comment">//                            showTips("成功分享朋友圈")</span></span><br><span class="line">                        &#125;,</span><br><span class="line">                        cancel: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">                            <span class="comment">// 用户取消分享后执行的回调函数</span></span><br><span class="line">                            <span class="comment">// showTips("取消分享到朋友圈返回:" + res);</span></span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;);</span><br><span class="line">                    <span class="comment">//分享给朋友</span></span><br><span class="line">                    wx.updateAppMessageShareData(&#123;</span><br><span class="line">                        title: shareObj.share_title, <span class="comment">// 分享标题</span></span><br><span class="line">                        desc: shareObj.share_des, <span class="comment">// 分享描述</span></span><br><span class="line">                        link: shareObj.share_url, <span class="comment">// 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致</span></span><br><span class="line">                        imgUrl: shareObj.share_img, <span class="comment">// 分享图标</span></span><br><span class="line">                        type: <span class="string">""</span>, <span class="comment">// 分享类型,music、video或link，不填默认为link</span></span><br><span class="line">                        dataUrl: <span class="string">""</span>, <span class="comment">// 如果type是music或video，则要提供数据链接，默认为空</span></span><br><span class="line">                        success: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">                            <span class="comment">// 用户确认分享后执行的回调函数</span></span><br><span class="line"><span class="comment">//                            showTips("成功分享给朋友")</span></span><br><span class="line">                        &#125;,</span><br><span class="line">                        cancel: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">                            <span class="comment">// 用户取消分享后执行的回调函数</span></span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">//分享到朋友圈</span></span><br><span class="line">                    wx.onMenuShareTimeline(&#123;</span><br><span class="line">                        title: shareObj.share_title, <span class="comment">// 分享标题</span></span><br><span class="line">                        desc: shareObj.share_des, <span class="comment">// 分享描述</span></span><br><span class="line">                        link: shareObj.share_url, <span class="comment">// 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致</span></span><br><span class="line">                        imgUrl: shareObj.share_img, <span class="comment">// 分享图标</span></span><br><span class="line">                        success: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">                            <span class="comment">// 用户确认分享后执行的回调函数</span></span><br><span class="line"></span><br><span class="line">                        &#125;,</span><br><span class="line">                        cancel: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">                            <span class="comment">// 用户取消分享后执行的回调函数</span></span><br><span class="line">                            <span class="comment">// showTips("取消分享到朋友圈返回:" + res);</span></span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;);</span><br><span class="line">                    <span class="comment">//分享给朋友</span></span><br><span class="line">                    wx.onMenuShareAppMessage(&#123;</span><br><span class="line">                        title: shareObj.share_title, <span class="comment">// 分享标题</span></span><br><span class="line">                        desc: shareObj.share_des, <span class="comment">// 分享描述</span></span><br><span class="line">                        link: shareObj.share_url, <span class="comment">// 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致</span></span><br><span class="line">                        imgUrl: shareObj.share_img, <span class="comment">// 分享图标</span></span><br><span class="line">                        type: <span class="string">""</span>, <span class="comment">// 分享类型,music、video或link，不填默认为link</span></span><br><span class="line">                        dataUrl: <span class="string">""</span>, <span class="comment">// 如果type是music或video，则要提供数据链接，默认为空</span></span><br><span class="line">                        success: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">                            <span class="comment">// 用户确认分享后执行的回调函数</span></span><br><span class="line">                        &#125;,</span><br><span class="line">                        cancel: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">                            <span class="comment">// 用户取消分享后执行的回调函数</span></span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>引用</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">mounted() &#123;</span><br><span class="line">    <span class="comment">//禁止分享</span></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        prohibitShare();</span><br><span class="line">        <span class="keyword">this</span>.shareWx();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">        alert(e);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;,</span><br><span class="line">methods: &#123;</span><br><span class="line">    shareWx() &#123;</span><br><span class="line">        <span class="keyword">let</span> shareObj = &#123;</span><br><span class="line">            share_title: <span class="string">"分享标题"</span>,</span><br><span class="line">            share_des: <span class="string">"分享描述"</span>,</span><br><span class="line">            share_img: <span class="string">'分享图片'</span>,</span><br><span class="line">            share_url: <span class="string">`url`</span></span><br><span class="line">        &#125;</span><br><span class="line">        shareTimer(shareObj)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+        <p><img src="https://s1.ax1x.com/2020/07/17/UyUEO1.jpg" alt=""></p>
       
     </div>
     
+      
+        <div class="button readmore">
+          <a href="/2020/06/17/wx%E6%94%AF%E4%BB%98%E5%88%86%E4%BA%AB/">
+            阅读全文 <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
       
     
   </section>
@@ -1465,19 +1426,24 @@
       <ul class="entry navigation">
         
           <li><a class="flat-box"
-            title="/categories/markdown%E5%9F%BA%E7%A1%80/" href="/categories/markdown%E5%9F%BA%E7%A1%80/"
-            id="categoriesmarkdownE59FBAE7A180"
-            ><div class='name'>markdown基础</div><div class='badge'>(1)</div></a></li>
+            title="/categories/markdown/" href="/categories/markdown/"
+            id="categoriesmarkdown"
+            ><div class='name'>markdown</div><div class='badge'>(1)</div></a></li>
         
           <li><a class="flat-box"
-            title="/categories/vue%E7%BB%84%E4%BB%B6/" href="/categories/vue%E7%BB%84%E4%BB%B6/"
+            title="/categories/vue/" href="/categories/vue/"
+            id="categoriesvue"
+            ><div class='name'>vue</div><div class='badge'>(10)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/vue/%E7%BB%84%E4%BB%B6/" href="/categories/vue/%E7%BB%84%E4%BB%B6/"
             id="categoriesvueE7BB84E4BBB6"
-            ><div class='name'>vue组件</div><div class='badge'>(5)</div></a></li>
+            ><div class='name'>组件</div><div class='badge'>(5)</div></a></li>
         
-          <li><a class="flat-box"
-            title="/categories/vue%E9%85%8D%E7%BD%AE/" href="/categories/vue%E9%85%8D%E7%BD%AE/"
+          <li><a class="flat-box child"
+            title="/categories/vue/%E9%85%8D%E7%BD%AE/" href="/categories/vue/%E9%85%8D%E7%BD%AE/"
             id="categoriesvueE9858DE7BDAE"
-            ><div class='name'>vue配置</div><div class='badge'>(6)</div></a></li>
+            ><div class='name'>配置</div><div class='badge'>(5)</div></a></li>
         
           <li><a class="flat-box"
             title="/categories/wx/" href="/categories/wx/"
@@ -1485,14 +1451,24 @@
             ><div class='name'>wx</div><div class='badge'>(1)</div></a></li>
         
           <li><a class="flat-box"
-            title="/categories/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/" href="/categories/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/"
-            id="categoriesE5B8B8E794A8E5B7A5E585B7"
+            title="/categories/%E5%B8%B8%E7%94%A8/" href="/categories/%E5%B8%B8%E7%94%A8/"
+            id="categoriesE5B8B8E794A8"
+            ><div class='name'>常用</div><div class='badge'>(9)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E5%B8%B8%E7%94%A8/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/" href="/categories/%E5%B8%B8%E7%94%A8/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/"
+            id="categoriesE5B8B8E794A8E5B8B8E794A8E5B7A5E585B7"
             ><div class='name'>常用工具</div><div class='badge'>(5)</div></a></li>
         
-          <li><a class="flat-box"
-            title="/categories/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" href="/categories/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/"
-            id="categoriesE5B8B8E794A8E696B9E6B395"
+          <li><a class="flat-box child"
+            title="/categories/%E5%B8%B8%E7%94%A8/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" href="/categories/%E5%B8%B8%E7%94%A8/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/"
+            id="categoriesE5B8B8E794A8E5B8B8E794A8E696B9E6B395"
             ><div class='name'>常用方法</div><div class='badge'>(4)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E9%98%BF%E9%87%8C%E4%BA%91/" href="/categories/%E9%98%BF%E9%87%8C%E4%BA%91/"
+            id="categoriesE998BFE9878CE4BA91"
+            ><div class='name'>阿里云</div><div class='badge'>(1)</div></a></li>
         
       </ul>
     </div>
@@ -1654,7 +1630,7 @@
 
     <script type="text/javascript">
       $(function(){
-        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/BBC19066-E176-47C2-9D22-48C81EE5DF6B.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/B18FCBB3-67FD-48CC-B4F3-457BA145F17A.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/00E0F0ED-9F1C-407A-9AA6-545649D919F4.jpeg"];
+        var imgs=["https://fech.in/static/images/cover/convert-excel-to-markdown-table.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/B18FCBB3-67FD-48CC-B4F3-457BA145F17A.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/00E0F0ED-9F1C-407A-9AA6-545649D919F4.jpeg", "https://fech.in/static/images/cover/ml01-overview.jpeg", "https://fech.in/static/images/cover/export-excel-use-template.jpeg", "https://fech.in/static/images/cover/2017-1024.jpeg", "https://fech.in/static/images/cover/install-burg-on-ubuntu-manual.jpeg", "https://fech.in/static/images/cover/install-burg-on-ubuntu.jpeg"];
         if ('true' == 'true') {
           function shuffle(arr){
             /*From countercurrent-time*/

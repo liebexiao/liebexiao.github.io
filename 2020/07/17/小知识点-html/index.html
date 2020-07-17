@@ -489,9 +489,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/' rel="nofollow">
+    <a href='/categories/%E5%B8%B8%E7%94%A8/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>常用方法</p>
+      <p>常用/常用方法</p>
     </a>
   </div>
 
@@ -526,7 +526,10 @@
         <div class="article-entry" itemprop="articleBody">
           
           
-          <h4 id="1、点击调出电话拨打页面"><a href="#1、点击调出电话拨打页面" class="headerlink" title="1、点击调出电话拨打页面"></a><strong>1、点击调出电话拨打页面</strong></h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"user_tel"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">:href</span>=<span class="string">"'tel:'+item.user_mobile"</span>&gt;</span>手机号：&#123;&#123;item.user_mobile&#125;&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+          <p><img src="https://s1.ax1x.com/2020/07/17/Uy6vIs.jpg" alt=""></p>
+<a id="more"></a>
+
+<h3 id="1、点击调出电话拨打页面"><a href="#1、点击调出电话拨打页面" class="headerlink" title="1、点击调出电话拨打页面"></a>1、点击调出电话拨打页面</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"user_tel"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">:href</span>=<span class="string">"'tel:'+item.user_mobile"</span>&gt;</span>手机号：&#123;&#123;item.user_mobile&#125;&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="2、input-框输入格式限制"><a href="#2、input-框输入格式限制" class="headerlink" title="2、input 框输入格式限制"></a>2、input 框输入格式限制</h3><h4 id="1、输入框限制小数点后两位"><a href="#1、输入框限制小数点后两位" class="headerlink" title="1、输入框限制小数点后两位"></a>1、输入框限制小数点后两位</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> @<span class="attr">input</span>=<span class="string">"handleInput2"</span> <span class="attr">onkeyup</span>=<span class="string">"value=value.replace(/[^\d.]/g,'')"</span> /&gt;</span> //</span><br><span class="line">通过正则过滤小数点后两位 handleInput2(e) &#123; this.ruleForm.agent_bonus_percent =</span><br><span class="line">(e.match(/^\d*(\.?\d&#123;0,2&#125;)/g)[0]) || null &#125;,</span><br></pre></td></tr></table></figure>
 
@@ -536,15 +539,9 @@
 
 <h3 id="4、字节数限制"><a href="#4、字节数限制" class="headerlink" title="4、字节数限制"></a>4、字节数限制</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">"标题"</span> <span class="attr">prop</span>=<span class="string">"title"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">el-input</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-model</span>=<span class="string">"baseSetForm.title"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:minlength</span>=<span class="string">"10"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:maxlength</span>=<span class="string">"60"</span></span></span><br><span class="line"><span class="tag">  &gt;</span><span class="tag">&lt;/<span class="name">el-input</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"title_tip"</span>&gt;</span></span><br><span class="line">    &#123;&#123;parseInt(baseSetForm.title.replace(/[^\x00-\xff]/g, '01').length/2)&#125;&#125;/30</span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="5、input监听回车事件"><a href="#5、input监听回车事件" class="headerlink" title="5、input监听回车事件"></a>5、input监听回车事件</h3><blockquote>
-<p>普通input框</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"form.name"</span> <span class="attr">placeholder</span>=<span class="string">"昵称"</span> @<span class="attr">keyup.enter</span>=<span class="string">"submit"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="5、input监听回车事件"><a href="#5、input监听回车事件" class="headerlink" title="5、input监听回车事件"></a>5、input监听回车事件</h3><h4 id="1、普通input框"><a href="#1、普通input框" class="headerlink" title="1、普通input框"></a>1、普通input框</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"form.name"</span> <span class="attr">placeholder</span>=<span class="string">"昵称"</span> @<span class="attr">keyup.enter</span>=<span class="string">"submit"</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>element-ui input框</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">el-input</span> <span class="attr">v-model</span>=<span class="string">"form.name"</span> <span class="attr">placeholder</span>=<span class="string">"昵称"</span> @<span class="attr">keyup.enter.native</span>=<span class="string">"submit"</span>&gt;</span><span class="tag">&lt;/<span class="name">el-input</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="2、element-ui-input框"><a href="#2、element-ui-input框" class="headerlink" title="2、element-ui input框"></a>2、element-ui input框</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">el-input</span> <span class="attr">v-model</span>=<span class="string">"form.name"</span> <span class="attr">placeholder</span>=<span class="string">"昵称"</span> @<span class="attr">keyup.enter.native</span>=<span class="string">"submit"</span>&gt;</span><span class="tag">&lt;/<span class="name">el-input</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 
           
@@ -601,20 +598,6 @@
 
   <div class='content article-entry'>
     
-      
-        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
-        
-          height='64px'
-        ></div>
-      
-    
-      
-        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
-        
-          height='64px'
-        ></div>
-      
-    
   </div>
 </section>
 
@@ -633,7 +616,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-17T12:02:52+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-17T18:05:00+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2020年7月17日</p>
@@ -713,16 +696,22 @@
             
               <a class='prev' href='/2020/07/17/%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B9-css/'>
                 <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>小知识点-css</p>
-                <p class='content'>textarea1234/*去掉边框*/border: none;/*去掉拖拉框*/resize: none;
+                <p class='content'>
 
-12&lt;!--表示可见行数6，可见宽度100px，只读--&gt;&lt;t...</p>
+
+1、textarea1234/*去掉边框*/border: none;/*去掉拖拉框*/resize: none;
+
+12&lt;!--表示可见行数6，可见宽度100px，只读--&gt;...</p>
               </a>
             
             
               <a class='next' href='/2020/07/17/%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B9-js/'>
                 <p class='title'>小知识点-js<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>解析动态json数据
-*1、取出key和value的值。再封装到一个数组里面。 *123456let userData = res.data.data;let userArray=[];for ...</p>
+                <p class='content'>
+
+
+一、解析动态json数据
+*1、取出key和value的值。再封装到一个数组里面。 *123456let userData = res.data.data;let userArray=[]...</p>
               </a>
             
           </div>
@@ -776,7 +765,7 @@
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、点击调出电话拨打页面"><span class="toc-text">1、点击调出电话拨打页面</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、input-框输入格式限制"><span class="toc-text">2、input 框输入格式限制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、输入框限制小数点后两位"><span class="toc-text">1、输入框限制小数点后两位</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、input-框纯数字输入"><span class="toc-text">2、input 框纯数字输入</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、下载-pdf"><span class="toc-text">3、下载 pdf</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、字节数限制"><span class="toc-text">4、字节数限制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、input监听回车事件"><span class="toc-text">5、input监听回车事件</span></a>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、点击调出电话拨打页面"><span class="toc-text">1、点击调出电话拨打页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、input-框输入格式限制"><span class="toc-text">2、input 框输入格式限制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、输入框限制小数点后两位"><span class="toc-text">1、输入框限制小数点后两位</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、input-框纯数字输入"><span class="toc-text">2、input 框纯数字输入</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、下载-pdf"><span class="toc-text">3、下载 pdf</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、字节数限制"><span class="toc-text">4、字节数限制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、input监听回车事件"><span class="toc-text">5、input监听回车事件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、普通input框"><span class="toc-text">1、普通input框</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、element-ui-input框"><span class="toc-text">2、element-ui input框</span></a></li></ol></li></ol>
     </div>
   </section>
 
@@ -912,7 +901,7 @@
 
     <script type="text/javascript">
       $(function(){
-        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/BBC19066-E176-47C2-9D22-48C81EE5DF6B.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/B18FCBB3-67FD-48CC-B4F3-457BA145F17A.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/00E0F0ED-9F1C-407A-9AA6-545649D919F4.jpeg"];
+        var imgs=["https://fech.in/static/images/cover/convert-excel-to-markdown-table.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/B18FCBB3-67FD-48CC-B4F3-457BA145F17A.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/00E0F0ED-9F1C-407A-9AA6-545649D919F4.jpeg", "https://fech.in/static/images/cover/ml01-overview.jpeg", "https://fech.in/static/images/cover/export-excel-use-template.jpeg", "https://fech.in/static/images/cover/2017-1024.jpeg", "https://fech.in/static/images/cover/install-burg-on-ubuntu-manual.jpeg", "https://fech.in/static/images/cover/install-burg-on-ubuntu.jpeg"];
         if ('true' == 'true') {
           function shuffle(arr){
             /*From countercurrent-time*/

@@ -489,9 +489,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/' rel="nofollow">
+    <a href='/categories/%E5%B8%B8%E7%94%A8/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>常用方法</p>
+      <p>常用/常用方法</p>
     </a>
   </div>
 
@@ -526,9 +526,51 @@
         <div class="article-entry" itemprop="articleBody">
           
           
-          <h3 id="textarea"><a href="#textarea" class="headerlink" title="textarea"></a>textarea</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*去掉边框*/</span></span><br><span class="line"><span class="selector-tag">border</span>: <span class="selector-tag">none</span>;</span><br><span class="line"><span class="comment">/*去掉拖拉框*/</span></span><br><span class="line"><span class="selector-tag">resize</span>: <span class="selector-tag">none</span>;</span><br></pre></td></tr></table></figure>
+          <p><img src="https://s1.ax1x.com/2020/07/17/UycaSP.jpg" alt=""></p>
+<a id="more"></a>
+
+<h3 id="1、textarea"><a href="#1、textarea" class="headerlink" title="1、textarea"></a>1、textarea</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*去掉边框*/</span></span><br><span class="line"><span class="selector-tag">border</span>: <span class="selector-tag">none</span>;</span><br><span class="line"><span class="comment">/*去掉拖拉框*/</span></span><br><span class="line"><span class="selector-tag">resize</span>: <span class="selector-tag">none</span>;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--表示可见行数6，可见宽度100px，只读--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">class</span>=<span class="string">"result_text"</span> <span class="attr">rows</span>=<span class="string">"6"</span> <span class="attr">cols</span>=<span class="string">"100"</span> <span class="attr">readonly</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2、input-placeholder样式"><a href="#2、input-placeholder样式" class="headerlink" title="2、input placeholder样式"></a>2、input placeholder样式</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">input</span><span class="selector-pseudo">::-webkit-input-placeholder</span> &#123;</span><br><span class="line">        <span class="attribute">opacity</span>:<span class="number">0.3</span>;</span><br><span class="line">        <span class="attribute">color</span>:<span class="number">#fff</span> ;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3、超出部分用省略号显示"><a href="#3、超出部分用省略号显示" class="headerlink" title="3、超出部分用省略号显示"></a>3、超出部分用省略号显示</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*行数限制，超出部分省略*/</span></span><br><span class="line"><span class="selector-tag">display</span>: <span class="selector-tag">-webkit-box</span>;</span><br><span class="line">  <span class="selector-tag">-webkit-box-orient</span>: <span class="selector-tag">vertical</span>;</span><br><span class="line">  <span class="selector-tag">-webkit-line-clamp</span>: 2;</span><br><span class="line">  <span class="selector-tag">overflow</span>: <span class="selector-tag">hidden</span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*宽度限制，超出部分省略*/</span></span><br><span class="line"><span class="selector-tag">max-width</span>: 4<span class="selector-class">.6rem</span>;</span><br><span class="line"><span class="selector-tag">overflow</span>: <span class="selector-tag">hidden</span>;</span><br><span class="line"><span class="selector-tag">text-overflow</span>: <span class="selector-tag">ellipsis</span>;</span><br><span class="line"><span class="selector-tag">white-space</span>: <span class="selector-tag">nowrap</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4、超出部分横向滑动"><a href="#4、超出部分横向滑动" class="headerlink" title="4、超出部分横向滑动"></a>4、超出部分横向滑动</h3><blockquote>
+<p><strong>父元素</strong></p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">display</span>: <span class="selector-tag">flex</span>;</span><br><span class="line"><span class="selector-tag">overflow</span>: <span class="selector-tag">auto</span>;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>子元素</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">flex</span>: 1 0 <span class="selector-tag">auto</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5、中划线"><a href="#5、中划线" class="headerlink" title="5、中划线"></a>5、中划线</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">text-decoration</span>: <span class="selector-tag">line-through</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="6、文本两端对齐"><a href="#6、文本两端对齐" class="headerlink" title="6、文本两端对齐"></a>6、文本两端对齐</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">text-align</span>: <span class="selector-tag">justify</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="7、中文间隔"><a href="#7、中文间隔" class="headerlink" title="7、中文间隔"></a>7、中文间隔</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">vletter-spacing</span>: 4<span class="selector-tag">px</span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">letter-spacing</span>: 8<span class="selector-tag">px</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="8、英文自动换行"><a href="#8、英文自动换行" class="headerlink" title="8、英文自动换行"></a>8、英文自动换行</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">word-wrap</span>: <span class="selector-tag">break-word</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="9、背景渐变色"><a href="#9、背景渐变色" class="headerlink" title="9、背景渐变色"></a>9、背景渐变色</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">background</span>: <span class="selector-tag">-webkit-linear-gradient</span>(<span class="selector-tag">left</span> <span class="selector-tag">top</span>,<span class="selector-id">#F98530</span>, <span class="selector-id">#FAB03D</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="10、伪元素实现清除浮动"><a href="#10、伪元素实现清除浮动" class="headerlink" title="10、伪元素实现清除浮动"></a>10、伪元素实现清除浮动</h3><p>在父元素上面写class=“clearfix”内部子元素便清除浮动。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">        <span class="attribute">content</span>: <span class="string">"."</span>;</span><br><span class="line">        <span class="attribute">display</span>: block;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">        <span class="attribute">clear</span>: both;</span><br><span class="line">        <span class="attribute">visibility</span>: hidden;</span><br><span class="line">        <span class="attribute">zoom</span>: <span class="number">1</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="11、清除padding所占空间"><a href="#11、清除padding所占空间" class="headerlink" title="11、清除padding所占空间"></a>11、清除padding所占空间</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">box-sizing</span>: <span class="selector-tag">border-box</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="12、触摸屏幕菜单混乱"><a href="#12、触摸屏幕菜单混乱" class="headerlink" title="12、触摸屏幕菜单混乱"></a>12、触摸屏幕菜单混乱</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">touch-action</span><span class="selector-pseudo">:none</span>;<span class="comment">/*当你触摸并按住触摸目标时候,系统默认菜单被禁用*/</span></span><br><span class="line"><span class="selector-tag">touch-action</span><span class="selector-pseudo">:default</span>;<span class="comment">/*当你触摸并按住触摸目标时候,系统默认菜单不被禁用*/</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="13、禁止图片长按保存"><a href="#13、禁止图片长按保存" class="headerlink" title="13、禁止图片长按保存"></a>13、禁止图片长按保存</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">pointer-events</span><span class="selector-pseudo">:none</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="14、防止图片被拉伸，取中间部分"><a href="#14、防止图片被拉伸，取中间部分" class="headerlink" title="14、防止图片被拉伸，取中间部分"></a>14、防止图片被拉伸，取中间部分</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">object-fit</span>: <span class="selector-tag">cover</span>;</span><br></pre></td></tr></table></figure>
 
 
           
@@ -585,20 +627,6 @@
 
   <div class='content article-entry'>
     
-      
-        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
-        
-          height='64px'
-        ></div>
-      
-    
-      
-        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
-        
-          height='64px'
-        ></div>
-      
-    
   </div>
 </section>
 
@@ -617,7 +645,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-17T14:33:33+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-17T18:02:47+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2020年7月17日</p>
@@ -698,7 +726,10 @@
             
               <a class='next' href='/2020/07/17/%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B9-html/'>
                 <p class='title'>小知识点-html<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>1、点击调出电话拨打页面123&lt;div class="user_tel"&gt;  &lt;a :href="'tel:'+item.user_mobile"&gt;手机号：&#123;&...</p>
+                <p class='content'>
+
+
+1、点击调出电话拨打页面123&lt;div class="user_tel"&gt;  &lt;a :href="'tel:'+item.user_mobile"&gt;手机号：&#12...</p>
               </a>
             
           </div>
@@ -752,7 +783,7 @@
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#textarea"><span class="toc-text">textarea</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、textarea"><span class="toc-text">1、textarea</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、input-placeholder样式"><span class="toc-text">2、input placeholder样式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、超出部分用省略号显示"><span class="toc-text">3、超出部分用省略号显示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、超出部分横向滑动"><span class="toc-text">4、超出部分横向滑动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、中划线"><span class="toc-text">5、中划线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、文本两端对齐"><span class="toc-text">6、文本两端对齐</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7、中文间隔"><span class="toc-text">7、中文间隔</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8、英文自动换行"><span class="toc-text">8、英文自动换行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9、背景渐变色"><span class="toc-text">9、背景渐变色</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10、伪元素实现清除浮动"><span class="toc-text">10、伪元素实现清除浮动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11、清除padding所占空间"><span class="toc-text">11、清除padding所占空间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12、触摸屏幕菜单混乱"><span class="toc-text">12、触摸屏幕菜单混乱</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13、禁止图片长按保存"><span class="toc-text">13、禁止图片长按保存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14、防止图片被拉伸，取中间部分"><span class="toc-text">14、防止图片被拉伸，取中间部分</span></a></li></ol>
     </div>
   </section>
 
@@ -888,7 +919,7 @@
 
     <script type="text/javascript">
       $(function(){
-        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/BBC19066-E176-47C2-9D22-48C81EE5DF6B.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/B18FCBB3-67FD-48CC-B4F3-457BA145F17A.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/00E0F0ED-9F1C-407A-9AA6-545649D919F4.jpeg"];
+        var imgs=["https://fech.in/static/images/cover/convert-excel-to-markdown-table.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/B18FCBB3-67FD-48CC-B4F3-457BA145F17A.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/00E0F0ED-9F1C-407A-9AA6-545649D919F4.jpeg", "https://fech.in/static/images/cover/ml01-overview.jpeg", "https://fech.in/static/images/cover/export-excel-use-template.jpeg", "https://fech.in/static/images/cover/2017-1024.jpeg", "https://fech.in/static/images/cover/install-burg-on-ubuntu-manual.jpeg", "https://fech.in/static/images/cover/install-burg-on-ubuntu.jpeg"];
         if ('true' == 'true') {
           function shuffle(arr){
             /*From countercurrent-time*/

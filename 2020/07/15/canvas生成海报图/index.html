@@ -489,9 +489,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/vue%E7%BB%84%E4%BB%B6/' rel="nofollow">
+    <a href='/categories/vue/%E7%BB%84%E4%BB%B6/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>vue组件</p>
+      <p>vue/组件</p>
     </a>
   </div>
 
@@ -526,28 +526,19 @@
         <div class="article-entry" itemprop="articleBody">
           
           
-          <h3 id="样例展示"><a href="#样例展示" class="headerlink" title="样例展示"></a><strong>样例展示</strong></h3><p><a href="https://github.com/sunniejs/vue_canvas_poster" target="_blank" rel="noopener">源码地址</a></p>
+          <p><img src="https://s1.ax1x.com/2020/07/17/UysDeJ.jpg" alt=""></p>
+<a id="more"></a>
+
+<h3 id="一、样例展示"><a href="#一、样例展示" class="headerlink" title="一、样例展示"></a><strong>一、样例展示</strong></h3><p><a href="https://github.com/sunniejs/vue_canvas_poster" target="_blank" rel="noopener">源码地址</a></p>
 <p>左上角为头像位置，右下角为二维码位置。</p>
 <p><img src="https://s1.ax1x.com/2020/07/15/UdrlMq.png" alt="UdrlMq.png"></p>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a><strong>使用</strong></h3><blockquote>
-<p>1、安装引用</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cnpm i vue-canvas-poster --save</span><br><span class="line"><span class="comment">/*单独使用*/</span></span><br><span class="line"><span class="keyword">import</span> &#123;vueCanvasPoster&#125; <span class="keyword">from</span> <span class="string">'vue-canvas-poster'</span></span><br><span class="line">components: &#123;</span><br><span class="line">            vueCanvasPoster</span><br><span class="line">        &#125;,</span><br><span class="line"><span class="comment">/*全局引用*/</span></span><br><span class="line"><span class="keyword">import</span> CanvasPoster <span class="keyword">from</span> <span class="string">'vue-canvas-poster'</span></span><br><span class="line">Vue.use(CanvasPoster)</span><br></pre></td></tr></table></figure>
+<h3 id="二、使用"><a href="#二、使用" class="headerlink" title="二、使用"></a><strong>二、使用</strong></h3><h4 id="1、安装引用"><a href="#1、安装引用" class="headerlink" title="1、安装引用"></a>1、安装引用</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cnpm i vue-canvas-poster --save</span><br><span class="line"><span class="comment">/*单独使用*/</span></span><br><span class="line"><span class="keyword">import</span> &#123;vueCanvasPoster&#125; <span class="keyword">from</span> <span class="string">'vue-canvas-poster'</span></span><br><span class="line">components: &#123;</span><br><span class="line">            vueCanvasPoster</span><br><span class="line">        &#125;,</span><br><span class="line"><span class="comment">/*全局引用*/</span></span><br><span class="line"><span class="keyword">import</span> CanvasPoster <span class="keyword">from</span> <span class="string">'vue-canvas-poster'</span></span><br><span class="line">Vue.use(CanvasPoster)</span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>2、html 使用</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content_container"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">vue-canvas-poster</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:widthPixels</span>=<span class="string">"1000"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:painting</span>=<span class="string">"painting"</span></span></span><br><span class="line"><span class="tag">    @<span class="attr">success</span>=<span class="string">"success"</span></span></span><br><span class="line"><span class="tag">    @<span class="attr">fail</span>=<span class="string">"fail"</span></span></span><br><span class="line"><span class="tag">  &gt;</span><span class="tag">&lt;/<span class="name">vue-canvas-poster</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--生成的海报--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">:src</span>=<span class="string">"posterImg"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="2、html-使用"><a href="#2、html-使用" class="headerlink" title="2、html 使用"></a>2、html 使用</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content_container"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">vue-canvas-poster</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:widthPixels</span>=<span class="string">"1000"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:painting</span>=<span class="string">"painting"</span></span></span><br><span class="line"><span class="tag">    @<span class="attr">success</span>=<span class="string">"success"</span></span></span><br><span class="line"><span class="tag">    @<span class="attr">fail</span>=<span class="string">"fail"</span></span></span><br><span class="line"><span class="tag">  &gt;</span><span class="tag">&lt;/<span class="name">vue-canvas-poster</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--生成的海报--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">:src</span>=<span class="string">"posterImg"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>3、变量、海报布局</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">posterImg: <span class="string">''</span>,</span><br><span class="line">                <span class="comment">//生成的海报</span></span><br><span class="line">                painting: &#123;</span><br><span class="line">                    width: <span class="string">'550px'</span>,</span><br><span class="line">                    height: <span class="string">'876px'</span>,</span><br><span class="line">                    background: <span class="string">'背景图'</span>,</span><br><span class="line">                    views: [&#123;</span><br><span class="line">                        type: <span class="string">'image'</span>,</span><br><span class="line">                        url: <span class="string">'图片链接'</span>,</span><br><span class="line">                        css: &#123;</span><br><span class="line">                            top: <span class="string">'20px'</span>,</span><br><span class="line">                            left: <span class="string">'36px'</span>,</span><br><span class="line">                            borderRadius: <span class="string">'40px'</span>,</span><br><span class="line">                            width: <span class="string">'80px'</span>,</span><br><span class="line">                            height: <span class="string">'80px'</span>,</span><br><span class="line">                        &#125;,</span><br><span class="line">                    &#125;, &#123;</span><br><span class="line">                        type: <span class="string">'text'</span>,</span><br><span class="line">                        text: <span class="string">'我的名字'</span>,</span><br><span class="line">                        css: &#123;</span><br><span class="line">                            top: <span class="string">'48px'</span>,</span><br><span class="line">                            left: <span class="string">'136px'</span>,</span><br><span class="line">                            width: <span class="string">'360px'</span>,</span><br><span class="line">                            maxLines: <span class="number">1</span>,</span><br><span class="line">                            fontSize: <span class="string">'26px'</span>,</span><br><span class="line">                        &#125;,</span><br><span class="line">                    &#125;, &#123;</span><br><span class="line">                        type: <span class="string">'qrcode'</span>,</span><br><span class="line">                        content: <span class="string">'这里写二维码链接地址'</span>,</span><br><span class="line">                        css: &#123;</span><br><span class="line">                            bottom: <span class="string">'50px'</span>,</span><br><span class="line">                            right: <span class="string">'26px'</span>,</span><br><span class="line">                            color: <span class="string">'#000'</span>,</span><br><span class="line">                            background: <span class="string">'#fff'</span>,</span><br><span class="line">                            width: <span class="string">'130px'</span>,</span><br><span class="line">                            height: <span class="string">'130px'</span>,</span><br><span class="line">                            borderWidth: <span class="string">'10px'</span>,</span><br><span class="line">                            borderColor: <span class="string">'#fff'</span></span><br><span class="line">                        &#125;,</span><br><span class="line">                    &#125;,],</span><br><span class="line">                &#125;,</span><br></pre></td></tr></table></figure>
+<h4 id="3、变量、海报布局"><a href="#3、变量、海报布局" class="headerlink" title="3、变量、海报布局"></a>3、变量、海报布局</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">posterImg: <span class="string">''</span>,</span><br><span class="line">                <span class="comment">//生成的海报</span></span><br><span class="line">                painting: &#123;</span><br><span class="line">                    width: <span class="string">'550px'</span>,</span><br><span class="line">                    height: <span class="string">'876px'</span>,</span><br><span class="line">                    background: <span class="string">'背景图'</span>,</span><br><span class="line">                    views: [&#123;</span><br><span class="line">                        type: <span class="string">'image'</span>,</span><br><span class="line">                        url: <span class="string">'图片链接'</span>,</span><br><span class="line">                        css: &#123;</span><br><span class="line">                            top: <span class="string">'20px'</span>,</span><br><span class="line">                            left: <span class="string">'36px'</span>,</span><br><span class="line">                            borderRadius: <span class="string">'40px'</span>,</span><br><span class="line">                            width: <span class="string">'80px'</span>,</span><br><span class="line">                            height: <span class="string">'80px'</span>,</span><br><span class="line">                        &#125;,</span><br><span class="line">                    &#125;, &#123;</span><br><span class="line">                        type: <span class="string">'text'</span>,</span><br><span class="line">                        text: <span class="string">'我的名字'</span>,</span><br><span class="line">                        css: &#123;</span><br><span class="line">                            top: <span class="string">'48px'</span>,</span><br><span class="line">                            left: <span class="string">'136px'</span>,</span><br><span class="line">                            width: <span class="string">'360px'</span>,</span><br><span class="line">                            maxLines: <span class="number">1</span>,</span><br><span class="line">                            fontSize: <span class="string">'26px'</span>,</span><br><span class="line">                        &#125;,</span><br><span class="line">                    &#125;, &#123;</span><br><span class="line">                        type: <span class="string">'qrcode'</span>,</span><br><span class="line">                        content: <span class="string">'这里写二维码链接地址'</span>,</span><br><span class="line">                        css: &#123;</span><br><span class="line">                            bottom: <span class="string">'50px'</span>,</span><br><span class="line">                            right: <span class="string">'26px'</span>,</span><br><span class="line">                            color: <span class="string">'#000'</span>,</span><br><span class="line">                            background: <span class="string">'#fff'</span>,</span><br><span class="line">                            width: <span class="string">'130px'</span>,</span><br><span class="line">                            height: <span class="string">'130px'</span>,</span><br><span class="line">                            borderWidth: <span class="string">'10px'</span>,</span><br><span class="line">                            borderColor: <span class="string">'#fff'</span></span><br><span class="line">                        &#125;,</span><br><span class="line">                    &#125;,],</span><br><span class="line">                &#125;,</span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>4、js</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//成功生成海报</span></span><br><span class="line">            success(src) &#123;</span><br><span class="line">                <span class="keyword">this</span>.posterImg = src;</span><br><span class="line">                <span class="built_in">console</span>.log(src)</span><br><span class="line">            &#125;,</span><br><span class="line">            fail(err) &#123;</span><br><span class="line">                alert(err)</span><br><span class="line">            &#125;,</span><br></pre></td></tr></table></figure>
+<h4 id="4、js"><a href="#4、js" class="headerlink" title="4、js"></a>4、js</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//成功生成海报</span></span><br><span class="line">            success(src) &#123;</span><br><span class="line">                <span class="keyword">this</span>.posterImg = src;</span><br><span class="line">                <span class="built_in">console</span>.log(src)</span><br><span class="line">            &#125;,</span><br><span class="line">            fail(err) &#123;</span><br><span class="line">                alert(err)</span><br><span class="line">            &#125;,</span><br></pre></td></tr></table></figure>
 
 <h3 id="规范"><a href="#规范" class="headerlink" title="规范"></a><strong>规范</strong></h3><p>Canvas 需要根据一定的规范来进行图片绘制，当然比直接画 canvas 简单的多。</p>
 <h4 id="调色板属性"><a href="#调色板属性" class="headerlink" title="调色板属性"></a><strong>调色板属性</strong></h4><p>一个调色板首先需要给予一些整体属性</p>
@@ -830,20 +821,6 @@
 
   <div class='content article-entry'>
     
-      
-        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
-        
-          height='64px'
-        ></div>
-      
-    
-      
-        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
-        
-          height='64px'
-        ></div>
-      
-    
   </div>
 </section>
 
@@ -862,10 +839,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-15T15:20:17+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-17T17:44:06+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年7月15日</p>
+    <p>更新于：2020年7月17日</p>
   </a>
 </div>
 
@@ -942,17 +919,20 @@
             
               <a class='prev' href='/2020/07/15/%E5%BC%B9%E5%B9%95/'>
                 <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>弹幕</p>
-                <p class='content'>弹幕源码
-使用
-1、安装引用
+                <p class='content'>
 
-123cnpm install vue-baberrageimport &#123; vueBaberrage &#125; from 'vue-baberrag...</p>
+
+弹幕源码
+一、使用1、安装引用123cnpm install vue-baberrageimport &#123; vueBaberrage &#125; from 'vue-baberr...</p>
               </a>
             
             
               <a class='next' href='/2020/07/15/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95-js/'>
                 <p class='title'>常用方法-js<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>点击复制文本12345678910let httpUrl = this.herfAddress; //此处为需要被复制的文本let oInput = document.createElement...</p>
+                <p class='content'>
+
+
+一、点击复制文本12345678910let httpUrl = this.herfAddress; //此处为需要被复制的文本let oInput = document.createEl...</p>
               </a>
             
           </div>
@@ -1006,7 +986,7 @@
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#样例展示"><span class="toc-text">样例展示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用"><span class="toc-text">使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#规范"><span class="toc-text">规范</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#调色板属性"><span class="toc-text">调色板属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#View-属性"><span class="toc-text">View 属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#布局属性"><span class="toc-text">布局属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS3-支持"><span class="toc-text">CSS3 支持</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#事件"><span class="toc-text">事件</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、样例展示"><span class="toc-text">一、样例展示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、使用"><span class="toc-text">二、使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、安装引用"><span class="toc-text">1、安装引用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、html-使用"><span class="toc-text">2、html 使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、变量、海报布局"><span class="toc-text">3、变量、海报布局</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、js"><span class="toc-text">4、js</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#规范"><span class="toc-text">规范</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#调色板属性"><span class="toc-text">调色板属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#View-属性"><span class="toc-text">View 属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#布局属性"><span class="toc-text">布局属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS3-支持"><span class="toc-text">CSS3 支持</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#事件"><span class="toc-text">事件</span></a></li></ol></li></ol>
     </div>
   </section>
 
@@ -1142,7 +1122,7 @@
 
     <script type="text/javascript">
       $(function(){
-        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/BBC19066-E176-47C2-9D22-48C81EE5DF6B.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/B18FCBB3-67FD-48CC-B4F3-457BA145F17A.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/00E0F0ED-9F1C-407A-9AA6-545649D919F4.jpeg"];
+        var imgs=["https://fech.in/static/images/cover/convert-excel-to-markdown-table.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/B18FCBB3-67FD-48CC-B4F3-457BA145F17A.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/00E0F0ED-9F1C-407A-9AA6-545649D919F4.jpeg", "https://fech.in/static/images/cover/ml01-overview.jpeg", "https://fech.in/static/images/cover/export-excel-use-template.jpeg", "https://fech.in/static/images/cover/2017-1024.jpeg", "https://fech.in/static/images/cover/install-burg-on-ubuntu-manual.jpeg", "https://fech.in/static/images/cover/install-burg-on-ubuntu.jpeg"];
         if ('true' == 'true') {
           function shuffle(arr){
             /*From countercurrent-time*/

@@ -489,9 +489,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/vue%E7%BB%84%E4%BB%B6/' rel="nofollow">
+    <a href='/categories/vue/%E7%BB%84%E4%BB%B6/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>vue组件</p>
+      <p>vue/组件</p>
     </a>
   </div>
 
@@ -526,22 +526,17 @@
         <div class="article-entry" itemprop="articleBody">
           
           
-          <h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a><strong>使用</strong></h3><blockquote>
-<p>安装引用</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cnpm install cropperjs</span><br><span class="line"><span class="comment">// 引入</span></span><br><span class="line"><span class="keyword">import</span> Cropper <span class="keyword">from</span> <span class="string">'cropperjs'</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'cropperjs/dist/cropper.min.css'</span></span><br></pre></td></tr></table></figure>
+          <img src="https://cdn.jsdelivr.net/gh/liebexiao/myImgs/20200717161909.png" alt="" style="zoom:30%;" />
 
-<blockquote>
-<p>上传剪裁</p>
-</blockquote>
-<p>上传图片到 oss 然后进行裁剪将 x，y，width，height 拼接到图片链接上即完成裁剪。</p>
+<a id="more"></a>
+
+<h3 id="一、使用"><a href="#一、使用" class="headerlink" title="一、使用"></a><strong>一、使用</strong></h3><h4 id="1、安装引用"><a href="#1、安装引用" class="headerlink" title="1、安装引用"></a>1、安装引用</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cnpm install cropperjs</span><br><span class="line"><span class="comment">// 引入</span></span><br><span class="line"><span class="keyword">import</span> Cropper <span class="keyword">from</span> <span class="string">'cropperjs'</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'cropperjs/dist/cropper.min.css'</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2、上传图片并剪裁"><a href="#2、上传图片并剪裁" class="headerlink" title="2、上传图片并剪裁"></a>2、上传图片并剪裁</h4><p>上传图片到 oss 然后进行裁剪将 x，y，width，height 拼接到图片链接上即完成裁剪。</p>
 <p>在弹框中实现图片裁剪及预览。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content_div"</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--上传图片--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">el-upload</span></span></span><br><span class="line"><span class="tag">    <span class="attr">class</span>=<span class="string">"avatar-uploader tailor_class"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-loading</span>=<span class="string">"loading"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">action</span>=<span class="string">"/api/base/file/upload"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:show-file-list</span>=<span class="string">"false"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:on-progress</span>=<span class="string">"progressFile"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:on-success</span>=<span class="string">"saveFileList"</span></span></span><br><span class="line"><span class="tag">  &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">v-if</span>=<span class="string">"item_images"</span> <span class="attr">:src</span>=<span class="string">"item_images"</span> <span class="attr">class</span>=<span class="string">"avatar"</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--                                &lt;img v-if="item_images" class="avatar"&gt;--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">i</span> <span class="attr">v-else</span> <span class="attr">class</span>=<span class="string">"el-icon-plus avatar-uploader-icon"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">el-upload</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!--弹框--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">el-dialog</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:title</span>=<span class="string">"dialogTitle"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:visible.sync</span>=<span class="string">"dialogVisible"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">width</span>=<span class="string">"600px"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:before-close</span>=<span class="string">"cancelCropper"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">class</span>=<span class="string">"dialog_box"</span></span></span><br><span class="line"><span class="tag">  &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"rc-cropper clearfix"</span> <span class="attr">v-if</span>=<span class="string">"item_images"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">img</span></span></span><br><span class="line"><span class="tag">        <span class="attr">v-if</span>=<span class="string">"item_images"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">id</span>=<span class="string">"img_id"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">ref</span>=<span class="string">"canvasRef"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">:src</span>=<span class="string">"item_images"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">class</span>=<span class="string">"avatar"</span></span></span><br><span class="line"><span class="tag">      /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"preview_box"</span> <span class="attr">v-show</span>=<span class="string">"finalImg!=''"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"preview_word"</span>&gt;</span>预览图片<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"preview_img_box"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"preview_img"</span> <span class="attr">:src</span>=<span class="string">"finalImg"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--限制比例--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"margin-top: 20px"</span> <span class="attr">v-show</span>=<span class="string">"item_images"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-radio</span> <span class="attr">v-model</span>=<span class="string">"cropProportionSelect"</span> <span class="attr">label</span>=<span class="string">"0"</span> <span class="attr">border</span> <span class="attr">size</span>=<span class="string">"medium"</span></span></span><br><span class="line"><span class="tag">        &gt;</span>不限制比例</span><br><span class="line">      <span class="tag">&lt;/<span class="name">el-radio</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-radio</span> <span class="attr">v-model</span>=<span class="string">"cropProportionSelect"</span> <span class="attr">label</span>=<span class="string">"1"</span> <span class="attr">border</span> <span class="attr">size</span>=<span class="string">"medium"</span></span></span><br><span class="line"><span class="tag">        &gt;</span>2.35 ：1</span><br><span class="line">      <span class="tag">&lt;/<span class="name">el-radio</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-radio</span> <span class="attr">v-model</span>=<span class="string">"cropProportionSelect"</span> <span class="attr">label</span>=<span class="string">"2"</span> <span class="attr">border</span> <span class="attr">size</span>=<span class="string">"medium"</span></span></span><br><span class="line"><span class="tag">        &gt;</span>1 ：1</span><br><span class="line">      <span class="tag">&lt;/<span class="name">el-radio</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">slot</span>=<span class="string">"footer"</span> <span class="attr">class</span>=<span class="string">"dialog-footer clearfix"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">type</span>=<span class="string">"primary"</span> @<span class="attr">click</span>=<span class="string">"sureCropper"</span>&gt;</span>确 定<span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-button</span></span></span><br><span class="line"><span class="tag">        <span class="attr">style</span>=<span class="string">"float: right !important;margin-right: 10px"</span></span></span><br><span class="line"><span class="tag">        @<span class="attr">click</span>=<span class="string">"cancelCropper"</span></span></span><br><span class="line"><span class="tag">        &gt;</span>取 消</span><br><span class="line">      <span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">el-dialog</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>js</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">loading:<span class="literal">false</span>,</span><br><span class="line">item_images: <span class="string">''</span>,<span class="comment">//原图</span></span><br><span class="line">finalImg: <span class="string">''</span>,<span class="comment">//剪切图</span></span><br><span class="line">cropper: <span class="literal">null</span>,</span><br><span class="line">croppShow: <span class="literal">false</span>,<span class="comment">//剪裁是否显示</span></span><br><span class="line">dialogTitle: <span class="string">'剪裁图片'</span>,<span class="comment">//弹框标题</span></span><br><span class="line">dialogVisible: <span class="literal">false</span>,<span class="comment">//弹框显示状态</span></span><br><span class="line">cropProportionSelect: <span class="string">'0'</span>,<span class="comment">//裁剪框比例选择</span></span><br><span class="line">cropProportion: <span class="string">''</span>,<span class="comment">//剪裁框比例</span></span><br><span class="line">x: <span class="number">0</span>,</span><br><span class="line">y: <span class="number">0</span>,</span><br><span class="line">width: <span class="number">0</span>,</span><br><span class="line">height: <span class="number">0</span>,</span><br></pre></td></tr></table></figure>
+<h4 id="3、js"><a href="#3、js" class="headerlink" title="3、js"></a>3、js</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">loading:<span class="literal">false</span>,</span><br><span class="line">item_images: <span class="string">''</span>,<span class="comment">//原图</span></span><br><span class="line">finalImg: <span class="string">''</span>,<span class="comment">//剪切图</span></span><br><span class="line">cropper: <span class="literal">null</span>,</span><br><span class="line">croppShow: <span class="literal">false</span>,<span class="comment">//剪裁是否显示</span></span><br><span class="line">dialogTitle: <span class="string">'剪裁图片'</span>,<span class="comment">//弹框标题</span></span><br><span class="line">dialogVisible: <span class="literal">false</span>,<span class="comment">//弹框显示状态</span></span><br><span class="line">cropProportionSelect: <span class="string">'0'</span>,<span class="comment">//裁剪框比例选择</span></span><br><span class="line">cropProportion: <span class="string">''</span>,<span class="comment">//剪裁框比例</span></span><br><span class="line">x: <span class="number">0</span>,</span><br><span class="line">y: <span class="number">0</span>,</span><br><span class="line">width: <span class="number">0</span>,</span><br><span class="line">height: <span class="number">0</span>,</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">cropProportionSelect(nv, ov) &#123;</span><br><span class="line"><span class="keyword">this</span>.cropper.destroy();</span><br><span class="line"><span class="keyword">if</span> (nv == <span class="number">0</span> + <span class="string">''</span>) &#123;</span><br><span class="line"><span class="keyword">this</span>.cropProportion = <span class="literal">NaN</span>;</span><br><span class="line"><span class="keyword">this</span>.showCropper();</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (nv == <span class="number">1</span> + <span class="string">''</span>) &#123;</span><br><span class="line"><span class="keyword">this</span>.cropProportion =<span class="number">2.35</span>;</span><br><span class="line"><span class="keyword">this</span>.showCropper();</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (nv == <span class="number">2</span> + <span class="string">''</span>) &#123;</span><br><span class="line"><span class="keyword">this</span>.cropProportion = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">this</span>.showCropper();</span><br><span class="line">&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
 
@@ -607,20 +602,6 @@
 
   <div class='content article-entry'>
     
-      
-        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
-        
-          height='64px'
-        ></div>
-      
-    
-      
-        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
-        
-          height='64px'
-        ></div>
-      
-    
   </div>
 </section>
 
@@ -639,10 +620,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-15T10:35:43+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-17T17:48:25+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年7月15日</p>
+    <p>更新于：2020年7月17日</p>
   </a>
 </div>
 
@@ -719,25 +700,20 @@
             
               <a class='prev' href='/2020/07/14/%E6%8B%96%E6%8B%BD%E6%8E%92%E5%BA%8F/'>
                 <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>拖拽排序</p>
-                <p class='content'>基础使用
-安装引用
-
-1cnpm install awe-dnd --save
+                <p class='content'>
 
 
-使用
-
-123在main.js中全局引用;import VueDND from "awe-dnd";Vue.u...</p>
+安装引用12345cnpm install awe-dnd --save//在main.js中全局引用;import VueDND from "awe-dnd";Vue.use(VueDN...</p>
               </a>
             
             
               <a class='next' href='/2020/06/17/wx%E6%94%AF%E4%BB%98%E5%88%86%E4%BA%AB/'>
                 <p class='title'>wx支付分享<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>wx 支付
-请求后台接口获取 wx 需要数据
+                <p class='content'>
 
-将请求接口得来的数据存到全局变量里面  payData 。
-1234567891011121314151617181920Ajax("post",...</p>
+
+一、wx 支付1、请求后台接口获取 wx 需要数据将请求接口得来的数据存到全局变量里面  payData 。
+1234567891011121314151617181920Ajax("po...</p>
               </a>
             
           </div>
@@ -791,7 +767,7 @@
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用"><span class="toc-text">使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cropper-附录"><span class="toc-text">cropper 附录</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、使用"><span class="toc-text">一、使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、安装引用"><span class="toc-text">1、安装引用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、上传图片并剪裁"><span class="toc-text">2、上传图片并剪裁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、js"><span class="toc-text">3、js</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cropper-附录"><span class="toc-text">cropper 附录</span></a></li></ol>
     </div>
   </section>
 
@@ -927,7 +903,7 @@
 
     <script type="text/javascript">
       $(function(){
-        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/BBC19066-E176-47C2-9D22-48C81EE5DF6B.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/B18FCBB3-67FD-48CC-B4F3-457BA145F17A.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/00E0F0ED-9F1C-407A-9AA6-545649D919F4.jpeg"];
+        var imgs=["https://fech.in/static/images/cover/convert-excel-to-markdown-table.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/B18FCBB3-67FD-48CC-B4F3-457BA145F17A.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/00E0F0ED-9F1C-407A-9AA6-545649D919F4.jpeg", "https://fech.in/static/images/cover/ml01-overview.jpeg", "https://fech.in/static/images/cover/export-excel-use-template.jpeg", "https://fech.in/static/images/cover/2017-1024.jpeg", "https://fech.in/static/images/cover/install-burg-on-ubuntu-manual.jpeg", "https://fech.in/static/images/cover/install-burg-on-ubuntu.jpeg"];
         if ('true' == 'true') {
           function shuffle(arr){
             /*From countercurrent-time*/

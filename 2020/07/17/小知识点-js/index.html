@@ -489,9 +489,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/' rel="nofollow">
+    <a href='/categories/%E5%B8%B8%E7%94%A8/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>常用方法</p>
+      <p>常用/常用方法</p>
     </a>
   </div>
 
@@ -526,14 +526,17 @@
         <div class="article-entry" itemprop="articleBody">
           
           
-          <h3 id="解析动态json数据"><a href="#解析动态json数据" class="headerlink" title="解析动态json数据"></a><strong>解析动态json数据</strong></h3><p><img src="https://s1.ax1x.com/2020/07/17/UsYa5Q.png" alt="UsYa5Q.png"></p>
+          <p><img src="https://s1.ax1x.com/2020/07/17/Uyyv36.jpg" alt=""></p>
+<a id="more"></a>
+
+<h3 id="一、解析动态json数据"><a href="#一、解析动态json数据" class="headerlink" title="一、解析动态json数据"></a><strong>一、解析动态json数据</strong></h3><p><img src="https://s1.ax1x.com/2020/07/17/UsYa5Q.png" alt="UsYa5Q.png"></p>
 <h4 id="1、取出key和value的值。再封装到一个数组里面。"><a href="#1、取出key和value的值。再封装到一个数组里面。" class="headerlink" title="*1、取出key和value的值。再封装到一个数组里面。 *"></a>*<em>1、取出key和value的值。再封装到一个数组里面。 *</em></h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> userData = res.data.data;</span><br><span class="line"><span class="keyword">let</span> userArray=[];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> [key, value] <span class="keyword">of</span> <span class="built_in">Object</span>.entries(userData)) &#123;</span><br><span class="line">  userArray.push(&#123;<span class="string">"时间"</span>:key,<span class="string">"人数"</span>:value&#125;);</span><br><span class="line">  <span class="built_in">console</span>.log(userArray)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h4 id="2、只取key值"><a href="#2、只取key值" class="headerlink" title="2、只取key值"></a><strong>2、只取key值</strong></h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">of</span> <span class="built_in">Object</span>.keys(obj)) &#123;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h4 id="3、只取value值"><a href="#3、只取value值" class="headerlink" title="3、只取value值"></a><strong>3、只取value值</strong></h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> value <span class="keyword">of</span> <span class="built_in">Object</span>.values(obj)) &#123;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="vue"><a href="#vue" class="headerlink" title="vue"></a><strong>vue</strong></h3><h4 id="1、设置当前页面color"><a href="#1、设置当前页面color" class="headerlink" title="1、设置当前页面color"></a><strong>1、设置当前页面color</strong></h4><blockquote>
+<h3 id="二、vue"><a href="#二、vue" class="headerlink" title="二、vue"></a><strong>二、vue</strong></h3><h4 id="1、设置当前页面color"><a href="#1、设置当前页面color" class="headerlink" title="1、设置当前页面color"></a><strong>1、设置当前页面color</strong></h4><blockquote>
 <p>在mounted 里面写：</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'body'</span>).setAttribute(<span class="string">'style'</span>, <span class="string">'background-color:#fff'</span>)</span><br></pre></td></tr></table></figure>
@@ -544,7 +547,7 @@
 <blockquote>
 <p>返回上层路由：this.$router.go(-1)</p>
 </blockquote>
-<h3 id="js"><a href="#js" class="headerlink" title="js"></a><strong>js</strong></h3><h4 id="1、屏幕可用区域高宽"><a href="#1、屏幕可用区域高宽" class="headerlink" title="1、屏幕可用区域高宽"></a><strong>1、屏幕可用区域高宽</strong></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">window.screen.availWidth</span><br><span class="line">window.screen.availHeight</span><br></pre></td></tr></table></figure>
+<h3 id="三、js"><a href="#三、js" class="headerlink" title="三、js"></a><strong>三、js</strong></h3><h4 id="1、屏幕可用区域高宽"><a href="#1、屏幕可用区域高宽" class="headerlink" title="1、屏幕可用区域高宽"></a><strong>1、屏幕可用区域高宽</strong></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">window.screen.availWidth</span><br><span class="line">window.screen.availHeight</span><br></pre></td></tr></table></figure>
 
 <h4 id="2、判断ios"><a href="#2、判断ios" class="headerlink" title="2、判断ios"></a>2、判断ios</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> u = navigator.userAgent;</span><br><span class="line">isiOS: !!u.match(<span class="regexp">/\(i[^;]+;( U;)? CPU.+Mac OS X/</span>), <span class="comment">// ios终端</span></span><br></pre></td></tr></table></figure>
 
@@ -635,20 +638,6 @@
 
   <div class='content article-entry'>
     
-      
-        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
-        
-          height='64px'
-        ></div>
-      
-    
-      
-        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
-        
-          height='64px'
-        ></div>
-      
-    
   </div>
 </section>
 
@@ -667,7 +656,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-17T11:56:11+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-17T18:05:28+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2020年7月17日</p>
@@ -747,19 +736,24 @@
             
               <a class='prev' href='/2020/07/17/%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B9-html/'>
                 <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>小知识点-html</p>
-                <p class='content'>1、点击调出电话拨打页面123&lt;div class="user_tel"&gt;  &lt;a :href="'tel:'+item.user_mobile"&gt;手机号：&#123;&...</p>
+                <p class='content'>
+
+
+1、点击调出电话拨打页面123&lt;div class="user_tel"&gt;  &lt;a :href="'tel:'+item.user_mobile"&gt;手机号：&#12...</p>
               </a>
             
             
-              <a class='next' href='/2020/07/16/%E5%9B%9B%E3%80%81%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E5%9F%9F%E5%90%8D/'>
-                <p class='title'>四、使用阿里云服务器配置域名<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>1、登录已有账号、在侧边栏选择“域名”
+              <a class='next' href='/2020/07/16/%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E5%9F%9F%E5%90%8D/'>
+                <p class='title'>使用阿里云服务器配置域名<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>
+
+
+1、登录已有账号、在侧边栏选择“域名”
 2、在列表中选择一个已有域名 进入
 3、进去看见此域名基本信息，选择“域名解析”
 4、选择“添加纪录”
 5、新建子域名
-6、去服务器配置 nginx
-根据...</p>
+6、去服务器配置 nginx...</p>
               </a>
             
           </div>
@@ -813,7 +807,7 @@
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#解析动态json数据"><span class="toc-text">解析动态json数据</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、取出key和value的值。再封装到一个数组里面。"><span class="toc-text">*1、取出key和value的值。再封装到一个数组里面。 *</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、只取key值"><span class="toc-text">2、只取key值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、只取value值"><span class="toc-text">3、只取value值</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue"><span class="toc-text">vue</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、设置当前页面color"><span class="toc-text">1、设置当前页面color</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、判断页面是否存在上层路由"><span class="toc-text">2、判断页面是否存在上层路由</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#js"><span class="toc-text">js</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、屏幕可用区域高宽"><span class="toc-text">1、屏幕可用区域高宽</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、判断ios"><span class="toc-text">2、判断ios</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、替换字符串"><span class="toc-text">3、替换字符串</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、判断是否是数字还是字符串"><span class="toc-text">4、判断是否是数字还是字符串</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、取整"><span class="toc-text">5、取整</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1、只保留整数部分"><span class="toc-text">1、只保留整数部分</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2、向下取整-（效果等同于parseInt）"><span class="toc-text">2、向下取整 （效果等同于parseInt）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3、向上取整-（有小数，整数部分-1）"><span class="toc-text">3、向上取整 （有小数，整数部分+1）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4、四舍五入"><span class="toc-text">4、四舍五入</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5、绝对值"><span class="toc-text">5、绝对值</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6、返回两数中的较大者"><span class="toc-text">6、返回两数中的较大者</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7、返回两数中的较小者"><span class="toc-text">7、返回两数中的较小者</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8、随机数"><span class="toc-text">8、随机数</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、拷贝"><span class="toc-text">6、拷贝</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1、浅拷贝"><span class="toc-text">1、浅拷贝</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2、深拷贝"><span class="toc-text">2、深拷贝</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、解析动态json数据"><span class="toc-text">一、解析动态json数据</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、取出key和value的值。再封装到一个数组里面。"><span class="toc-text">*1、取出key和value的值。再封装到一个数组里面。 *</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、只取key值"><span class="toc-text">2、只取key值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、只取value值"><span class="toc-text">3、只取value值</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、vue"><span class="toc-text">二、vue</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、设置当前页面color"><span class="toc-text">1、设置当前页面color</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、判断页面是否存在上层路由"><span class="toc-text">2、判断页面是否存在上层路由</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、js"><span class="toc-text">三、js</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、屏幕可用区域高宽"><span class="toc-text">1、屏幕可用区域高宽</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、判断ios"><span class="toc-text">2、判断ios</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、替换字符串"><span class="toc-text">3、替换字符串</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、判断是否是数字还是字符串"><span class="toc-text">4、判断是否是数字还是字符串</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、取整"><span class="toc-text">5、取整</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1、只保留整数部分"><span class="toc-text">1、只保留整数部分</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2、向下取整-（效果等同于parseInt）"><span class="toc-text">2、向下取整 （效果等同于parseInt）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3、向上取整-（有小数，整数部分-1）"><span class="toc-text">3、向上取整 （有小数，整数部分+1）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4、四舍五入"><span class="toc-text">4、四舍五入</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5、绝对值"><span class="toc-text">5、绝对值</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6、返回两数中的较大者"><span class="toc-text">6、返回两数中的较大者</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7、返回两数中的较小者"><span class="toc-text">7、返回两数中的较小者</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8、随机数"><span class="toc-text">8、随机数</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、拷贝"><span class="toc-text">6、拷贝</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1、浅拷贝"><span class="toc-text">1、浅拷贝</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2、深拷贝"><span class="toc-text">2、深拷贝</span></a></li></ol></li></ol></li></ol>
     </div>
   </section>
 
@@ -949,7 +943,7 @@
 
     <script type="text/javascript">
       $(function(){
-        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/BBC19066-E176-47C2-9D22-48C81EE5DF6B.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/B18FCBB3-67FD-48CC-B4F3-457BA145F17A.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/00E0F0ED-9F1C-407A-9AA6-545649D919F4.jpeg"];
+        var imgs=["https://fech.in/static/images/cover/convert-excel-to-markdown-table.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/B18FCBB3-67FD-48CC-B4F3-457BA145F17A.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/00E0F0ED-9F1C-407A-9AA6-545649D919F4.jpeg", "https://fech.in/static/images/cover/ml01-overview.jpeg", "https://fech.in/static/images/cover/export-excel-use-template.jpeg", "https://fech.in/static/images/cover/2017-1024.jpeg", "https://fech.in/static/images/cover/install-burg-on-ubuntu-manual.jpeg", "https://fech.in/static/images/cover/install-burg-on-ubuntu.jpeg"];
         if ('true' == 'true') {
           function shuffle(arr){
             /*From countercurrent-time*/

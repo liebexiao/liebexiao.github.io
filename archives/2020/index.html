@@ -507,9 +507,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/' rel="nofollow">
+    <a href='/categories/%E5%B8%B8%E7%94%A8/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>常用方法</p>
+      <p>常用/常用方法</p>
     </a>
   </div>
 
@@ -531,7 +531,7 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：44字</p>
+      <p>字数：339字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -592,14 +592,16 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="textarea"><a href="#textarea" class="headerlink" title="textarea"></a>textarea</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*去掉边框*/</span></span><br><span class="line"><span class="selector-tag">border</span>: <span class="selector-tag">none</span>;</span><br><span class="line"><span class="comment">/*去掉拖拉框*/</span></span><br><span class="line"><span class="selector-tag">resize</span>: <span class="selector-tag">none</span>;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--表示可见行数6，可见宽度100px，只读--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">class</span>=<span class="string">"result_text"</span> <span class="attr">rows</span>=<span class="string">"6"</span> <span class="attr">cols</span>=<span class="string">"100"</span> <span class="attr">readonly</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
+        <p><img src="https://s1.ax1x.com/2020/07/17/UycaSP.jpg" alt=""></p>
       
     </div>
     
+      
+        <div class="button readmore">
+          <a href="/2020/07/17/%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B9-css/">
+            阅读全文 <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
       
     
   </section>
@@ -648,9 +650,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/' rel="nofollow">
+    <a href='/categories/%E5%B8%B8%E7%94%A8/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>常用方法</p>
+      <p>常用/常用方法</p>
     </a>
   </div>
 
@@ -672,7 +674,7 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：271字</p>
+      <p>字数：270字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -733,30 +735,16 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="1、点击调出电话拨打页面"><a href="#1、点击调出电话拨打页面" class="headerlink" title="1、点击调出电话拨打页面"></a><strong>1、点击调出电话拨打页面</strong></h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"user_tel"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">:href</span>=<span class="string">"'tel:'+item.user_mobile"</span>&gt;</span>手机号：&#123;&#123;item.user_mobile&#125;&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="2、input-框输入格式限制"><a href="#2、input-框输入格式限制" class="headerlink" title="2、input 框输入格式限制"></a>2、input 框输入格式限制</h3><h4 id="1、输入框限制小数点后两位"><a href="#1、输入框限制小数点后两位" class="headerlink" title="1、输入框限制小数点后两位"></a>1、输入框限制小数点后两位</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> @<span class="attr">input</span>=<span class="string">"handleInput2"</span> <span class="attr">onkeyup</span>=<span class="string">"value=value.replace(/[^\d.]/g,'')"</span> /&gt;</span> //</span><br><span class="line">通过正则过滤小数点后两位 handleInput2(e) &#123; this.ruleForm.agent_bonus_percent =</span><br><span class="line">(e.match(/^\d*(\.?\d&#123;0,2&#125;)/g)[0]) || null &#125;,</span><br></pre></td></tr></table></figure>
-
-<h4 id="2、input-框纯数字输入"><a href="#2、input-框纯数字输入" class="headerlink" title="2、input 框纯数字输入"></a>2、input 框纯数字输入</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"price_input"</span> <span class="attr">placeholder</span>=<span class="string">"手机号"</span> <span class="attr">type</span>=<span class="string">"number"</span> <span class="attr">oninput</span> =</span></span><br><span class="line"><span class="tag">"<span class="attr">this.value</span>=<span class="string">this.value.replace(/[^0-9.]+/,</span>'')"/</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="3、下载-pdf"><a href="#3、下载-pdf" class="headerlink" title="3、下载 pdf"></a>3、下载 pdf</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span></span></span><br><span class="line"><span class="tag">  <span class="attr">class</span>=<span class="string">"down_load"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">target</span>=<span class="string">"_blank"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">href</span>=<span class="string">"http://npjy.oss-cn-beijing.aliyuncs.com/images/file-1574758228222FkR4M.pdf"</span></span></span><br><span class="line"><span class="tag">  &gt;</span>点击下载pdf<span class="tag">&lt;/<span class="name">a</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="4、字节数限制"><a href="#4、字节数限制" class="headerlink" title="4、字节数限制"></a>4、字节数限制</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">"标题"</span> <span class="attr">prop</span>=<span class="string">"title"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">el-input</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-model</span>=<span class="string">"baseSetForm.title"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:minlength</span>=<span class="string">"10"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:maxlength</span>=<span class="string">"60"</span></span></span><br><span class="line"><span class="tag">  &gt;</span><span class="tag">&lt;/<span class="name">el-input</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"title_tip"</span>&gt;</span></span><br><span class="line">    &#123;&#123;parseInt(baseSetForm.title.replace(/[^\x00-\xff]/g, '01').length/2)&#125;&#125;/30</span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="5、input监听回车事件"><a href="#5、input监听回车事件" class="headerlink" title="5、input监听回车事件"></a>5、input监听回车事件</h3><blockquote>
-<p>普通input框</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"form.name"</span> <span class="attr">placeholder</span>=<span class="string">"昵称"</span> @<span class="attr">keyup.enter</span>=<span class="string">"submit"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>element-ui input框</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">el-input</span> <span class="attr">v-model</span>=<span class="string">"form.name"</span> <span class="attr">placeholder</span>=<span class="string">"昵称"</span> @<span class="attr">keyup.enter.native</span>=<span class="string">"submit"</span>&gt;</span><span class="tag">&lt;/<span class="name">el-input</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
+        <p><img src="https://s1.ax1x.com/2020/07/17/Uy6vIs.jpg" alt=""></p>
       
     </div>
     
+      
+        <div class="button readmore">
+          <a href="/2020/07/17/%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B9-html/">
+            阅读全文 <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
       
     
   </section>
@@ -805,9 +793,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/' rel="nofollow">
+    <a href='/categories/%E5%B8%B8%E7%94%A8/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>常用方法</p>
+      <p>常用/常用方法</p>
     </a>
   </div>
 
@@ -829,7 +817,7 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：444字</p>
+      <p>字数：447字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -890,64 +878,16 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="解析动态json数据"><a href="#解析动态json数据" class="headerlink" title="解析动态json数据"></a><strong>解析动态json数据</strong></h3><p><img src="https://s1.ax1x.com/2020/07/17/UsYa5Q.png" alt="UsYa5Q.png"></p>
-<h4 id="1、取出key和value的值。再封装到一个数组里面。"><a href="#1、取出key和value的值。再封装到一个数组里面。" class="headerlink" title="*1、取出key和value的值。再封装到一个数组里面。 *"></a>*<em>1、取出key和value的值。再封装到一个数组里面。 *</em></h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> userData = res.data.data;</span><br><span class="line"><span class="keyword">let</span> userArray=[];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> [key, value] <span class="keyword">of</span> <span class="built_in">Object</span>.entries(userData)) &#123;</span><br><span class="line">  userArray.push(&#123;<span class="string">"时间"</span>:key,<span class="string">"人数"</span>:value&#125;);</span><br><span class="line">  <span class="built_in">console</span>.log(userArray)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="2、只取key值"><a href="#2、只取key值" class="headerlink" title="2、只取key值"></a><strong>2、只取key值</strong></h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">of</span> <span class="built_in">Object</span>.keys(obj)) &#123;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="3、只取value值"><a href="#3、只取value值" class="headerlink" title="3、只取value值"></a><strong>3、只取value值</strong></h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> value <span class="keyword">of</span> <span class="built_in">Object</span>.values(obj)) &#123;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="vue"><a href="#vue" class="headerlink" title="vue"></a><strong>vue</strong></h3><h4 id="1、设置当前页面color"><a href="#1、设置当前页面color" class="headerlink" title="1、设置当前页面color"></a><strong>1、设置当前页面color</strong></h4><blockquote>
-<p>在mounted 里面写：</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'body'</span>).setAttribute(<span class="string">'style'</span>, <span class="string">'background-color:#fff'</span>)</span><br></pre></td></tr></table></figure>
-
-<h4 id="2、判断页面是否存在上层路由"><a href="#2、判断页面是否存在上层路由" class="headerlink" title="2、判断页面是否存在上层路由"></a><strong>2、判断页面是否存在上层路由</strong></h4><blockquote>
-<p>不存在：window.history.length &lt;= 1</p>
-</blockquote>
-<blockquote>
-<p>返回上层路由：this.$router.go(-1)</p>
-</blockquote>
-<h3 id="js"><a href="#js" class="headerlink" title="js"></a><strong>js</strong></h3><h4 id="1、屏幕可用区域高宽"><a href="#1、屏幕可用区域高宽" class="headerlink" title="1、屏幕可用区域高宽"></a><strong>1、屏幕可用区域高宽</strong></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">window.screen.availWidth</span><br><span class="line">window.screen.availHeight</span><br></pre></td></tr></table></figure>
-
-<h4 id="2、判断ios"><a href="#2、判断ios" class="headerlink" title="2、判断ios"></a>2、判断ios</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> u = navigator.userAgent;</span><br><span class="line">isiOS: !!u.match(<span class="regexp">/\(i[^;]+;( U;)? CPU.+Mac OS X/</span>), <span class="comment">// ios终端</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="3、替换字符串"><a href="#3、替换字符串" class="headerlink" title="3、替换字符串"></a>3、替换字符串</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//替换第一个字符串</span></span><br><span class="line">replace(<span class="string">'http'</span>, <span class="string">'https'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//替换所有</span></span><br><span class="line">replace(<span class="regexp">/http/g</span>, <span class="string">'https'</span>);</span><br></pre></td></tr></table></figure>
-
-<h4 id="4、判断是否是数字还是字符串"><a href="#4、判断是否是数字还是字符串" class="headerlink" title="4、判断是否是数字还是字符串"></a>4、判断是否是数字还是字符串</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a=<span class="string">'1234'</span>;</span><br><span class="line"><span class="keyword">typeof</span>(a); <span class="comment">//number</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> b=<span class="string">'aasfgfgh'</span>;</span><br><span class="line"><span class="keyword">typeof</span>(b); <span class="comment">//string</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="5、取整"><a href="#5、取整" class="headerlink" title="5、取整"></a>5、取整</h4><h5 id="1、只保留整数部分"><a href="#1、只保留整数部分" class="headerlink" title="1、只保留整数部分"></a>1、只保留整数部分</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">parseInt</span>(<span class="number">5.1234</span>);      <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="2、向下取整-（效果等同于parseInt）"><a href="#2、向下取整-（效果等同于parseInt）" class="headerlink" title="2、向下取整 （效果等同于parseInt）"></a>2、向下取整 （效果等同于parseInt）</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Math</span>.floor(<span class="number">5.1234</span>);     <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="3、向上取整-（有小数，整数部分-1）"><a href="#3、向上取整-（有小数，整数部分-1）" class="headerlink" title="3、向上取整 （有小数，整数部分+1）"></a>3、向上取整 （有小数，整数部分+1）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Math.ceil(5.1234);     &#x2F;&#x2F; 6</span><br></pre></td></tr></table></figure>
-
-<h5 id="4、四舍五入"><a href="#4、四舍五入" class="headerlink" title="4、四舍五入"></a>4、四舍五入</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Math.round(5.1234);      &#x2F;&#x2F; 5</span><br><span class="line">Math.round(5.6789);     &#x2F;&#x2F; 6</span><br></pre></td></tr></table></figure>
-
-<h5 id="5、绝对值"><a href="#5、绝对值" class="headerlink" title="5、绝对值"></a>5、绝对值</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Math.abs(-1);      &#x2F;&#x2F; 1</span><br></pre></td></tr></table></figure>
-
-<h5 id="6、返回两数中的较大者"><a href="#6、返回两数中的较大者" class="headerlink" title="6、返回两数中的较大者"></a>6、返回两数中的较大者</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Math.max(1,2);     &#x2F;&#x2F; 2</span><br></pre></td></tr></table></figure>
-
-<h5 id="7、返回两数中的较小者"><a href="#7、返回两数中的较小者" class="headerlink" title="7、返回两数中的较小者"></a>7、返回两数中的较小者</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Math.min(1,2);    &#x2F;&#x2F; 1</span><br></pre></td></tr></table></figure>
-
-<h5 id="8、随机数"><a href="#8、随机数" class="headerlink" title="8、随机数"></a>8、随机数</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Math.random();</span><br></pre></td></tr></table></figure>
-
-<h4 id="6、拷贝"><a href="#6、拷贝" class="headerlink" title="6、拷贝"></a>6、拷贝</h4><h5 id="1、浅拷贝"><a href="#1、浅拷贝" class="headerlink" title="1、浅拷贝"></a>1、浅拷贝</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="keyword">let</span> b=a;</span><br><span class="line">b.push(<span class="number">4</span>);</span><br><span class="line"><span class="comment">//这时输出a的值为[1,2,3,4];  b的值也是[1,2,3,4]</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="2、深拷贝"><a href="#2、深拷贝" class="headerlink" title="2、深拷贝"></a>2、深拷贝</h5><blockquote>
-<p>方法一</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="keyword">let</span> b=a.concat();</span><br><span class="line">b.push(<span class="number">4</span>);</span><br><span class="line"><span class="comment">//此时 a的值为[1, 2, 3]，b的值为[1,2,3,4]</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>方法二</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="keyword">let</span> b=<span class="built_in">Object</span>.assign(&#123;&#125;, a);</span><br><span class="line">b.push(<span class="number">4</span>);</span><br><span class="line"><span class="comment">//此时 a的值为[1, 2, 3]，b的值为[1,2,3,4]</span></span><br></pre></td></tr></table></figure>
-
-
+        <p><img src="https://s1.ax1x.com/2020/07/17/Uyyv36.jpg" alt=""></p>
       
     </div>
     
+      
+        <div class="button readmore">
+          <a href="/2020/07/17/%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B9-js/">
+            阅读全文 <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
       
     
   </section>
@@ -970,8 +910,8 @@
         
           
   <h2 class="title">
-    <a href="/2020/07/16/%E5%9B%9B%E3%80%81%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E5%9F%9F%E5%90%8D/">
-      四、使用阿里云服务器配置域名
+    <a href="/2020/07/16/%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E5%9F%9F%E5%90%8D/">
+      使用阿里云服务器配置域名
     </a>
   </h2>
 
@@ -996,9 +936,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/vue%E9%85%8D%E7%BD%AE/' rel="nofollow">
+    <a href='/categories/%E9%98%BF%E9%87%8C%E4%BA%91/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>vue配置</p>
+      <p>阿里云</p>
     </a>
   </div>
 
@@ -1039,7 +979,7 @@
     <a class='notlink'>
       <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
       
-      <span id="/2020/07/16/%E5%9B%9B%E3%80%81%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E5%9F%9F%E5%90%8D/" class="leancloud_visitors" data-flag-title="四、使用阿里云服务器配置域名">
+      <span id="/2020/07/16/%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E5%9F%9F%E5%90%8D/" class="leancloud_visitors" data-flag-title="使用阿里云服务器配置域名">
       <p>
         <span class="leancloud-visitors-count"></span>
       </p>
@@ -1054,9 +994,9 @@
               
 <div class="new-meta-item comments-count">
   
-  <a href="/2020/07/16/%E5%9B%9B%E3%80%81%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E5%9F%9F%E5%90%8D/#comments">
+  <a href="/2020/07/16/%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E5%9F%9F%E5%90%8D/#comments">
     <i class="fas fa-comment-dots fa-fw"></i>
-    <span class="valine-comment-count" data-xid="/2020/07/16/%E5%9B%9B%E3%80%81%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E5%9F%9F%E5%90%8D/">0</span>
+    <span class="valine-comment-count" data-xid="/2020/07/16/%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E5%9F%9F%E5%90%8D/">0</span>
     <span class="leancloud-comments-count">&nbsp;</span>
   </a>
 </div>
@@ -1081,26 +1021,16 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="1、登录已有账号、在侧边栏选择“域名”"><a href="#1、登录已有账号、在侧边栏选择“域名”" class="headerlink" title="1、登录已有账号、在侧边栏选择“域名”"></a><strong>1、登录已有账号、在侧边栏选择“域名”</strong></h4><p><img src="https://s1.ax1x.com/2020/07/17/UsnqLd.png" alt="UsnqLd.png"></p>
-<h4 id="2、在列表中选择一个已有域名-进入"><a href="#2、在列表中选择一个已有域名-进入" class="headerlink" title="2、在列表中选择一个已有域名 进入"></a><strong>2、在列表中选择一个已有域名 进入</strong></h4><p><img src="https://s1.ax1x.com/2020/07/17/Usuykt.png" alt="Usuykt.png"></p>
-<h4 id="3、进去看见此域名基本信息，选择“域名解析”"><a href="#3、进去看见此域名基本信息，选择“域名解析”" class="headerlink" title="3、进去看见此域名基本信息，选择“域名解析”"></a><strong>3、进去看见此域名基本信息，选择“域名解析”</strong></h4><p><img src="https://s1.ax1x.com/2020/07/17/UsuR1S.png" alt="UsuR1S.png"></p>
-<h4 id="4、选择“添加纪录”"><a href="#4、选择“添加纪录”" class="headerlink" title="4、选择“添加纪录”"></a><strong>4、选择“添加纪录”</strong></h4><p><img src="https://s1.ax1x.com/2020/07/17/UsuTkq.png" alt="UsuTkq.png"></p>
-<h4 id="5、新建子域名"><a href="#5、新建子域名" class="headerlink" title="5、新建子域名"></a><strong>5、新建子域名</strong></h4><p><img src="https://s1.ax1x.com/2020/07/17/UsuvnJ.png" alt="UsuvnJ.png"></p>
-<h4 id="6、去服务器配置-nginx"><a href="#6、去服务器配置-nginx" class="headerlink" title="6、去服务器配置 nginx"></a><strong>6、去服务器配置 nginx</strong></h4><blockquote>
-<p>根据路径，找到 nginx 文件夹并打开：</p>
-</blockquote>
-<p><img src="https://s1.ax1x.com/2020/07/17/UsKi9K.png" alt="UsKi9K.png"></p>
-<p><img src="https://s1.ax1x.com/2020/07/17/UsKVnH.png" alt="UsKVnH.png"></p>
-<h5 id="例子"><a href="#例子" class="headerlink" title="例子"></a><strong>例子</strong></h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">##test后台</span><br><span class="line">    server &#123;</span><br><span class="line">        listen       <span class="number">80</span>;</span><br><span class="line">        server_name  testp.main.com;</span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">            root   testProject;</span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        location /api &#123;</span><br><span class="line">        #	# add_header 'Access-Control-Allow-Origin' '*';</span><br><span class="line">        #	# proxy_pass http://;</span><br><span class="line">        	proxy_pass http:<span class="comment">//;</span></span><br><span class="line">            proxy_set_header Host $host;</span><br><span class="line">            proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">    	&#125;</span><br><span class="line"></span><br><span class="line">        error_page   <span class="number">500</span> <span class="number">502</span> <span class="number">503</span> <span class="number">504</span>  /<span class="number">50</span>x.html;</span><br><span class="line">        location = <span class="regexp">/50x.html &#123;</span></span><br><span class="line"><span class="regexp">            root   html;</span></span><br><span class="line"><span class="regexp">        &#125;</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="7、在服务器里重启-nginx-完成。"><a href="#7、在服务器里重启-nginx-完成。" class="headerlink" title="7、在服务器里重启 nginx,,完成。"></a><strong>7、在服务器里重启 nginx,,完成。</strong></h4><p><img src="https://s1.ax1x.com/2020/07/17/UsKoKe.png" alt="UsKoKe.png"></p>
-<blockquote>
-<p><strong>*此时在网页中输入域名即可访问到该项目。</strong></p>
-</blockquote>
-
+        <p><img src="https://cdn.jsdelivr.net/gh/liebexiao/myImgs/20200717172235.png" alt=""></p>
       
     </div>
     
+      
+        <div class="button readmore">
+          <a href="/2020/07/16/%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E5%9F%9F%E5%90%8D/">
+            阅读全文 <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
       
     
   </section>
@@ -1149,9 +1079,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/vue%E9%85%8D%E7%BD%AE/' rel="nofollow">
+    <a href='/categories/vue/%E9%85%8D%E7%BD%AE/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>vue配置</p>
+      <p>vue/配置</p>
     </a>
   </div>
 
@@ -1173,7 +1103,7 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：183字</p>
+      <p>字数：187字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -1234,47 +1164,16 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="在控制台通过cli3创建项目"><a href="#在控制台通过cli3创建项目" class="headerlink" title="在控制台通过cli3创建项目"></a><strong>在控制台通过cli3创建项目</strong></h3><h4 id="在控制台通过cli3创建项目-1"><a href="#在控制台通过cli3创建项目-1" class="headerlink" title="在控制台通过cli3创建项目"></a><strong>在控制台通过cli3创建项目</strong></h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue create first-cli3</span><br></pre></td></tr></table></figure>
-
-<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a><strong>配置</strong></h4><p>1、</p>
-<p><img src="https://s1.ax1x.com/2020/07/16/UDcNNt.png" alt="UDcNNt.png"></p>
-<blockquote>
-<p>填y 回车</p>
-</blockquote>
-<p>2、</p>
-<p><img src="https://s1.ax1x.com/2020/07/16/UDcWCV.png" alt="UDcWCV.png"></p>
-<p>3、</p>
-<p><img src="https://s1.ax1x.com/2020/07/16/UDcOC6.png" alt="UDcOC6.png"></p>
-<p>4、</p>
-<p>选y 回车 然后选Sass/SCSS</p>
-<p><img src="https://s1.ax1x.com/2020/07/16/UDgQ5q.png" alt="UDgQ5q.png"></p>
-<p>5、</p>
-<p><img src="https://s1.ax1x.com/2020/07/16/UDg82T.png" alt="UDg82T.png"></p>
-<p>6、</p>
-<p><img src="https://s1.ax1x.com/2020/07/16/UDgBPx.png" alt="UDgBPx.png"></p>
-<p>7、</p>
-<p><img src="https://s1.ax1x.com/2020/07/16/UDgRZd.png" alt="UDgRZd.png"></p>
-<p>8、</p>
-<p>Save this as a preset for furture projects? 这个 是否保存现在的配置 以后创建项目时候依旧使用目前配置？ </p>
-<p><img src="https://s1.ax1x.com/2020/07/16/UDgOds.png" alt="UDgOds.png"></p>
-<h3 id="在网页创建vue项目"><a href="#在网页创建vue项目" class="headerlink" title="在网页创建vue项目"></a><strong>在网页创建vue项目</strong></h3><p>1、</p>
-<p>在控制台输入 <strong>vue ui</strong>  命令 ；；打开网页 在此处创建项目</p>
-<p><img src="https://s1.ax1x.com/2020/07/16/UD2GFI.png" alt="UD2GFI.png"></p>
-<p>2、</p>
-<p><img src="https://s1.ax1x.com/2020/07/16/UD2a6S.png" alt="UD2a6S.png"></p>
-<p>3、</p>
-<p>输入 <strong>项目名</strong> 后 选 <strong>npm</strong> ，，其他默认</p>
-<p><img src="https://s1.ax1x.com/2020/07/16/UD2yYq.png" alt="UD2yYq.png"></p>
-<p>4、</p>
-<p>选择 <strong>手动配置</strong>  之后从 上一大节里面第三步开始配置；； 其中第三步增加 选择 <strong>使用配置文件</strong> 选项</p>
-<p><img src="https://s1.ax1x.com/2020/07/16/UD2hm4.png" alt="UD2hm4.png"></p>
-<p>5、</p>
-<p>保存预设名 目的 与第一部分第8步相同</p>
-<p><img src="https://s1.ax1x.com/2020/07/16/UD2Tt1.png" alt="UD2Tt1.png"></p>
-
+        <p><img src="https://cdn.jsdelivr.net/gh/liebexiao/myImgs/20200717172409.png" alt=""></p>
       
     </div>
     
+      
+        <div class="button readmore">
+          <a href="/2020/07/16/%E4%B8%89%E3%80%81cli3%E5%88%9B%E5%BB%BA%E6%96%B0%E9%A1%B9%E7%9B%AE/">
+            阅读全文 <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
       
     
   </section>
@@ -1323,9 +1222,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/vue%E9%85%8D%E7%BD%AE/' rel="nofollow">
+    <a href='/categories/vue/%E9%85%8D%E7%BD%AE/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>vue配置</p>
+      <p>vue/配置</p>
     </a>
   </div>
 
@@ -1347,7 +1246,7 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：235字</p>
+      <p>字数：233字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -1408,42 +1307,16 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>1、首先安装node.js作为开发环境</strong></p>
-<blockquote>
-<p>打开<a href="http://nodejs.org/" target="_blank" rel="noopener">nodejs官网</a>进行安装。最好安装在C盘。</p>
-</blockquote>
-<p><strong>2、打开管理员终端——接下来就在终端里面操作</strong></p>
-<blockquote>
-<p> 输入<strong>node -v</strong>查看node的版本号；输入<strong>npm -v</strong>查看npm的版本号；</p>
-</blockquote>
-<p><strong>3、安装淘宝镜像cnpm</strong></p>
-<blockquote>
-<p>因为npm安装插件是从国外<a href="https://www.baidu.com/s?wd=服务器&tn=24004469_oem_dg&rsv_dl=gh_pl_sl_csd" target="_blank" rel="noopener">服务器</a>下载，受网络影响大，可能出现异常，使用定制的 <a href="https://github.com/cnpm/cnpm" target="_blank" rel="noopener">cnpm</a> (gzip 压缩支持) 命令行工具代替默认的 <code>npm</code>:</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry&#x3D;https:&#x2F;&#x2F;registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>cnpm跟npm用法完全一致，只是在执行命令时将npm改为cnpm。</p>
-</blockquote>
-<p><strong>4、检查cnpm是否安装成功</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm -v</span><br></pre></td></tr></table></figure>
-
-<p><strong>5、安装 cli3</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g @vue&#x2F;cli</span><br></pre></td></tr></table></figure>
-
-<p><strong>6、检查vue有没有安装成功</strong></p>
-<blockquote>
-<p><strong>vue -V</strong>检查版本号</p>
-</blockquote>
-<p> <strong>7、安装webpack打包工具</strong></p>
-<blockquote>
-<p><strong>cnpm install webpack -g ；</strong>继续安装webpack-cli：<strong>cnpm install webpack-cli -g -d</strong></p>
-<p>输入 <strong>webpack -v</strong>检查是否安装成功</p>
-</blockquote>
-
+        <p><img src="https://cdn.jsdelivr.net/gh/liebexiao/myImgs/20200717172409.png" alt=""></p>
       
     </div>
     
+      
+        <div class="button readmore">
+          <a href="/2020/07/16/%E4%BA%8C%E3%80%81vue%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/">
+            阅读全文 <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
       
     
   </section>
@@ -1565,19 +1438,24 @@
       <ul class="entry navigation">
         
           <li><a class="flat-box"
-            title="/categories/markdown%E5%9F%BA%E7%A1%80/" href="/categories/markdown%E5%9F%BA%E7%A1%80/"
-            id="categoriesmarkdownE59FBAE7A180"
-            ><div class='name'>markdown基础</div><div class='badge'>(1)</div></a></li>
+            title="/categories/markdown/" href="/categories/markdown/"
+            id="categoriesmarkdown"
+            ><div class='name'>markdown</div><div class='badge'>(1)</div></a></li>
         
           <li><a class="flat-box"
-            title="/categories/vue%E7%BB%84%E4%BB%B6/" href="/categories/vue%E7%BB%84%E4%BB%B6/"
+            title="/categories/vue/" href="/categories/vue/"
+            id="categoriesvue"
+            ><div class='name'>vue</div><div class='badge'>(10)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/vue/%E7%BB%84%E4%BB%B6/" href="/categories/vue/%E7%BB%84%E4%BB%B6/"
             id="categoriesvueE7BB84E4BBB6"
-            ><div class='name'>vue组件</div><div class='badge'>(5)</div></a></li>
+            ><div class='name'>组件</div><div class='badge'>(5)</div></a></li>
         
-          <li><a class="flat-box"
-            title="/categories/vue%E9%85%8D%E7%BD%AE/" href="/categories/vue%E9%85%8D%E7%BD%AE/"
+          <li><a class="flat-box child"
+            title="/categories/vue/%E9%85%8D%E7%BD%AE/" href="/categories/vue/%E9%85%8D%E7%BD%AE/"
             id="categoriesvueE9858DE7BDAE"
-            ><div class='name'>vue配置</div><div class='badge'>(6)</div></a></li>
+            ><div class='name'>配置</div><div class='badge'>(5)</div></a></li>
         
           <li><a class="flat-box"
             title="/categories/wx/" href="/categories/wx/"
@@ -1585,14 +1463,24 @@
             ><div class='name'>wx</div><div class='badge'>(1)</div></a></li>
         
           <li><a class="flat-box"
-            title="/categories/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/" href="/categories/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/"
-            id="categoriesE5B8B8E794A8E5B7A5E585B7"
+            title="/categories/%E5%B8%B8%E7%94%A8/" href="/categories/%E5%B8%B8%E7%94%A8/"
+            id="categoriesE5B8B8E794A8"
+            ><div class='name'>常用</div><div class='badge'>(9)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E5%B8%B8%E7%94%A8/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/" href="/categories/%E5%B8%B8%E7%94%A8/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/"
+            id="categoriesE5B8B8E794A8E5B8B8E794A8E5B7A5E585B7"
             ><div class='name'>常用工具</div><div class='badge'>(5)</div></a></li>
         
-          <li><a class="flat-box"
-            title="/categories/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" href="/categories/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/"
-            id="categoriesE5B8B8E794A8E696B9E6B395"
+          <li><a class="flat-box child"
+            title="/categories/%E5%B8%B8%E7%94%A8/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" href="/categories/%E5%B8%B8%E7%94%A8/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/"
+            id="categoriesE5B8B8E794A8E5B8B8E794A8E696B9E6B395"
             ><div class='name'>常用方法</div><div class='badge'>(4)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E9%98%BF%E9%87%8C%E4%BA%91/" href="/categories/%E9%98%BF%E9%87%8C%E4%BA%91/"
+            id="categoriesE998BFE9878CE4BA91"
+            ><div class='name'>阿里云</div><div class='badge'>(1)</div></a></li>
         
       </ul>
     </div>
@@ -1762,7 +1650,7 @@
 
     <script type="text/javascript">
       $(function(){
-        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/BBC19066-E176-47C2-9D22-48C81EE5DF6B.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/B18FCBB3-67FD-48CC-B4F3-457BA145F17A.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/00E0F0ED-9F1C-407A-9AA6-545649D919F4.jpeg"];
+        var imgs=["https://fech.in/static/images/cover/convert-excel-to-markdown-table.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/B18FCBB3-67FD-48CC-B4F3-457BA145F17A.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/00E0F0ED-9F1C-407A-9AA6-545649D919F4.jpeg", "https://fech.in/static/images/cover/ml01-overview.jpeg", "https://fech.in/static/images/cover/export-excel-use-template.jpeg", "https://fech.in/static/images/cover/2017-1024.jpeg", "https://fech.in/static/images/cover/install-burg-on-ubuntu-manual.jpeg", "https://fech.in/static/images/cover/install-burg-on-ubuntu.jpeg"];
         if ('true' == 'true') {
           function shuffle(arr){
             /*From countercurrent-time*/

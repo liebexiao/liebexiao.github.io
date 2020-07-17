@@ -489,9 +489,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/' rel="nofollow">
+    <a href='/categories/%E5%B8%B8%E7%94%A8/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>常用工具</p>
+      <p>常用/常用工具</p>
     </a>
   </div>
 
@@ -526,17 +526,14 @@
         <div class="article-entry" itemprop="articleBody">
           
           
-          <h4 id="引用"><a href="#引用" class="headerlink" title="引用"></a><strong>引用</strong></h4><blockquote>
-<p>1、在 style.js 中引入方法</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="comment">//下载文件流</span></span><br><span class="line">  operateFile(file, filename) &#123;</span><br><span class="line">    <span class="comment">// let fileName = filename + "-" + new Date().getFullYear() + '' +( new Date().getMonth()+1)  + '' +new Date() .getDate()+".xls";</span></span><br><span class="line">    <span class="comment">// let blobObject = new Blob([file], &#123;type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"&#125;);</span></span><br><span class="line">    <span class="comment">// //是IE浏览器</span></span><br><span class="line">    <span class="comment">// if(!!window.ActiveXObject || "ActiveXObject" in window)&#123;</span></span><br><span class="line">    <span class="comment">//     window.navigator.msSaveOrOpenBlob(blobObject,fileName);</span></span><br><span class="line">    <span class="comment">// &#125;else&#123;//火狐谷歌都兼容</span></span><br><span class="line">    <span class="comment">//     //模板中要有一个预定义好的a标签</span></span><br><span class="line">    <span class="comment">//     let link = document.getElementById('a_id')</span></span><br><span class="line">    <span class="comment">//     link.href = URL.createObjectURL(blobObject);</span></span><br><span class="line">    <span class="comment">//     link.download = fileName</span></span><br><span class="line">    <span class="comment">//     link.click();</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line">    <span class="keyword">var</span> filename = <span class="string">"订单记录"</span>;</span><br><span class="line">    <span class="keyword">let</span> url = <span class="built_in">window</span>.URL.createObjectURL(file.data);</span><br><span class="line">    <span class="keyword">let</span> link = <span class="built_in">document</span>.createElement(<span class="string">"a"</span>);</span><br><span class="line">    link.style.display = <span class="string">"none"</span>;</span><br><span class="line">    link.href = url;</span><br><span class="line">    link.setAttribute(<span class="string">"download"</span>, filename + <span class="string">".xls"</span>);</span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(link);</span><br><span class="line">    link.click();</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+          <p><img src="https://cdn.jsdelivr.net/gh/liebexiao/myImgs/20200717165537.png" alt=""></p>
+<a id="more"></a>
 
-<blockquote>
-<p>2、在页面中引用</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> style <span class="keyword">from</span> <span class="string">"@/static/js/style"</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="一、引用"><a href="#一、引用" class="headerlink" title="一、引用"></a><strong>一、引用</strong></h4><h4 id="1、在-style-js-中引入方法"><a href="#1、在-style-js-中引入方法" class="headerlink" title="1、在 style.js 中引入方法"></a>1、在 style.js 中引入方法</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="comment">//下载文件流</span></span><br><span class="line">  operateFile(file, filename) &#123;</span><br><span class="line">    <span class="comment">// let fileName = filename + "-" + new Date().getFullYear() + '' +( new Date().getMonth()+1)  + '' +new Date() .getDate()+".xls";</span></span><br><span class="line">    <span class="comment">// let blobObject = new Blob([file], &#123;type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"&#125;);</span></span><br><span class="line">    <span class="comment">// //是IE浏览器</span></span><br><span class="line">    <span class="comment">// if(!!window.ActiveXObject || "ActiveXObject" in window)&#123;</span></span><br><span class="line">    <span class="comment">//     window.navigator.msSaveOrOpenBlob(blobObject,fileName);</span></span><br><span class="line">    <span class="comment">// &#125;else&#123;//火狐谷歌都兼容</span></span><br><span class="line">    <span class="comment">//     //模板中要有一个预定义好的a标签</span></span><br><span class="line">    <span class="comment">//     let link = document.getElementById('a_id')</span></span><br><span class="line">    <span class="comment">//     link.href = URL.createObjectURL(blobObject);</span></span><br><span class="line">    <span class="comment">//     link.download = fileName</span></span><br><span class="line">    <span class="comment">//     link.click();</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line">    <span class="keyword">var</span> filename = <span class="string">"订单记录"</span>;</span><br><span class="line">    <span class="keyword">let</span> url = <span class="built_in">window</span>.URL.createObjectURL(file.data);</span><br><span class="line">    <span class="keyword">let</span> link = <span class="built_in">document</span>.createElement(<span class="string">"a"</span>);</span><br><span class="line">    link.style.display = <span class="string">"none"</span>;</span><br><span class="line">    link.href = url;</span><br><span class="line">    link.setAttribute(<span class="string">"download"</span>, filename + <span class="string">".xls"</span>);</span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(link);</span><br><span class="line">    link.click();</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a><strong>使用</strong></h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//导出表格</span></span><br><span class="line">            exportDialog() &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="keyword">this</span>.supplierId)</span><br><span class="line">                <span class="keyword">let</span> obj = &#123;</span><br><span class="line">                    page: <span class="number">0</span>,</span><br><span class="line">                    size: <span class="number">100000</span>,</span><br><span class="line">                    start_time: <span class="keyword">this</span>.startTime,</span><br><span class="line">                    end_time: <span class="keyword">this</span>.endTime,</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">this</span>.$http.getFile(<span class="string">"/api"</span>, obj).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">                    style.operateFile(res, <span class="string">'订单记录'</span>)</span><br><span class="line">                    <span class="comment">/*var filename = '订单记录';</span></span><br><span class="line"><span class="comment">                    let url = window.URL.createObjectURL(res)</span></span><br><span class="line"><span class="comment">                    let link = document.createElement('a')</span></span><br><span class="line"><span class="comment">                    link.style.display = 'none'</span></span><br><span class="line"><span class="comment">                    link.href = url</span></span><br><span class="line"><span class="comment">                    link.setAttribute('download', filename + '.xls')</span></span><br><span class="line"><span class="comment">                    document.body.appendChild(link)</span></span><br><span class="line"><span class="comment">                    link.click()*/</span></span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;,</span><br></pre></td></tr></table></figure>
+<h4 id="2、在页面中引用"><a href="#2、在页面中引用" class="headerlink" title="2、在页面中引用"></a>2、在页面中引用</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> style <span class="keyword">from</span> <span class="string">"@/static/js/style"</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="二、使用"><a href="#二、使用" class="headerlink" title="二、使用"></a><strong>二、使用</strong></h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//导出表格</span></span><br><span class="line">            exportDialog() &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="keyword">this</span>.supplierId)</span><br><span class="line">                <span class="keyword">let</span> obj = &#123;</span><br><span class="line">                    page: <span class="number">0</span>,</span><br><span class="line">                    size: <span class="number">100000</span>,</span><br><span class="line">                    start_time: <span class="keyword">this</span>.startTime,</span><br><span class="line">                    end_time: <span class="keyword">this</span>.endTime,</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">this</span>.$http.getFile(<span class="string">"/api"</span>, obj).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">                    style.operateFile(res, <span class="string">'订单记录'</span>)</span><br><span class="line">                    <span class="comment">/*var filename = '订单记录';</span></span><br><span class="line"><span class="comment">                    let url = window.URL.createObjectURL(res)</span></span><br><span class="line"><span class="comment">                    let link = document.createElement('a')</span></span><br><span class="line"><span class="comment">                    link.style.display = 'none'</span></span><br><span class="line"><span class="comment">                    link.href = url</span></span><br><span class="line"><span class="comment">                    link.setAttribute('download', filename + '.xls')</span></span><br><span class="line"><span class="comment">                    document.body.appendChild(link)</span></span><br><span class="line"><span class="comment">                    link.click()*/</span></span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;,</span><br></pre></td></tr></table></figure>
 
           
             <div class='article_footer'>
@@ -592,20 +589,6 @@
 
   <div class='content article-entry'>
     
-      
-        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
-        
-          height='64px'
-        ></div>
-      
-    
-      
-        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
-        
-          height='64px'
-        ></div>
-      
-    
   </div>
 </section>
 
@@ -624,10 +607,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-15T17:45:59+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-17T17:56:17+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年7月15日</p>
+    <p>更新于：2020年7月17日</p>
   </a>
 </div>
 
@@ -705,17 +688,20 @@
               <a class='prev' href='/2020/07/15/keep-alive%E4%BF%9D%E6%8C%81%E9%A1%B5%E9%9D%A2%E6%B4%BB%E6%80%A7/'>
                 <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>keep-alive保持页面活性</p>
                 <p class='content'>keep-alive是 Vue 内置的一个组件，可以使被包含的组件保留状态
-一般的保持活性在页面翻页时进入另一页返回之后仍在原始页。
 
-1、在 App.vue 里面：
 
-1234&lt;rout...</p>
+
+一、一般的保持活性在页面翻页时进入另一页返回之后仍在原始页。
+1、在 App.vue 里面1234&lt;rou...</p>
               </a>
             
             
               <a class='next' href='/2020/07/15/%E5%9B%BE%E7%89%87%E7%A7%BB%E5%8A%A8%E3%80%81%E7%BC%A9%E6%94%BE/'>
                 <p class='title'>图片移动、缩放<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>html1234567891011&lt;div class&#x3D;&quot;template_move_box&quot;&gt;    &lt;div class&#x3D;&quot...</p>
+                <p class='content'>
+
+
+html1234567891011&lt;div class&#x3D;&quot;template_move_box&quot;&gt;    &lt;div class&#x3D;&q...</p>
               </a>
             
           </div>
@@ -769,7 +755,7 @@
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#引用"><span class="toc-text">引用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用"><span class="toc-text">使用</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、引用"><span class="toc-text">一、引用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1、在-style-js-中引入方法"><span class="toc-text">1、在 style.js 中引入方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、在页面中引用"><span class="toc-text">2、在页面中引用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、使用"><span class="toc-text">二、使用</span></a></li></ol>
     </div>
   </section>
 
@@ -905,7 +891,7 @@
 
     <script type="text/javascript">
       $(function(){
-        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/BBC19066-E176-47C2-9D22-48C81EE5DF6B.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/B18FCBB3-67FD-48CC-B4F3-457BA145F17A.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/00E0F0ED-9F1C-407A-9AA6-545649D919F4.jpeg"];
+        var imgs=["https://fech.in/static/images/cover/convert-excel-to-markdown-table.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/B18FCBB3-67FD-48CC-B4F3-457BA145F17A.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/00E0F0ED-9F1C-407A-9AA6-545649D919F4.jpeg", "https://fech.in/static/images/cover/ml01-overview.jpeg", "https://fech.in/static/images/cover/export-excel-use-template.jpeg", "https://fech.in/static/images/cover/2017-1024.jpeg", "https://fech.in/static/images/cover/install-burg-on-ubuntu-manual.jpeg", "https://fech.in/static/images/cover/install-burg-on-ubuntu.jpeg"];
         if ('true' == 'true') {
           function shuffle(arr){
             /*From countercurrent-time*/

@@ -467,154 +467,6 @@
         
           
   <h2 class="title">
-    <a href="/2020/07/15/%E5%AF%BC%E5%87%BAexcel%E8%A1%A8%E6%A0%BC/">
-      导出excel表格
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="" rel="nofollow">
-    <img no-lazy src="https://s1.ax1x.com/2020/07/17/Us4aoF.jpg">
-    <p>晓晓</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>常用工具</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年7月15日</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  <div class="new-meta-item wordcount">
-    <a class='notlink'>
-      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：240字</p>
-    </a>
-  </div>
-  <div class="new-meta-item readtime">
-    <a class='notlink'>
-      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：1分钟</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-  <div class="new-meta-item browse valine">
-    <a class='notlink'>
-      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
-      
-      <span id="/2020/07/15/%E5%AF%BC%E5%87%BAexcel%E8%A1%A8%E6%A0%BC/" class="leancloud_visitors" data-flag-title="导出excel表格">
-      <p>
-        <span class="leancloud-visitors-count"></span>
-      </p>
-      </span>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-<div class="new-meta-item comments-count">
-  
-  <a href="/2020/07/15/%E5%AF%BC%E5%87%BAexcel%E8%A1%A8%E6%A0%BC/#comments">
-    <i class="fas fa-comment-dots fa-fw"></i>
-    <span class="valine-comment-count" data-xid="/2020/07/15/%E5%AF%BC%E5%87%BAexcel%E8%A1%A8%E6%A0%BC/">0</span>
-    <span class="leancloud-comments-count">&nbsp;</span>
-  </a>
-</div>
-
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="引用"><a href="#引用" class="headerlink" title="引用"></a><strong>引用</strong></h4><blockquote>
-<p>1、在 style.js 中引入方法</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="comment">//下载文件流</span></span><br><span class="line">  operateFile(file, filename) &#123;</span><br><span class="line">    <span class="comment">// let fileName = filename + "-" + new Date().getFullYear() + '' +( new Date().getMonth()+1)  + '' +new Date() .getDate()+".xls";</span></span><br><span class="line">    <span class="comment">// let blobObject = new Blob([file], &#123;type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"&#125;);</span></span><br><span class="line">    <span class="comment">// //是IE浏览器</span></span><br><span class="line">    <span class="comment">// if(!!window.ActiveXObject || "ActiveXObject" in window)&#123;</span></span><br><span class="line">    <span class="comment">//     window.navigator.msSaveOrOpenBlob(blobObject,fileName);</span></span><br><span class="line">    <span class="comment">// &#125;else&#123;//火狐谷歌都兼容</span></span><br><span class="line">    <span class="comment">//     //模板中要有一个预定义好的a标签</span></span><br><span class="line">    <span class="comment">//     let link = document.getElementById('a_id')</span></span><br><span class="line">    <span class="comment">//     link.href = URL.createObjectURL(blobObject);</span></span><br><span class="line">    <span class="comment">//     link.download = fileName</span></span><br><span class="line">    <span class="comment">//     link.click();</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line">    <span class="keyword">var</span> filename = <span class="string">"订单记录"</span>;</span><br><span class="line">    <span class="keyword">let</span> url = <span class="built_in">window</span>.URL.createObjectURL(file.data);</span><br><span class="line">    <span class="keyword">let</span> link = <span class="built_in">document</span>.createElement(<span class="string">"a"</span>);</span><br><span class="line">    link.style.display = <span class="string">"none"</span>;</span><br><span class="line">    link.href = url;</span><br><span class="line">    link.setAttribute(<span class="string">"download"</span>, filename + <span class="string">".xls"</span>);</span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(link);</span><br><span class="line">    link.click();</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>2、在页面中引用</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> style <span class="keyword">from</span> <span class="string">"@/static/js/style"</span>;</span><br></pre></td></tr></table></figure>
-
-<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a><strong>使用</strong></h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//导出表格</span></span><br><span class="line">            exportDialog() &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="keyword">this</span>.supplierId)</span><br><span class="line">                <span class="keyword">let</span> obj = &#123;</span><br><span class="line">                    page: <span class="number">0</span>,</span><br><span class="line">                    size: <span class="number">100000</span>,</span><br><span class="line">                    start_time: <span class="keyword">this</span>.startTime,</span><br><span class="line">                    end_time: <span class="keyword">this</span>.endTime,</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">this</span>.$http.getFile(<span class="string">"/api"</span>, obj).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">                    style.operateFile(res, <span class="string">'订单记录'</span>)</span><br><span class="line">                    <span class="comment">/*var filename = '订单记录';</span></span><br><span class="line"><span class="comment">                    let url = window.URL.createObjectURL(res)</span></span><br><span class="line"><span class="comment">                    let link = document.createElement('a')</span></span><br><span class="line"><span class="comment">                    link.style.display = 'none'</span></span><br><span class="line"><span class="comment">                    link.href = url</span></span><br><span class="line"><span class="comment">                    link.setAttribute('download', filename + '.xls')</span></span><br><span class="line"><span class="comment">                    document.body.appendChild(link)</span></span><br><span class="line"><span class="comment">                    link.click()*/</span></span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;,</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
     <a href="/2020/07/14/%E6%8B%96%E6%8B%BD%E6%8E%92%E5%BA%8F/">
       拖拽排序
     </a>
@@ -641,9 +493,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/vue%E7%BB%84%E4%BB%B6/' rel="nofollow">
+    <a href='/categories/vue/%E7%BB%84%E4%BB%B6/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>vue组件</p>
+      <p>vue/组件</p>
     </a>
   </div>
 
@@ -726,29 +578,16 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="基础使用"><a href="#基础使用" class="headerlink" title="基础使用"></a><strong>基础使用</strong></h3><blockquote>
-<p>安装引用</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install awe-dnd --save</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>使用</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在main.js中全局引用;</span><br><span class="line"><span class="keyword">import</span> VueDND <span class="keyword">from</span> <span class="string">"awe-dnd"</span>;</span><br><span class="line">Vue.use(VueDND);</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span></span></span><br><span class="line"><span class="tag">  <span class="attr">class</span>=<span class="string">"color-item"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-for</span>=<span class="string">"color in colors"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-dragging</span>=<span class="string">"&#123; item: color, list: colors, group: 'color' &#125;"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">:key</span>=<span class="string">"color.text"</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br><span class="line">  &#123;&#123;color.text&#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mounted () &#123;</span><br><span class="line">   <span class="keyword">this</span>.$dragging.$on(<span class="string">'dragged'</span>, (&#123; value &#125;) =&gt; &#123;</span><br><span class="line">     <span class="built_in">console</span>.log(value.item)</span><br><span class="line">     <span class="built_in">console</span>.log(value.list)</span><br><span class="line">     <span class="built_in">console</span>.log(value.otherData)</span><br><span class="line">   &#125;)</span><br><span class="line">   <span class="keyword">this</span>.$dragging.$on(<span class="string">'dragend'</span>, () =&gt; &#123;</span><br><span class="line"></span><br><span class="line">   &#125;)</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="嵌套列表排序"><a href="#嵌套列表排序" class="headerlink" title="嵌套列表排序"></a><strong>嵌套列表排序</strong></h3><p>只有在html这个地方有区别，其他使用均相同</p>
-<blockquote>
-<p>使用</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span></span></span><br><span class="line"><span class="tag">  <span class="attr">class</span>=<span class="string">"select"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-for</span>=<span class="string">"(item2,index2) in item.volunteerMajor"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">:key</span>=<span class="string">"index2"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-dragging</span>=<span class="string">"&#123; item: item2, list: item.volunteerMajor, group: 'name'+index&#125;"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+        <p><img src="https://cdn.jsdelivr.net/gh/liebexiao/myImgs/20200717170003.png" alt=""></p>
       
     </div>
     
+      
+        <div class="button readmore">
+          <a href="/2020/07/14/%E6%8B%96%E6%8B%BD%E6%8E%92%E5%BA%8F/">
+            阅读全文 <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
       
     
   </section>
@@ -797,9 +636,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/vue%E9%85%8D%E7%BD%AE/' rel="nofollow">
+    <a href='/categories/vue/%E9%85%8D%E7%BD%AE/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>vue配置</p>
+      <p>vue/配置</p>
     </a>
   </div>
 
@@ -821,7 +660,7 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：614字</p>
+      <p>字数：600字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -882,64 +721,16 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Gzip压缩"><a href="#Gzip压缩" class="headerlink" title="Gzip压缩"></a><strong>Gzip压缩</strong></h3><p>gizp 压缩是一种 http 请求优化方式，通过减少文件体积来提高加载速度，对于用户量多的网站，开启 gizp 压缩会大大降低服务器压力，提高加载速度，降低服务器流量成本</p>
-<p><strong>压缩完成示例</strong></p>
-<p><img src="https://s1.ax1x.com/2020/06/17/NEaSSS.png" alt="NEaSSS.png"></p>
-<blockquote>
-<p>安装插件</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install compression-webpack-plugin --save-de</span><br></pre></td></tr></table></figure>
-
-
-<blockquote>
-<p>在vue.config.js中配置</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 导入compression-webpack-plugin</span></span><br><span class="line"><span class="keyword">const</span> CompressionWebpackPlugin = <span class="built_in">require</span>(<span class="string">"compression-webpack-plugin"</span>);</span><br><span class="line"><span class="comment">// 定义压缩文件类型</span></span><br><span class="line"><span class="keyword">const</span> productionGzipExtensions = [<span class="string">"js"</span>, <span class="string">"css"</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">//统一配置打包插件</span></span><br><span class="line">  configureWebpack: &#123;</span><br><span class="line">    plugins: [</span><br><span class="line">      <span class="keyword">new</span> CompressionWebpackPlugin(&#123;</span><br><span class="line">        filename: <span class="string">"[path].gz[query]"</span>,</span><br><span class="line">        algorithm: <span class="string">"gzip"</span>,</span><br><span class="line">        test: <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"\\.("</span> + productionGzipExtensions.join(<span class="string">"|"</span>) + <span class="string">")$"</span>), <span class="comment">//匹配文件名</span></span><br><span class="line">        threshold: <span class="number">10240</span>, <span class="comment">//对10K以上的数据进行压缩</span></span><br><span class="line">        minRatio: <span class="number">0.8</span>,</span><br><span class="line">        deleteOriginalAssets: <span class="literal">false</span>, <span class="comment">//是否删除源文件</span></span><br><span class="line">      &#125;),</span><br><span class="line">    ],</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>在服务器的 nginx的http中配置 Gzip</p>
-</blockquote>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">gzip on; #开启或关闭gzip on off</span><br><span class="line">gzip_min_length 5k; #gzip压缩最小文件大小，超出进行压缩（自行调节）</span><br><span class="line">gzip_buffers 4 16k; #buffer 不用修改</span><br><span class="line">gzip_comp_level 4; #压缩级别:1-10，数字越大压缩的越好，时间也越长</span><br><span class="line">gzip_types text/plain application/x-javascript application/javascript text/css application/xml text/javascript application/x-httpd-php image/jpeg image/gif image/png; #  压缩文件类型</span><br><span class="line">gzip_vary on; # 和http头有关系，加个vary头，给代理服务器用的，有的浏览器支持压缩，有的不支持，所以避免浪费不支持的也压缩，所以根据客户端的HTTP头来判断，是否需要压缩</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>修改后记得执行 nginx -s reload</p>
-</blockquote>
-<h3 id="去掉打包后的-console"><a href="#去掉打包后的-console" class="headerlink" title="去掉打包后的 console"></a><strong>去掉打包后的 console</strong></h3><blockquote>
-<p>安裝插件</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install babel-plugin-transform-remove-<span class="built_in">console</span> --save-dev</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>【babel.config.js】配置如下</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> plugins = [<span class="string">"@vue/babel-plugin-transform-vue-jsx"</span>];</span><br><span class="line"><span class="comment">// 生产环境移除console</span></span><br><span class="line"><span class="keyword">if</span> (process.env.NODE_ENV === <span class="string">"production"</span>) &#123;</span><br><span class="line">  plugins.push(<span class="string">"transform-remove-console"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  plugins: plugins,</span><br><span class="line">  presets: [<span class="string">"@vue/cli-plugin-babel/preset"</span>],</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>打包部署后，生产环境的 console 就全部去掉了~</p>
-</blockquote>
-<h3 id="图片懒加载"><a href="#图片懒加载" class="headerlink" title="图片懒加载"></a><strong>图片懒加载</strong></h3><blockquote>
-<p>安装依赖</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm i vue-lazyload -S</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>main.js 中直接引用</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> VueLazyload <span class="keyword">from</span> <span class="string">"vue-lazyload"</span>;</span><br><span class="line"></span><br><span class="line">Vue.use(VueLazyload);</span><br><span class="line"></span><br><span class="line"><span class="comment">// or with options</span></span><br><span class="line">Vue.use(VueLazyload, &#123;</span><br><span class="line">  <span class="comment">//预加载高度</span></span><br><span class="line">  preLoad: <span class="number">1.3</span>,</span><br><span class="line">  <span class="comment">//错误时显示的图片</span></span><br><span class="line">  error: <span class="string">"static/about111.jpg"</span>,</span><br><span class="line">  <span class="comment">//图片加载中显示的图片</span></span><br><span class="line">  loading: <span class="string">"static/img/loading.gif"</span>,</span><br><span class="line">  <span class="comment">//尝试加载次数</span></span><br><span class="line">  attempt: <span class="number">1</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>在组件中使用时，将 img 标签的 src 换成 v-lazy：</p>
-</blockquote>
-<ol>
-<li>未使用懒加载前的代码：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;li&gt;&lt;img class&#x3D;&quot;g-img1&quot; src&#x3D;&quot;static&#x2F;1.jpg&quot; alt&#x3D;&quot;&quot; &#x2F;&gt;&lt;&#x2F;li&gt;</span><br></pre></td></tr></table></figure></li>
-<li>使用懒加载后的代码：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;li&gt;&lt;img class&#x3D;&quot;g-img1&quot; v-lazy&#x3D;&quot;&#39;static&#x2F;1.jpg&#39;&quot; alt&#x3D;&quot;&quot; &#x2F;&gt;&lt;&#x2F;li&gt;</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-
+        <p><img src="https://s1.ax1x.com/2020/06/04/t0Rsk8.png" alt=""></p>
       
     </div>
     
+      
+        <div class="button readmore">
+          <a href="/2020/06/17/vue-cli4%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
+            阅读全文 <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
       
     
   </section>
@@ -1062,19 +853,24 @@
       <ul class="entry navigation">
         
           <li><a class="flat-box"
-            title="/categories/markdown%E5%9F%BA%E7%A1%80/" href="/categories/markdown%E5%9F%BA%E7%A1%80/"
-            id="categoriesmarkdownE59FBAE7A180"
-            ><div class='name'>markdown基础</div><div class='badge'>(1)</div></a></li>
+            title="/categories/markdown/" href="/categories/markdown/"
+            id="categoriesmarkdown"
+            ><div class='name'>markdown</div><div class='badge'>(1)</div></a></li>
         
           <li><a class="flat-box"
-            title="/categories/vue%E7%BB%84%E4%BB%B6/" href="/categories/vue%E7%BB%84%E4%BB%B6/"
+            title="/categories/vue/" href="/categories/vue/"
+            id="categoriesvue"
+            ><div class='name'>vue</div><div class='badge'>(10)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/vue/%E7%BB%84%E4%BB%B6/" href="/categories/vue/%E7%BB%84%E4%BB%B6/"
             id="categoriesvueE7BB84E4BBB6"
-            ><div class='name'>vue组件</div><div class='badge'>(5)</div></a></li>
+            ><div class='name'>组件</div><div class='badge'>(5)</div></a></li>
         
-          <li><a class="flat-box"
-            title="/categories/vue%E9%85%8D%E7%BD%AE/" href="/categories/vue%E9%85%8D%E7%BD%AE/"
+          <li><a class="flat-box child"
+            title="/categories/vue/%E9%85%8D%E7%BD%AE/" href="/categories/vue/%E9%85%8D%E7%BD%AE/"
             id="categoriesvueE9858DE7BDAE"
-            ><div class='name'>vue配置</div><div class='badge'>(6)</div></a></li>
+            ><div class='name'>配置</div><div class='badge'>(5)</div></a></li>
         
           <li><a class="flat-box"
             title="/categories/wx/" href="/categories/wx/"
@@ -1082,14 +878,24 @@
             ><div class='name'>wx</div><div class='badge'>(1)</div></a></li>
         
           <li><a class="flat-box"
-            title="/categories/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/" href="/categories/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/"
-            id="categoriesE5B8B8E794A8E5B7A5E585B7"
+            title="/categories/%E5%B8%B8%E7%94%A8/" href="/categories/%E5%B8%B8%E7%94%A8/"
+            id="categoriesE5B8B8E794A8"
+            ><div class='name'>常用</div><div class='badge'>(9)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E5%B8%B8%E7%94%A8/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/" href="/categories/%E5%B8%B8%E7%94%A8/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/"
+            id="categoriesE5B8B8E794A8E5B8B8E794A8E5B7A5E585B7"
             ><div class='name'>常用工具</div><div class='badge'>(5)</div></a></li>
         
-          <li><a class="flat-box"
-            title="/categories/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" href="/categories/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/"
-            id="categoriesE5B8B8E794A8E696B9E6B395"
+          <li><a class="flat-box child"
+            title="/categories/%E5%B8%B8%E7%94%A8/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" href="/categories/%E5%B8%B8%E7%94%A8/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/"
+            id="categoriesE5B8B8E794A8E5B8B8E794A8E696B9E6B395"
             ><div class='name'>常用方法</div><div class='badge'>(4)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E9%98%BF%E9%87%8C%E4%BA%91/" href="/categories/%E9%98%BF%E9%87%8C%E4%BA%91/"
+            id="categoriesE998BFE9878CE4BA91"
+            ><div class='name'>阿里云</div><div class='badge'>(1)</div></a></li>
         
       </ul>
     </div>
@@ -1251,7 +1057,7 @@
 
     <script type="text/javascript">
       $(function(){
-        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/BBC19066-E176-47C2-9D22-48C81EE5DF6B.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/B18FCBB3-67FD-48CC-B4F3-457BA145F17A.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/00E0F0ED-9F1C-407A-9AA6-545649D919F4.jpeg"];
+        var imgs=["https://fech.in/static/images/cover/convert-excel-to-markdown-table.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/B18FCBB3-67FD-48CC-B4F3-457BA145F17A.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/00E0F0ED-9F1C-407A-9AA6-545649D919F4.jpeg", "https://fech.in/static/images/cover/ml01-overview.jpeg", "https://fech.in/static/images/cover/export-excel-use-template.jpeg", "https://fech.in/static/images/cover/2017-1024.jpeg", "https://fech.in/static/images/cover/install-burg-on-ubuntu-manual.jpeg", "https://fech.in/static/images/cover/install-burg-on-ubuntu.jpeg"];
         if ('true' == 'true') {
           function shuffle(arr){
             /*From countercurrent-time*/

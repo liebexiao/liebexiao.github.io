@@ -489,9 +489,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/' rel="nofollow">
+    <a href='/categories/%E5%B8%B8%E7%94%A8/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>常用方法</p>
+      <p>常用/常用方法</p>
     </a>
   </div>
 
@@ -526,34 +526,25 @@
         <div class="article-entry" itemprop="articleBody">
           
           
-          <h3 id="点击复制文本"><a href="#点击复制文本" class="headerlink" title="点击复制文本"></a><strong>点击复制文本</strong></h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> httpUrl = <span class="keyword">this</span>.herfAddress; <span class="comment">//此处为需要被复制的文本</span></span><br><span class="line"><span class="keyword">let</span> oInput = <span class="built_in">document</span>.createElement(<span class="string">"input"</span>);</span><br><span class="line">oInput.value = httpUrl;</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(oInput);</span><br><span class="line">oInput.select(); <span class="comment">// 选择对象</span></span><br><span class="line"><span class="built_in">document</span>.execCommand(<span class="string">"Copy"</span>); <span class="comment">// 执行浏览器复制命令</span></span><br><span class="line">oInput.className = <span class="string">"oInput"</span>;</span><br><span class="line">oInput.style.display = <span class="string">"none"</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"链接复制成功"</span>);</span><br></pre></td></tr></table></figure>
+          <p><img src="https://cdn.jsdelivr.net/gh/liebexiao/myImgs/20200717173139.jpg" alt=""></p>
+<a id="more"></a>
+
+<h3 id="一、点击复制文本"><a href="#一、点击复制文本" class="headerlink" title="一、点击复制文本"></a><strong>一、点击复制文本</strong></h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> httpUrl = <span class="keyword">this</span>.herfAddress; <span class="comment">//此处为需要被复制的文本</span></span><br><span class="line"><span class="keyword">let</span> oInput = <span class="built_in">document</span>.createElement(<span class="string">"input"</span>);</span><br><span class="line">oInput.value = httpUrl;</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(oInput);</span><br><span class="line">oInput.select(); <span class="comment">// 选择对象</span></span><br><span class="line"><span class="built_in">document</span>.execCommand(<span class="string">"Copy"</span>); <span class="comment">// 执行浏览器复制命令</span></span><br><span class="line">oInput.className = <span class="string">"oInput"</span>;</span><br><span class="line">oInput.style.display = <span class="string">"none"</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"链接复制成功"</span>);</span><br></pre></td></tr></table></figure>
 
 <hr>
-<h3 id="禁止微信用户修改字体大小"><a href="#禁止微信用户修改字体大小" class="headerlink" title="禁止微信用户修改字体大小"></a><strong>禁止微信用户修改字体大小</strong></h3><p>微信 webview 内置了调整字体大小的功能，用户可以根据实际情况进行调整。</p>
-<blockquote>
-<p>1、android 手机</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">       (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">           <span class="keyword">if</span> (<span class="keyword">typeof</span> WeixinJSBridge == <span class="string">"object"</span> &amp;&amp; <span class="keyword">typeof</span> WeixinJSBridge.invoke == <span class="string">"function"</span>) &#123;</span><br><span class="line">               handleFontSize();</span><br><span class="line">           &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">               <span class="keyword">if</span> (<span class="built_in">document</span>.addEventListener) &#123;</span><br><span class="line">                   <span class="built_in">document</span>.addEventListener(<span class="string">"WeixinJSBridgeReady"</span>, handleFontSize, <span class="literal">false</span>);</span><br><span class="line">               &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">document</span>.attachEvent) &#123;</span><br><span class="line">                   <span class="built_in">document</span>.attachEvent(<span class="string">"WeixinJSBridgeReady"</span>, handleFontSize);</span><br><span class="line">                   <span class="built_in">document</span>.attachEvent(<span class="string">"onWeixinJSBridgeReady"</span>, handleFontSize);  &#125;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="function"><span class="keyword">function</span> <span class="title">handleFontSize</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">               <span class="comment">// 设置网页字体为默认大小</span></span><br><span class="line">               WeixinJSBridge.invoke(<span class="string">'setFontSizeCallback'</span>, &#123; <span class="string">'fontSize'</span> : <span class="number">0</span> &#125;);</span><br><span class="line">               <span class="comment">// 重写设置网页字体大小的事件</span></span><br><span class="line">               WeixinJSBridge.on(<span class="string">'menu:setfont'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                   WeixinJSBridge.invoke(<span class="string">'setFontSizeCallback'</span>, &#123; <span class="string">'fontSize'</span> : <span class="number">0</span> &#125;);</span><br><span class="line">               &#125;);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;)();</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="二、禁止微信用户修改字体大小"><a href="#二、禁止微信用户修改字体大小" class="headerlink" title="二、禁止微信用户修改字体大小"></a><strong>二、禁止微信用户修改字体大小</strong></h3><p>微信 webview 内置了调整字体大小的功能，用户可以根据实际情况进行调整。</p>
+<h4 id="1、android-手机"><a href="#1、android-手机" class="headerlink" title="1、android 手机"></a>1、android 手机</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">       (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">           <span class="keyword">if</span> (<span class="keyword">typeof</span> WeixinJSBridge == <span class="string">"object"</span> &amp;&amp; <span class="keyword">typeof</span> WeixinJSBridge.invoke == <span class="string">"function"</span>) &#123;</span><br><span class="line">               handleFontSize();</span><br><span class="line">           &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">               <span class="keyword">if</span> (<span class="built_in">document</span>.addEventListener) &#123;</span><br><span class="line">                   <span class="built_in">document</span>.addEventListener(<span class="string">"WeixinJSBridgeReady"</span>, handleFontSize, <span class="literal">false</span>);</span><br><span class="line">               &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">document</span>.attachEvent) &#123;</span><br><span class="line">                   <span class="built_in">document</span>.attachEvent(<span class="string">"WeixinJSBridgeReady"</span>, handleFontSize);</span><br><span class="line">                   <span class="built_in">document</span>.attachEvent(<span class="string">"onWeixinJSBridgeReady"</span>, handleFontSize);  &#125;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="function"><span class="keyword">function</span> <span class="title">handleFontSize</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">               <span class="comment">// 设置网页字体为默认大小</span></span><br><span class="line">               WeixinJSBridge.invoke(<span class="string">'setFontSizeCallback'</span>, &#123; <span class="string">'fontSize'</span> : <span class="number">0</span> &#125;);</span><br><span class="line">               <span class="comment">// 重写设置网页字体大小的事件</span></span><br><span class="line">               WeixinJSBridge.on(<span class="string">'menu:setfont'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                   WeixinJSBridge.invoke(<span class="string">'setFontSizeCallback'</span>, &#123; <span class="string">'fontSize'</span> : <span class="number">0</span> &#125;);</span><br><span class="line">               &#125;);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;)();</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>2、IOS</p>
-</blockquote>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="comment">/* IOS禁止微信调整字体大小 */</span></span><br><span class="line">  <span class="attribute">-webkit-text-size-adjust</span>: <span class="number">100%</span> <span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">text-size-adjust</span>: <span class="number">100%</span> <span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">-moz-text-size-adjust</span>: <span class="number">100%</span> <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2、IOS"><a href="#2、IOS" class="headerlink" title="2、IOS"></a>2、IOS</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="comment">/* IOS禁止微信调整字体大小 */</span></span><br><span class="line">  <span class="attribute">-webkit-text-size-adjust</span>: <span class="number">100%</span> <span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">text-size-adjust</span>: <span class="number">100%</span> <span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">-moz-text-size-adjust</span>: <span class="number">100%</span> <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <hr>
-<h3 id="px-与-rem-换算"><a href="#px-与-rem-换算" class="headerlink" title="px 与 rem 换算"></a><strong>px 与 rem 换算</strong></h3><p>rem 是根据 iPhone6 换算的，根据设计出的 px 尺寸除以 100 带上 rem 单位即可，平常 14px 换算成 rem 是 0.28rem</p>
-<blockquote>
-<p>1、在 style.js 里面引用</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//rem换算</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">doc, win</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> docEl = doc.documentElement,</span><br><span class="line">    resizeEvt = <span class="string">"orientationchange"</span> <span class="keyword">in</span> <span class="built_in">window</span> ? <span class="string">"orientationchange"</span> : <span class="string">"resize"</span>,</span><br><span class="line">    recalc = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> clientWidth = docEl.clientWidth;</span><br><span class="line">      <span class="keyword">if</span> (!clientWidth) <span class="keyword">return</span>;</span><br><span class="line">      <span class="keyword">if</span> (clientWidth &gt;= <span class="number">750</span>) &#123;</span><br><span class="line">        docEl.style.fontSize = <span class="string">"100px"</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        docEl.style.fontSize = <span class="number">100</span> * (clientWidth / <span class="number">750</span>) + <span class="string">"px"</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">  <span class="keyword">if</span> (!doc.addEventListener) <span class="keyword">return</span>;</span><br><span class="line">  win.addEventListener(resizeEvt, recalc, <span class="literal">false</span>);</span><br><span class="line">  doc.addEventListener(<span class="string">"DOMContentLoaded"</span>, recalc, <span class="literal">false</span>);</span><br><span class="line">&#125;)(<span class="built_in">document</span>, <span class="built_in">window</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="三、px-与-rem-换算"><a href="#三、px-与-rem-换算" class="headerlink" title="三、px 与 rem 换算"></a><strong>三、px 与 rem 换算</strong></h3><p>rem 是根据 iPhone6 换算的，根据设计出的 px 尺寸除以 100 带上 rem 单位即可，平常 14px 换算成 rem 是 0.28rem</p>
+<h4 id="1、在-style-js-里面引用"><a href="#1、在-style-js-里面引用" class="headerlink" title="1、在 style.js 里面引用"></a>1、在 style.js 里面引用</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//rem换算</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">doc, win</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> docEl = doc.documentElement,</span><br><span class="line">    resizeEvt = <span class="string">"orientationchange"</span> <span class="keyword">in</span> <span class="built_in">window</span> ? <span class="string">"orientationchange"</span> : <span class="string">"resize"</span>,</span><br><span class="line">    recalc = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> clientWidth = docEl.clientWidth;</span><br><span class="line">      <span class="keyword">if</span> (!clientWidth) <span class="keyword">return</span>;</span><br><span class="line">      <span class="keyword">if</span> (clientWidth &gt;= <span class="number">750</span>) &#123;</span><br><span class="line">        docEl.style.fontSize = <span class="string">"100px"</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        docEl.style.fontSize = <span class="number">100</span> * (clientWidth / <span class="number">750</span>) + <span class="string">"px"</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">  <span class="keyword">if</span> (!doc.addEventListener) <span class="keyword">return</span>;</span><br><span class="line">  win.addEventListener(resizeEvt, recalc, <span class="literal">false</span>);</span><br><span class="line">  doc.addEventListener(<span class="string">"DOMContentLoaded"</span>, recalc, <span class="literal">false</span>);</span><br><span class="line">&#125;)(<span class="built_in">document</span>, <span class="built_in">window</span>);</span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>2、在 style.css 里面</p>
-</blockquote>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">line-height</span>: initial;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2、在-style-css-里面"><a href="#2、在-style-css-里面" class="headerlink" title="2、在 style.css 里面"></a>2、在 style.css 里面</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">line-height</span>: initial;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>返回上层路由：</p>
-<h4 id="获取参数"><a href="#获取参数" class="headerlink" title="获取参数"></a><strong>获取参数</strong></h4><h5 id="原生"><a href="#原生" class="headerlink" title="原生"></a><strong>原生</strong></h5><blockquote>
+<h3 id="四、获取链接参数"><a href="#四、获取链接参数" class="headerlink" title="四、获取链接参数"></a>四、获取链接参数</h3><h4 id="1、原生"><a href="#1、原生" class="headerlink" title="1、原生"></a>1、原生</h4><blockquote>
 <p>1、定义方法</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">GetQueryString</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"(^|&amp;)"</span> + name + <span class="string">"=([^&amp;]*)(&amp;|$)"</span>);</span><br><span class="line">  <span class="keyword">var</span> r = <span class="built_in">window</span>.location.search.substr(<span class="number">1</span>).match(reg);</span><br><span class="line">  <span class="keyword">if</span> (r != <span class="literal">null</span>) <span class="keyword">return</span> <span class="built_in">unescape</span>(r[<span class="number">2</span>]);</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -563,7 +554,7 @@
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a=GetQueryString(<span class="string">"name"</span>)；</span><br></pre></td></tr></table></figure>
 
-<h5 id="vue"><a href="#vue" class="headerlink" title="vue"></a><strong>vue</strong></h5><blockquote>
+<h4 id="2、vue"><a href="#2、vue" class="headerlink" title="2、vue"></a>2、vue</h4><blockquote>
 <p>1、跳转页面并传参</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$router.push(&#123;</span><br><span class="line">    path: <span class="string">'/PC/wish/fill/collegesPriority'</span>,</span><br><span class="line">    query: &#123;</span><br><span class="line">        filltype: <span class="string">''</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
@@ -574,13 +565,11 @@
 <p>其中 ‘filltype’ 为链接参数。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$route.query.filltype</span><br></pre></td></tr></table></figure>
 
-
-
-<h4 id="修改参数"><a href="#修改参数" class="headerlink" title="修改参数"></a><strong>修改参数</strong></h4><h5 id="修改链接及参数"><a href="#修改链接及参数" class="headerlink" title="修改链接及参数"></a><strong>修改链接及参数</strong></h5><p>*<em>/m/m_url_example *</em>是相对链接，</p>
+<h3 id="五、修改参数"><a href="#五、修改参数" class="headerlink" title="五、修改参数"></a>五、修改参数</h3><h4 id="1、修改链接及参数"><a href="#1、修改链接及参数" class="headerlink" title="1、修改链接及参数"></a>1、修改链接及参数</h4><p>*<em>/m/m_url_example *</em>是相对链接，</p>
 <p>此方法是直接替换域名后面的链接。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">history.replaceState(&#123;&#125;,&#39;&#39;, &#39;&#x2F;m&#x2F;m_url_example&#39;);</span><br></pre></td></tr></table></figure>
 
-<h5 id="添加参数"><a href="#添加参数" class="headerlink" title="添加参数"></a><strong>添加参数</strong></h5><blockquote>
+<h4 id="2、添加参数"><a href="#2、添加参数" class="headerlink" title="2、添加参数"></a>2、添加参数</h4><blockquote>
 <p>1、定义方法</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">changeURLArg</span>(<span class="params">url, arg, arg_val</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> pattern = arg + <span class="string">"=([^&amp;]*)"</span>;</span><br><span class="line">  <span class="keyword">var</span> replaceText = arg + <span class="string">"="</span> + arg_val;</span><br><span class="line">  <span class="keyword">if</span> (url.match(pattern)) &#123;</span><br><span class="line">    <span class="keyword">var</span> tmp = <span class="string">"/("</span> + arg + <span class="string">"=)([^&amp;]*)/gi"</span>;</span><br><span class="line">    tmp = url.replace(<span class="built_in">eval</span>(tmp), replaceText);</span><br><span class="line">    <span class="keyword">return</span> tmp;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (url.match(<span class="string">"[?]"</span>)) &#123;</span><br><span class="line">      <span class="keyword">return</span> url + <span class="string">"&amp;"</span> + replaceText;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> url + <span class="string">"?"</span> + replaceText;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -592,7 +581,7 @@
 <p>若连接上没有“name”参数，则会添加这个参数并赋值，若链接本就有这个参数，则会将值替换为“123”。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.location.href = changeURLArg(<span class="built_in">window</span>.location.href, <span class="string">"name"</span>, <span class="number">123</span>);</span><br></pre></td></tr></table></figure>
 
-<h3 id="时间转化"><a href="#时间转化" class="headerlink" title="时间转化"></a><strong>时间转化</strong></h3><blockquote>
+<h3 id="六、时间转化"><a href="#六、时间转化" class="headerlink" title="六、时间转化"></a><strong>六、时间转化</strong></h3><blockquote>
 <p>获取当前整形时间戳</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">parseInt</span>(<span class="keyword">new</span> <span class="built_in">Date</span>().getTime())</span><br></pre></td></tr></table></figure>
@@ -656,20 +645,6 @@
 
   <div class='content article-entry'>
     
-      
-        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
-        
-          height='64px'
-        ></div>
-      
-    
-      
-        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
-        
-          height='64px'
-        ></div>
-      
-    
   </div>
 </section>
 
@@ -688,7 +663,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-17T11:57:23+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-17T18:21:57+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2020年7月17日</p>
@@ -768,27 +743,25 @@
             
               <a class='prev' href='/2020/07/15/canvas%E7%94%9F%E6%88%90%E6%B5%B7%E6%8A%A5%E5%9B%BE/'>
                 <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>canvas生成海报图</p>
-                <p class='content'>样例展示源码地址
+                <p class='content'>
+
+
+一、样例展示源码地址
 左上角为头像位置，右下角为二维码位置。
 
-使用
-1、安装引用
-
-123456789cnpm i vue-canvas-poster --save/*单独使用*/import &...</p>
+二、使用1、安装引用123456789cnpm i vue-canvas-poster --save/*单独使用*/impo...</p>
               </a>
             
             
               <a class='next' href='/2020/07/15/%E4%B8%8B%E6%8B%89%E5%88%86%E9%A1%B5/'>
                 <p class='title'>下拉分页<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
                 <p class='content'>
-定义变量
-
-123allLIst:[],//列表数据page:0,loadNextPage:true,//是否请求下一页
 
 
-在 mounted 里面监听分页滚动条
+1、定义变量123allLIst:[],//列表数据page:0,loadNextPage:true,//是否请求下一页
 
-12//分页监听滚动条w...</p>
+2、监听滚动条在 mounted 里面监听分页滚动条
+12//分...</p>
               </a>
             
           </div>
@@ -842,7 +815,7 @@
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#点击复制文本"><span class="toc-text">点击复制文本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#禁止微信用户修改字体大小"><span class="toc-text">禁止微信用户修改字体大小</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#px-与-rem-换算"><span class="toc-text">px 与 rem 换算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#获取参数"><span class="toc-text">获取参数</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#原生"><span class="toc-text">原生</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#vue"><span class="toc-text">vue</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#修改参数"><span class="toc-text">修改参数</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#修改链接及参数"><span class="toc-text">修改链接及参数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#添加参数"><span class="toc-text">添加参数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#时间转化"><span class="toc-text">时间转化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#时间戳转化为时间"><span class="toc-text">时间戳转化为时间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#计算两个时间相差日期"><span class="toc-text">计算两个时间相差日期</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、点击复制文本"><span class="toc-text">一、点击复制文本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、禁止微信用户修改字体大小"><span class="toc-text">二、禁止微信用户修改字体大小</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、android-手机"><span class="toc-text">1、android 手机</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、IOS"><span class="toc-text">2、IOS</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、px-与-rem-换算"><span class="toc-text">三、px 与 rem 换算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、在-style-js-里面引用"><span class="toc-text">1、在 style.js 里面引用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、在-style-css-里面"><span class="toc-text">2、在 style.css 里面</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、获取链接参数"><span class="toc-text">四、获取链接参数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、原生"><span class="toc-text">1、原生</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、vue"><span class="toc-text">2、vue</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、修改参数"><span class="toc-text">五、修改参数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、修改链接及参数"><span class="toc-text">1、修改链接及参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、添加参数"><span class="toc-text">2、添加参数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#六、时间转化"><span class="toc-text">六、时间转化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#时间戳转化为时间"><span class="toc-text">时间戳转化为时间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#计算两个时间相差日期"><span class="toc-text">计算两个时间相差日期</span></a></li></ol></li></ol>
     </div>
   </section>
 
@@ -978,7 +951,7 @@
 
     <script type="text/javascript">
       $(function(){
-        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/BBC19066-E176-47C2-9D22-48C81EE5DF6B.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/B18FCBB3-67FD-48CC-B4F3-457BA145F17A.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/00E0F0ED-9F1C-407A-9AA6-545649D919F4.jpeg"];
+        var imgs=["https://fech.in/static/images/cover/convert-excel-to-markdown-table.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/B18FCBB3-67FD-48CC-B4F3-457BA145F17A.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/00E0F0ED-9F1C-407A-9AA6-545649D919F4.jpeg", "https://fech.in/static/images/cover/ml01-overview.jpeg", "https://fech.in/static/images/cover/export-excel-use-template.jpeg", "https://fech.in/static/images/cover/2017-1024.jpeg", "https://fech.in/static/images/cover/install-burg-on-ubuntu-manual.jpeg", "https://fech.in/static/images/cover/install-burg-on-ubuntu.jpeg"];
         if ('true' == 'true') {
           function shuffle(arr){
             /*From countercurrent-time*/
