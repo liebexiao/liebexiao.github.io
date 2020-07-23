@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -18,7 +16,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>标签：js,html -  </title>
+  <title>ES6特性 -  </title>
+  
+    <meta name="keywords" content="js">
   
 
   
@@ -70,7 +70,7 @@
   
   
   <div class="cover-wrapper">
-    <cover class='cover ' style="display: none;">
+    <cover class='cover post' style="display: none;">
       <div class='cover-body'>
   <div class='a'>
     
@@ -411,9 +411,12 @@
 
 
 <div id="pjax-data" style="display: none">
-  <div id="pjax-ispage">false</div>
-  <div id="pjax-pageTitle"></div>
+  <div id="pjax-ispage">true</div>
+  <div id="pjax-pageTitle">ES6特性</div>
   <div id="pjax-enable-cover">true</div>
+  
+  <div id="valine-path">none</div>
+  <div id="valine-placeholder">none</div>
   
   
 </div>
@@ -444,25 +447,12 @@
       
       
 
-
 <div class='l_main'>
   
-    
-      
-  <section class="post-list ">
-    
-      
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
+
   
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
 
 
   <section class='meta'>
@@ -472,11 +462,11 @@
       <div class="meta" id="header-meta">
         
           
-  <h2 class="title">
-    <a href="/2020/07/15/%E7%9F%AD%E4%BF%A1%E9%AA%8C%E8%AF%81/">
-      短信验证
+  <h1 class="title">
+    <a href="/2020/07/23/ES6%E7%89%B9%E6%80%A7/">
+      ES6特性
     </a>
-  </h2>
+  </h1>
 
 
         
@@ -499,9 +489,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/%E5%B8%B8%E7%94%A8/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/' rel="nofollow">
+    <a href='/categories/ES6/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>常用/常用工具</p>
+      <p>ES6</p>
     </a>
   </div>
 
@@ -512,58 +502,9 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年7月15日</p>
+    <p>发布于：2020年7月23日</p>
   </a>
 </div>
-
-            
-          
-            
-              
-  <div class="new-meta-item wordcount">
-    <a class='notlink'>
-      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：237字</p>
-    </a>
-  </div>
-  <div class="new-meta-item readtime">
-    <a class='notlink'>
-      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：1分钟</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-  <div class="new-meta-item browse valine">
-    <a class='notlink'>
-      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
-      
-      <span id="/2020/07/15/%E7%9F%AD%E4%BF%A1%E9%AA%8C%E8%AF%81/" class="leancloud_visitors" data-flag-title="短信验证">
-      <p>
-        <span class="leancloud-visitors-count"></span>
-      </p>
-      </span>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-<div class="new-meta-item comments-count">
-  
-  <a href="/2020/07/15/%E7%9F%AD%E4%BF%A1%E9%AA%8C%E8%AF%81/#comments">
-    <i class="fas fa-comment-dots fa-fw"></i>
-    <span class="valine-comment-count" data-xid="/2020/07/15/%E7%9F%AD%E4%BF%A1%E9%AA%8C%E8%AF%81/">0</span>
-    <span class="leancloud-comments-count">&nbsp;</span>
-  </a>
-</div>
-
 
             
           
@@ -581,102 +522,78 @@
   </section>
 
 
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://cdn.jsdelivr.net/gh/liebexiao/myImgs/20200717173419.png" alt=""></p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/07/15/%E7%9F%AD%E4%BF%A1%E9%AA%8C%E8%AF%81/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          
+          <h3 id="一、let、var、const"><a href="#一、let、var、const" class="headerlink" title="一、let、var、const"></a>一、let、var、const</h3><ul>
+<li>const 声明一个只读的常量，一单声明，常量的值不能改变，要初始化常量</li>
+</ul>
+<h4 id="1、let-和-var区别"><a href="#1、let-和-var区别" class="headerlink" title="1、let 和 var区别"></a>1、let 和 var区别</h4><ul>
+<li><p>let不存在变量提升</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a) </span><br><span class="line"><span class="keyword">var</span> a=<span class="string">'1'</span>; <span class="comment">//输出undefined</span></span><br><span class="line"><span class="comment">//var有一个预解析过程;;相当于</span></span><br><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"><span class="built_in">console</span>.log(a) </span><br><span class="line">a=<span class="string">'1'</span>; <span class="comment">//输出undefined</span></span><br></pre></td></tr></table></figure>
 
-          </div>
-        
-      
-    
-  </section>
-  
-    
-    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
-    
-    
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a) </span><br><span class="line"><span class="keyword">let</span> a=<span class="string">'1'</span>; <span class="comment">//报错</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>同一拿作用域下不能重复定义同一个名称</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> b=<span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> b=<span class="number">100</span>;<span class="comment">//输出100</span></span><br></pre></td></tr></table></figure>
 
-  
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> b=<span class="number">10</span>;</span><br><span class="line"><span class="keyword">let</span> b=<span class="number">100</span>;<span class="comment">//报错</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> b=<span class="number">10</span>;</span><br><span class="line">b=<span class="number">100</span>;<span class="comment">//输出100</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>有着严格的作用域，var 属于函数作用域，let属于块级作用域。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> c=<span class="number">10</span>;</span><br><span class="line">    <span class="keyword">if</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">       <span class="keyword">var</span> c=<span class="number">100</span>;</span><br><span class="line">       &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(c);</span><br><span class="line">&#125;</span><br><span class="line">test();<span class="comment">//输出100</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//函数作用域</span></span><br><span class="line">    <span class="keyword">let</span> c=<span class="number">10</span>;</span><br><span class="line">    <span class="keyword">if</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">        <span class="comment">//块级作用域</span></span><br><span class="line">       <span class="keyword">let</span> c=<span class="number">100</span>;</span><br><span class="line">       &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(c);</span><br><span class="line">   </span><br><span class="line">&#125;</span><br><span class="line">test();<span class="comment">//输出10；；此时输出的值为函数作用域的c值，与if中的没有关系。</span></span><br></pre></td></tr></table></figure>
 
 
-    
-  
-</div>
-<aside class='l_side'>
-  
+</li>
+</ul>
+<h4 id="2、箭头函数"><a href="#2、箭头函数" class="headerlink" title="2、箭头函数"></a>2、箭头函数</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> f=<span class="function"><span class="params">v</span>=&gt;</span>v1; <span class="comment">//变量名=参数=&gt;返回值（函数体）</span></span><br><span class="line"><span class="comment">//展开</span></span><br><span class="line"><span class="keyword">let</span> f(v)&#123;</span><br><span class="line">    <span class="keyword">return</span> v1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+          
+            <div class='article_footer'>
+              
+                
   
     
     
 
-<section class="widget blogger shadow desktop mobile">
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
   <div class='content'>
     
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://s1.ax1x.com/2020/07/17/Us4aoF.jpg'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence"> </span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
+      <blockquote>
         
           
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
           
         
           
-            <a href="mailto:1184154937@qq.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
+            <p>本文永久链接是：<a href=http://liebexiao.github.io/2020/07/23/ES6%E7%89%B9%E6%80%A7/>http://liebexiao.github.io/2020/07/23/ES6%E7%89%B9%E6%80%A7/</a></p>
           
         
-          
-            <a href="https://github.com/liebexiao"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-          
-            <a href="https://music.163.com/#/playlist?id=706943256"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-      </div>
+      </blockquote>
     
   </div>
 </section>
@@ -686,98 +603,169 @@
   
     
     
+
+<section class="widget qrcode  desktop mobile">
   
 
-  <section class="widget category shadow desktop">
+  <div class='content article-entry'>
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-23T17:29:19+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年7月23日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/js/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>js</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://liebexiao.github.io/2020/07/23/ES6%E7%89%B9%E6%80%A7/&title=ES6特性 -  &summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://liebexiao.github.io/2020/07/23/ES6%E7%89%B9%E6%80%A7/&title=ES6特性 -  &summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://liebexiao.github.io/2020/07/23/ES6%E7%89%B9%E6%80%A7/&title=ES6特性 -  &summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+            
+              <a class='next' href='/2020/07/22/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/'>
+                <p class='title'>面向对象<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'></p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      <section id="comments">
+        <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+      </section>
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/ES6/" href="/categories/ES6/"
-            id="categoriesES6"
-            ><div class='name'>ES6</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/markdown/" href="/categories/markdown/"
-            id="categoriesmarkdown"
-            ><div class='name'>markdown</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/vue/" href="/categories/vue/"
-            id="categoriesvue"
-            ><div class='name'>vue</div><div class='badge'>(10)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/vue/%E7%BB%84%E4%BB%B6/" href="/categories/vue/%E7%BB%84%E4%BB%B6/"
-            id="categoriesvueE7BB84E4BBB6"
-            ><div class='name'>组件</div><div class='badge'>(5)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/vue/%E9%85%8D%E7%BD%AE/" href="/categories/vue/%E9%85%8D%E7%BD%AE/"
-            id="categoriesvueE9858DE7BDAE"
-            ><div class='name'>配置</div><div class='badge'>(5)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/wx/" href="/categories/wx/"
-            id="categorieswx"
-            ><div class='name'>wx</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E5%B8%B8%E7%94%A8/" href="/categories/%E5%B8%B8%E7%94%A8/"
-            id="categoriesE5B8B8E794A8"
-            ><div class='name'>常用</div><div class='badge'>(9)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E5%B8%B8%E7%94%A8/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/" href="/categories/%E5%B8%B8%E7%94%A8/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/"
-            id="categoriesE5B8B8E794A8E5B8B8E794A8E5B7A5E585B7"
-            ><div class='name'>常用工具</div><div class='badge'>(5)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E5%B8%B8%E7%94%A8/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" href="/categories/%E5%B8%B8%E7%94%A8/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/"
-            id="categoriesE5B8B8E794A8E5B8B8E794A8E696B9E6B395"
-            ><div class='name'>常用方法</div><div class='badge'>(4)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E9%98%BF%E9%87%8C%E4%BA%91/" href="/categories/%E9%98%BF%E9%87%8C%E4%BA%91/"
-            id="categoriesE998BFE9878CE4BA91"
-            ><div class='name'>阿里云</div><div class='badge'>(1)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、let、var、const"><span class="toc-text">一、let、var、const</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、let-和-var区别"><span class="toc-text">1、let 和 var区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、箭头函数"><span class="toc-text">2、箭头函数</span></a></li></ol></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/css/" style="font-size: 14px; color: #999">css</a> <a href="/tags/h5/" style="font-size: 14px; color: #999">h5</a> <a href="/tags/html/" style="font-size: 14px; color: #999">html</a> <a href="/tags/js/" style="font-size: 24px; color: #555">js</a> <a href="/tags/js-html/" style="font-size: 14px; color: #999">js,html</a> <a href="/tags/markdown/" style="font-size: 14px; color: #999">markdown</a> <a href="/tags/pc/" style="font-size: 14px; color: #999">pc</a> <a href="/tags/vue/" style="font-size: 24px; color: #555">vue</a> <a href="/tags/vue-js/" style="font-size: 14px; color: #999">vue js</a> <a href="/tags/vue-js/" style="font-size: 14px; color: #999">vue,js</a>
-    </div>
-  </section>
-
-
-  
 
   
 

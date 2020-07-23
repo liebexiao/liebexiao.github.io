@@ -483,6 +483,308 @@
         
           
   <h2 class="title">
+    <a href="/2020/07/23/ES6%E7%89%B9%E6%80%A7/">
+      ES6特性
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="" rel="nofollow">
+    <img no-lazy src="https://s1.ax1x.com/2020/07/17/Us4aoF.jpg">
+    <p>晓晓</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/ES6/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>ES6</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年7月23日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  <div class="new-meta-item wordcount">
+    <a class='notlink'>
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：258字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class='notlink'>
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：1分钟</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
+  <div class="new-meta-item browse valine">
+    <a class='notlink'>
+      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+      
+      <span id="/2020/07/23/ES6%E7%89%B9%E6%80%A7/" class="leancloud_visitors" data-flag-title="ES6特性">
+      <p>
+        <span class="leancloud-visitors-count"></span>
+      </p>
+      </span>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
+<div class="new-meta-item comments-count">
+  
+  <a href="/2020/07/23/ES6%E7%89%B9%E6%80%A7/#comments">
+    <i class="fas fa-comment-dots fa-fw"></i>
+    <span class="valine-comment-count" data-xid="/2020/07/23/ES6%E7%89%B9%E6%80%A7/">0</span>
+    <span class="leancloud-comments-count">&nbsp;</span>
+  </a>
+</div>
+
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、let、var、const"><a href="#一、let、var、const" class="headerlink" title="一、let、var、const"></a>一、let、var、const</h3><ul>
+<li>const 声明一个只读的常量，一单声明，常量的值不能改变，要初始化常量</li>
+</ul>
+<h4 id="1、let-和-var区别"><a href="#1、let-和-var区别" class="headerlink" title="1、let 和 var区别"></a>1、let 和 var区别</h4><ul>
+<li><p>let不存在变量提升</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a) </span><br><span class="line"><span class="keyword">var</span> a=<span class="string">'1'</span>; <span class="comment">//输出undefined</span></span><br><span class="line"><span class="comment">//var有一个预解析过程;;相当于</span></span><br><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"><span class="built_in">console</span>.log(a) </span><br><span class="line">a=<span class="string">'1'</span>; <span class="comment">//输出undefined</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a) </span><br><span class="line"><span class="keyword">let</span> a=<span class="string">'1'</span>; <span class="comment">//报错</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>同一拿作用域下不能重复定义同一个名称</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> b=<span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> b=<span class="number">100</span>;<span class="comment">//输出100</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> b=<span class="number">10</span>;</span><br><span class="line"><span class="keyword">let</span> b=<span class="number">100</span>;<span class="comment">//报错</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> b=<span class="number">10</span>;</span><br><span class="line">b=<span class="number">100</span>;<span class="comment">//输出100</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>有着严格的作用域，var 属于函数作用域，let属于块级作用域。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> c=<span class="number">10</span>;</span><br><span class="line">    <span class="keyword">if</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">       <span class="keyword">var</span> c=<span class="number">100</span>;</span><br><span class="line">       &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(c);</span><br><span class="line">&#125;</span><br><span class="line">test();<span class="comment">//输出100</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//函数作用域</span></span><br><span class="line">    <span class="keyword">let</span> c=<span class="number">10</span>;</span><br><span class="line">    <span class="keyword">if</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">        <span class="comment">//块级作用域</span></span><br><span class="line">       <span class="keyword">let</span> c=<span class="number">100</span>;</span><br><span class="line">       &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(c);</span><br><span class="line">   </span><br><span class="line">&#125;</span><br><span class="line">test();<span class="comment">//输出10；；此时输出的值为函数作用域的c值，与if中的没有关系。</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h4 id="2、箭头函数"><a href="#2、箭头函数" class="headerlink" title="2、箭头函数"></a>2、箭头函数</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> f=<span class="function"><span class="params">v</span>=&gt;</span>v1; <span class="comment">//变量名=参数=&gt;返回值（函数体）</span></span><br><span class="line"><span class="comment">//展开</span></span><br><span class="line"><span class="keyword">let</span> f(v)&#123;</span><br><span class="line">    <span class="keyword">return</span> v1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+    
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/2020/07/22/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
+      面向对象
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="" rel="nofollow">
+    <img no-lazy src="https://s1.ax1x.com/2020/07/17/Us4aoF.jpg">
+    <p>晓晓</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/ES6/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>ES6</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年7月22日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  <div class="new-meta-item wordcount">
+    <a class='notlink'>
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：0字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class='notlink'>
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：1分钟</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
+  <div class="new-meta-item browse valine">
+    <a class='notlink'>
+      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+      
+      <span id="/2020/07/22/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="leancloud_visitors" data-flag-title="面向对象">
+      <p>
+        <span class="leancloud-visitors-count"></span>
+      </p>
+      </span>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
+<div class="new-meta-item comments-count">
+  
+  <a href="/2020/07/22/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/#comments">
+    <i class="fas fa-comment-dots fa-fw"></i>
+    <span class="valine-comment-count" data-xid="/2020/07/22/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">0</span>
+    <span class="leancloud-comments-count">&nbsp;</span>
+  </a>
+</div>
+
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
     <a href="/2020/07/17/%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B9-js/">
       小知识点-js
     </a>
@@ -533,13 +835,13 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：1.2k字</p>
+      <p>字数：1.4k字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：5分钟</p>
+      <p>时长：6分钟</p>
     </a>
   </div>
 
@@ -1041,295 +1343,24 @@
           </div>
         
       
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
     
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/2020/07/15/%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E5%99%A8/">
-      视频播放器
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="" rel="nofollow">
-    <img no-lazy src="https://s1.ax1x.com/2020/07/17/Us4aoF.jpg">
-    <p>晓晓</p>
-  </a>
-</div>
-
-            
-          
-            
-              
+  </section>
   
-  <div class='new-meta-item category'>
-    <a href='/categories/%E5%B8%B8%E7%94%A8/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>常用/常用工具</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年7月15日</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  <div class="new-meta-item wordcount">
-    <a class='notlink'>
-      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：299字</p>
-    </a>
-  </div>
-  <div class="new-meta-item readtime">
-    <a class='notlink'>
-      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：1分钟</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-  <div class="new-meta-item browse valine">
-    <a class='notlink'>
-      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
-      
-      <span id="/2020/07/15/%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E5%99%A8/" class="leancloud_visitors" data-flag-title="视频播放器">
-      <p>
-        <span class="leancloud-visitors-count"></span>
-      </p>
-      </span>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-<div class="new-meta-item comments-count">
-  
-  <a href="/2020/07/15/%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E5%99%A8/#comments">
-    <i class="fas fa-comment-dots fa-fw"></i>
-    <span class="valine-comment-count" data-xid="/2020/07/15/%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E5%99%A8/">0</span>
-    <span class="leancloud-comments-count">&nbsp;</span>
-  </a>
-</div>
-
-
-            
-          
-            
-              
-
-            
-          
-        </div>
+    
+      <br>
+      <div class="prev-next">
         
-          <hr>
+        <p class="current">
+          1 / 2
+        </p>
+        
+          <a class="next" rel="next" href="/tags/js/page/2/">
+            <section class="post next white-box shadow">
+              &nbsp;下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
+            </section>
+          </a>
         
       </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://s1.ax1x.com/2020/07/15/Ud8tc4.png" alt="播放样式"></p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/07/15/%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E5%99%A8/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/2020/06/17/wx%E6%94%AF%E4%BB%98%E5%88%86%E4%BA%AB/">
-      wx支付分享
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="" rel="nofollow">
-    <img no-lazy src="https://s1.ax1x.com/2020/07/17/Us4aoF.jpg">
-    <p>晓晓</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/wx/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>wx</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年6月17日</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  <div class="new-meta-item wordcount">
-    <a class='notlink'>
-      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：1.6k字</p>
-    </a>
-  </div>
-  <div class="new-meta-item readtime">
-    <a class='notlink'>
-      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：7分钟</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-  <div class="new-meta-item browse valine">
-    <a class='notlink'>
-      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
-      
-      <span id="/2020/06/17/wx%E6%94%AF%E4%BB%98%E5%88%86%E4%BA%AB/" class="leancloud_visitors" data-flag-title="wx支付分享">
-      <p>
-        <span class="leancloud-visitors-count"></span>
-      </p>
-      </span>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-<div class="new-meta-item comments-count">
-  
-  <a href="/2020/06/17/wx%E6%94%AF%E4%BB%98%E5%88%86%E4%BA%AB/#comments">
-    <i class="fas fa-comment-dots fa-fw"></i>
-    <span class="valine-comment-count" data-xid="/2020/06/17/wx%E6%94%AF%E4%BB%98%E5%88%86%E4%BA%AB/">0</span>
-    <span class="leancloud-comments-count">&nbsp;</span>
-  </a>
-</div>
-
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://s1.ax1x.com/2020/07/17/UyUEO1.jpg" alt=""></p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/06/17/wx%E6%94%AF%E4%BB%98%E5%88%86%E4%BA%AB/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-    
-  </section>
-  
     
     <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
     
@@ -1426,6 +1457,11 @@
       <ul class="entry navigation">
         
           <li><a class="flat-box"
+            title="/categories/ES6/" href="/categories/ES6/"
+            id="categoriesES6"
+            ><div class='name'>ES6</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box"
             title="/categories/markdown/" href="/categories/markdown/"
             id="categoriesmarkdown"
             ><div class='name'>markdown</div><div class='badge'>(1)</div></a></li>
@@ -1492,7 +1528,7 @@
 
 
     <div class='content'>
-      <a href="/tags/css/" style="font-size: 14px; color: #999">css</a> <a href="/tags/h5/" style="font-size: 14px; color: #999">h5</a> <a href="/tags/html/" style="font-size: 14px; color: #999">html</a> <a href="/tags/js/" style="font-size: 19px; color: #777">js</a> <a href="/tags/js-html/" style="font-size: 14px; color: #999">js,html</a> <a href="/tags/markdown/" style="font-size: 14px; color: #999">markdown</a> <a href="/tags/pc/" style="font-size: 14px; color: #999">pc</a> <a href="/tags/vue/" style="font-size: 24px; color: #555">vue</a> <a href="/tags/vue-js/" style="font-size: 14px; color: #999">vue js</a> <a href="/tags/vue-js/" style="font-size: 14px; color: #999">vue,js</a>
+      <a href="/tags/css/" style="font-size: 14px; color: #999">css</a> <a href="/tags/h5/" style="font-size: 14px; color: #999">h5</a> <a href="/tags/html/" style="font-size: 14px; color: #999">html</a> <a href="/tags/js/" style="font-size: 24px; color: #555">js</a> <a href="/tags/js-html/" style="font-size: 14px; color: #999">js,html</a> <a href="/tags/markdown/" style="font-size: 14px; color: #999">markdown</a> <a href="/tags/pc/" style="font-size: 14px; color: #999">pc</a> <a href="/tags/vue/" style="font-size: 24px; color: #555">vue</a> <a href="/tags/vue-js/" style="font-size: 14px; color: #999">vue js</a> <a href="/tags/vue-js/" style="font-size: 14px; color: #999">vue,js</a>
     </div>
   </section>
 

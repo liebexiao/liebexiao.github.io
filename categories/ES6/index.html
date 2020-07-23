@@ -18,7 +18,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>标签：js,html -  </title>
+  <title>分类：ES6 -  </title>
   
 
   
@@ -455,6 +455,8 @@
         
           
         
+          
+        
       
     
     
@@ -473,8 +475,8 @@
         
           
   <h2 class="title">
-    <a href="/2020/07/15/%E7%9F%AD%E4%BF%A1%E9%AA%8C%E8%AF%81/">
-      短信验证
+    <a href="/2020/07/23/ES6%E7%89%B9%E6%80%A7/">
+      ES6特性
     </a>
   </h2>
 
@@ -499,9 +501,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/%E5%B8%B8%E7%94%A8/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/' rel="nofollow">
+    <a href='/categories/ES6/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>常用/常用工具</p>
+      <p>ES6</p>
     </a>
   </div>
 
@@ -512,7 +514,7 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年7月15日</p>
+    <p>发布于：2020年7月23日</p>
   </a>
 </div>
 
@@ -523,7 +525,7 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：237字</p>
+      <p>字数：258字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -542,7 +544,7 @@
     <a class='notlink'>
       <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
       
-      <span id="/2020/07/15/%E7%9F%AD%E4%BF%A1%E9%AA%8C%E8%AF%81/" class="leancloud_visitors" data-flag-title="短信验证">
+      <span id="/2020/07/23/ES6%E7%89%B9%E6%80%A7/" class="leancloud_visitors" data-flag-title="ES6特性">
       <p>
         <span class="leancloud-visitors-count"></span>
       </p>
@@ -557,9 +559,9 @@
               
 <div class="new-meta-item comments-count">
   
-  <a href="/2020/07/15/%E7%9F%AD%E4%BF%A1%E9%AA%8C%E8%AF%81/#comments">
+  <a href="/2020/07/23/ES6%E7%89%B9%E6%80%A7/#comments">
     <i class="fas fa-comment-dots fa-fw"></i>
-    <span class="valine-comment-count" data-xid="/2020/07/15/%E7%9F%AD%E4%BF%A1%E9%AA%8C%E8%AF%81/">0</span>
+    <span class="valine-comment-count" data-xid="/2020/07/23/ES6%E7%89%B9%E6%80%A7/">0</span>
     <span class="leancloud-comments-count">&nbsp;</span>
   </a>
 </div>
@@ -584,16 +586,175 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="https://cdn.jsdelivr.net/gh/liebexiao/myImgs/20200717173419.png" alt=""></p>
+        <h3 id="一、let、var、const"><a href="#一、let、var、const" class="headerlink" title="一、let、var、const"></a>一、let、var、const</h3><ul>
+<li>const 声明一个只读的常量，一单声明，常量的值不能改变，要初始化常量</li>
+</ul>
+<h4 id="1、let-和-var区别"><a href="#1、let-和-var区别" class="headerlink" title="1、let 和 var区别"></a>1、let 和 var区别</h4><ul>
+<li><p>let不存在变量提升</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a) </span><br><span class="line"><span class="keyword">var</span> a=<span class="string">'1'</span>; <span class="comment">//输出undefined</span></span><br><span class="line"><span class="comment">//var有一个预解析过程;;相当于</span></span><br><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"><span class="built_in">console</span>.log(a) </span><br><span class="line">a=<span class="string">'1'</span>; <span class="comment">//输出undefined</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a) </span><br><span class="line"><span class="keyword">let</span> a=<span class="string">'1'</span>; <span class="comment">//报错</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>同一拿作用域下不能重复定义同一个名称</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> b=<span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> b=<span class="number">100</span>;<span class="comment">//输出100</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> b=<span class="number">10</span>;</span><br><span class="line"><span class="keyword">let</span> b=<span class="number">100</span>;<span class="comment">//报错</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> b=<span class="number">10</span>;</span><br><span class="line">b=<span class="number">100</span>;<span class="comment">//输出100</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>有着严格的作用域，var 属于函数作用域，let属于块级作用域。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> c=<span class="number">10</span>;</span><br><span class="line">    <span class="keyword">if</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">       <span class="keyword">var</span> c=<span class="number">100</span>;</span><br><span class="line">       &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(c);</span><br><span class="line">&#125;</span><br><span class="line">test();<span class="comment">//输出100</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//函数作用域</span></span><br><span class="line">    <span class="keyword">let</span> c=<span class="number">10</span>;</span><br><span class="line">    <span class="keyword">if</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">        <span class="comment">//块级作用域</span></span><br><span class="line">       <span class="keyword">let</span> c=<span class="number">100</span>;</span><br><span class="line">       &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(c);</span><br><span class="line">   </span><br><span class="line">&#125;</span><br><span class="line">test();<span class="comment">//输出10；；此时输出的值为函数作用域的c值，与if中的没有关系。</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h4 id="2、箭头函数"><a href="#2、箭头函数" class="headerlink" title="2、箭头函数"></a>2、箭头函数</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> f=<span class="function"><span class="params">v</span>=&gt;</span>v1; <span class="comment">//变量名=参数=&gt;返回值（函数体）</span></span><br><span class="line"><span class="comment">//展开</span></span><br><span class="line"><span class="keyword">let</span> f(v)&#123;</span><br><span class="line">    <span class="keyword">return</span> v1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
       
     </div>
     
       
-        <div class="button readmore">
-          <a href="/2020/07/15/%E7%9F%AD%E4%BF%A1%E9%AA%8C%E8%AF%81/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/2020/07/22/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
+      面向对象
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="" rel="nofollow">
+    <img no-lazy src="https://s1.ax1x.com/2020/07/17/Us4aoF.jpg">
+    <p>晓晓</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/ES6/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>ES6</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年7月22日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  <div class="new-meta-item wordcount">
+    <a class='notlink'>
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：0字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class='notlink'>
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：1分钟</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
+  <div class="new-meta-item browse valine">
+    <a class='notlink'>
+      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+      
+      <span id="/2020/07/22/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="leancloud_visitors" data-flag-title="面向对象">
+      <p>
+        <span class="leancloud-visitors-count"></span>
+      </p>
+      </span>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
+<div class="new-meta-item comments-count">
+  
+  <a href="/2020/07/22/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/#comments">
+    <i class="fas fa-comment-dots fa-fw"></i>
+    <span class="valine-comment-count" data-xid="/2020/07/22/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">0</span>
+    <span class="leancloud-comments-count">&nbsp;</span>
+  </a>
+</div>
+
+
+            
+          
+            
+              
+
+            
+          
         </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    
       
     
   </section>
@@ -615,6 +776,7 @@
 
     
   
+
 </div>
 <aside class='l_side'>
   
