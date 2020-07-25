@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -18,7 +16,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>分类：vue -  </title>
+  <title>瀑布流 -  </title>
+  
+    <meta name="keywords" content="vue">
   
 
   
@@ -70,7 +70,7 @@
   
   
   <div class="cover-wrapper">
-    <cover class='cover ' style="display: none;">
+    <cover class='cover post' style="display: none;">
       <div class='cover-body'>
   <div class='a'>
     
@@ -411,9 +411,12 @@
 
 
 <div id="pjax-data" style="display: none">
-  <div id="pjax-ispage">false</div>
-  <div id="pjax-pageTitle"></div>
+  <div id="pjax-ispage">true</div>
+  <div id="pjax-pageTitle">瀑布流</div>
   <div id="pjax-enable-cover">true</div>
+  
+  <div id="valine-path">none</div>
+  <div id="valine-placeholder">none</div>
   
   
 </div>
@@ -444,19 +447,12 @@
       
       
 
-
 <div class='l_main'>
   
-    
-      
-  <section class="post-list ">
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
+
   
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
 
 
   <section class='meta'>
@@ -466,11 +462,11 @@
       <div class="meta" id="header-meta">
         
           
-  <h2 class="title">
-    <a href="/2020/07/15/%E5%BC%B9%E5%B9%95/">
-      弹幕
+  <h1 class="title">
+    <a href="/2020/07/22/%E7%80%91%E5%B8%83%E6%B5%81/">
+      瀑布流
     </a>
-  </h2>
+  </h1>
 
 
         
@@ -493,9 +489,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/vue/%E7%BB%84%E4%BB%B6/' rel="nofollow">
+    <a href='/categories/vue/%E5%8E%9F%E7%94%9F/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>vue/组件</p>
+      <p>vue/原生</p>
     </a>
   </div>
 
@@ -506,58 +502,9 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年7月15日</p>
+    <p>发布于：2020年7月22日</p>
   </a>
 </div>
-
-            
-          
-            
-              
-  <div class="new-meta-item wordcount">
-    <a class='notlink'>
-      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：577字</p>
-    </a>
-  </div>
-  <div class="new-meta-item readtime">
-    <a class='notlink'>
-      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：2分钟</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-  <div class="new-meta-item browse valine">
-    <a class='notlink'>
-      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
-      
-      <span id="/2020/07/15/%E5%BC%B9%E5%B9%95/" class="leancloud_visitors" data-flag-title="弹幕">
-      <p>
-        <span class="leancloud-visitors-count"></span>
-      </p>
-      </span>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-<div class="new-meta-item comments-count">
-  
-  <a href="/2020/07/15/%E5%BC%B9%E5%B9%95/#comments">
-    <i class="fas fa-comment-dots fa-fw"></i>
-    <span class="valine-comment-count" data-xid="/2020/07/15/%E5%BC%B9%E5%B9%95/">0</span>
-    <span class="leancloud-comments-count">&nbsp;</span>
-  </a>
-</div>
-
 
             
           
@@ -575,690 +522,74 @@
   </section>
 
 
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://cdn.jsdelivr.net/gh/liebexiao/myImgs/20200717170351.png" alt=""></p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/07/15/%E5%BC%B9%E5%B9%95/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
           
-  <h2 class="title">
-    <a href="/2020/07/15/canvas%E7%94%9F%E6%88%90%E6%B5%B7%E6%8A%A5%E5%9B%BE/">
-      canvas生成海报图
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
           
-            
+          <p><img src="http://oss.jishiyoo.com/images/file-1595692086675.png" alt=""></p>
+<h3 id="一、思路"><a href="#一、思路" class="headerlink" title="一、思路"></a>一、思路</h3><blockquote>
+<p>宽固定高不固定，（见缝插针）</p>
+</blockquote>
+<ul>
+<li><p>求出列数 <strong>columnNum</strong>（浏览器宽度/图片宽度）;</p>
+</li>
+<li><p>将第一行高度存入数组 <strong>srcArr</strong>（即循环图片数组 <strong>imgsArr</strong>，取出索引值小于列数<strong>columnNum</strong>的值）;</p>
+</li>
+<li><p>对非第一行图片进行定位；</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">position</span>: "<span class="selector-tag">absolute</span>";</span><br><span class="line"><span class="selector-tag">left</span>: 索引值 * 图片宽度;</span><br><span class="line"><span class="selector-tag">top</span>: 最小图片高度;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>高度追加。</p>
+</li>
+</ul>
+<h3 id="二、过程"><a href="#二、过程" class="headerlink" title="二、过程"></a>二、过程</h3><h4 id="1、html"><a href="#1、html" class="headerlink" title="1、html"></a>1、html</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"img_box clearfix"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span></span></span><br><span class="line"><span class="tag">    <span class="attr">class</span>=<span class="string">"img_src"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-for</span>=<span class="string">"(item,index) in imgsArr"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:key</span>=<span class="string">"index"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:src</span>=<span class="string">"item.src"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:style</span>=<span class="string">"item.leftNum?&#123;position:'absolute',left:item.leftNum+'px',top:item.topNum+'px'&#125;:''"</span></span></span><br><span class="line"><span class="tag">  /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2、css"><a href="#2、css" class="headerlink" title="2、css"></a>2、css</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.img_src</span> &#123;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">10px</span> <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3、js"><a href="#3、js" class="headerlink" title="3、js"></a>3、js</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">imgsArr:[</span><br><span class="line">                   &#123;</span><br><span class="line">                       <span class="string">"src"</span>: <span class="string">"http://oss.jishiyoo.com/images/file-1595688891434.gif"</span>,</span><br><span class="line">                       <span class="string">"href"</span>: <span class="string">"https://www.baidu.com"</span>,</span><br><span class="line">                       <span class="string">"info"</span>: <span class="string">"一些图片描述文字"</span></span><br><span class="line">                   &#125;,</span><br><span class="line"></span><br><span class="line">                   &#123;</span><br><span class="line">                       <span class="string">"src"</span>: <span class="string">"http://oss.jishiyoo.com/images/file-1595688911105.jpg"</span>,</span><br><span class="line">                       <span class="string">"href"</span>: <span class="string">"https://www.baidu.com"</span>,</span><br><span class="line">                       <span class="string">"info"</span>: <span class="string">"一些图片描述文字"</span></span><br><span class="line">                   &#125;,</span><br><span class="line">    <span class="comment">//此处省略图片</span></span><br><span class="line">               ],</span><br></pre></td></tr></table></figure>
+
+<p>当开始其中两个图片高度相等时，两个高度同时追加，导致瀑布流展示不出。<img src="http://oss.jishiyoo.com/images/file-1595693102630.png" alt="">。</p>
+<p>此时用 map 循环不能跳出循环，用<strong>forEach</strong>，在找到符合条件的值之后跳出循环。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">waterFall () &#123;</span><br><span class="line">                <span class="keyword">try</span>&#123;</span><br><span class="line">                    <span class="comment">//获取宽度</span></span><br><span class="line">                    <span class="keyword">let</span> windowW = <span class="built_in">window</span>.innerWidth;<span class="comment">//屏幕可视宽度</span></span><br><span class="line">                    <span class="keyword">let</span> imgW = <span class="number">300</span>;<span class="comment">//固定图片宽度</span></span><br><span class="line">                    <span class="keyword">let</span> columnNum = <span class="built_in">parseInt</span>(windowW/ <span class="number">300</span>);<span class="comment">//列数</span></span><br><span class="line">                    <span class="comment">// console.log('columnNum：' + columnNum);</span></span><br><span class="line">                    <span class="comment">//定义数组,将图片的高度存如数组中。</span></span><br><span class="line">                    <span class="keyword">let</span> srcArr = [];</span><br><span class="line">                    <span class="keyword">this</span>.imgsArr.map(<span class="function">(<span class="params">v, i</span>) =&gt;</span> &#123;</span><br><span class="line">                        <span class="keyword">let</span> heightArray = <span class="keyword">new</span> Image();</span><br><span class="line">                        heightArray.src = v.src;</span><br><span class="line">                        heightArray.onload = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">                            <span class="keyword">let</span> height = heightArray.height;<span class="comment">//图片原始高度</span></span><br><span class="line">                            <span class="keyword">let</span> width = heightArray.width;<span class="comment">//图片原始宽度</span></span><br><span class="line">                            <span class="keyword">let</span> imgHeight = <span class="built_in">parseInt</span>((<span class="number">300</span> / width) * height);<span class="comment">//图片压缩后的高度</span></span><br><span class="line">                            <span class="comment">//console.log('imgHeight：'+imgHeight)</span></span><br><span class="line">                            <span class="comment">// console.log('height'+height)</span></span><br><span class="line">                            <span class="keyword">if</span> (i &lt; columnNum) &#123;</span><br><span class="line">                                <span class="comment">//将第一排图片高度存入数组中</span></span><br><span class="line">                                srcArr.push(imgHeight);</span><br><span class="line">                            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                                <span class="comment">//对非第一排进行定位处理</span></span><br><span class="line">                                <span class="comment">//left=最小的索引*宽度；；top=最小图片高度</span></span><br><span class="line">                                <span class="comment">// v.topNum=srcArr.sort((a,b)=&gt;a-b)[0];//方法1</span></span><br><span class="line">                                v.topNum = (<span class="built_in">Math</span>.min(...srcArr));<span class="comment">//方法2</span></span><br><span class="line">                                <span class="built_in">console</span>.log(srcArr)</span><br><span class="line">                                <span class="comment">/*srcArr.map((v2, i2) =&gt; &#123;</span></span><br><span class="line"><span class="comment">                                    if (v2 == v.topNum) &#123;</span></span><br><span class="line"><span class="comment">                                        v.leftNum = i2 * 300 + 140;</span></span><br><span class="line"><span class="comment">                                        //高度追加</span></span><br><span class="line"><span class="comment">                                        srcArr[i2] += imgHeight;</span></span><br><span class="line"><span class="comment">                                    &#125;</span></span><br><span class="line"><span class="comment">                                &#125;)*/</span></span><br><span class="line">                                srcArr.forEach(<span class="function">(<span class="params">v2, i2</span>) =&gt;</span> &#123;</span><br><span class="line">                                    <span class="keyword">if</span> (v2 == v.topNum) &#123;</span><br><span class="line">                                        v.leftNum = i2 * <span class="number">300</span>;</span><br><span class="line">                                        <span class="comment">//高度追加</span></span><br><span class="line">                                        srcArr[i2] += imgHeight;</span><br><span class="line">                                        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"追加完成跳出"</span>)</span><br><span class="line">                                    &#125;</span><br><span class="line">                                &#125;)</span><br><span class="line"></span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;;</span><br><span class="line">                        <span class="comment">// console.log(this.imgsArr)</span></span><br><span class="line">                    &#125;)</span><br><span class="line">                &#125;<span class="keyword">catch</span> (e) &#123;</span><br><span class="line">                    <span class="built_in">console</span>.log(e)</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            &#125;,</span><br></pre></td></tr></table></figure>
+
           
-            
+            <div class='article_footer'>
               
-<div class='new-meta-item author'>
-  <a href="" rel="nofollow">
-    <img no-lazy src="https://s1.ax1x.com/2020/07/17/Us4aoF.jpg">
-    <p>晓晓</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/vue/%E7%BB%84%E4%BB%B6/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>vue/组件</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年7月15日</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  <div class="new-meta-item wordcount">
-    <a class='notlink'>
-      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：1.8k字</p>
-    </a>
-  </div>
-  <div class="new-meta-item readtime">
-    <a class='notlink'>
-      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：7分钟</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-  <div class="new-meta-item browse valine">
-    <a class='notlink'>
-      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
-      
-      <span id="/2020/07/15/canvas%E7%94%9F%E6%88%90%E6%B5%B7%E6%8A%A5%E5%9B%BE/" class="leancloud_visitors" data-flag-title="canvas生成海报图">
-      <p>
-        <span class="leancloud-visitors-count"></span>
-      </p>
-      </span>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-<div class="new-meta-item comments-count">
-  
-  <a href="/2020/07/15/canvas%E7%94%9F%E6%88%90%E6%B5%B7%E6%8A%A5%E5%9B%BE/#comments">
-    <i class="fas fa-comment-dots fa-fw"></i>
-    <span class="valine-comment-count" data-xid="/2020/07/15/canvas%E7%94%9F%E6%88%90%E6%B5%B7%E6%8A%A5%E5%9B%BE/">0</span>
-    <span class="leancloud-comments-count">&nbsp;</span>
-  </a>
-</div>
-
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://s1.ax1x.com/2020/07/17/UysDeJ.jpg" alt=""></p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/07/15/canvas%E7%94%9F%E6%88%90%E6%B5%B7%E6%8A%A5%E5%9B%BE/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/2020/07/14/%E6%8B%96%E6%8B%BD%E6%8E%92%E5%BA%8F/">
-      拖拽排序
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="" rel="nofollow">
-    <img no-lazy src="https://s1.ax1x.com/2020/07/17/Us4aoF.jpg">
-    <p>晓晓</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/vue/%E7%BB%84%E4%BB%B6/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>vue/组件</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年7月14日</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  <div class="new-meta-item wordcount">
-    <a class='notlink'>
-      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：153字</p>
-    </a>
-  </div>
-  <div class="new-meta-item readtime">
-    <a class='notlink'>
-      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：1分钟</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-  <div class="new-meta-item browse valine">
-    <a class='notlink'>
-      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
-      
-      <span id="/2020/07/14/%E6%8B%96%E6%8B%BD%E6%8E%92%E5%BA%8F/" class="leancloud_visitors" data-flag-title="拖拽排序">
-      <p>
-        <span class="leancloud-visitors-count"></span>
-      </p>
-      </span>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-<div class="new-meta-item comments-count">
-  
-  <a href="/2020/07/14/%E6%8B%96%E6%8B%BD%E6%8E%92%E5%BA%8F/#comments">
-    <i class="fas fa-comment-dots fa-fw"></i>
-    <span class="valine-comment-count" data-xid="/2020/07/14/%E6%8B%96%E6%8B%BD%E6%8E%92%E5%BA%8F/">0</span>
-    <span class="leancloud-comments-count">&nbsp;</span>
-  </a>
-</div>
-
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://cdn.jsdelivr.net/gh/liebexiao/myImgs/20200717170003.png" alt=""></p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/07/14/%E6%8B%96%E6%8B%BD%E6%8E%92%E5%BA%8F/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/2020/07/14/vue-cropper%E5%9B%BE%E7%89%87%E8%A3%81%E5%89%AA/">
-      vue-cropper图片裁剪
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="" rel="nofollow">
-    <img no-lazy src="https://s1.ax1x.com/2020/07/17/Us4aoF.jpg">
-    <p>晓晓</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/vue/%E7%BB%84%E4%BB%B6/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>vue/组件</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年7月14日</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  <div class="new-meta-item wordcount">
-    <a class='notlink'>
-      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：2.2k字</p>
-    </a>
-  </div>
-  <div class="new-meta-item readtime">
-    <a class='notlink'>
-      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：9分钟</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-  <div class="new-meta-item browse valine">
-    <a class='notlink'>
-      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
-      
-      <span id="/2020/07/14/vue-cropper%E5%9B%BE%E7%89%87%E8%A3%81%E5%89%AA/" class="leancloud_visitors" data-flag-title="vue-cropper图片裁剪">
-      <p>
-        <span class="leancloud-visitors-count"></span>
-      </p>
-      </span>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-<div class="new-meta-item comments-count">
-  
-  <a href="/2020/07/14/vue-cropper%E5%9B%BE%E7%89%87%E8%A3%81%E5%89%AA/#comments">
-    <i class="fas fa-comment-dots fa-fw"></i>
-    <span class="valine-comment-count" data-xid="/2020/07/14/vue-cropper%E5%9B%BE%E7%89%87%E8%A3%81%E5%89%AA/">0</span>
-    <span class="leancloud-comments-count">&nbsp;</span>
-  </a>
-</div>
-
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <img src="https://cdn.jsdelivr.net/gh/liebexiao/myImgs/20200717161909.png" alt="" style="zoom:30%;" />
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/07/14/vue-cropper%E5%9B%BE%E7%89%87%E8%A3%81%E5%89%AA/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/2020/06/17/vue-cli4%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
-      vue-cli4性能优化
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="" rel="nofollow">
-    <img no-lazy src="https://s1.ax1x.com/2020/07/17/Us4aoF.jpg">
-    <p>晓晓</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/vue/%E9%85%8D%E7%BD%AE/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>vue/配置</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年6月17日</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  <div class="new-meta-item wordcount">
-    <a class='notlink'>
-      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：600字</p>
-    </a>
-  </div>
-  <div class="new-meta-item readtime">
-    <a class='notlink'>
-      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：2分钟</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-  <div class="new-meta-item browse valine">
-    <a class='notlink'>
-      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
-      
-      <span id="/2020/06/17/vue-cli4%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" class="leancloud_visitors" data-flag-title="vue-cli4性能优化">
-      <p>
-        <span class="leancloud-visitors-count"></span>
-      </p>
-      </span>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-<div class="new-meta-item comments-count">
-  
-  <a href="/2020/06/17/vue-cli4%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/#comments">
-    <i class="fas fa-comment-dots fa-fw"></i>
-    <span class="valine-comment-count" data-xid="/2020/06/17/vue-cli4%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">0</span>
-    <span class="leancloud-comments-count">&nbsp;</span>
-  </a>
-</div>
-
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://s1.ax1x.com/2020/06/04/t0Rsk8.png" alt=""></p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/06/17/vue-cli4%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-    
-  </section>
-  
-    
-      <br>
-      <div class="prev-next">
-        
-          <a class="prev" rel="prev" href="/categories/vue/">
-            <section class="post prev white-box shadow" >
-              <i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页&nbsp;
-            </section>
-          </a>
-        
-        <p class="current">
-          2 / 2
-        </p>
-        
-      </div>
-    
-    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
-    
-    
-
-  
-
-
-    
-  
-
-</div>
-<aside class='l_side'>
-  
+                
   
     
     
 
-<section class="widget blogger shadow desktop mobile">
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
   <div class='content'>
     
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://s1.ax1x.com/2020/07/17/Us4aoF.jpg'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence"> </span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
+      <blockquote>
         
           
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
           
         
           
-            <a href="mailto:1184154937@qq.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
+            <p>本文永久链接是：<a href=http://liebexiao.github.io/2020/07/22/%E7%80%91%E5%B8%83%E6%B5%81/>http://liebexiao.github.io/2020/07/22/%E7%80%91%E5%B8%83%E6%B5%81/</a></p>
           
         
-          
-            <a href="https://github.com/liebexiao"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-          
-            <a href="https://music.163.com/#/playlist?id=706943256"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-      </div>
+      </blockquote>
     
   </div>
 </section>
@@ -1268,103 +599,184 @@
   
     
     
+
+<section class="widget qrcode  desktop mobile">
   
 
-  <section class="widget category shadow desktop">
+  <div class='content article-entry'>
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-26T00:11:56+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年7月26日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/vue/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>vue</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://liebexiao.github.io/2020/07/22/%E7%80%91%E5%B8%83%E6%B5%81/&title=瀑布流 -  &summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://liebexiao.github.io/2020/07/22/%E7%80%91%E5%B8%83%E6%B5%81/&title=瀑布流 -  &summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://liebexiao.github.io/2020/07/22/%E7%80%91%E5%B8%83%E6%B5%81/&title=瀑布流 -  &summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/2020/07/23/ES6%E7%89%B9%E6%80%A7/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>ES6特性</p>
+                <p class='content'>一、let、var、const
+const 声明一个只读的常量，一单声明，常量的值不能改变，要初始化常量
+
+1、let 和 var区别
+let不存在变量提升
+123456console.log(...</p>
+              </a>
+            
+            
+              <a class='next' href='/2020/07/17/%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B9-css/'>
+                <p class='title'>小知识点-css<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>
+
+
+1、textarea1234/*去掉边框*/border: none;/*去掉拖拉框*/resize: none;
+
+12&lt;!--表示可见行数6，可见宽度100px，只读--&gt;...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      <section id="comments">
+        <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+      </section>
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/ES6/" href="/categories/ES6/"
-            id="categoriesES6"
-            ><div class='name'>ES6</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/markdown/" href="/categories/markdown/"
-            id="categoriesmarkdown"
-            ><div class='name'>markdown</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/vue/" href="/categories/vue/"
-            id="categoriesvue"
-            ><div class='name'>vue</div><div class='badge'>(11)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/vue/%E5%8E%9F%E7%94%9F/" href="/categories/vue/%E5%8E%9F%E7%94%9F/"
-            id="categoriesvueE58E9FE7949F"
-            ><div class='name'>原生</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/vue/%E7%BB%84%E4%BB%B6/" href="/categories/vue/%E7%BB%84%E4%BB%B6/"
-            id="categoriesvueE7BB84E4BBB6"
-            ><div class='name'>组件</div><div class='badge'>(5)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/vue/%E9%85%8D%E7%BD%AE/" href="/categories/vue/%E9%85%8D%E7%BD%AE/"
-            id="categoriesvueE9858DE7BDAE"
-            ><div class='name'>配置</div><div class='badge'>(5)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/wx/" href="/categories/wx/"
-            id="categorieswx"
-            ><div class='name'>wx</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E5%B8%B8%E7%94%A8/" href="/categories/%E5%B8%B8%E7%94%A8/"
-            id="categoriesE5B8B8E794A8"
-            ><div class='name'>常用</div><div class='badge'>(9)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E5%B8%B8%E7%94%A8/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/" href="/categories/%E5%B8%B8%E7%94%A8/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/"
-            id="categoriesE5B8B8E794A8E5B8B8E794A8E5B7A5E585B7"
-            ><div class='name'>常用工具</div><div class='badge'>(5)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E5%B8%B8%E7%94%A8/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" href="/categories/%E5%B8%B8%E7%94%A8/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/"
-            id="categoriesE5B8B8E794A8E5B8B8E794A8E696B9E6B395"
-            ><div class='name'>常用方法</div><div class='badge'>(4)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E9%98%BF%E9%87%8C%E4%BA%91/" href="/categories/%E9%98%BF%E9%87%8C%E4%BA%91/"
-            id="categoriesE998BFE9878CE4BA91"
-            ><div class='name'>阿里云</div><div class='badge'>(1)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、思路"><span class="toc-text">一、思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、过程"><span class="toc-text">二、过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、html"><span class="toc-text">1、html</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、css"><span class="toc-text">2、css</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、js"><span class="toc-text">3、js</span></a></li></ol></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/css/" style="font-size: 14px; color: #999">css</a> <a href="/tags/h5/" style="font-size: 14px; color: #999">h5</a> <a href="/tags/html/" style="font-size: 14px; color: #999">html</a> <a href="/tags/js/" style="font-size: 19px; color: #777">js</a> <a href="/tags/js-html/" style="font-size: 14px; color: #999">js,html</a> <a href="/tags/markdown/" style="font-size: 14px; color: #999">markdown</a> <a href="/tags/pc/" style="font-size: 14px; color: #999">pc</a> <a href="/tags/vue/" style="font-size: 24px; color: #555">vue</a> <a href="/tags/vue-js/" style="font-size: 14px; color: #999">vue js</a> <a href="/tags/vue-js/" style="font-size: 14px; color: #999">vue,js</a>
-    </div>
-  </section>
-
-
-  
 
   
 
