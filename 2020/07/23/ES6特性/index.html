@@ -550,10 +550,9 @@
 
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//函数作用域</span></span><br><span class="line">    <span class="keyword">let</span> c=<span class="number">10</span>;</span><br><span class="line">    <span class="keyword">if</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">        <span class="comment">//块级作用域</span></span><br><span class="line">       <span class="keyword">let</span> c=<span class="number">100</span>;</span><br><span class="line">       &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(c);</span><br><span class="line">   </span><br><span class="line">&#125;</span><br><span class="line">test();<span class="comment">//输出10；；此时输出的值为函数作用域的c值，与if中的没有关系。</span></span><br></pre></td></tr></table></figure>
 
-
 </li>
 </ul>
-<h4 id="2、箭头函数"><a href="#2、箭头函数" class="headerlink" title="2、箭头函数"></a>2、箭头函数</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> f=<span class="function"><span class="params">v</span>=&gt;</span>v1; <span class="comment">//变量名=参数=&gt;返回值（函数体）</span></span><br><span class="line"><span class="comment">//展开</span></span><br><span class="line"><span class="keyword">let</span> f(v)&#123;</span><br><span class="line">    <span class="keyword">return</span> v1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="二、函数"><a href="#二、函数" class="headerlink" title="二、函数"></a>二、函数</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> f=<span class="function"><span class="params">v</span>=&gt;</span>v1; <span class="comment">//变量名=参数=&gt;返回值（函数体）</span></span><br><span class="line"><span class="comment">//展开</span></span><br><span class="line"><span class="keyword">let</span> f(v)&#123;</span><br><span class="line">    <span class="keyword">return</span> v1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -630,10 +629,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-27T10:37:41+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-28T18:09:08+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年7月27日</p>
+    <p>更新于：2020年7月28日</p>
   </a>
 </div>
 
@@ -708,6 +707,11 @@
         
           <div class="prev-next">
             
+              <a class='prev' href='/2020/08/24/%E6%95%A3%E7%9F%A5%E8%AF%86%E7%82%B9/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>散知识点</p>
+                <p class='content'></p>
+              </a>
+            
             
               <a class='next' href='/2020/07/22/%E7%80%91%E5%B8%83%E6%B5%81/'>
                 <p class='title'>瀑布流<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
@@ -774,7 +778,7 @@
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、let、var、const"><span class="toc-text">一、let、var、const</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、let-和-var区别"><span class="toc-text">1、let 和 var区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、箭头函数"><span class="toc-text">2、箭头函数</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、let、var、const"><span class="toc-text">一、let、var、const</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、let-和-var区别"><span class="toc-text">1、let 和 var区别</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、函数"><span class="toc-text">二、函数</span></a></li></ol>
     </div>
   </section>
 
