@@ -16,7 +16,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>散知识点 -  </title>
+  <title>小程序轮播图 -  </title>
   
     <meta name="keywords" content="wxml、js">
   
@@ -412,7 +412,7 @@
 
 <div id="pjax-data" style="display: none">
   <div id="pjax-ispage">true</div>
-  <div id="pjax-pageTitle">散知识点</div>
+  <div id="pjax-pageTitle">小程序轮播图</div>
   <div id="pjax-enable-cover">true</div>
   
   <div id="valine-path">none</div>
@@ -463,8 +463,8 @@
         
           
   <h1 class="title">
-    <a href="/2020/08/24/%E6%95%A3%E7%9F%A5%E8%AF%86%E7%82%B9/">
-      散知识点
+    <a href="/2020/09/04/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%BD%AE%E6%92%AD%E5%9B%BE/">
+      小程序轮播图
     </a>
   </h1>
 
@@ -502,7 +502,7 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年8月24日</p>
+    <p>发布于：2020年9月4日</p>
   </a>
 </div>
 
@@ -526,7 +526,16 @@
         <div class="article-entry" itemprop="articleBody">
           
           
-          <h3 id=""><a href="#" class="headerlink" title=""></a></h3>
+          <p><img src="https://cdn.jsdelivr.net/gh/liebexiao/myImgs/20200904214927.png" alt=""></p>
+<a id="more"></a>
+
+<h4 id="1、wxml"><a href="#1、wxml" class="headerlink" title="1、wxml"></a>1、wxml</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 顶部图片 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"page-section page-section-spacing swiper"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">swiper</span></span></span><br><span class="line"><span class="tag">    <span class="attr">class</span>=<span class="string">"top_img_box"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">indicator-dots</span>=<span class="string">"&#123;&#123;indicatorDots&#125;&#125;"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">autoplay</span>=<span class="string">"&#123;&#123;autoplay&#125;&#125;"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">interval</span>=<span class="string">"&#123;&#123;interval&#125;&#125;"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">duration</span>=<span class="string">"&#123;&#123;duration&#125;&#125;"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">indicator-active-color</span>=<span class="string">"#fff"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">block</span> <span class="attr">wx:for</span>=<span class="string">"&#123;&#123;topImg&#125;&#125;"</span> <span class="attr">wx:key</span>=<span class="string">"*this"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">swiper-item</span> <span class="attr">bindtap</span>=<span class="string">"toNewsDetail"</span> <span class="attr">data-newsId</span>=<span class="string">"&#123;&#123;item.newsId&#125;&#125;"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"swiper_title"</span>&gt;</span>&#123;&#123;item.news_title&#125;&#125;<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">image</span> <span class="attr">class</span>=<span class="string">"top_img"</span> <span class="attr">src</span>=<span class="string">"&#123;&#123;item.url&#125;&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">image</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">swiper-item</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">block</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">swiper</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2、data"><a href="#2、data" class="headerlink" title="2、data"></a>2、data</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">topImg: [&#123;</span><br><span class="line">     url: <span class="string">'http://oss.jishiyoo.com/images/file-1597116272428.jpg'</span>,</span><br><span class="line">     newsId: <span class="number">1</span>,</span><br><span class="line">     news_title: <span class="string">'title'</span>,</span><br><span class="line">&#125;],</span><br><span class="line">indicatorDots: <span class="literal">true</span>, <span class="comment">//指示点</span></span><br><span class="line">vertical: <span class="literal">false</span>, <span class="comment">//滑动方向是否为纵向</span></span><br><span class="line">autoplay: <span class="literal">false</span>, <span class="comment">//是否自动切换</span></span><br><span class="line">interval: <span class="number">2000</span>, <span class="comment">//自动切换时间间隔</span></span><br><span class="line">duration: <span class="number">500</span>, <span class="comment">//滑动动画时长</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3、css"><a href="#3、css" class="headerlink" title="3、css"></a>3、css</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 轮播图 */</span></span><br><span class="line"><span class="selector-class">.top_img_box</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">420</span>rpx;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.top_img</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">object-fit</span>: contain;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.swiper_title</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">bottom</span>: <span class="number">0</span>rpx;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#000</span>;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0.6</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">10</span>rpx <span class="number">20</span>rpx <span class="number">36</span>rpx;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
           
             <div class='article_footer'>
               
@@ -562,7 +571,7 @@
           
         
           
-            <p>本文永久链接是：<a href=http://liebexiao.github.io/2020/08/24/%E6%95%A3%E7%9F%A5%E8%AF%86%E7%82%B9/>http://liebexiao.github.io/2020/08/24/%E6%95%A3%E7%9F%A5%E8%AF%86%E7%82%B9/</a></p>
+            <p>本文永久链接是：<a href=http://liebexiao.github.io/2020/09/04/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%BD%AE%E6%92%AD%E5%9B%BE/>http://liebexiao.github.io/2020/09/04/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%BD%AE%E6%92%AD%E5%9B%BE/</a></p>
           
         
       </blockquote>
@@ -599,10 +608,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-24T21:00:53+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-04T21:49:46+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年8月24日</p>
+    <p>更新于：2020年9月4日</p>
   </a>
 </div>
 
@@ -629,7 +638,7 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=http://liebexiao.github.io/2020/08/24/%E6%95%A3%E7%9F%A5%E8%AF%86%E7%82%B9/&title=散知识点 -  &summary="
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://liebexiao.github.io/2020/09/04/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%BD%AE%E6%92%AD%E5%9B%BE/&title=小程序轮播图 -  &summary="
           
           >
           
@@ -641,7 +650,7 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://liebexiao.github.io/2020/08/24/%E6%95%A3%E7%9F%A5%E8%AF%86%E7%82%B9/&title=散知识点 -  &summary="
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://liebexiao.github.io/2020/09/04/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%BD%AE%E6%92%AD%E5%9B%BE/&title=小程序轮播图 -  &summary="
           
           >
           
@@ -653,7 +662,7 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=http://liebexiao.github.io/2020/08/24/%E6%95%A3%E7%9F%A5%E8%AF%86%E7%82%B9/&title=散知识点 -  &summary="
+          href="http://service.weibo.com/share/share.php?url=http://liebexiao.github.io/2020/09/04/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%BD%AE%E6%92%AD%E5%9B%BE/&title=小程序轮播图 -  &summary="
           
           >
           
@@ -677,27 +686,24 @@
         
           <div class="prev-next">
             
-              <a class='prev' href='/2020/08/24/%E6%8E%88%E6%9D%83%E3%80%81%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF/'>
-                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>授权、获取信息</p>
+              <a class='prev' href='/2020/09/04/WxParse%E5%AF%8C%E6%96%87%E6%9C%AC%E8%A7%A3%E6%9E%90/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>WxParse富文本解析</p>
                 <p class='content'>
 
 
-一、登录在 app.js 的 onLaunch 中调用login接口，并将返回参数（包含openid ）存入缓存  userInfo：
-12345678910111213141516// ...</p>
+一、下载 WxParseGitHub 网站 https://github.com/icindy/wxParse
+将下载下来的文件放在 pages 文件夹下面。
+
+二、引用1、js1cons...</p>
               </a>
             
             
-              <a class='next' href='/2020/07/23/ES6%E7%89%B9%E6%80%A7/'>
-                <p class='title'>ES6特性<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>
+              <a class='next' href='/2020/09/04/%E8%A7%86%E9%A2%91%E4%B8%8A%E4%BC%A0/'>
+                <p class='title'>视频上传<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>该视频上传至阿里云服务器。
 
 
-一、let、var、const
-const 声明一个只读的常量，一单声明，常量的值不能改变，要初始化常量
-
-1、let 和 var区别
-let不存在变量提升
-123456console.l...</p>
+一、html1234567891011121314151617181920212223242526272829303132333435363738394041&l...</p>
               </a>
             
           </div>
@@ -751,7 +757,7 @@ let不存在变量提升
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text"></span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、wxml"><span class="toc-text">1、wxml</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、data"><span class="toc-text">2、data</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、css"><span class="toc-text">3、css</span></a></li></ol>
     </div>
   </section>
 
