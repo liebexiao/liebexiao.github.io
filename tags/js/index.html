@@ -483,6 +483,178 @@
         
           
   <h2 class="title">
+    <a href="/2020/09/16/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
+      数据结构与算法
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="" rel="nofollow">
+    <img no-lazy src="https://s1.ax1x.com/2020/07/17/Us4aoF.jpg">
+    <p>晓晓</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/%E5%B8%B8%E7%94%A8/%E9%9D%A2%E8%AF%95%E9%A2%98/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>常用/面试题</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年9月16日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  <div class="new-meta-item wordcount">
+    <a class='notlink'>
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：707字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class='notlink'>
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：3分钟</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
+  <div class="new-meta-item browse valine">
+    <a class='notlink'>
+      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+      
+      <span id="/2020/09/16/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" class="leancloud_visitors" data-flag-title="数据结构与算法">
+      <p>
+        <span class="leancloud-visitors-count"></span>
+      </p>
+      </span>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
+<div class="new-meta-item comments-count">
+  
+  <a href="/2020/09/16/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/#comments">
+    <i class="fas fa-comment-dots fa-fw"></i>
+    <span class="valine-comment-count" data-xid="/2020/09/16/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">0</span>
+    <span class="leancloud-comments-count">&nbsp;</span>
+  </a>
+</div>
+
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+
+<h3 id="一、常见算法"><a href="#一、常见算法" class="headerlink" title="一、常见算法"></a>一、常见算法</h3><h4 id="1、冒泡排序"><a href="#1、冒泡排序" class="headerlink" title="1、冒泡排序"></a>1、冒泡排序</h4><ul>
+<li>相邻两个元素比较，如果前一个比后一个大，交换位置；</li>
+<li>对每一对相邻的元素进行重复工作</li>
+<li>重复上述操作直至数组有序。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr=[<span class="number">8</span>,<span class="number">0</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">7</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">9</span>];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> len=arr.length;</span><br><span class="line">    <span class="comment">//添加标志位</span></span><br><span class="line">    <span class="keyword">let</span> tip=<span class="literal">true</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//从头开始遍历数组，，如果标志位为true才能执行循环</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;len &amp;&amp; tip;i++)&#123;</span><br><span class="line">        tip=<span class="literal">false</span>;</span><br><span class="line">        <span class="comment">//比较相邻元素</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> j=<span class="number">0</span>;j&lt;len<span class="number">-1</span>-i;j++)&#123;</span><br><span class="line">            <span class="comment">//将数组按照升序排序，如果前一个元素大于后一个元素，则交换位置</span></span><br><span class="line">            <span class="comment">//如果是降序，将&gt;换成&lt;即可</span></span><br><span class="line">            <span class="keyword">if</span>(arr[j]&gt;arr[j+<span class="number">1</span>])&#123;</span><br><span class="line">                <span class="keyword">let</span> m=arr[j];</span><br><span class="line">                arr[j]=arr[j+<span class="number">1</span>];</span><br><span class="line">                arr[j+<span class="number">1</span>]=m;</span><br><span class="line">                <span class="comment">//如果有交换，说明数组不是有序的，还需要继续循环</span></span><br><span class="line">                tip=<span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">fn(arr);</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2、选择排序"><a href="#2、选择排序" class="headerlink" title="2、选择排序"></a>2、选择排序</h4><ul>
+<li>在乱序中查找最小的元素放在第一位</li>
+<li>重复上述操作，直至数组有序</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr=[<span class="number">8</span>,<span class="number">0</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">7</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">9</span>];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> len=arr.length;</span><br><span class="line">    <span class="comment">//定义最小元素坐标</span></span><br><span class="line">    <span class="keyword">let</span> mIndex;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;len<span class="number">-1</span>;i++)&#123;</span><br><span class="line">        mIndex=i;</span><br><span class="line">        <span class="comment">//遍历查找，如果存在最小元素，则替换最小元素坐标</span></span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">let</span> j=i+<span class="number">1</span>;j&lt;len;j++)&#123;</span><br><span class="line">           <span class="keyword">if</span>(arr[mIndex]&gt;arr[j])&#123;</span><br><span class="line">               mIndex=j;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">        <span class="comment">//找到了最小元素坐标，替换到乱序数组头部。</span></span><br><span class="line">        <span class="keyword">let</span> m=arr[i];</span><br><span class="line">        arr[i]=arr[mIndex];</span><br><span class="line">        arr[mIndex]=m;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3、快速排序"><a href="#3、快速排序" class="headerlink" title="3、快速排序"></a>3、快速排序</h4><ul>
+<li>在待排序数组中找一个基准值；</li>
+<li>比这个基准值小的放左边，大的放右边；</li>
+<li>重复操作，直至数组有序</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr=[<span class="number">8</span>,<span class="number">0</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">7</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">9</span>];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//如果数组长度&lt;=1，则不需要排序</span></span><br><span class="line">    <span class="keyword">if</span>(arr.length&lt;=<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> arr;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> len=arr.length;</span><br><span class="line">    <span class="keyword">let</span> mIndex=Match.floor(arr.length/<span class="number">2</span>);</span><br><span class="line">    <span class="keyword">let</span> mVal=arr[mIndex];</span><br><span class="line">    <span class="keyword">let</span> left=[];</span><br><span class="line">    <span class="keyword">let</span> right=[];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">        <span class="comment">//如果i为基准索引值，跳过操作</span></span><br><span class="line">        <span class="keyword">if</span>(i===mIndex)&#123;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//将小于基准值放入左边数组中，大于的放入右边数组中。</span></span><br><span class="line">        <span class="keyword">if</span>(arr[i]&lt;mVal)&#123;</span><br><span class="line">            left.push(arr[i]);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            right.push(arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//将数组整合到一起</span></span><br><span class="line">    <span class="keyword">return</span> fn(left).concat([mVal],fn(right));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="4、插入排序"><a href="#4、插入排序" class="headerlink" title="4、插入排序"></a>4、插入排序</h4><ul>
+<li>获取一个目标值</li>
+<li>从后往前遍历，大于目标值将元素后移一个单位</li>
+<li>遇到目标值小于或等于的元素，将目标值放入其后。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr=[<span class="number">8</span>,<span class="number">0</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">7</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">9</span>];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> len=arr.length;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">1</span>;i&lt;len;i++)&#123;</span><br><span class="line">        <span class="comment">//获取目标值</span></span><br><span class="line">        <span class="keyword">let</span> mVal=arr[i];</span><br><span class="line">        <span class="comment">//待插入坐标</span></span><br><span class="line">        <span class="keyword">let</span> mIndex;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//从i向前遍历，如果大于目标值，则后移一位</span></span><br><span class="line">        <span class="keyword">for</span>(mIndex=i;mIndex&gt;<span class="number">0</span> &amp;&amp; (arr[mIndex<span class="number">-1</span>]&gt;mVal);mIndex--)&#123;</span><br><span class="line">            arr[mIndex]=arr[mIndex<span class="number">-1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        arr[mIndex]=mVal;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
     <a href="/2020/09/05/wx%E6%8E%88%E6%9D%83/">
       授权
     </a>
@@ -1184,149 +1356,6 @@
           </div>
         
       
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/2020/08/24/%E6%8E%88%E6%9D%83%E3%80%81%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF/">
-      授权、获取信息
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="" rel="nofollow">
-    <img no-lazy src="https://s1.ax1x.com/2020/07/17/Us4aoF.jpg">
-    <p>晓晓</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/wx%E5%B0%8F%E7%A8%8B%E5%BA%8F/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>wx小程序</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年8月24日</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  <div class="new-meta-item wordcount">
-    <a class='notlink'>
-      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：437字</p>
-    </a>
-  </div>
-  <div class="new-meta-item readtime">
-    <a class='notlink'>
-      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：2分钟</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-  <div class="new-meta-item browse valine">
-    <a class='notlink'>
-      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
-      
-      <span id="/2020/08/24/%E6%8E%88%E6%9D%83%E3%80%81%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF/" class="leancloud_visitors" data-flag-title="授权、获取信息">
-      <p>
-        <span class="leancloud-visitors-count"></span>
-      </p>
-      </span>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-<div class="new-meta-item comments-count">
-  
-  <a href="/2020/08/24/%E6%8E%88%E6%9D%83%E3%80%81%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF/#comments">
-    <i class="fas fa-comment-dots fa-fw"></i>
-    <span class="valine-comment-count" data-xid="/2020/08/24/%E6%8E%88%E6%9D%83%E3%80%81%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF/">0</span>
-    <span class="leancloud-comments-count">&nbsp;</span>
-  </a>
-</div>
-
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://s1.ax1x.com/2020/08/24/dyQVs0.png" alt=""></p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/08/24/%E6%8E%88%E6%9D%83%E3%80%81%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
     
   </section>
   
@@ -1508,7 +1537,7 @@
           <li><a class="flat-box"
             title="/categories/%E5%B8%B8%E7%94%A8/" href="/categories/%E5%B8%B8%E7%94%A8/"
             id="categoriesE5B8B8E794A8"
-            ><div class='name'>常用</div><div class='badge'>(11)</div></a></li>
+            ><div class='name'>常用</div><div class='badge'>(12)</div></a></li>
         
           <li><a class="flat-box child"
             title="/categories/%E5%B8%B8%E7%94%A8/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/" href="/categories/%E5%B8%B8%E7%94%A8/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/"
@@ -1523,7 +1552,7 @@
           <li><a class="flat-box child"
             title="/categories/%E5%B8%B8%E7%94%A8/%E9%9D%A2%E8%AF%95%E9%A2%98/" href="/categories/%E5%B8%B8%E7%94%A8/%E9%9D%A2%E8%AF%95%E9%A2%98/"
             id="categoriesE5B8B8E794A8E99DA2E8AF95E9A298"
-            ><div class='name'>面试题</div><div class='badge'>(1)</div></a></li>
+            ><div class='name'>面试题</div><div class='badge'>(2)</div></a></li>
         
           <li><a class="flat-box"
             title="/categories/%E9%98%BF%E9%87%8C%E4%BA%91/" href="/categories/%E9%98%BF%E9%87%8C%E4%BA%91/"

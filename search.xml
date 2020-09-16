@@ -159,70 +159,6 @@
       </tags>
   </entry>
   <entry>
-    <title>vue-cli4性能优化</title>
-    <url>/2020/06/17/vue-cli4%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</url>
-    <content><![CDATA[<p><img src="https://s1.ax1x.com/2020/06/04/t0Rsk8.png" alt=""></p>
-<a id="more"></a>
-
-<h3 id="一、Gzip压缩"><a href="#一、Gzip压缩" class="headerlink" title="一、Gzip压缩"></a><strong>一、Gzip压缩</strong></h3><p>gizp 压缩是一种 http 请求优化方式，通过减少文件体积来提高加载速度，对于用户量多的网站，开启 gizp 压缩会大大降低服务器压力，提高加载速度，降低服务器流量成本</p>
-<p><strong>压缩完成示例</strong></p>
-<p><img src="https://s1.ax1x.com/2020/06/17/NEaSSS.png" alt="NEaSSS.png"></p>
-<h4 id="1、安装插件"><a href="#1、安装插件" class="headerlink" title="1、安装插件"></a>1、安装插件</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">cnpm install compression-webpack-plugin --save-de</span><br></pre></td></tr></table></figure>
-
-<h4 id="2、在vue-config-js中配置"><a href="#2、在vue-config-js中配置" class="headerlink" title="2、在vue.config.js中配置"></a>2、在vue.config.js中配置</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 导入compression-webpack-plugin</span></span><br><span class="line"><span class="keyword">const</span> CompressionWebpackPlugin = <span class="built_in">require</span>(<span class="string">"compression-webpack-plugin"</span>);</span><br><span class="line"><span class="comment">// 定义压缩文件类型</span></span><br><span class="line"><span class="keyword">const</span> productionGzipExtensions = [<span class="string">"js"</span>, <span class="string">"css"</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">//统一配置打包插件</span></span><br><span class="line">  configureWebpack: &#123;</span><br><span class="line">    plugins: [</span><br><span class="line">      <span class="keyword">new</span> CompressionWebpackPlugin(&#123;</span><br><span class="line">        filename: <span class="string">"[path].gz[query]"</span>,</span><br><span class="line">        algorithm: <span class="string">"gzip"</span>,</span><br><span class="line">        test: <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"\\.("</span> + productionGzipExtensions.join(<span class="string">"|"</span>) + <span class="string">")$"</span>), <span class="comment">//匹配文件名</span></span><br><span class="line">        threshold: <span class="number">10240</span>, <span class="comment">//对10K以上的数据进行压缩</span></span><br><span class="line">        minRatio: <span class="number">0.8</span>,</span><br><span class="line">        deleteOriginalAssets: <span class="literal">false</span>, <span class="comment">//是否删除源文件</span></span><br><span class="line">      &#125;),</span><br><span class="line">    ],</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h4 id="3、在服务器的-nginx的http中配置-Gzip"><a href="#3、在服务器的-nginx的http中配置-Gzip" class="headerlink" title="3、在服务器的 nginx的http中配置 Gzip"></a>3、在服务器的 nginx的http中配置 Gzip</h4><figure class="highlight"><table><tr><td class="code"><pre><span class="line">gzip on; #开启或关闭gzip on off</span><br><span class="line">gzip_min_length 5k; #gzip压缩最小文件大小，超出进行压缩（自行调节）</span><br><span class="line">gzip_buffers 4 16k; #buffer 不用修改</span><br><span class="line">gzip_comp_level 4; #压缩级别:1-10，数字越大压缩的越好，时间也越长</span><br><span class="line">gzip_types text/plain application/x-javascript application/javascript text/css application/xml text/javascript application/x-httpd-php image/jpeg image/gif image/png; #  压缩文件类型</span><br><span class="line">gzip_vary on; # 和http头有关系，加个vary头，给代理服务器用的，有的浏览器支持压缩，有的不支持，所以避免浪费不支持的也压缩，所以根据客户端的HTTP头来判断，是否需要压缩</span><br></pre></td></tr></table></figure>
-
-<h4 id="4、修改后记得执行-nginx-s-reload"><a href="#4、修改后记得执行-nginx-s-reload" class="headerlink" title="4、修改后记得执行 nginx -s reload"></a>4、修改后记得执行 nginx -s reload</h4><h3 id="二、去掉打包后的-console"><a href="#二、去掉打包后的-console" class="headerlink" title="二、去掉打包后的 console"></a><strong>二、去掉打包后的 console</strong></h3><h4 id="1、安裝插件"><a href="#1、安裝插件" class="headerlink" title="1、安裝插件"></a>1、安裝插件</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">cnpm install babel-plugin-transform-remove-<span class="built_in">console</span> --save-dev</span><br></pre></td></tr></table></figure>
-
-<h4 id="2、【babel-config-js】配置如下"><a href="#2、【babel-config-js】配置如下" class="headerlink" title="2、【babel.config.js】配置如下"></a>2、【babel.config.js】配置如下</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> plugins = [<span class="string">"@vue/babel-plugin-transform-vue-jsx"</span>];</span><br><span class="line"><span class="comment">// 生产环境移除console</span></span><br><span class="line"><span class="keyword">if</span> (process.env.NODE_ENV === <span class="string">"production"</span>) &#123;</span><br><span class="line">  plugins.push(<span class="string">"transform-remove-console"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  plugins: plugins,</span><br><span class="line">  presets: [<span class="string">"@vue/cli-plugin-babel/preset"</span>],</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h4 id="3、打包部署后，生产环境的-console-就全部去掉了"><a href="#3、打包部署后，生产环境的-console-就全部去掉了" class="headerlink" title="3、打包部署后，生产环境的 console 就全部去掉了~"></a>3、打包部署后，生产环境的 console 就全部去掉了~</h4><h3 id="三、图片懒加载"><a href="#三、图片懒加载" class="headerlink" title="三、图片懒加载"></a><strong>三、图片懒加载</strong></h3><h4 id="1、安装依赖"><a href="#1、安装依赖" class="headerlink" title="1、安装依赖"></a>1、安装依赖</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">cnpm i vue-lazyload -S</span><br></pre></td></tr></table></figure>
-
-<h4 id="2、main-js-中直接引用"><a href="#2、main-js-中直接引用" class="headerlink" title="2、main.js 中直接引用"></a>2、main.js 中直接引用</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> VueLazyload <span class="keyword">from</span> <span class="string">"vue-lazyload"</span>;</span><br><span class="line"></span><br><span class="line">Vue.use(VueLazyload);</span><br><span class="line"></span><br><span class="line"><span class="comment">// or with options</span></span><br><span class="line">Vue.use(VueLazyload, &#123;</span><br><span class="line">  <span class="comment">//预加载高度</span></span><br><span class="line">  preLoad: <span class="number">1.3</span>,</span><br><span class="line">  <span class="comment">//错误时显示的图片</span></span><br><span class="line">  error: <span class="string">"static/about111.jpg"</span>,</span><br><span class="line">  <span class="comment">//图片加载中显示的图片</span></span><br><span class="line">  loading: <span class="string">"static/img/loading.gif"</span>,</span><br><span class="line">  <span class="comment">//尝试加载次数</span></span><br><span class="line">  attempt: <span class="number">1</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<h4 id="3、使用"><a href="#3、使用" class="headerlink" title="3、使用"></a>3、使用</h4><p>在组件中使用时，将 img 标签的 src 换成 v-lazy：</p>
-<ol>
-<li>未使用懒加载前的代码：<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"g-img1"</span> <span class="attr">src</span>=<span class="string">"static/1.jpg"</span> <span class="attr">alt</span>=<span class="string">""</span> /&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li>使用懒加载后的代码：<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"g-img1"</span> <span class="attr">v-lazy</span>=<span class="string">"'static/1.jpg'"</span> <span class="attr">alt</span>=<span class="string">""</span> /&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>前端性能优化</category>
-      </categories>
-      <tags>
-        <tag>vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>keep-alive保持页面活性</title>
-    <url>/2020/07/15/keep-alive%E4%BF%9D%E6%8C%81%E9%A1%B5%E9%9D%A2%E6%B4%BB%E6%80%A7/</url>
-    <content><![CDATA[<p><strong>keep-alive</strong>是 Vue 内置的一个组件，可以使被包含的组件保留状态</p>
-<p><img src="https://s1.ax1x.com/2020/07/17/Uyr0UI.png" alt=""></p>
-<a id="more"></a>
-
-<h3 id="一、一般的保持活性"><a href="#一、一般的保持活性" class="headerlink" title="一、一般的保持活性"></a><strong>一、一般的保持活性</strong></h3><p>在页面翻页时进入另一页返回之后仍在原始页。</p>
-<h4 id="1、在-App-vue-里面"><a href="#1、在-App-vue-里面" class="headerlink" title="1、在 App.vue 里面"></a>1、<strong>在 App.vue 里面</strong></h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">router-view</span> <span class="attr">v-if</span>=<span class="string">"!$route.meta.keepAlive"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">router-view</span> <span class="attr">v-if</span>=<span class="string">"$route.meta.keepAlive"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="2、在-router-js-里面使用-meta"><a href="#2、在-router-js-里面使用-meta" class="headerlink" title="2、在 router.js 里面使用 meta"></a>2、<strong>在 router.js 里面使用 meta</strong></h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">           path: <span class="string">"/manage/market/groupSet"</span>,<span class="comment">//拼团设置</span></span><br><span class="line">           name: <span class="string">"groupSet"</span>,</span><br><span class="line">           component: groupSet,</span><br><span class="line">           meta: &#123;</span><br><span class="line">               keepAlive: <span class="literal">true</span></span><br><span class="line">           &#125;,</span><br><span class="line">       &#125;,</span><br></pre></td></tr></table></figure>
-
-<h3 id="二、根据链接选择性保持活性"><a href="#二、根据链接选择性保持活性" class="headerlink" title="二、根据链接选择性保持活性"></a><strong>二、根据链接选择性保持活性</strong></h3><p>从 /test 链接过来的保持页面活性。配合上面<strong>keepAlive</strong>一起使用</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">beforeRouteEnter(to, <span class="keyword">from</span>, next) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">from</span>.path == <span class="string">"/test"</span>) &#123;</span><br><span class="line">                to.meta.isBack = <span class="literal">true</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                to.meta.isBack = <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            next();</span><br><span class="line">        &#125;,</span><br><span class="line">activated() &#123;</span><br><span class="line">            <span class="keyword">if</span> (!<span class="keyword">this</span>.$route.meta.isBack) &#123;</span><br><span class="line">                <span class="comment">//不保持页面活性</span></span><br><span class="line">                <span class="keyword">this</span>.keyword=<span class="string">''</span>;<span class="comment">/*清空查询条件*/</span></span><br><span class="line">                <span class="keyword">this</span>.loadList();<span class="comment">/*列表重新加载*/</span></span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="comment">//保持页面活性</span></span><br><span class="line">                <span class="keyword">this</span>.$route.meta.isBack = <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">this</span>.loadList();<span class="comment">/*列表重新加载*/</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  path: <span class="string">"/test"</span>,</span><br><span class="line">  name: <span class="string">"test"</span>,</span><br><span class="line">  component: test,</span><br><span class="line">  meta: &#123;</span><br><span class="line">        keepAlive: <span class="literal">true</span>,</span><br><span class="line">        isBack: <span class="literal">true</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>vue</category>
-        <category>配置</category>
-      </categories>
-      <tags>
-        <tag>vue</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>web前端面试</title>
     <url>/2020/09/08/web%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95/</url>
     <content><![CDATA[<p>总结一些常见面试题。</p>
@@ -427,49 +363,6 @@
       </tags>
   </entry>
   <entry>
-    <title>wx支付</title>
-    <url>/2020/09/04/wx%E6%94%AF%E4%BB%98/</url>
-    <content><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/liebexiao/myImgs/20200904220626.jpg" alt=""></p>
-<a id="more"></a>
-
-<h3 id="一、wx-支付"><a href="#一、wx-支付" class="headerlink" title="一、wx 支付"></a><strong>一、wx 支付</strong></h3><h4 id="1、请求后台接口获取-wx-需要数据"><a href="#1、请求后台接口获取-wx-需要数据" class="headerlink" title="1、请求后台接口获取 wx 需要数据"></a>1、请求后台接口获取 wx 需要数据</h4><p>将请求接口得来的数据存到全局变量里面  payData 。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Ajax(<span class="string">"post"</span>, <span class="string">"/api"</span>, obj)</span><br><span class="line">  .then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> data = res.data;</span><br><span class="line">    <span class="keyword">this</span>.payData = data;</span><br><span class="line">    <span class="comment">//wx判断支付环境是否可用，若环境准备好接着调用 onBridgeReady()方法</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> WeixinJSBridge == <span class="string">"undefined"</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="built_in">document</span>.addEventListener) &#123;</span><br><span class="line">        <span class="built_in">document</span>.addEventListener(<span class="string">"WeixinJSBridgeReady"</span>, onBridgeReady, <span class="literal">false</span>);</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">document</span>.attachEvent) &#123;</span><br><span class="line">        <span class="built_in">document</span>.attachEvent(<span class="string">"WeixinJSBridgeReady"</span>, onBridgeReady);</span><br><span class="line">        <span class="built_in">document</span>.attachEvent(<span class="string">"onWeixinJSBridgeReady"</span>, onBridgeReady);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">this</span>.onBridgeReady();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(<span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">    alert(e);</span><br><span class="line">    <span class="keyword">this</span>.canSubmit = <span class="literal">true</span>;</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
-
-<h4 id="2、将后台返回的参数传到-wx"><a href="#2、将后台返回的参数传到-wx" class="headerlink" title="2、将后台返回的参数传到 wx"></a>2、将后台返回的参数传到 wx</h4><p>调用 wx 支付方法，将上面请求后台接口返回的参数传给 wx 。在用户支付成功后进行下一步操作。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//微信支付</span></span><br><span class="line">          onBridgeReady() &#123;</span><br><span class="line">              <span class="keyword">let</span> that = <span class="keyword">this</span>;</span><br><span class="line">              WeixinJSBridge.invoke(</span><br><span class="line">                  <span class="string">'getBrandWCPayRequest'</span>, &#123;</span><br><span class="line">                      <span class="string">"appId"</span>: <span class="keyword">this</span>.payData.appId,     <span class="comment">//公众号名称，由商户传入</span></span><br><span class="line">                      <span class="string">"timeStamp"</span>: <span class="keyword">this</span>.payData.timeStamp,         <span class="comment">//时间戳，自1970年以来的秒数</span></span><br><span class="line">                      <span class="string">"nonceStr"</span>: <span class="keyword">this</span>.payData.nonceStr, <span class="comment">//随机串</span></span><br><span class="line">                      <span class="string">"package"</span>: <span class="keyword">this</span>.payData.package,</span><br><span class="line">                      <span class="string">"signType"</span>: <span class="keyword">this</span>.payData.signType,         <span class="comment">//微信签名方式：</span></span><br><span class="line">                      <span class="string">"paySign"</span>: <span class="keyword">this</span>.payData.paySign <span class="comment">//微信签名</span></span><br><span class="line">                  &#125;,</span><br><span class="line">                  <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">                      <span class="keyword">if</span> (res.err_msg == <span class="string">"get_brand_wcpay_request:ok"</span>) &#123;</span><br><span class="line">                          <span class="comment">//支付成功</span></span><br><span class="line">                          <span class="built_in">window</span>.location.href=<span class="string">"/activity"</span>;</span><br><span class="line"></span><br><span class="line">                      &#125;<span class="keyword">else</span> <span class="keyword">if</span> (res.err_msg == <span class="string">"get_brand_wcpay_request:fail"</span>) &#123;</span><br><span class="line">                          <span class="comment">// 使用以上方式判断前端返回,微信团队郑重提示：</span></span><br><span class="line">                          <span class="comment">//res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。</span></span><br><span class="line">                          alert(res.err_msg);</span><br><span class="line">                      &#125;</span><br><span class="line">                  &#125;);</span><br><span class="line">          &#125;,</span><br></pre></td></tr></table></figure>
-
-<h3 id="二、wx-扫码支付-QRcode-二维码"><a href="#二、wx-扫码支付-QRcode-二维码" class="headerlink" title="二、wx 扫码支付-QRcode 二维码"></a><strong>二、wx 扫码支付-QRcode 二维码</strong></h3><h4 id="1、引入-QRcode"><a href="#1、引入-QRcode" class="headerlink" title="1、引入 QRcode"></a>1、引入 QRcode</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">cnpm install qrcodejs2</span><br><span class="line"><span class="keyword">import</span> QRCode <span class="keyword">from</span> <span class="string">"qrcodejs2"</span>; <span class="comment">// 引入qrcode</span></span><br><span class="line"><span class="keyword">let</span> qrcode;</span><br><span class="line">&lt;div id=<span class="string">"qrcode"</span>&gt;&lt;<span class="regexp">/div&gt;;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="2、从接口获取二维码地址-并生成二维码"><a href="#2、从接口获取二维码地址-并生成二维码" class="headerlink" title="2、从接口获取二维码地址 并生成二维码"></a>2、从接口获取二维码地址 并生成二维码</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">"qrcode"</span>).innerHTML = <span class="string">""</span>;</span><br><span class="line">  qrcode = <span class="keyword">new</span> QRCode(<span class="string">"qrcode"</span>, &#123;</span><br><span class="line">    width: <span class="number">280</span>,</span><br><span class="line">    height: <span class="number">280</span>,</span><br><span class="line">    text: res.data.data, <span class="comment">// 二维码地址</span></span><br><span class="line">    colorDark: <span class="string">"#000"</span>,</span><br><span class="line">    colorLight: <span class="string">"#fff"</span>,</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;, <span class="number">100</span>);</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>wx</category>
-        <category>wx支付</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>授权</title>
-    <url>/2020/09/05/wx%E6%8E%88%E6%9D%83/</url>
-    <content><![CDATA[<p>微信授权和嵌入app获取token。</p>
-<a id="more"></a>
-
-<h3 id="一、与app交互"><a href="#一、与app交互" class="headerlink" title="一、与app交互"></a>一、与app交互</h3><h4 id="1、新建一个js文件"><a href="#1、新建一个js文件" class="headerlink" title="1、新建一个js文件"></a>1、新建一个js文件</h4><blockquote>
-<p>新建一个名为hybridApp的js文件。在内部写入与app交互的方法（均为与app商量好用来互相调用的方法）。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>wx</category>
-        <category>wx授权</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>wangeditor富文本编辑器</title>
     <url>/2020/07/16/wangeditor%E5%AF%8C%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8/</url>
     <content><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/liebexiao/myImgs/20200717161621.png" alt=""></p>
@@ -489,6 +382,88 @@
       </categories>
       <tags>
         <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vue-cli4性能优化</title>
+    <url>/2020/06/17/vue-cli4%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</url>
+    <content><![CDATA[<p><img src="https://s1.ax1x.com/2020/06/04/t0Rsk8.png" alt=""></p>
+<a id="more"></a>
+
+<h3 id="一、Gzip压缩"><a href="#一、Gzip压缩" class="headerlink" title="一、Gzip压缩"></a><strong>一、Gzip压缩</strong></h3><p>gizp 压缩是一种 http 请求优化方式，通过减少文件体积来提高加载速度，对于用户量多的网站，开启 gizp 压缩会大大降低服务器压力，提高加载速度，降低服务器流量成本</p>
+<p><strong>压缩完成示例</strong></p>
+<p><img src="https://s1.ax1x.com/2020/06/17/NEaSSS.png" alt="NEaSSS.png"></p>
+<h4 id="1、安装插件"><a href="#1、安装插件" class="headerlink" title="1、安装插件"></a>1、安装插件</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">cnpm install compression-webpack-plugin --save-de</span><br></pre></td></tr></table></figure>
+
+<h4 id="2、在vue-config-js中配置"><a href="#2、在vue-config-js中配置" class="headerlink" title="2、在vue.config.js中配置"></a>2、在vue.config.js中配置</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 导入compression-webpack-plugin</span></span><br><span class="line"><span class="keyword">const</span> CompressionWebpackPlugin = <span class="built_in">require</span>(<span class="string">"compression-webpack-plugin"</span>);</span><br><span class="line"><span class="comment">// 定义压缩文件类型</span></span><br><span class="line"><span class="keyword">const</span> productionGzipExtensions = [<span class="string">"js"</span>, <span class="string">"css"</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">//统一配置打包插件</span></span><br><span class="line">  configureWebpack: &#123;</span><br><span class="line">    plugins: [</span><br><span class="line">      <span class="keyword">new</span> CompressionWebpackPlugin(&#123;</span><br><span class="line">        filename: <span class="string">"[path].gz[query]"</span>,</span><br><span class="line">        algorithm: <span class="string">"gzip"</span>,</span><br><span class="line">        test: <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"\\.("</span> + productionGzipExtensions.join(<span class="string">"|"</span>) + <span class="string">")$"</span>), <span class="comment">//匹配文件名</span></span><br><span class="line">        threshold: <span class="number">10240</span>, <span class="comment">//对10K以上的数据进行压缩</span></span><br><span class="line">        minRatio: <span class="number">0.8</span>,</span><br><span class="line">        deleteOriginalAssets: <span class="literal">false</span>, <span class="comment">//是否删除源文件</span></span><br><span class="line">      &#125;),</span><br><span class="line">    ],</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3、在服务器的-nginx的http中配置-Gzip"><a href="#3、在服务器的-nginx的http中配置-Gzip" class="headerlink" title="3、在服务器的 nginx的http中配置 Gzip"></a>3、在服务器的 nginx的http中配置 Gzip</h4><figure class="highlight"><table><tr><td class="code"><pre><span class="line">gzip on; #开启或关闭gzip on off</span><br><span class="line">gzip_min_length 5k; #gzip压缩最小文件大小，超出进行压缩（自行调节）</span><br><span class="line">gzip_buffers 4 16k; #buffer 不用修改</span><br><span class="line">gzip_comp_level 4; #压缩级别:1-10，数字越大压缩的越好，时间也越长</span><br><span class="line">gzip_types text/plain application/x-javascript application/javascript text/css application/xml text/javascript application/x-httpd-php image/jpeg image/gif image/png; #  压缩文件类型</span><br><span class="line">gzip_vary on; # 和http头有关系，加个vary头，给代理服务器用的，有的浏览器支持压缩，有的不支持，所以避免浪费不支持的也压缩，所以根据客户端的HTTP头来判断，是否需要压缩</span><br></pre></td></tr></table></figure>
+
+<h4 id="4、修改后记得执行-nginx-s-reload"><a href="#4、修改后记得执行-nginx-s-reload" class="headerlink" title="4、修改后记得执行 nginx -s reload"></a>4、修改后记得执行 nginx -s reload</h4><h3 id="二、去掉打包后的-console"><a href="#二、去掉打包后的-console" class="headerlink" title="二、去掉打包后的 console"></a><strong>二、去掉打包后的 console</strong></h3><h4 id="1、安裝插件"><a href="#1、安裝插件" class="headerlink" title="1、安裝插件"></a>1、安裝插件</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">cnpm install babel-plugin-transform-remove-<span class="built_in">console</span> --save-dev</span><br></pre></td></tr></table></figure>
+
+<h4 id="2、【babel-config-js】配置如下"><a href="#2、【babel-config-js】配置如下" class="headerlink" title="2、【babel.config.js】配置如下"></a>2、【babel.config.js】配置如下</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> plugins = [<span class="string">"@vue/babel-plugin-transform-vue-jsx"</span>];</span><br><span class="line"><span class="comment">// 生产环境移除console</span></span><br><span class="line"><span class="keyword">if</span> (process.env.NODE_ENV === <span class="string">"production"</span>) &#123;</span><br><span class="line">  plugins.push(<span class="string">"transform-remove-console"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  plugins: plugins,</span><br><span class="line">  presets: [<span class="string">"@vue/cli-plugin-babel/preset"</span>],</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="3、打包部署后，生产环境的-console-就全部去掉了"><a href="#3、打包部署后，生产环境的-console-就全部去掉了" class="headerlink" title="3、打包部署后，生产环境的 console 就全部去掉了~"></a>3、打包部署后，生产环境的 console 就全部去掉了~</h4><h3 id="三、图片懒加载"><a href="#三、图片懒加载" class="headerlink" title="三、图片懒加载"></a><strong>三、图片懒加载</strong></h3><h4 id="1、安装依赖"><a href="#1、安装依赖" class="headerlink" title="1、安装依赖"></a>1、安装依赖</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">cnpm i vue-lazyload -S</span><br></pre></td></tr></table></figure>
+
+<h4 id="2、main-js-中直接引用"><a href="#2、main-js-中直接引用" class="headerlink" title="2、main.js 中直接引用"></a>2、main.js 中直接引用</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> VueLazyload <span class="keyword">from</span> <span class="string">"vue-lazyload"</span>;</span><br><span class="line"></span><br><span class="line">Vue.use(VueLazyload);</span><br><span class="line"></span><br><span class="line"><span class="comment">// or with options</span></span><br><span class="line">Vue.use(VueLazyload, &#123;</span><br><span class="line">  <span class="comment">//预加载高度</span></span><br><span class="line">  preLoad: <span class="number">1.3</span>,</span><br><span class="line">  <span class="comment">//错误时显示的图片</span></span><br><span class="line">  error: <span class="string">"static/about111.jpg"</span>,</span><br><span class="line">  <span class="comment">//图片加载中显示的图片</span></span><br><span class="line">  loading: <span class="string">"static/img/loading.gif"</span>,</span><br><span class="line">  <span class="comment">//尝试加载次数</span></span><br><span class="line">  attempt: <span class="number">1</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="3、使用"><a href="#3、使用" class="headerlink" title="3、使用"></a>3、使用</h4><p>在组件中使用时，将 img 标签的 src 换成 v-lazy：</p>
+<ol>
+<li>未使用懒加载前的代码：<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"g-img1"</span> <span class="attr">src</span>=<span class="string">"static/1.jpg"</span> <span class="attr">alt</span>=<span class="string">""</span> /&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>使用懒加载后的代码：<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"g-img1"</span> <span class="attr">v-lazy</span>=<span class="string">"'static/1.jpg'"</span> <span class="attr">alt</span>=<span class="string">""</span> /&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>前端性能优化</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>keep-alive保持页面活性</title>
+    <url>/2020/07/15/keep-alive%E4%BF%9D%E6%8C%81%E9%A1%B5%E9%9D%A2%E6%B4%BB%E6%80%A7/</url>
+    <content><![CDATA[<p><strong>keep-alive</strong>是 Vue 内置的一个组件，可以使被包含的组件保留状态</p>
+<p><img src="https://s1.ax1x.com/2020/07/17/Uyr0UI.png" alt=""></p>
+<a id="more"></a>
+
+<h3 id="一、一般的保持活性"><a href="#一、一般的保持活性" class="headerlink" title="一、一般的保持活性"></a><strong>一、一般的保持活性</strong></h3><p>在页面翻页时进入另一页返回之后仍在原始页。</p>
+<h4 id="1、在-App-vue-里面"><a href="#1、在-App-vue-里面" class="headerlink" title="1、在 App.vue 里面"></a>1、<strong>在 App.vue 里面</strong></h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">router-view</span> <span class="attr">v-if</span>=<span class="string">"!$route.meta.keepAlive"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">router-view</span> <span class="attr">v-if</span>=<span class="string">"$route.meta.keepAlive"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2、在-router-js-里面使用-meta"><a href="#2、在-router-js-里面使用-meta" class="headerlink" title="2、在 router.js 里面使用 meta"></a>2、<strong>在 router.js 里面使用 meta</strong></h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">           path: <span class="string">"/manage/market/groupSet"</span>,<span class="comment">//拼团设置</span></span><br><span class="line">           name: <span class="string">"groupSet"</span>,</span><br><span class="line">           component: groupSet,</span><br><span class="line">           meta: &#123;</span><br><span class="line">               keepAlive: <span class="literal">true</span></span><br><span class="line">           &#125;,</span><br><span class="line">       &#125;,</span><br></pre></td></tr></table></figure>
+
+<h3 id="二、根据链接选择性保持活性"><a href="#二、根据链接选择性保持活性" class="headerlink" title="二、根据链接选择性保持活性"></a><strong>二、根据链接选择性保持活性</strong></h3><p>从 /test 链接过来的保持页面活性。配合上面<strong>keepAlive</strong>一起使用</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">beforeRouteEnter(to, <span class="keyword">from</span>, next) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">from</span>.path == <span class="string">"/test"</span>) &#123;</span><br><span class="line">                to.meta.isBack = <span class="literal">true</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                to.meta.isBack = <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            next();</span><br><span class="line">        &#125;,</span><br><span class="line">activated() &#123;</span><br><span class="line">            <span class="keyword">if</span> (!<span class="keyword">this</span>.$route.meta.isBack) &#123;</span><br><span class="line">                <span class="comment">//不保持页面活性</span></span><br><span class="line">                <span class="keyword">this</span>.keyword=<span class="string">''</span>;<span class="comment">/*清空查询条件*/</span></span><br><span class="line">                <span class="keyword">this</span>.loadList();<span class="comment">/*列表重新加载*/</span></span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="comment">//保持页面活性</span></span><br><span class="line">                <span class="keyword">this</span>.$route.meta.isBack = <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">this</span>.loadList();<span class="comment">/*列表重新加载*/</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  path: <span class="string">"/test"</span>,</span><br><span class="line">  name: <span class="string">"test"</span>,</span><br><span class="line">  component: test,</span><br><span class="line">  meta: &#123;</span><br><span class="line">        keepAlive: <span class="literal">true</span>,</span><br><span class="line">        isBack: <span class="literal">true</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>vue</category>
+        <category>配置</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>授权</title>
+    <url>/2020/09/05/wx%E6%8E%88%E6%9D%83/</url>
+    <content><![CDATA[<p>微信授权和嵌入app获取token。</p>
+<a id="more"></a>
+
+<h3 id="一、与app交互"><a href="#一、与app交互" class="headerlink" title="一、与app交互"></a>一、与app交互</h3><h4 id="1、新建一个js文件"><a href="#1、新建一个js文件" class="headerlink" title="1、新建一个js文件"></a>1、新建一个js文件</h4><blockquote>
+<p>新建一个名为hybridApp的js文件。在内部写入与app交互的方法（均为与app商量好用来互相调用的方法）。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>wx</category>
+        <category>wx授权</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
       </tags>
   </entry>
   <entry>
@@ -514,6 +489,56 @@
       </categories>
       <tags>
         <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>wx支付</title>
+    <url>/2020/09/04/wx%E6%94%AF%E4%BB%98/</url>
+    <content><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/liebexiao/myImgs/20200904220626.jpg" alt=""></p>
+<a id="more"></a>
+
+<h3 id="一、wx-支付"><a href="#一、wx-支付" class="headerlink" title="一、wx 支付"></a><strong>一、wx 支付</strong></h3><h4 id="1、请求后台接口获取-wx-需要数据"><a href="#1、请求后台接口获取-wx-需要数据" class="headerlink" title="1、请求后台接口获取 wx 需要数据"></a>1、请求后台接口获取 wx 需要数据</h4><p>将请求接口得来的数据存到全局变量里面  payData 。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Ajax(<span class="string">"post"</span>, <span class="string">"/api"</span>, obj)</span><br><span class="line">  .then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> data = res.data;</span><br><span class="line">    <span class="keyword">this</span>.payData = data;</span><br><span class="line">    <span class="comment">//wx判断支付环境是否可用，若环境准备好接着调用 onBridgeReady()方法</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> WeixinJSBridge == <span class="string">"undefined"</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="built_in">document</span>.addEventListener) &#123;</span><br><span class="line">        <span class="built_in">document</span>.addEventListener(<span class="string">"WeixinJSBridgeReady"</span>, onBridgeReady, <span class="literal">false</span>);</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">document</span>.attachEvent) &#123;</span><br><span class="line">        <span class="built_in">document</span>.attachEvent(<span class="string">"WeixinJSBridgeReady"</span>, onBridgeReady);</span><br><span class="line">        <span class="built_in">document</span>.attachEvent(<span class="string">"onWeixinJSBridgeReady"</span>, onBridgeReady);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">this</span>.onBridgeReady();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(<span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">    alert(e);</span><br><span class="line">    <span class="keyword">this</span>.canSubmit = <span class="literal">true</span>;</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="2、将后台返回的参数传到-wx"><a href="#2、将后台返回的参数传到-wx" class="headerlink" title="2、将后台返回的参数传到 wx"></a>2、将后台返回的参数传到 wx</h4><p>调用 wx 支付方法，将上面请求后台接口返回的参数传给 wx 。在用户支付成功后进行下一步操作。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//微信支付</span></span><br><span class="line">          onBridgeReady() &#123;</span><br><span class="line">              <span class="keyword">let</span> that = <span class="keyword">this</span>;</span><br><span class="line">              WeixinJSBridge.invoke(</span><br><span class="line">                  <span class="string">'getBrandWCPayRequest'</span>, &#123;</span><br><span class="line">                      <span class="string">"appId"</span>: <span class="keyword">this</span>.payData.appId,     <span class="comment">//公众号名称，由商户传入</span></span><br><span class="line">                      <span class="string">"timeStamp"</span>: <span class="keyword">this</span>.payData.timeStamp,         <span class="comment">//时间戳，自1970年以来的秒数</span></span><br><span class="line">                      <span class="string">"nonceStr"</span>: <span class="keyword">this</span>.payData.nonceStr, <span class="comment">//随机串</span></span><br><span class="line">                      <span class="string">"package"</span>: <span class="keyword">this</span>.payData.package,</span><br><span class="line">                      <span class="string">"signType"</span>: <span class="keyword">this</span>.payData.signType,         <span class="comment">//微信签名方式：</span></span><br><span class="line">                      <span class="string">"paySign"</span>: <span class="keyword">this</span>.payData.paySign <span class="comment">//微信签名</span></span><br><span class="line">                  &#125;,</span><br><span class="line">                  <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">                      <span class="keyword">if</span> (res.err_msg == <span class="string">"get_brand_wcpay_request:ok"</span>) &#123;</span><br><span class="line">                          <span class="comment">//支付成功</span></span><br><span class="line">                          <span class="built_in">window</span>.location.href=<span class="string">"/activity"</span>;</span><br><span class="line"></span><br><span class="line">                      &#125;<span class="keyword">else</span> <span class="keyword">if</span> (res.err_msg == <span class="string">"get_brand_wcpay_request:fail"</span>) &#123;</span><br><span class="line">                          <span class="comment">// 使用以上方式判断前端返回,微信团队郑重提示：</span></span><br><span class="line">                          <span class="comment">//res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。</span></span><br><span class="line">                          alert(res.err_msg);</span><br><span class="line">                      &#125;</span><br><span class="line">                  &#125;);</span><br><span class="line">          &#125;,</span><br></pre></td></tr></table></figure>
+
+<h3 id="二、wx-扫码支付-QRcode-二维码"><a href="#二、wx-扫码支付-QRcode-二维码" class="headerlink" title="二、wx 扫码支付-QRcode 二维码"></a><strong>二、wx 扫码支付-QRcode 二维码</strong></h3><h4 id="1、引入-QRcode"><a href="#1、引入-QRcode" class="headerlink" title="1、引入 QRcode"></a>1、引入 QRcode</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">cnpm install qrcodejs2</span><br><span class="line"><span class="keyword">import</span> QRCode <span class="keyword">from</span> <span class="string">"qrcodejs2"</span>; <span class="comment">// 引入qrcode</span></span><br><span class="line"><span class="keyword">let</span> qrcode;</span><br><span class="line">&lt;div id=<span class="string">"qrcode"</span>&gt;&lt;<span class="regexp">/div&gt;;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2、从接口获取二维码地址-并生成二维码"><a href="#2、从接口获取二维码地址-并生成二维码" class="headerlink" title="2、从接口获取二维码地址 并生成二维码"></a>2、从接口获取二维码地址 并生成二维码</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">"qrcode"</span>).innerHTML = <span class="string">""</span>;</span><br><span class="line">  qrcode = <span class="keyword">new</span> QRCode(<span class="string">"qrcode"</span>, &#123;</span><br><span class="line">    width: <span class="number">280</span>,</span><br><span class="line">    height: <span class="number">280</span>,</span><br><span class="line">    text: res.data.data, <span class="comment">// 二维码地址</span></span><br><span class="line">    colorDark: <span class="string">"#000"</span>,</span><br><span class="line">    colorLight: <span class="string">"#fff"</span>,</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;, <span class="number">100</span>);</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>wx</category>
+        <category>wx支付</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>下拉分页</title>
+    <url>/2020/07/15/%E4%B8%8B%E6%8B%89%E5%88%86%E9%A1%B5/</url>
+    <content><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/liebexiao/myImgs/20200717165343.png" alt=""></p>
+<a id="more"></a>
+
+<h4 id="1、定义变量"><a href="#1、定义变量" class="headerlink" title="1、定义变量"></a>1、定义变量</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">allLIst:[],<span class="comment">//列表数据</span></span><br><span class="line">page:<span class="number">0</span>,</span><br><span class="line">loadNextPage:<span class="literal">true</span>,<span class="comment">//是否请求下一页</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2、监听滚动条"><a href="#2、监听滚动条" class="headerlink" title="2、监听滚动条"></a>2、监听滚动条</h4><p>在 mounted 里面监听分页滚动条</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//分页监听滚动条</span></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"scroll"</span>, <span class="keyword">this</span>.handleScroll);</span><br></pre></td></tr></table></figure>
+
+<h4 id="3、定义方法"><a href="#3、定义方法" class="headerlink" title="3、定义方法"></a>3、定义方法</h4><p>在 methods 里面写 handleScroll 方法</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//分页——滚动条触碰到底部</span></span><br><span class="line">handleScroll() &#123;</span><br><span class="line">    <span class="keyword">let</span> scrollTop = <span class="built_in">document</span>.documentElement.scrollTop || <span class="built_in">document</span>.body.scrollTop;</span><br><span class="line">    <span class="comment">//判断 如果文档的距离减200小于  屏幕可视距离  加上  滚动条距离顶部的距离，并且 loadNextPage为true ，则page++；</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">document</span>.documentElement.scrollHeight - <span class="number">200</span> &lt; <span class="built_in">document</span>.documentElement.clientHeight + scrollTop) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.loadNextPage) &#123;</span><br><span class="line">            <span class="comment">// console.log("下一页");</span></span><br><span class="line">            <span class="keyword">this</span>.loadNextPage = <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">this</span>.page++;</span><br><span class="line">            <span class="keyword">this</span>.getList();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<h4 id="4、赋值"><a href="#4、赋值" class="headerlink" title="4、赋值"></a>4、赋值</h4><p>请求数据列表之后给变量 list 赋值</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//请求数据列表</span></span><br><span class="line">getList() &#123;</span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">page: <span class="keyword">this</span>.page,</span><br><span class="line">size: <span class="number">10</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">this</span>.$http.post(<span class="string">"/api/"</span>, obj).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line"><span class="comment">//分页进入下一页</span></span><br><span class="line"><span class="keyword">let</span> data = res.data.result.data;</span><br><span class="line"><span class="comment">//判断 如果数据个数小于10，不进入下一页，否则loadNextPage设为true进入下一页</span></span><br><span class="line">data.length &lt; <span class="number">10</span> ? <span class="keyword">this</span>.loadNextPage = <span class="literal">false</span> : <span class="keyword">this</span>.loadNextPage = <span class="literal">true</span>;</span><br><span class="line"><span class="comment">//分页连接数组</span></span><br><span class="line"><span class="keyword">this</span>.allList = [...this.allList, ...data];</span><br><span class="line"><span class="comment">// console.log(JSON.stringify(this.allList));</span></span><br><span class="line">&#125;);</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>常用</category>
+        <category>常用工具</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
       </tags>
   </entry>
   <entry>
@@ -569,31 +594,6 @@
       </tags>
   </entry>
   <entry>
-    <title>下拉分页</title>
-    <url>/2020/07/15/%E4%B8%8B%E6%8B%89%E5%88%86%E9%A1%B5/</url>
-    <content><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/liebexiao/myImgs/20200717165343.png" alt=""></p>
-<a id="more"></a>
-
-<h4 id="1、定义变量"><a href="#1、定义变量" class="headerlink" title="1、定义变量"></a>1、定义变量</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">allLIst:[],<span class="comment">//列表数据</span></span><br><span class="line">page:<span class="number">0</span>,</span><br><span class="line">loadNextPage:<span class="literal">true</span>,<span class="comment">//是否请求下一页</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="2、监听滚动条"><a href="#2、监听滚动条" class="headerlink" title="2、监听滚动条"></a>2、监听滚动条</h4><p>在 mounted 里面监听分页滚动条</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//分页监听滚动条</span></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"scroll"</span>, <span class="keyword">this</span>.handleScroll);</span><br></pre></td></tr></table></figure>
-
-<h4 id="3、定义方法"><a href="#3、定义方法" class="headerlink" title="3、定义方法"></a>3、定义方法</h4><p>在 methods 里面写 handleScroll 方法</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//分页——滚动条触碰到底部</span></span><br><span class="line">handleScroll() &#123;</span><br><span class="line">    <span class="keyword">let</span> scrollTop = <span class="built_in">document</span>.documentElement.scrollTop || <span class="built_in">document</span>.body.scrollTop;</span><br><span class="line">    <span class="comment">//判断 如果文档的距离减200小于  屏幕可视距离  加上  滚动条距离顶部的距离，并且 loadNextPage为true ，则page++；</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">document</span>.documentElement.scrollHeight - <span class="number">200</span> &lt; <span class="built_in">document</span>.documentElement.clientHeight + scrollTop) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.loadNextPage) &#123;</span><br><span class="line">            <span class="comment">// console.log("下一页");</span></span><br><span class="line">            <span class="keyword">this</span>.loadNextPage = <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">this</span>.page++;</span><br><span class="line">            <span class="keyword">this</span>.getList();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-
-<h4 id="4、赋值"><a href="#4、赋值" class="headerlink" title="4、赋值"></a>4、赋值</h4><p>请求数据列表之后给变量 list 赋值</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//请求数据列表</span></span><br><span class="line">getList() &#123;</span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">page: <span class="keyword">this</span>.page,</span><br><span class="line">size: <span class="number">10</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">this</span>.$http.post(<span class="string">"/api/"</span>, obj).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line"><span class="comment">//分页进入下一页</span></span><br><span class="line"><span class="keyword">let</span> data = res.data.result.data;</span><br><span class="line"><span class="comment">//判断 如果数据个数小于10，不进入下一页，否则loadNextPage设为true进入下一页</span></span><br><span class="line">data.length &lt; <span class="number">10</span> ? <span class="keyword">this</span>.loadNextPage = <span class="literal">false</span> : <span class="keyword">this</span>.loadNextPage = <span class="literal">true</span>;</span><br><span class="line"><span class="comment">//分页连接数组</span></span><br><span class="line"><span class="keyword">this</span>.allList = [...this.allList, ...data];</span><br><span class="line"><span class="comment">// console.log(JSON.stringify(this.allList));</span></span><br><span class="line">&#125;);</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>常用</category>
-        <category>常用工具</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>二、vue安装配置</title>
     <url>/2020/07/16/%E4%BA%8C%E3%80%81vue%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/liebexiao/myImgs/20200717172409.png" alt=""></p>
@@ -631,6 +631,36 @@
       </categories>
       <tags>
         <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用阿里云服务器配置域名</title>
+    <url>/2020/07/16/%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E5%9F%9F%E5%90%8D/</url>
+    <content><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/liebexiao/myImgs/20200717172235.png" alt=""></p>
+<a id="more"></a>
+
+<h4 id="1、登录已有账号、在侧边栏选择“域名”"><a href="#1、登录已有账号、在侧边栏选择“域名”" class="headerlink" title="1、登录已有账号、在侧边栏选择“域名”"></a><strong>1、登录已有账号、在侧边栏选择“域名”</strong></h4><p><img src="https://s1.ax1x.com/2020/07/17/UsnqLd.png" alt="UsnqLd.png"></p>
+<h4 id="2、在列表中选择一个已有域名-进入"><a href="#2、在列表中选择一个已有域名-进入" class="headerlink" title="2、在列表中选择一个已有域名 进入"></a><strong>2、在列表中选择一个已有域名 进入</strong></h4><p><img src="https://s1.ax1x.com/2020/07/17/Usuykt.png" alt="Usuykt.png"></p>
+<h4 id="3、进去看见此域名基本信息，选择“域名解析”"><a href="#3、进去看见此域名基本信息，选择“域名解析”" class="headerlink" title="3、进去看见此域名基本信息，选择“域名解析”"></a><strong>3、进去看见此域名基本信息，选择“域名解析”</strong></h4><p><img src="https://s1.ax1x.com/2020/07/17/UsuR1S.png" alt="UsuR1S.png"></p>
+<h4 id="4、选择“添加纪录”"><a href="#4、选择“添加纪录”" class="headerlink" title="4、选择“添加纪录”"></a><strong>4、选择“添加纪录”</strong></h4><p><img src="https://s1.ax1x.com/2020/07/17/UsuTkq.png" alt="UsuTkq.png"></p>
+<h4 id="5、新建子域名"><a href="#5、新建子域名" class="headerlink" title="5、新建子域名"></a><strong>5、新建子域名</strong></h4><p><img src="https://s1.ax1x.com/2020/07/17/UsuvnJ.png" alt="UsuvnJ.png"></p>
+<h4 id="6、去服务器配置-nginx"><a href="#6、去服务器配置-nginx" class="headerlink" title="6、去服务器配置 nginx"></a><strong>6、去服务器配置 nginx</strong></h4><blockquote>
+<p>根据路径，找到 nginx 文件夹并打开：</p>
+</blockquote>
+<p><img src="https://s1.ax1x.com/2020/07/17/UsKi9K.png" alt="UsKi9K.png"></p>
+<p><img src="https://s1.ax1x.com/2020/07/17/UsKVnH.png" alt="UsKVnH.png"></p>
+<h5 id="例子"><a href="#例子" class="headerlink" title="例子"></a><strong>例子</strong></h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">##test后台</span><br><span class="line">    server &#123;</span><br><span class="line">        listen       <span class="number">80</span>;</span><br><span class="line">        server_name  testp.main.com;</span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">            root   testProject;</span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        location /api &#123;</span><br><span class="line">        #	# add_header 'Access-Control-Allow-Origin' '*';</span><br><span class="line">        #	# proxy_pass http://;</span><br><span class="line">        	proxy_pass http:<span class="comment">//;</span></span><br><span class="line">            proxy_set_header Host $host;</span><br><span class="line">            proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">    	&#125;</span><br><span class="line"></span><br><span class="line">        error_page   <span class="number">500</span> <span class="number">502</span> <span class="number">503</span> <span class="number">504</span>  /<span class="number">50</span>x.html;</span><br><span class="line">        location = <span class="regexp">/50x.html &#123;</span></span><br><span class="line"><span class="regexp">            root   html;</span></span><br><span class="line"><span class="regexp">        &#125;</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="7、在服务器里重启-nginx-完成。"><a href="#7、在服务器里重启-nginx-完成。" class="headerlink" title="7、在服务器里重启 nginx,,完成。"></a><strong>7、在服务器里重启 nginx,,完成。</strong></h4><p><img src="https://s1.ax1x.com/2020/07/17/UsKoKe.png" alt="UsKoKe.png"></p>
+<blockquote>
+<p><strong>*此时在网页中输入域名即可访问到该项目。</strong></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>阿里云</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
       </tags>
   </entry>
   <entry>
@@ -678,6 +708,61 @@
       </categories>
       <tags>
         <tag>pc</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>小知识点-html</title>
+    <url>/2020/07/17/%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B9-html/</url>
+    <content><![CDATA[<p><img src="https://s1.ax1x.com/2020/07/17/Uy6vIs.jpg" alt=""></p>
+<a id="more"></a>
+
+<h3 id="1、点击调出电话拨打页面"><a href="#1、点击调出电话拨打页面" class="headerlink" title="1、点击调出电话拨打页面"></a>1、点击调出电话拨打页面</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"user_tel"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">:href</span>=<span class="string">"'tel:'+item.user_mobile"</span>&gt;</span>手机号：&#123;&#123;item.user_mobile&#125;&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2、input-框输入格式限制"><a href="#2、input-框输入格式限制" class="headerlink" title="2、input 框输入格式限制"></a>2、input 框输入格式限制</h3><h4 id="1、输入框限制小数点后两位"><a href="#1、输入框限制小数点后两位" class="headerlink" title="1、输入框限制小数点后两位"></a>1、输入框限制小数点后两位</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> @<span class="attr">input</span>=<span class="string">"handleInput2"</span> <span class="attr">onkeyup</span>=<span class="string">"value=value.replace(/[^\d.]/g,'')"</span> /&gt;</span> //</span><br><span class="line">通过正则过滤小数点后两位 handleInput2(e) &#123; this.ruleForm.agent_bonus_percent =</span><br><span class="line">(e.match(/^\d*(\.?\d&#123;0,2&#125;)/g)[0]) || null &#125;,</span><br></pre></td></tr></table></figure>
+
+<h4 id="2、input-框纯数字输入"><a href="#2、input-框纯数字输入" class="headerlink" title="2、input 框纯数字输入"></a>2、input 框纯数字输入</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"price_input"</span> <span class="attr">placeholder</span>=<span class="string">"手机号"</span> <span class="attr">type</span>=<span class="string">"number"</span> <span class="attr">oninput</span> =</span></span><br><span class="line"><span class="tag">"<span class="attr">this.value</span>=<span class="string">this.value.replace(/[^0-9.]+/,</span>'')"/</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3、字节数限制"><a href="#3、字节数限制" class="headerlink" title="3、字节数限制"></a>3、字节数限制</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">"标题"</span> <span class="attr">prop</span>=<span class="string">"title"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">el-input</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-model</span>=<span class="string">"baseSetForm.title"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:minlength</span>=<span class="string">"10"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:maxlength</span>=<span class="string">"60"</span></span></span><br><span class="line"><span class="tag">  &gt;</span><span class="tag">&lt;/<span class="name">el-input</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"title_tip"</span>&gt;</span></span><br><span class="line">    &#123;&#123;parseInt(baseSetForm.title.replace(/[^\x00-\xff]/g, '01').length/2)&#125;&#125;/30</span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3、下载-pdf"><a href="#3、下载-pdf" class="headerlink" title="3、下载 pdf"></a>3、下载 pdf</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"down_load"</span> <span class="attr">target</span>=<span class="string">"_blank"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">href</span>=<span class="string">"http://npjy.oss-cn-beijing.aliyuncs.com/images/file-1574758228222FkR4M.pdf"</span></span></span><br><span class="line"><span class="tag">  &gt;</span>点击下载pdf<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4、input监听回车事件"><a href="#4、input监听回车事件" class="headerlink" title="4、input监听回车事件"></a>4、input监听回车事件</h3><h4 id="1、普通input框"><a href="#1、普通input框" class="headerlink" title="1、普通input框"></a>1、普通input框</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"form.name"</span> <span class="attr">placeholder</span>=<span class="string">"昵称"</span> @<span class="attr">keyup.enter</span>=<span class="string">"submit"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2、element-ui-input框"><a href="#2、element-ui-input框" class="headerlink" title="2、element-ui input框"></a>2、element-ui input框</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">el-input</span> <span class="attr">v-model</span>=<span class="string">"form.name"</span> <span class="attr">placeholder</span>=<span class="string">"昵称"</span> @<span class="attr">keyup.enter.native</span>=<span class="string">"submit"</span>&gt;</span><span class="tag">&lt;/<span class="name">el-input</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5、阻止父元素冒泡事件"><a href="#5、阻止父元素冒泡事件" class="headerlink" title="5、阻止父元素冒泡事件"></a>5、阻止父元素冒泡事件</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> @<span class="attr">click</span>=<span class="string">"a"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"b"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>当触发 button 的事件 a 时，b 事件也会被触发</p>
+<p>解决办法：在 button 上添加@click.stop=”b”，来阻止事件冒泡。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> @<span class="attr">click</span>=<span class="string">"a"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click.stop</span>=<span class="string">"b"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>常用</category>
+        <category>常用方法</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>小程序轮播图</title>
+    <url>/2020/09/04/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%BD%AE%E6%92%AD%E5%9B%BE/</url>
+    <content><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/liebexiao/myImgs/20200904214927.png" alt=""></p>
+<a id="more"></a>
+
+<h4 id="1、wxml"><a href="#1、wxml" class="headerlink" title="1、wxml"></a>1、wxml</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 顶部图片 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"page-section page-section-spacing swiper"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">swiper</span></span></span><br><span class="line"><span class="tag">    <span class="attr">class</span>=<span class="string">"top_img_box"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">indicator-dots</span>=<span class="string">"&#123;&#123;indicatorDots&#125;&#125;"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">autoplay</span>=<span class="string">"&#123;&#123;autoplay&#125;&#125;"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">interval</span>=<span class="string">"&#123;&#123;interval&#125;&#125;"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">duration</span>=<span class="string">"&#123;&#123;duration&#125;&#125;"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">indicator-active-color</span>=<span class="string">"#fff"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">block</span> <span class="attr">wx:for</span>=<span class="string">"&#123;&#123;topImg&#125;&#125;"</span> <span class="attr">wx:key</span>=<span class="string">"*this"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">swiper-item</span> <span class="attr">bindtap</span>=<span class="string">"toNewsDetail"</span> <span class="attr">data-newsId</span>=<span class="string">"&#123;&#123;item.newsId&#125;&#125;"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"swiper_title"</span>&gt;</span>&#123;&#123;item.news_title&#125;&#125;<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">image</span> <span class="attr">class</span>=<span class="string">"top_img"</span> <span class="attr">src</span>=<span class="string">"&#123;&#123;item.url&#125;&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">image</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">swiper-item</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">block</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">swiper</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2、data"><a href="#2、data" class="headerlink" title="2、data"></a>2、data</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">topImg: [&#123;</span><br><span class="line">     url: <span class="string">'http://oss.jishiyoo.com/images/file-1597116272428.jpg'</span>,</span><br><span class="line">     newsId: <span class="number">1</span>,</span><br><span class="line">     news_title: <span class="string">'title'</span>,</span><br><span class="line">&#125;],</span><br><span class="line">indicatorDots: <span class="literal">true</span>, <span class="comment">//指示点</span></span><br><span class="line">vertical: <span class="literal">false</span>, <span class="comment">//滑动方向是否为纵向</span></span><br><span class="line">autoplay: <span class="literal">false</span>, <span class="comment">//是否自动切换</span></span><br><span class="line">interval: <span class="number">2000</span>, <span class="comment">//自动切换时间间隔</span></span><br><span class="line">duration: <span class="number">500</span>, <span class="comment">//滑动动画时长</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3、css"><a href="#3、css" class="headerlink" title="3、css"></a>3、css</h4><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 轮播图 */</span></span><br><span class="line"><span class="selector-class">.top_img_box</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">420</span>rpx;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.top_img</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">object-fit</span>: contain;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.swiper_title</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">bottom</span>: <span class="number">0</span>rpx;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#000</span>;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0.6</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">10</span>rpx <span class="number">20</span>rpx <span class="number">36</span>rpx;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>wx小程序</category>
+      </categories>
+      <tags>
+        <tag>wxml、js</tag>
       </tags>
   </entry>
   <entry>
@@ -768,230 +853,6 @@
       </categories>
       <tags>
         <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>小知识点-html</title>
-    <url>/2020/07/17/%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B9-html/</url>
-    <content><![CDATA[<p><img src="https://s1.ax1x.com/2020/07/17/Uy6vIs.jpg" alt=""></p>
-<a id="more"></a>
-
-<h3 id="1、点击调出电话拨打页面"><a href="#1、点击调出电话拨打页面" class="headerlink" title="1、点击调出电话拨打页面"></a>1、点击调出电话拨打页面</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"user_tel"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">:href</span>=<span class="string">"'tel:'+item.user_mobile"</span>&gt;</span>手机号：&#123;&#123;item.user_mobile&#125;&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="2、input-框输入格式限制"><a href="#2、input-框输入格式限制" class="headerlink" title="2、input 框输入格式限制"></a>2、input 框输入格式限制</h3><h4 id="1、输入框限制小数点后两位"><a href="#1、输入框限制小数点后两位" class="headerlink" title="1、输入框限制小数点后两位"></a>1、输入框限制小数点后两位</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> @<span class="attr">input</span>=<span class="string">"handleInput2"</span> <span class="attr">onkeyup</span>=<span class="string">"value=value.replace(/[^\d.]/g,'')"</span> /&gt;</span> //</span><br><span class="line">通过正则过滤小数点后两位 handleInput2(e) &#123; this.ruleForm.agent_bonus_percent =</span><br><span class="line">(e.match(/^\d*(\.?\d&#123;0,2&#125;)/g)[0]) || null &#125;,</span><br></pre></td></tr></table></figure>
-
-<h4 id="2、input-框纯数字输入"><a href="#2、input-框纯数字输入" class="headerlink" title="2、input 框纯数字输入"></a>2、input 框纯数字输入</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"price_input"</span> <span class="attr">placeholder</span>=<span class="string">"手机号"</span> <span class="attr">type</span>=<span class="string">"number"</span> <span class="attr">oninput</span> =</span></span><br><span class="line"><span class="tag">"<span class="attr">this.value</span>=<span class="string">this.value.replace(/[^0-9.]+/,</span>'')"/</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="3、字节数限制"><a href="#3、字节数限制" class="headerlink" title="3、字节数限制"></a>3、字节数限制</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">"标题"</span> <span class="attr">prop</span>=<span class="string">"title"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">el-input</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-model</span>=<span class="string">"baseSetForm.title"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:minlength</span>=<span class="string">"10"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:maxlength</span>=<span class="string">"60"</span></span></span><br><span class="line"><span class="tag">  &gt;</span><span class="tag">&lt;/<span class="name">el-input</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"title_tip"</span>&gt;</span></span><br><span class="line">    &#123;&#123;parseInt(baseSetForm.title.replace(/[^\x00-\xff]/g, '01').length/2)&#125;&#125;/30</span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="3、下载-pdf"><a href="#3、下载-pdf" class="headerlink" title="3、下载 pdf"></a>3、下载 pdf</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"down_load"</span> <span class="attr">target</span>=<span class="string">"_blank"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">href</span>=<span class="string">"http://npjy.oss-cn-beijing.aliyuncs.com/images/file-1574758228222FkR4M.pdf"</span></span></span><br><span class="line"><span class="tag">  &gt;</span>点击下载pdf<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="4、input监听回车事件"><a href="#4、input监听回车事件" class="headerlink" title="4、input监听回车事件"></a>4、input监听回车事件</h3><h4 id="1、普通input框"><a href="#1、普通input框" class="headerlink" title="1、普通input框"></a>1、普通input框</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"form.name"</span> <span class="attr">placeholder</span>=<span class="string">"昵称"</span> @<span class="attr">keyup.enter</span>=<span class="string">"submit"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="2、element-ui-input框"><a href="#2、element-ui-input框" class="headerlink" title="2、element-ui input框"></a>2、element-ui input框</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">el-input</span> <span class="attr">v-model</span>=<span class="string">"form.name"</span> <span class="attr">placeholder</span>=<span class="string">"昵称"</span> @<span class="attr">keyup.enter.native</span>=<span class="string">"submit"</span>&gt;</span><span class="tag">&lt;/<span class="name">el-input</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="5、阻止父元素冒泡事件"><a href="#5、阻止父元素冒泡事件" class="headerlink" title="5、阻止父元素冒泡事件"></a>5、阻止父元素冒泡事件</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> @<span class="attr">click</span>=<span class="string">"a"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"b"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>当触发 button 的事件 a 时，b 事件也会被触发</p>
-<p>解决办法：在 button 上添加@click.stop=”b”，来阻止事件冒泡。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> @<span class="attr">click</span>=<span class="string">"a"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click.stop</span>=<span class="string">"b"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>常用</category>
-        <category>常用方法</category>
-      </categories>
-      <tags>
-        <tag>html</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>小程序轮播图</title>
-    <url>/2020/09/04/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%BD%AE%E6%92%AD%E5%9B%BE/</url>
-    <content><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/liebexiao/myImgs/20200904214927.png" alt=""></p>
-<a id="more"></a>
-
-<h4 id="1、wxml"><a href="#1、wxml" class="headerlink" title="1、wxml"></a>1、wxml</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 顶部图片 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"page-section page-section-spacing swiper"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">swiper</span></span></span><br><span class="line"><span class="tag">    <span class="attr">class</span>=<span class="string">"top_img_box"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">indicator-dots</span>=<span class="string">"&#123;&#123;indicatorDots&#125;&#125;"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">autoplay</span>=<span class="string">"&#123;&#123;autoplay&#125;&#125;"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">interval</span>=<span class="string">"&#123;&#123;interval&#125;&#125;"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">duration</span>=<span class="string">"&#123;&#123;duration&#125;&#125;"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">indicator-active-color</span>=<span class="string">"#fff"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">block</span> <span class="attr">wx:for</span>=<span class="string">"&#123;&#123;topImg&#125;&#125;"</span> <span class="attr">wx:key</span>=<span class="string">"*this"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">swiper-item</span> <span class="attr">bindtap</span>=<span class="string">"toNewsDetail"</span> <span class="attr">data-newsId</span>=<span class="string">"&#123;&#123;item.newsId&#125;&#125;"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"swiper_title"</span>&gt;</span>&#123;&#123;item.news_title&#125;&#125;<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">image</span> <span class="attr">class</span>=<span class="string">"top_img"</span> <span class="attr">src</span>=<span class="string">"&#123;&#123;item.url&#125;&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">image</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">swiper-item</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">block</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">swiper</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="2、data"><a href="#2、data" class="headerlink" title="2、data"></a>2、data</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">topImg: [&#123;</span><br><span class="line">     url: <span class="string">'http://oss.jishiyoo.com/images/file-1597116272428.jpg'</span>,</span><br><span class="line">     newsId: <span class="number">1</span>,</span><br><span class="line">     news_title: <span class="string">'title'</span>,</span><br><span class="line">&#125;],</span><br><span class="line">indicatorDots: <span class="literal">true</span>, <span class="comment">//指示点</span></span><br><span class="line">vertical: <span class="literal">false</span>, <span class="comment">//滑动方向是否为纵向</span></span><br><span class="line">autoplay: <span class="literal">false</span>, <span class="comment">//是否自动切换</span></span><br><span class="line">interval: <span class="number">2000</span>, <span class="comment">//自动切换时间间隔</span></span><br><span class="line">duration: <span class="number">500</span>, <span class="comment">//滑动动画时长</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="3、css"><a href="#3、css" class="headerlink" title="3、css"></a>3、css</h4><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 轮播图 */</span></span><br><span class="line"><span class="selector-class">.top_img_box</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">420</span>rpx;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.top_img</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">object-fit</span>: contain;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.swiper_title</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">bottom</span>: <span class="number">0</span>rpx;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#000</span>;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0.6</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">10</span>rpx <span class="number">20</span>rpx <span class="number">36</span>rpx;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>wx小程序</category>
-      </categories>
-      <tags>
-        <tag>wxml、js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>小程序散知识点</title>
-    <url>/2020/08/24/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%95%A3%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
-    <content><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/liebexiao/myImgs/20200904215117.png" alt=""></p>
-<a id="more"></a>
-
-<h3 id="一、底部-tab-配置"><a href="#一、底部-tab-配置" class="headerlink" title="一、底部 tab 配置"></a>一、底部 tab 配置</h3><p><img src="https://cdn.jsdelivr.net/gh/liebexiao/myImgs/20200904181559.png" alt=""></p>
-<p>在 <strong>app.json</strong> 中，与 pages 平级，这里的图标必须是在此项目文件夹中的图片。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="string">"window"</span>: &#123;</span><br><span class="line">    <span class="string">"backgroundTextStyle"</span>: <span class="string">"light"</span>,</span><br><span class="line">    <span class="string">"navigationBarBackgroundColor"</span>: <span class="string">"#EF2E30"</span>,</span><br><span class="line">    <span class="string">"navigationBarTitleText"</span>: <span class="string">"小程序名"</span>,</span><br><span class="line">    <span class="string">"navigationBarTextStyle"</span>: <span class="string">"white"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"tabBar"</span>: &#123;</span><br><span class="line">    <span class="string">"color"</span>: <span class="string">"#666666"</span>,</span><br><span class="line">    <span class="string">"selectedColor"</span>: <span class="string">"#F96C5D"</span>,</span><br><span class="line">    <span class="string">"list"</span>: [&#123;</span><br><span class="line">        <span class="string">"pagePath"</span>: <span class="string">"pages/home/homePage/homePage"</span>,</span><br><span class="line">        <span class="string">"text"</span>: <span class="string">"首页"</span>,</span><br><span class="line">        <span class="string">"iconPath"</span>: <span class="string">"/static/images/home_icon.png"</span>,</span><br><span class="line">        <span class="string">"selectedIconPath"</span>: <span class="string">"/static/images/home_icon1.png"</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="string">"pagePath"</span>: <span class="string">"pages/whole/newsList/newsList"</span>,</span><br><span class="line">        <span class="string">"text"</span>: <span class="string">"全部"</span>,</span><br><span class="line">        <span class="string">"iconPath"</span>: <span class="string">"/static/images/all_icon.png"</span>,</span><br><span class="line">        <span class="string">"selectedIconPath"</span>: <span class="string">"/static/images/all_icon1.png"</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="string">"pagePath"</span>: <span class="string">"pages/task/taskCatList/taskCatList"</span>,</span><br><span class="line">        <span class="string">"text"</span>: <span class="string">"任务"</span>,</span><br><span class="line">        <span class="string">"iconPath"</span>: <span class="string">"/static/images/task_icon.png"</span>,</span><br><span class="line">        <span class="string">"selectedIconPath"</span>: <span class="string">"/static/images/task_icon1.png"</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="string">"pagePath"</span>: <span class="string">"pages/my/myPage/myPage"</span>,</span><br><span class="line">        <span class="string">"text"</span>: <span class="string">"我的"</span>,</span><br><span class="line">        <span class="string">"iconPath"</span>: <span class="string">"/static/images/my_icon.png"</span>,</span><br><span class="line">        <span class="string">"selectedIconPath"</span>: <span class="string">"/static/images/my_icon1.png"</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
-
-<h3 id="二、路由跳转"><a href="#二、路由跳转" class="headerlink" title="二、路由跳转"></a>二、路由跳转</h3><h4 id="1、跳转至导航栏页面"><a href="#1、跳转至导航栏页面" class="headerlink" title="1、跳转至导航栏页面"></a>1、跳转至导航栏页面</h4><p>这个页面跳转 url 后面不能带参数。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">wx.switchTab(&#123;</span><br><span class="line">  url: <span class="string">"/pages/whole/newsList/newsList"</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<h4 id="2、跳转至普通页面"><a href="#2、跳转至普通页面" class="headerlink" title="2、跳转至普通页面"></a>2、跳转至普通页面</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">wx.navigateTo(&#123;</span><br><span class="line">  url: <span class="string">"/pages/whole/newsDetail/newsDetail?news_id="</span> + news_id,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>获取连接参数</p>
-<blockquote>
-<p>在 onLoad 方法中 <strong>options.news_id</strong></p>
-</blockquote>
-</blockquote>
-<h4 id="3、返回上个路由"><a href="#3、返回上个路由" class="headerlink" title="3、返回上个路由"></a>3、返回上个路由</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">wx.navigateBack(&#123;</span><br><span class="line">  delta: <span class="number">1</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<h3 id="三、缓存"><a href="#三、缓存" class="headerlink" title="三、缓存"></a>三、缓存</h3><blockquote>
-<p>存缓存</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">wx.setStorageSync(<span class="string">"userInfo"</span>, data);</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>取缓存</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">wx.getStorageSync(<span class="string">'userInfo'</span>), <span class="comment">//用户信息</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="四、修改当前页面-title"><a href="#四、修改当前页面-title" class="headerlink" title="四、修改当前页面 title"></a>四、修改当前页面 title</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">wx.setNavigationBarTitle(&#123;</span><br><span class="line">  title: <span class="string">"页面title"</span>, <span class="comment">//页面标题为路由参数</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<h3 id="五、一键复制"><a href="#五、一键复制" class="headerlink" title="五、一键复制"></a>五、一键复制</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">coppyTitle()&#123;</span><br><span class="line">   <span class="keyword">let</span> that=<span class="keyword">this</span>;</span><br><span class="line">   wx.setClipboardData(&#123;</span><br><span class="line">     data: that.data.templateTitle,</span><br><span class="line">     success(res) &#123;</span><br><span class="line">       wx.getClipboardData(&#123;</span><br><span class="line">         success(res) &#123;</span><br><span class="line">           <span class="built_in">console</span>.log(res.data) <span class="comment">// data</span></span><br><span class="line">         &#125;</span><br><span class="line">       &#125;)</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;)</span><br><span class="line"> &#125;,</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>wx小程序</category>
-      </categories>
-      <tags>
-        <tag>wxml、js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>引入vant-weapp组件</title>
-    <url>/2020/08/24/%E5%BC%95%E5%85%A5vant-weapp%E7%BB%84%E4%BB%B6/</url>
-    <content><![CDATA[<img src="https://s1.ax1x.com/2020/08/24/dynp9I.png" alt="dynp9I.png" style="zoom:50%;" />
-
-<a id="more"></a>
-
-<p>从小程序基础库版本 <a href="https://developers.weixin.qq.com/miniprogram/dev/framework/compatibility.html" target="_blank" rel="noopener">2.2.1</a> 或以上、及<a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html" target="_blank" rel="noopener">开发者工具</a> 1.02.1808300 或以上开始，小程序支持使用 npm 安装第三方包。</p>
-<p>直接创建小程序，从 <strong>工具&gt;构建npm</strong>，会弹出没有找到node_modules目录，因此以引入vant组件为例。</p>
-<p><img src="https://s1.ax1x.com/2020/08/24/dyeEM8.png" alt=""></p>
-<h4 id="1、打开使用npm模块。"><a href="#1、打开使用npm模块。" class="headerlink" title="1、打开使用npm模块。"></a>1、打开使用npm模块。</h4><p>创建普通项目后在右上角详情中，打开使用npm模块。</p>
-<p><img src="https://s1.ax1x.com/2020/08/24/dyeUo9.png" alt="dyeUo9.png"></p>
-<p><img src="https://s1.ax1x.com/2020/08/24/dyeyLD.png" alt="dyeyLD.png"></p>
-<h4 id="2、安装vant组件"><a href="#2、安装vant组件" class="headerlink" title="2、安装vant组件"></a>2、安装vant组件</h4><h5 id="鼠标放在目录上右键，打开终端，切换到根目录"><a href="#鼠标放在目录上右键，打开终端，切换到根目录" class="headerlink" title="鼠标放在目录上右键，打开终端，切换到根目录"></a>鼠标放在<strong>目录上右键，打开终端，切换到根目录</strong></h5><p><img src="https://s1.ax1x.com/2020/08/24/dyexS0.png" alt="dyexS0.png"></p>
-<h5 id="直接使用npm安装vant组件-使用淘宝镜像安装速度更快"><a href="#直接使用npm安装vant组件-使用淘宝镜像安装速度更快" class="headerlink" title="直接使用npm安装vant组件(使用淘宝镜像安装速度更快)"></a>直接使用npm安装vant组件(使用<strong>淘宝镜像</strong>安装速度更快)</h5><p>根据vant官方文档更新 ，安装有某些改动。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">cnpm i @vant/weapp -S --production</span><br></pre></td></tr></table></figure>
-
-<h4 id="3、构建"><a href="#3、构建" class="headerlink" title="3、构建"></a>3、构建</h4><p>安装成功后，点开 <strong>工具&gt;构建npm ，，</strong>此时提示构建完成 。。完成构建（如果控制台出现报错，再构建一次即可）。</p>
-<p>此时硬盘中已经存在node_modules目录，只是开发工具默认隐藏了</p>
-<p><img src="https://s1.ax1x.com/2020/08/24/dym71x.png" alt="dym71x.png"></p>
-<h4 id="4、使用"><a href="#4、使用" class="headerlink" title="4、使用"></a>4、使用</h4><p> 在需要用到的 <strong>.json</strong> 文件中引入对应的vant路径</p>
-<p>例如：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="string">"usingComponents"</span>: &#123;</span><br><span class="line">   <span class="string">"van-loading"</span>: <span class="string">"@vant/weapp/loading/index"</span></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>wx小程序</category>
-      </categories>
-      <tags>
-        <tag>配置</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>常用Markdown语法</title>
-    <url>/2020/05/29/%E5%B8%B8%E7%94%A8Markdown%E8%AF%AD%E6%B3%95/</url>
-    <content><![CDATA[<p>这篇主要来记录我初步建立 markdown 文章一些基本操作。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/liebexiao/myImgs/20200717172953.png" alt=""></p>
-<a id="more"></a>
-
-<h2 id="新建page"><a href="#新建page" class="headerlink" title="新建page"></a>新建page</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page-name</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="一、标题"><a href="#一、标题" class="headerlink" title="一、标题"></a>一、标题</h3><p>一级标题前面一个#，二级标题前面两个#，以此类推，总共到六级标题，#与文字之间一定要有空格。</p>
-<h3 id="二、代码块"><a href="#二、代码块" class="headerlink" title="二、代码块"></a>二、代码块</h3><p>用前后 三个` 包裹着, ```后面写什么语言即展示怎样的高亮样式，例如：html、javascript</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="行内代码"><a href="#行内代码" class="headerlink" title="行内代码"></a>行内代码</h4><p>前后一个 ` 包裹，例：</p>
-<p><code>行内代码</code></p>
-<h3 id="三、引用"><a href="#三、引用" class="headerlink" title="三、引用"></a>三、引用</h3><p>使用 &gt; 表示引用， &gt;&gt; 表示引用里面再套一层引用，依次类推。</p>
-<blockquote>
-<p>‘&gt;’这是一级引用</p>
-<blockquote>
-<p>‘&gt;&gt;’这是二级引用</p>
-<blockquote>
-<p>‘&gt;&gt;&gt;’这是三级引用</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<h3 id="四、链接"><a href="#四、链接" class="headerlink" title="四、链接"></a>四、链接</h3><p>使用 “ <a href="link"> </a> ” 表示行内链接。其中：</p>
-<p>[] 内的内容为要添加链接的文字。</p>
-<p>link 为链接地址。例如：<a href="https://www.baidu.com" target="_blank" rel="noopener">百度</a></p>
-<blockquote>
-<p>[ 百度 ] (<a href="https://www.baidu.com" target="_blank" rel="noopener">https://www.baidu.com</a>)</p>
-</blockquote>
-<h3 id="五、导入图片"><a href="#五、导入图片" class="headerlink" title="五、导入图片"></a>五、导入图片</h3><p>使用 “ ![Alt text] (png) ” 导入图片。其中：</p>
-<p>Alt text 为如果图片无法显示时显示的文字；<br>png 为图片所在路径；<br>本地引用是图片直接存储到本地通过相对路径引用，无需网络连接<br>上传图片将把图片上传至图床，这样在文档或图片移动时认可访问图片<br>示例：<br><img src="https://fech.in/static/images/cover/ml01-overview.jpeg" alt="图片无法显示时显示的文字"></p>
-<h3 id="六、Todo-List"><a href="#六、Todo-List" class="headerlink" title="六、Todo List"></a>六、Todo List</h3><p>小写 x 表示已完成， 空格表示未完成</p>
-<ul>
-<li><input checked="" disabled="" type="checkbox"> 选中</li>
-<li><input disabled="" type="checkbox"> 未选中<br>方法：<blockquote>
-<p>-与[]之间须有空格 -[x] 例 1 -[ ] 例 2</p>
-</blockquote>
-</li>
-</ul>
-<h3 id="七、粗体，斜体，高亮和删除线"><a href="#七、粗体，斜体，高亮和删除线" class="headerlink" title="七、粗体，斜体，高亮和删除线"></a>七、粗体，斜体，高亮和删除线</h3><p>例如<strong>粗体</strong></p>
-<blockquote>
-<p>** 粗体示例 **</p>
-</blockquote>
-<p><em>斜体</em></p>
-<blockquote>
-<p>*斜体 *</p>
-</blockquote>
-<p><strong><em>粗加斜体</em></strong></p>
-<blockquote>
-<p><strong>* 粗加斜体 *</strong></p>
-</blockquote>
-<blockquote>
-<p>==高亮==<br>部分编辑器不支持高亮</p>
-</blockquote>
-<p><del>删除线</del></p>
-<blockquote>
-<p><del>~ 删除线 ~</del></p>
-</blockquote>
-<h3 id="八、列表"><a href="#八、列表" class="headerlink" title="八、列表"></a>八、列表</h3><p>使用 1. 1. 1. 表示有序列表，使用 * 或 - 或 + 表示无序列表。</p>
-<ol>
-<li>列表一</li>
-<li>列表二</li>
-<li>列表三</li>
-</ol>
-<blockquote>
-<p>1.列表一 1.列表二 1.列表三<br>记得 1. 与列表文字之间需要有空格</p>
-</blockquote>
-<ul>
-<li>1 列表一<ul>
-<li>2 列表二</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>*1 列表一<br>*2 列表二<br>二级列表需要缩进一个字符</p>
-</blockquote>
-<h3 id="九、分割线"><a href="#九、分割线" class="headerlink" title="九、分割线"></a>九、分割线</h3><p>分割线：— 或者*** 自动出来分割线</p>
-<hr>
-<h3 id="十、emoji"><a href="#十、emoji" class="headerlink" title="十、emoji"></a>十、emoji</h3><p>使用 :emoji代码: 在 markdown 里添加 emoji 😲</p>
-<p><a href="https://www.webfx.com/tools/emoji-cheat-sheet/" target="_blank" rel="noopener">点击这里查看所有支持的 emoji 代码</a></p>
-<p>❗ 部分编辑器不支持 emoji code </p>
-<p>建议直接输入 emoji，<a href="https://www.emojidaquan.com" target="_blank" rel="noopener">点击这里查看并复制 emoji</a></p>
-]]></content>
-      <categories>
-        <category>markdown</category>
-      </categories>
-      <tags>
-        <tag>markdown</tag>
       </tags>
   </entry>
   <entry>
@@ -1145,26 +1006,219 @@
       </tags>
   </entry>
   <entry>
-    <title>拖拽排序</title>
-    <url>/2020/07/14/%E6%8B%96%E6%8B%BD%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/liebexiao/myImgs/20200717170003.png" alt=""></p>
+    <title>常用Markdown语法</title>
+    <url>/2020/05/29/%E5%B8%B8%E7%94%A8Markdown%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<p>这篇主要来记录我初步建立 markdown 文章一些基本操作。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/liebexiao/myImgs/20200717172953.png" alt=""></p>
 <a id="more"></a>
 
-<h3 id="安装引用"><a href="#安装引用" class="headerlink" title="安装引用"></a>安装引用</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">cnpm install awe-dnd --save</span><br><span class="line"></span><br><span class="line"><span class="comment">//在main.js中全局引用;</span></span><br><span class="line"><span class="keyword">import</span> VueDND <span class="keyword">from</span> <span class="string">"awe-dnd"</span>;</span><br><span class="line">Vue.use(VueDND);</span><br></pre></td></tr></table></figure>
+<h2 id="新建page"><a href="#新建page" class="headerlink" title="新建page"></a>新建page</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page-name</span><br></pre></td></tr></table></figure>
 
-<h4 id="1、基础使用"><a href="#1、基础使用" class="headerlink" title="1、基础使用"></a>1、基础使用</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span></span></span><br><span class="line"><span class="tag">  <span class="attr">class</span>=<span class="string">"color-item"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-for</span>=<span class="string">"color in colors"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-dragging</span>=<span class="string">"&#123; item: color, list: colors, group: 'color' &#125;"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">:key</span>=<span class="string">"color.text"</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br><span class="line">  &#123;&#123;color.text&#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">mounted () &#123;</span><br><span class="line">   <span class="keyword">this</span>.$dragging.$on(<span class="string">'dragged'</span>, (&#123; value &#125;) =&gt; &#123;</span><br><span class="line">     <span class="built_in">console</span>.log(value.item)</span><br><span class="line">     <span class="built_in">console</span>.log(value.list)</span><br><span class="line">     <span class="built_in">console</span>.log(value.otherData)</span><br><span class="line">   &#125;)</span><br><span class="line">   <span class="keyword">this</span>.$dragging.$on(<span class="string">'dragend'</span>, () =&gt; &#123;</span><br><span class="line"></span><br><span class="line">   &#125;)</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="一、标题"><a href="#一、标题" class="headerlink" title="一、标题"></a>一、标题</h3><p>一级标题前面一个#，二级标题前面两个#，以此类推，总共到六级标题，#与文字之间一定要有空格。</p>
+<h3 id="二、代码块"><a href="#二、代码块" class="headerlink" title="二、代码块"></a>二、代码块</h3><p>用前后 三个` 包裹着, ```后面写什么语言即展示怎样的高亮样式，例如：html、javascript</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="2、嵌套列表排序使用"><a href="#2、嵌套列表排序使用" class="headerlink" title="2、嵌套列表排序使用"></a>2、嵌套列表排序使用</h4><p>只有在html这个地方有区别，其他使用均相同</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span></span></span><br><span class="line"><span class="tag">  <span class="attr">class</span>=<span class="string">"select"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-for</span>=<span class="string">"(item2,index2) in item.volunteerMajor"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">:key</span>=<span class="string">"index2"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-dragging</span>=<span class="string">"&#123; item: item2, list: item.volunteerMajor, group: 'name'+index&#125;"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="行内代码"><a href="#行内代码" class="headerlink" title="行内代码"></a>行内代码</h4><p>前后一个 ` 包裹，例：</p>
+<p><code>行内代码</code></p>
+<h3 id="三、引用"><a href="#三、引用" class="headerlink" title="三、引用"></a>三、引用</h3><p>使用 &gt; 表示引用， &gt;&gt; 表示引用里面再套一层引用，依次类推。</p>
+<blockquote>
+<p>‘&gt;’这是一级引用</p>
+<blockquote>
+<p>‘&gt;&gt;’这是二级引用</p>
+<blockquote>
+<p>‘&gt;&gt;&gt;’这是三级引用</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h3 id="四、链接"><a href="#四、链接" class="headerlink" title="四、链接"></a>四、链接</h3><p>使用 “ <a href="link"> </a> ” 表示行内链接。其中：</p>
+<p>[] 内的内容为要添加链接的文字。</p>
+<p>link 为链接地址。例如：<a href="https://www.baidu.com" target="_blank" rel="noopener">百度</a></p>
+<blockquote>
+<p>[ 百度 ] (<a href="https://www.baidu.com" target="_blank" rel="noopener">https://www.baidu.com</a>)</p>
+</blockquote>
+<h3 id="五、导入图片"><a href="#五、导入图片" class="headerlink" title="五、导入图片"></a>五、导入图片</h3><p>使用 “ ![Alt text] (png) ” 导入图片。其中：</p>
+<p>Alt text 为如果图片无法显示时显示的文字；<br>png 为图片所在路径；<br>本地引用是图片直接存储到本地通过相对路径引用，无需网络连接<br>上传图片将把图片上传至图床，这样在文档或图片移动时认可访问图片<br>示例：<br><img src="https://fech.in/static/images/cover/ml01-overview.jpeg" alt="图片无法显示时显示的文字"></p>
+<h3 id="六、Todo-List"><a href="#六、Todo-List" class="headerlink" title="六、Todo List"></a>六、Todo List</h3><p>小写 x 表示已完成， 空格表示未完成</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 选中</li>
+<li><input disabled="" type="checkbox"> 未选中<br>方法：<blockquote>
+<p>-与[]之间须有空格 -[x] 例 1 -[ ] 例 2</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="七、粗体，斜体，高亮和删除线"><a href="#七、粗体，斜体，高亮和删除线" class="headerlink" title="七、粗体，斜体，高亮和删除线"></a>七、粗体，斜体，高亮和删除线</h3><p>例如<strong>粗体</strong></p>
+<blockquote>
+<p>** 粗体示例 **</p>
+</blockquote>
+<p><em>斜体</em></p>
+<blockquote>
+<p>*斜体 *</p>
+</blockquote>
+<p><strong><em>粗加斜体</em></strong></p>
+<blockquote>
+<p><strong>* 粗加斜体 *</strong></p>
+</blockquote>
+<blockquote>
+<p>==高亮==<br>部分编辑器不支持高亮</p>
+</blockquote>
+<p><del>删除线</del></p>
+<blockquote>
+<p><del>~ 删除线 ~</del></p>
+</blockquote>
+<h3 id="八、列表"><a href="#八、列表" class="headerlink" title="八、列表"></a>八、列表</h3><p>使用 1. 1. 1. 表示有序列表，使用 * 或 - 或 + 表示无序列表。</p>
+<ol>
+<li>列表一</li>
+<li>列表二</li>
+<li>列表三</li>
+</ol>
+<blockquote>
+<p>1.列表一 1.列表二 1.列表三<br>记得 1. 与列表文字之间需要有空格</p>
+</blockquote>
+<ul>
+<li>1 列表一<ul>
+<li>2 列表二</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>*1 列表一<br>*2 列表二<br>二级列表需要缩进一个字符</p>
+</blockquote>
+<h3 id="九、分割线"><a href="#九、分割线" class="headerlink" title="九、分割线"></a>九、分割线</h3><p>分割线：— 或者*** 自动出来分割线</p>
+<hr>
+<h3 id="十、emoji"><a href="#十、emoji" class="headerlink" title="十、emoji"></a>十、emoji</h3><p>使用 :emoji代码: 在 markdown 里添加 emoji 😲</p>
+<p><a href="https://www.webfx.com/tools/emoji-cheat-sheet/" target="_blank" rel="noopener">点击这里查看所有支持的 emoji 代码</a></p>
+<p>❗ 部分编辑器不支持 emoji code </p>
+<p>建议直接输入 emoji，<a href="https://www.emojidaquan.com" target="_blank" rel="noopener">点击这里查看并复制 emoji</a></p>
 ]]></content>
       <categories>
-        <category>vue</category>
-        <category>组件</category>
+        <category>markdown</category>
       </categories>
       <tags>
-        <tag>vue</tag>
+        <tag>markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>小程序散知识点</title>
+    <url>/2020/08/24/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%95%A3%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
+    <content><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/liebexiao/myImgs/20200904215117.png" alt=""></p>
+<a id="more"></a>
+
+<h3 id="一、底部-tab-配置"><a href="#一、底部-tab-配置" class="headerlink" title="一、底部 tab 配置"></a>一、底部 tab 配置</h3><p><img src="https://cdn.jsdelivr.net/gh/liebexiao/myImgs/20200904181559.png" alt=""></p>
+<p>在 <strong>app.json</strong> 中，与 pages 平级，这里的图标必须是在此项目文件夹中的图片。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="string">"window"</span>: &#123;</span><br><span class="line">    <span class="string">"backgroundTextStyle"</span>: <span class="string">"light"</span>,</span><br><span class="line">    <span class="string">"navigationBarBackgroundColor"</span>: <span class="string">"#EF2E30"</span>,</span><br><span class="line">    <span class="string">"navigationBarTitleText"</span>: <span class="string">"小程序名"</span>,</span><br><span class="line">    <span class="string">"navigationBarTextStyle"</span>: <span class="string">"white"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"tabBar"</span>: &#123;</span><br><span class="line">    <span class="string">"color"</span>: <span class="string">"#666666"</span>,</span><br><span class="line">    <span class="string">"selectedColor"</span>: <span class="string">"#F96C5D"</span>,</span><br><span class="line">    <span class="string">"list"</span>: [&#123;</span><br><span class="line">        <span class="string">"pagePath"</span>: <span class="string">"pages/home/homePage/homePage"</span>,</span><br><span class="line">        <span class="string">"text"</span>: <span class="string">"首页"</span>,</span><br><span class="line">        <span class="string">"iconPath"</span>: <span class="string">"/static/images/home_icon.png"</span>,</span><br><span class="line">        <span class="string">"selectedIconPath"</span>: <span class="string">"/static/images/home_icon1.png"</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="string">"pagePath"</span>: <span class="string">"pages/whole/newsList/newsList"</span>,</span><br><span class="line">        <span class="string">"text"</span>: <span class="string">"全部"</span>,</span><br><span class="line">        <span class="string">"iconPath"</span>: <span class="string">"/static/images/all_icon.png"</span>,</span><br><span class="line">        <span class="string">"selectedIconPath"</span>: <span class="string">"/static/images/all_icon1.png"</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="string">"pagePath"</span>: <span class="string">"pages/task/taskCatList/taskCatList"</span>,</span><br><span class="line">        <span class="string">"text"</span>: <span class="string">"任务"</span>,</span><br><span class="line">        <span class="string">"iconPath"</span>: <span class="string">"/static/images/task_icon.png"</span>,</span><br><span class="line">        <span class="string">"selectedIconPath"</span>: <span class="string">"/static/images/task_icon1.png"</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="string">"pagePath"</span>: <span class="string">"pages/my/myPage/myPage"</span>,</span><br><span class="line">        <span class="string">"text"</span>: <span class="string">"我的"</span>,</span><br><span class="line">        <span class="string">"iconPath"</span>: <span class="string">"/static/images/my_icon.png"</span>,</span><br><span class="line">        <span class="string">"selectedIconPath"</span>: <span class="string">"/static/images/my_icon1.png"</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+<h3 id="二、路由跳转"><a href="#二、路由跳转" class="headerlink" title="二、路由跳转"></a>二、路由跳转</h3><h4 id="1、跳转至导航栏页面"><a href="#1、跳转至导航栏页面" class="headerlink" title="1、跳转至导航栏页面"></a>1、跳转至导航栏页面</h4><p>这个页面跳转 url 后面不能带参数。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">wx.switchTab(&#123;</span><br><span class="line">  url: <span class="string">"/pages/whole/newsList/newsList"</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="2、跳转至普通页面"><a href="#2、跳转至普通页面" class="headerlink" title="2、跳转至普通页面"></a>2、跳转至普通页面</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">wx.navigateTo(&#123;</span><br><span class="line">  url: <span class="string">"/pages/whole/newsDetail/newsDetail?news_id="</span> + news_id,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>获取连接参数</p>
+<blockquote>
+<p>在 onLoad 方法中 <strong>options.news_id</strong></p>
+</blockquote>
+</blockquote>
+<h4 id="3、返回上个路由"><a href="#3、返回上个路由" class="headerlink" title="3、返回上个路由"></a>3、返回上个路由</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">wx.navigateBack(&#123;</span><br><span class="line">  delta: <span class="number">1</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="三、缓存"><a href="#三、缓存" class="headerlink" title="三、缓存"></a>三、缓存</h3><blockquote>
+<p>存缓存</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">wx.setStorageSync(<span class="string">"userInfo"</span>, data);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>取缓存</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">wx.getStorageSync(<span class="string">'userInfo'</span>), <span class="comment">//用户信息</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="四、修改当前页面-title"><a href="#四、修改当前页面-title" class="headerlink" title="四、修改当前页面 title"></a>四、修改当前页面 title</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">wx.setNavigationBarTitle(&#123;</span><br><span class="line">  title: <span class="string">"页面title"</span>, <span class="comment">//页面标题为路由参数</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="五、一键复制"><a href="#五、一键复制" class="headerlink" title="五、一键复制"></a>五、一键复制</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">coppyTitle()&#123;</span><br><span class="line">   <span class="keyword">let</span> that=<span class="keyword">this</span>;</span><br><span class="line">   wx.setClipboardData(&#123;</span><br><span class="line">     data: that.data.templateTitle,</span><br><span class="line">     success(res) &#123;</span><br><span class="line">       wx.getClipboardData(&#123;</span><br><span class="line">         success(res) &#123;</span><br><span class="line">           <span class="built_in">console</span>.log(res.data) <span class="comment">// data</span></span><br><span class="line">         &#125;</span><br><span class="line">       &#125;)</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;)</span><br><span class="line"> &#125;,</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>wx小程序</category>
+      </categories>
+      <tags>
+        <tag>wxml、js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>引入vant-weapp组件</title>
+    <url>/2020/08/24/%E5%BC%95%E5%85%A5vant-weapp%E7%BB%84%E4%BB%B6/</url>
+    <content><![CDATA[<img src="https://s1.ax1x.com/2020/08/24/dynp9I.png" alt="dynp9I.png" style="zoom:50%;" />
+
+<a id="more"></a>
+
+<p>从小程序基础库版本 <a href="https://developers.weixin.qq.com/miniprogram/dev/framework/compatibility.html" target="_blank" rel="noopener">2.2.1</a> 或以上、及<a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html" target="_blank" rel="noopener">开发者工具</a> 1.02.1808300 或以上开始，小程序支持使用 npm 安装第三方包。</p>
+<p>直接创建小程序，从 <strong>工具&gt;构建npm</strong>，会弹出没有找到node_modules目录，因此以引入vant组件为例。</p>
+<p><img src="https://s1.ax1x.com/2020/08/24/dyeEM8.png" alt=""></p>
+<h4 id="1、打开使用npm模块。"><a href="#1、打开使用npm模块。" class="headerlink" title="1、打开使用npm模块。"></a>1、打开使用npm模块。</h4><p>创建普通项目后在右上角详情中，打开使用npm模块。</p>
+<p><img src="https://s1.ax1x.com/2020/08/24/dyeUo9.png" alt="dyeUo9.png"></p>
+<p><img src="https://s1.ax1x.com/2020/08/24/dyeyLD.png" alt="dyeyLD.png"></p>
+<h4 id="2、安装vant组件"><a href="#2、安装vant组件" class="headerlink" title="2、安装vant组件"></a>2、安装vant组件</h4><h5 id="鼠标放在目录上右键，打开终端，切换到根目录"><a href="#鼠标放在目录上右键，打开终端，切换到根目录" class="headerlink" title="鼠标放在目录上右键，打开终端，切换到根目录"></a>鼠标放在<strong>目录上右键，打开终端，切换到根目录</strong></h5><p><img src="https://s1.ax1x.com/2020/08/24/dyexS0.png" alt="dyexS0.png"></p>
+<h5 id="直接使用npm安装vant组件-使用淘宝镜像安装速度更快"><a href="#直接使用npm安装vant组件-使用淘宝镜像安装速度更快" class="headerlink" title="直接使用npm安装vant组件(使用淘宝镜像安装速度更快)"></a>直接使用npm安装vant组件(使用<strong>淘宝镜像</strong>安装速度更快)</h5><p>根据vant官方文档更新 ，安装有某些改动。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">cnpm i @vant/weapp -S --production</span><br></pre></td></tr></table></figure>
+
+<h4 id="3、构建"><a href="#3、构建" class="headerlink" title="3、构建"></a>3、构建</h4><p>安装成功后，点开 <strong>工具&gt;构建npm ，，</strong>此时提示构建完成 。。完成构建（如果控制台出现报错，再构建一次即可）。</p>
+<p>此时硬盘中已经存在node_modules目录，只是开发工具默认隐藏了</p>
+<p><img src="https://s1.ax1x.com/2020/08/24/dym71x.png" alt="dym71x.png"></p>
+<h4 id="4、使用"><a href="#4、使用" class="headerlink" title="4、使用"></a>4、使用</h4><p> 在需要用到的 <strong>.json</strong> 文件中引入对应的vant路径</p>
+<p>例如：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="string">"usingComponents"</span>: &#123;</span><br><span class="line">   <span class="string">"van-loading"</span>: <span class="string">"@vant/weapp/loading/index"</span></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>wx小程序</category>
+      </categories>
+      <tags>
+        <tag>配置</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据结构与算法</title>
+    <url>/2020/09/16/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<a id="more"></a>
+
+<h3 id="一、常见算法"><a href="#一、常见算法" class="headerlink" title="一、常见算法"></a>一、常见算法</h3><h4 id="1、冒泡排序"><a href="#1、冒泡排序" class="headerlink" title="1、冒泡排序"></a>1、冒泡排序</h4><ul>
+<li>相邻两个元素比较，如果前一个比后一个大，交换位置；</li>
+<li>对每一对相邻的元素进行重复工作</li>
+<li>重复上述操作直至数组有序。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr=[<span class="number">8</span>,<span class="number">0</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">7</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">9</span>];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> len=arr.length;</span><br><span class="line">    <span class="comment">//添加标志位</span></span><br><span class="line">    <span class="keyword">let</span> tip=<span class="literal">true</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//从头开始遍历数组，，如果标志位为true才能执行循环</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;len &amp;&amp; tip;i++)&#123;</span><br><span class="line">        tip=<span class="literal">false</span>;</span><br><span class="line">        <span class="comment">//比较相邻元素</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> j=<span class="number">0</span>;j&lt;len<span class="number">-1</span>-i;j++)&#123;</span><br><span class="line">            <span class="comment">//将数组按照升序排序，如果前一个元素大于后一个元素，则交换位置</span></span><br><span class="line">            <span class="comment">//如果是降序，将&gt;换成&lt;即可</span></span><br><span class="line">            <span class="keyword">if</span>(arr[j]&gt;arr[j+<span class="number">1</span>])&#123;</span><br><span class="line">                <span class="keyword">let</span> m=arr[j];</span><br><span class="line">                arr[j]=arr[j+<span class="number">1</span>];</span><br><span class="line">                arr[j+<span class="number">1</span>]=m;</span><br><span class="line">                <span class="comment">//如果有交换，说明数组不是有序的，还需要继续循环</span></span><br><span class="line">                tip=<span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">fn(arr);</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2、选择排序"><a href="#2、选择排序" class="headerlink" title="2、选择排序"></a>2、选择排序</h4><ul>
+<li>在乱序中查找最小的元素放在第一位</li>
+<li>重复上述操作，直至数组有序</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr=[<span class="number">8</span>,<span class="number">0</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">7</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">9</span>];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> len=arr.length;</span><br><span class="line">    <span class="comment">//定义最小元素坐标</span></span><br><span class="line">    <span class="keyword">let</span> mIndex;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;len<span class="number">-1</span>;i++)&#123;</span><br><span class="line">        mIndex=i;</span><br><span class="line">        <span class="comment">//遍历查找，如果存在最小元素，则替换最小元素坐标</span></span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">let</span> j=i+<span class="number">1</span>;j&lt;len;j++)&#123;</span><br><span class="line">           <span class="keyword">if</span>(arr[mIndex]&gt;arr[j])&#123;</span><br><span class="line">               mIndex=j;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">        <span class="comment">//找到了最小元素坐标，替换到乱序数组头部。</span></span><br><span class="line">        <span class="keyword">let</span> m=arr[i];</span><br><span class="line">        arr[i]=arr[mIndex];</span><br><span class="line">        arr[mIndex]=m;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3、快速排序"><a href="#3、快速排序" class="headerlink" title="3、快速排序"></a>3、快速排序</h4><ul>
+<li>在待排序数组中找一个基准值；</li>
+<li>比这个基准值小的放左边，大的放右边；</li>
+<li>重复操作，直至数组有序</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr=[<span class="number">8</span>,<span class="number">0</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">7</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">9</span>];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//如果数组长度&lt;=1，则不需要排序</span></span><br><span class="line">    <span class="keyword">if</span>(arr.length&lt;=<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> arr;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> len=arr.length;</span><br><span class="line">    <span class="keyword">let</span> mIndex=Match.floor(arr.length/<span class="number">2</span>);</span><br><span class="line">    <span class="keyword">let</span> mVal=arr[mIndex];</span><br><span class="line">    <span class="keyword">let</span> left=[];</span><br><span class="line">    <span class="keyword">let</span> right=[];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">        <span class="comment">//如果i为基准索引值，跳过操作</span></span><br><span class="line">        <span class="keyword">if</span>(i===mIndex)&#123;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//将小于基准值放入左边数组中，大于的放入右边数组中。</span></span><br><span class="line">        <span class="keyword">if</span>(arr[i]&lt;mVal)&#123;</span><br><span class="line">            left.push(arr[i]);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            right.push(arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//将数组整合到一起</span></span><br><span class="line">    <span class="keyword">return</span> fn(left).concat([mVal],fn(right));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="4、插入排序"><a href="#4、插入排序" class="headerlink" title="4、插入排序"></a>4、插入排序</h4><ul>
+<li>获取一个目标值</li>
+<li>从后往前遍历，大于目标值将元素后移一个单位</li>
+<li>遇到目标值小于或等于的元素，将目标值放入其后。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr=[<span class="number">8</span>,<span class="number">0</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">7</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">9</span>];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> len=arr.length;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">1</span>;i&lt;len;i++)&#123;</span><br><span class="line">        <span class="comment">//获取目标值</span></span><br><span class="line">        <span class="keyword">let</span> mVal=arr[i];</span><br><span class="line">        <span class="comment">//待插入坐标</span></span><br><span class="line">        <span class="keyword">let</span> mIndex;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//从i向前遍历，如果大于目标值，则后移一位</span></span><br><span class="line">        <span class="keyword">for</span>(mIndex=i;mIndex&gt;<span class="number">0</span> &amp;&amp; (arr[mIndex<span class="number">-1</span>]&gt;mVal);mIndex--)&#123;</span><br><span class="line">            arr[mIndex]=arr[mIndex<span class="number">-1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        arr[mIndex]=mVal;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>常用</category>
+        <category>面试题</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
       </tags>
   </entry>
   <entry>
@@ -1310,6 +1364,71 @@
       </tags>
   </entry>
   <entry>
+    <title>拖拽排序</title>
+    <url>/2020/07/14/%E6%8B%96%E6%8B%BD%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/liebexiao/myImgs/20200717170003.png" alt=""></p>
+<a id="more"></a>
+
+<h3 id="安装引用"><a href="#安装引用" class="headerlink" title="安装引用"></a>安装引用</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">cnpm install awe-dnd --save</span><br><span class="line"></span><br><span class="line"><span class="comment">//在main.js中全局引用;</span></span><br><span class="line"><span class="keyword">import</span> VueDND <span class="keyword">from</span> <span class="string">"awe-dnd"</span>;</span><br><span class="line">Vue.use(VueDND);</span><br></pre></td></tr></table></figure>
+
+<h4 id="1、基础使用"><a href="#1、基础使用" class="headerlink" title="1、基础使用"></a>1、基础使用</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span></span></span><br><span class="line"><span class="tag">  <span class="attr">class</span>=<span class="string">"color-item"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-for</span>=<span class="string">"color in colors"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-dragging</span>=<span class="string">"&#123; item: color, list: colors, group: 'color' &#125;"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">:key</span>=<span class="string">"color.text"</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br><span class="line">  &#123;&#123;color.text&#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">mounted () &#123;</span><br><span class="line">   <span class="keyword">this</span>.$dragging.$on(<span class="string">'dragged'</span>, (&#123; value &#125;) =&gt; &#123;</span><br><span class="line">     <span class="built_in">console</span>.log(value.item)</span><br><span class="line">     <span class="built_in">console</span>.log(value.list)</span><br><span class="line">     <span class="built_in">console</span>.log(value.otherData)</span><br><span class="line">   &#125;)</span><br><span class="line">   <span class="keyword">this</span>.$dragging.$on(<span class="string">'dragend'</span>, () =&gt; &#123;</span><br><span class="line"></span><br><span class="line">   &#125;)</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2、嵌套列表排序使用"><a href="#2、嵌套列表排序使用" class="headerlink" title="2、嵌套列表排序使用"></a>2、嵌套列表排序使用</h4><p>只有在html这个地方有区别，其他使用均相同</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span></span></span><br><span class="line"><span class="tag">  <span class="attr">class</span>=<span class="string">"select"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-for</span>=<span class="string">"(item2,index2) in item.volunteerMajor"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">:key</span>=<span class="string">"index2"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-dragging</span>=<span class="string">"&#123; item: item2, list: item.volunteerMajor, group: 'name'+index&#125;"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>vue</category>
+        <category>组件</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>配置域名</title>
+    <url>/2020/08/24/%E9%85%8D%E7%BD%AE%E5%9F%9F%E5%90%8D/</url>
+    <content><![CDATA[<p><img src="https://s1.ax1x.com/2020/08/24/dyM93R.png" alt="dyM93R.png"></p>
+<a id="more"></a>
+
+<h4 id="1、路径"><a href="#1、路径" class="headerlink" title="1、路径"></a>1、路径</h4><p>开发——开发设置——服务器域名。</p>
+<h4 id="2、配置"><a href="#2、配置" class="headerlink" title="2、配置"></a>2、配置</h4><p><img src="https://s1.ax1x.com/2020/08/24/dyAY40.png" alt="dyAY40.png"></p>
+]]></content>
+      <categories>
+        <category>wx小程序</category>
+      </categories>
+      <tags>
+        <tag>配置</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>短信验证</title>
+    <url>/2020/07/15/%E7%9F%AD%E4%BF%A1%E9%AA%8C%E8%AF%81/</url>
+    <content><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/liebexiao/myImgs/20200717173419.png" alt=""></p>
+<a id="more"></a>
+
+<h4 id="1、html"><a href="#1、html" class="headerlink" title="1、html"></a>1、html</h4><blockquote>
+<p>验证码渲染</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"get_code"</span> @<span class="attr">click</span>=<span class="string">"getCode"</span>&gt;</span>&#123;&#123;codeDes&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2、定义变量"><a href="#2、定义变量" class="headerlink" title="2、定义变量"></a>2、定义变量</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> isClick = <span class="number">0</span>;<span class="comment">//防连击</span></span><br><span class="line"><span class="keyword">let</span> timeOut = <span class="number">60</span>;</span><br><span class="line">codeDes: <span class="string">'获取验证码'</span>,<span class="comment">//验证码描述</span></span><br><span class="line">codeNum: <span class="number">60</span>,<span class="comment">//验证码时间</span></span><br><span class="line">userphone: <span class="string">''</span>,</span><br><span class="line">usercode: <span class="string">''</span>,</span><br></pre></td></tr></table></figure>
+
+<h4 id="3、js"><a href="#3、js" class="headerlink" title="3、js"></a>3、js</h4><blockquote>
+<p> 获取验证码并进行验证</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//点击获取验证码倒计时</span></span><br><span class="line">          getCodeNum() &#123;</span><br><span class="line">              <span class="keyword">let</span> timer = setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">                  <span class="keyword">this</span>.codeNum--;</span><br><span class="line">                  <span class="keyword">if</span> (<span class="keyword">this</span>.codeNum &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">                      <span class="keyword">this</span>.codeDes = <span class="string">"重新获取验证码"</span>;</span><br><span class="line">                      isClick = <span class="number">0</span>;</span><br><span class="line">                      <span class="keyword">this</span>.codeNum = timeOut;</span><br><span class="line">                      clearInterval(timer);</span><br><span class="line">                  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                      <span class="keyword">this</span>.codeDes = <span class="keyword">this</span>.codeNum + <span class="string">"秒"</span>;</span><br><span class="line">                      isClick = <span class="number">1</span>;</span><br><span class="line">                  &#125;</span><br><span class="line">              &#125;, <span class="number">1000</span>);</span><br><span class="line">          &#125;,</span><br><span class="line"></span><br><span class="line">          <span class="comment">//获取验证码</span></span><br><span class="line">          getCode() &#123;</span><br><span class="line">              <span class="keyword">if</span> (<span class="keyword">this</span>.userphone == <span class="string">''</span>) &#123;</span><br><span class="line">                  vant.Toast(<span class="string">'手机号不能为空！'</span>);</span><br><span class="line">              &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                  <span class="keyword">if</span> (isClick == <span class="number">0</span>) &#123;</span><br><span class="line">                      isClick = <span class="number">1</span>;</span><br><span class="line">                      <span class="keyword">this</span>.getCodeNum();</span><br><span class="line">                      <span class="keyword">let</span> obj = &#123;</span><br><span class="line">                          mobile: <span class="keyword">this</span>.userphone,</span><br><span class="line">                          action: <span class="string">"send_code"</span>,</span><br><span class="line">                      &#125;</span><br><span class="line">                      Ajax(<span class="string">'get'</span>, <span class="string">'/api'</span>, obj).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">                          isClick = <span class="number">0</span>;</span><br><span class="line">                      &#125;)</span><br><span class="line">                  &#125;</span><br><span class="line"></span><br><span class="line">              &#125;</span><br><span class="line">          &#125;,</span><br><span class="line"></span><br><span class="line">          <span class="comment">//确认</span></span><br><span class="line">          addNewUser() &#123;</span><br><span class="line">              <span class="keyword">if</span> (<span class="keyword">this</span>.userphone == <span class="string">''</span>) &#123;</span><br><span class="line">                  vant.Toast(<span class="string">'手机号不能为空！'</span>);</span><br><span class="line">              &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">this</span>.usercode == <span class="string">''</span>) &#123;</span><br><span class="line">                  vant.Toast(<span class="string">'验证码不能为空！'</span>);</span><br><span class="line">              &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                  <span class="keyword">let</span> obj = &#123;</span><br><span class="line">                      mobile: <span class="keyword">this</span>.userphone,</span><br><span class="line">                      action: <span class="string">'check_code'</span>,</span><br><span class="line">                      code: <span class="keyword">this</span>.usercode,</span><br><span class="line">                  &#125;</span><br><span class="line">                  Ajax(<span class="string">'get'</span>, <span class="string">'/api'</span>, obj).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">                  &#125;)</span><br><span class="line">              &#125;</span><br><span class="line"></span><br><span class="line">          &#125;,</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>常用</category>
+        <category>常用工具</category>
+      </categories>
+      <tags>
+        <tag>js,html</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>瀑布流</title>
     <url>/2020/07/22/%E7%80%91%E5%B8%83%E6%B5%81/</url>
     <content><![CDATA[<p><img src="http://oss.jishiyoo.com/images/file-1595692086675.png" alt=""></p>
@@ -1348,62 +1467,6 @@
       </tags>
   </entry>
   <entry>
-    <title>短信验证</title>
-    <url>/2020/07/15/%E7%9F%AD%E4%BF%A1%E9%AA%8C%E8%AF%81/</url>
-    <content><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/liebexiao/myImgs/20200717173419.png" alt=""></p>
-<a id="more"></a>
-
-<h4 id="1、html"><a href="#1、html" class="headerlink" title="1、html"></a>1、html</h4><blockquote>
-<p>验证码渲染</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"get_code"</span> @<span class="attr">click</span>=<span class="string">"getCode"</span>&gt;</span>&#123;&#123;codeDes&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="2、定义变量"><a href="#2、定义变量" class="headerlink" title="2、定义变量"></a>2、定义变量</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> isClick = <span class="number">0</span>;<span class="comment">//防连击</span></span><br><span class="line"><span class="keyword">let</span> timeOut = <span class="number">60</span>;</span><br><span class="line">codeDes: <span class="string">'获取验证码'</span>,<span class="comment">//验证码描述</span></span><br><span class="line">codeNum: <span class="number">60</span>,<span class="comment">//验证码时间</span></span><br><span class="line">userphone: <span class="string">''</span>,</span><br><span class="line">usercode: <span class="string">''</span>,</span><br></pre></td></tr></table></figure>
-
-<h4 id="3、js"><a href="#3、js" class="headerlink" title="3、js"></a>3、js</h4><blockquote>
-<p> 获取验证码并进行验证</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//点击获取验证码倒计时</span></span><br><span class="line">          getCodeNum() &#123;</span><br><span class="line">              <span class="keyword">let</span> timer = setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">                  <span class="keyword">this</span>.codeNum--;</span><br><span class="line">                  <span class="keyword">if</span> (<span class="keyword">this</span>.codeNum &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">                      <span class="keyword">this</span>.codeDes = <span class="string">"重新获取验证码"</span>;</span><br><span class="line">                      isClick = <span class="number">0</span>;</span><br><span class="line">                      <span class="keyword">this</span>.codeNum = timeOut;</span><br><span class="line">                      clearInterval(timer);</span><br><span class="line">                  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                      <span class="keyword">this</span>.codeDes = <span class="keyword">this</span>.codeNum + <span class="string">"秒"</span>;</span><br><span class="line">                      isClick = <span class="number">1</span>;</span><br><span class="line">                  &#125;</span><br><span class="line">              &#125;, <span class="number">1000</span>);</span><br><span class="line">          &#125;,</span><br><span class="line"></span><br><span class="line">          <span class="comment">//获取验证码</span></span><br><span class="line">          getCode() &#123;</span><br><span class="line">              <span class="keyword">if</span> (<span class="keyword">this</span>.userphone == <span class="string">''</span>) &#123;</span><br><span class="line">                  vant.Toast(<span class="string">'手机号不能为空！'</span>);</span><br><span class="line">              &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                  <span class="keyword">if</span> (isClick == <span class="number">0</span>) &#123;</span><br><span class="line">                      isClick = <span class="number">1</span>;</span><br><span class="line">                      <span class="keyword">this</span>.getCodeNum();</span><br><span class="line">                      <span class="keyword">let</span> obj = &#123;</span><br><span class="line">                          mobile: <span class="keyword">this</span>.userphone,</span><br><span class="line">                          action: <span class="string">"send_code"</span>,</span><br><span class="line">                      &#125;</span><br><span class="line">                      Ajax(<span class="string">'get'</span>, <span class="string">'/api'</span>, obj).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">                          isClick = <span class="number">0</span>;</span><br><span class="line">                      &#125;)</span><br><span class="line">                  &#125;</span><br><span class="line"></span><br><span class="line">              &#125;</span><br><span class="line">          &#125;,</span><br><span class="line"></span><br><span class="line">          <span class="comment">//确认</span></span><br><span class="line">          addNewUser() &#123;</span><br><span class="line">              <span class="keyword">if</span> (<span class="keyword">this</span>.userphone == <span class="string">''</span>) &#123;</span><br><span class="line">                  vant.Toast(<span class="string">'手机号不能为空！'</span>);</span><br><span class="line">              &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">this</span>.usercode == <span class="string">''</span>) &#123;</span><br><span class="line">                  vant.Toast(<span class="string">'验证码不能为空！'</span>);</span><br><span class="line">              &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                  <span class="keyword">let</span> obj = &#123;</span><br><span class="line">                      mobile: <span class="keyword">this</span>.userphone,</span><br><span class="line">                      action: <span class="string">'check_code'</span>,</span><br><span class="line">                      code: <span class="keyword">this</span>.usercode,</span><br><span class="line">                  &#125;</span><br><span class="line">                  Ajax(<span class="string">'get'</span>, <span class="string">'/api'</span>, obj).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">                  &#125;)</span><br><span class="line">              &#125;</span><br><span class="line"></span><br><span class="line">          &#125;,</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>常用</category>
-        <category>常用工具</category>
-      </categories>
-      <tags>
-        <tag>js,html</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用阿里云服务器配置域名</title>
-    <url>/2020/07/16/%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E5%9F%9F%E5%90%8D/</url>
-    <content><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/liebexiao/myImgs/20200717172235.png" alt=""></p>
-<a id="more"></a>
-
-<h4 id="1、登录已有账号、在侧边栏选择“域名”"><a href="#1、登录已有账号、在侧边栏选择“域名”" class="headerlink" title="1、登录已有账号、在侧边栏选择“域名”"></a><strong>1、登录已有账号、在侧边栏选择“域名”</strong></h4><p><img src="https://s1.ax1x.com/2020/07/17/UsnqLd.png" alt="UsnqLd.png"></p>
-<h4 id="2、在列表中选择一个已有域名-进入"><a href="#2、在列表中选择一个已有域名-进入" class="headerlink" title="2、在列表中选择一个已有域名 进入"></a><strong>2、在列表中选择一个已有域名 进入</strong></h4><p><img src="https://s1.ax1x.com/2020/07/17/Usuykt.png" alt="Usuykt.png"></p>
-<h4 id="3、进去看见此域名基本信息，选择“域名解析”"><a href="#3、进去看见此域名基本信息，选择“域名解析”" class="headerlink" title="3、进去看见此域名基本信息，选择“域名解析”"></a><strong>3、进去看见此域名基本信息，选择“域名解析”</strong></h4><p><img src="https://s1.ax1x.com/2020/07/17/UsuR1S.png" alt="UsuR1S.png"></p>
-<h4 id="4、选择“添加纪录”"><a href="#4、选择“添加纪录”" class="headerlink" title="4、选择“添加纪录”"></a><strong>4、选择“添加纪录”</strong></h4><p><img src="https://s1.ax1x.com/2020/07/17/UsuTkq.png" alt="UsuTkq.png"></p>
-<h4 id="5、新建子域名"><a href="#5、新建子域名" class="headerlink" title="5、新建子域名"></a><strong>5、新建子域名</strong></h4><p><img src="https://s1.ax1x.com/2020/07/17/UsuvnJ.png" alt="UsuvnJ.png"></p>
-<h4 id="6、去服务器配置-nginx"><a href="#6、去服务器配置-nginx" class="headerlink" title="6、去服务器配置 nginx"></a><strong>6、去服务器配置 nginx</strong></h4><blockquote>
-<p>根据路径，找到 nginx 文件夹并打开：</p>
-</blockquote>
-<p><img src="https://s1.ax1x.com/2020/07/17/UsKi9K.png" alt="UsKi9K.png"></p>
-<p><img src="https://s1.ax1x.com/2020/07/17/UsKVnH.png" alt="UsKVnH.png"></p>
-<h5 id="例子"><a href="#例子" class="headerlink" title="例子"></a><strong>例子</strong></h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">##test后台</span><br><span class="line">    server &#123;</span><br><span class="line">        listen       <span class="number">80</span>;</span><br><span class="line">        server_name  testp.main.com;</span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">            root   testProject;</span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        location /api &#123;</span><br><span class="line">        #	# add_header 'Access-Control-Allow-Origin' '*';</span><br><span class="line">        #	# proxy_pass http://;</span><br><span class="line">        	proxy_pass http:<span class="comment">//;</span></span><br><span class="line">            proxy_set_header Host $host;</span><br><span class="line">            proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">    	&#125;</span><br><span class="line"></span><br><span class="line">        error_page   <span class="number">500</span> <span class="number">502</span> <span class="number">503</span> <span class="number">504</span>  /<span class="number">50</span>x.html;</span><br><span class="line">        location = <span class="regexp">/50x.html &#123;</span></span><br><span class="line"><span class="regexp">            root   html;</span></span><br><span class="line"><span class="regexp">        &#125;</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="7、在服务器里重启-nginx-完成。"><a href="#7、在服务器里重启-nginx-完成。" class="headerlink" title="7、在服务器里重启 nginx,,完成。"></a><strong>7、在服务器里重启 nginx,,完成。</strong></h4><p><img src="https://s1.ax1x.com/2020/07/17/UsKoKe.png" alt="UsKoKe.png"></p>
-<blockquote>
-<p><strong>*此时在网页中输入域名即可访问到该项目。</strong></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>阿里云</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>视频播放器</title>
     <url>/2020/07/15/%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E5%99%A8/</url>
     <content><![CDATA[<p><img src="https://s1.ax1x.com/2020/07/15/Ud8tc4.png" alt="播放样式"></p>
@@ -1424,22 +1487,6 @@
       </categories>
       <tags>
         <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>配置域名</title>
-    <url>/2020/08/24/%E9%85%8D%E7%BD%AE%E5%9F%9F%E5%90%8D/</url>
-    <content><![CDATA[<p><img src="https://s1.ax1x.com/2020/08/24/dyM93R.png" alt="dyM93R.png"></p>
-<a id="more"></a>
-
-<h4 id="1、路径"><a href="#1、路径" class="headerlink" title="1、路径"></a>1、路径</h4><p>开发——开发设置——服务器域名。</p>
-<h4 id="2、配置"><a href="#2、配置" class="headerlink" title="2、配置"></a>2、配置</h4><p><img src="https://s1.ax1x.com/2020/08/24/dyAY40.png" alt="dyAY40.png"></p>
-]]></content>
-      <categories>
-        <category>wx小程序</category>
-      </categories>
-      <tags>
-        <tag>配置</tag>
       </tags>
   </entry>
   <entry>
