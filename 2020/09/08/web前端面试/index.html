@@ -647,6 +647,12 @@
 <p>类似于供货商就近配送，</p>
 <p>用户访问网站时，安排距离用户最近的服务器响应用户需求。</p>
 <h3 id="二、HTML-CSS"><a href="#二、HTML-CSS" class="headerlink" title="二、HTML/CSS"></a>二、HTML/CSS</h3><h4 id="1、什么是盒子模型"><a href="#1、什么是盒子模型" class="headerlink" title="1、什么是盒子模型"></a>1、什么是盒子模型</h4><p>由内容content、内边距padding、外边距margin、边框border这四部分构成的模型。</p>
+<blockquote>
+<p>标准盒子模型：宽度：border+padding+width      box-sizing:content-box;表示</p>
+</blockquote>
+<blockquote>
+<p>IE盒子模型：宽度：width     box-sizing:border-box;表示</p>
+</blockquote>
 <h4 id="2、行内元素有哪些？块级元素有哪些？-空-void-元素有那些？"><a href="#2、行内元素有哪些？块级元素有哪些？-空-void-元素有那些？" class="headerlink" title="2、行内元素有哪些？块级元素有哪些？ 空(void)元素有那些？"></a>2、<strong>行内元素有哪些？块级元素有哪些？ 空(void)元素有那些？</strong></h4><blockquote>
 <p>img 属于行内替换元素，效果与块状元素一致</p>
 </blockquote>
@@ -684,6 +690,77 @@
 <li>transform: scale(0); 将元素设置为缩放无限小，元素将不可见，所在位置将被保留</li>
 <li>display: none; 元素不可见，元素不占位置，会改变布局。</li>
 </ul>
+<h4 id="10、Doctype作用、区别"><a href="#10、Doctype作用、区别" class="headerlink" title="10、Doctype作用、区别"></a>10、Doctype作用、区别</h4><ol>
+<li>作用：告知浏览器的解析器用什么文档标准解析这个文档</li>
+<li>类型：过度的、严格的、框架的。</li>
+<li>标准模式与兼容模式区别<ul>
+<li>标准模式的排版和js运作模式都是以该浏览器支持的最高标准运行。</li>
+<li>在兼容模式模拟老式浏览器的行为，防止站点无法工作。尽可能的显示能显示的东西给用户看。</li>
+</ul>
+</li>
+</ol>
+<h4 id="11、H5新特性"><a href="#11、H5新特性" class="headerlink" title="11、H5新特性"></a>11、H5新特性</h4><ol>
+<li><p>语义化标签</p>
+</li>
+<li><p>新增表单input输入类型。</p>
+<blockquote>
+<p>color、date、number、tel、time、等</p>
+</blockquote>
+</li>
+<li><p>新增表单属性</p>
+<blockquote>
+<p>placehoder、min、max、height、width、等</p>
+</blockquote>
+</li>
+<li><p>新增音视频标签</p>
+</li>
+<li><p>WebSocket</p>
+</li>
+</ol>
+<h4 id="12、语义化"><a href="#12、语义化" class="headerlink" title="12、语义化"></a>12、语义化</h4><ol>
+<li><p>语义化的优点</p>
+<ul>
+<li>代码结构清晰，有利于开发和维护</li>
+<li>页面结构清晰，提高用户体验</li>
+<li>方便其他设备解析，根据语义渲染网页</li>
+<li>有利于搜索引擎优化，搜索引擎爬虫会根据不同的标签来赋予不同的权重</li>
+</ul>
+</li>
+<li><p>语义化标签</p>
+<p>title、header、article、address、h1-h6、ul、ol、等</p>
+</li>
+</ol>
+<h4 id="13、img中的alt和title属性"><a href="#13、img中的alt和title属性" class="headerlink" title="13、img中的alt和title属性"></a>13、img中的alt和title属性</h4><blockquote>
+<p><strong>alt</strong> 是图片加载失败时，显示在网页上的替代文字。是img的必要属性。</p>
+</blockquote>
+<blockquote>
+<p><strong>title</strong> 是鼠标放在图片上时显示的文字。</p>
+</blockquote>
+<p>搜索引擎对于图片意思的判断，主要靠alt属性，在图片alt属性中以包含关键字的简要的文字说明，也是页面优化的一部分。</p>
+<h4 id="14、清除浮动有哪些方式"><a href="#14、清除浮动有哪些方式" class="headerlink" title="14、清除浮动有哪些方式"></a>14、清除浮动有哪些方式</h4><ol>
+<li><p>父级div定义伪类 <strong>clearfix</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">        <span class="attribute">content</span>: <span class="string">"."</span>;</span><br><span class="line">        <span class="attribute">display</span>: block;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">        <span class="attribute">clear</span>: both;</span><br><span class="line">        <span class="attribute">visibility</span>: hidden;</span><br><span class="line">        <span class="attribute">zoom</span>: <span class="number">1</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在结尾处添加空div标签 clear:both;</p>
+</li>
+<li><p>父级div定义height</p>
+</li>
+<li><p>为父元素添加 <strong>overflow：hidden;</strong> （超出的部分会被隐藏。）</p>
+</li>
+</ol>
+<h4 id="15、css选择符有哪些"><a href="#15、css选择符有哪些" class="headerlink" title="15、css选择符有哪些"></a>15、css选择符有哪些</h4><ol>
+<li>id选择器</li>
+<li>class选择器</li>
+<li>标签选择器</li>
+<li>通配符选择器 *</li>
+<li>相邻选择器</li>
+<li>子选择器</li>
+<li>后代选择器</li>
+<li>属性选择器</li>
+<li>伪类选择器</li>
+</ol>
+<p>可继承的样式：font-size ; font-family ; color</p>
+<p>不可继承的样式：border、padding、margin、height、width</p>
 <h3 id="三、JS"><a href="#三、JS" class="headerlink" title="三、JS"></a>三、JS</h3><h4 id="1、js中五种主要的数据类型"><a href="#1、js中五种主要的数据类型" class="headerlink" title="1、js中五种主要的数据类型"></a>1、js中五种主要的数据类型</h4><p>string、number、Boolean、array、object</p>
 <h4 id="2、节点操作"><a href="#2、节点操作" class="headerlink" title="2、节点操作"></a>2、节点操作</h4><ol>
 <li>查找节点<ul>
@@ -793,10 +870,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-10T22:17:01+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-07T19:53:47+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年9月10日</p>
+    <p>更新于：2020年10月7日</p>
   </a>
 </div>
 
@@ -888,14 +965,15 @@ JavaScript 的超集
             
             
               <a class='next' href='/2020/09/05/wx%E6%8E%88%E6%9D%83/'>
-                <p class='title'>授权<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>微信授权和嵌入app获取token。
+                <p class='title'>wx授权<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>微信授权。
 
 
-一、与app交互1、新建一个js文件
-新建一个名为hybridApp的js文件。在内部写入与app交互的方法（均为与app商量好用来互相调用的方法）。
+在main.js中
+1、app
+建立一个 hybridApp.js 文件，在内部写入与app交互的方法（均为与app商量好用来互相调用的方法）。
 
-</p>
+123456789101112...</p>
               </a>
             
           </div>
@@ -949,7 +1027,7 @@ JavaScript 的超集
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、HTTP-浏览器"><span class="toc-text">一、HTTP&#x2F;浏览器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、http与https协议"><span class="toc-text">1、http与https协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1、浏览器打开一个url都发生了哪些操作"><span class="toc-text">2.1、浏览器打开一个url都发生了哪些操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2、浏览器是怎样渲染页面的"><span class="toc-text">2.2、浏览器是怎样渲染页面的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、Ajax请求的五个步骤"><span class="toc-text">3、Ajax请求的五个步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、一次js请求一般情况下有哪些地方会有缓存处理"><span class="toc-text">4、一次js请求一般情况下有哪些地方会有缓存处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、主流浏览器及内核"><span class="toc-text">5、主流浏览器及内核</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、cookie、sessionStorage和localStorage的区别"><span class="toc-text">6、cookie、sessionStorage和localStorage的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7、HTTP支持的方法"><span class="toc-text">7、HTTP支持的方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8、GET和POST区别"><span class="toc-text">8、GET和POST区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9、HTTP返回的状态码"><span class="toc-text">9、HTTP返回的状态码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10、跨域"><span class="toc-text">10、跨域</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11、XSS和CSFR攻击，防御方法"><span class="toc-text">11、XSS和CSFR攻击，防御方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#12、CDN（内容分发网络）"><span class="toc-text">12、CDN（内容分发网络）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、HTML-CSS"><span class="toc-text">二、HTML&#x2F;CSS</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、什么是盒子模型"><span class="toc-text">1、什么是盒子模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、行内元素有哪些？块级元素有哪些？-空-void-元素有那些？"><span class="toc-text">2、行内元素有哪些？块级元素有哪些？ 空(void)元素有那些？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、表单中readonly和disabled区别"><span class="toc-text">3、表单中readonly和disabled区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、BFC规范"><span class="toc-text">4、BFC规范</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、src和href的区别"><span class="toc-text">5、src和href的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、px和em区别"><span class="toc-text">6、px和em区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7、link和-import的区别"><span class="toc-text">7、link和@import的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8、rbga-与opacity透明度区别"><span class="toc-text">8、rbga()与opacity透明度区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9、几种隐藏元素的方法"><span class="toc-text">9、几种隐藏元素的方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、JS"><span class="toc-text">三、JS</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、js中五种主要的数据类型"><span class="toc-text">1、js中五种主要的数据类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、节点操作"><span class="toc-text">2、节点操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、什么是伪数组、怎样转化为数组"><span class="toc-text">3、什么是伪数组、怎样转化为数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、判断一个变量是什么类型"><span class="toc-text">4、判断一个变量是什么类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、事件委托"><span class="toc-text">5、事件委托</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、如何解决异步回调地狱"><span class="toc-text">6、如何解决异步回调地狱</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7、window的五大对象"><span class="toc-text">7、window的五大对象</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、HTTP-浏览器"><span class="toc-text">一、HTTP&#x2F;浏览器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、http与https协议"><span class="toc-text">1、http与https协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1、浏览器打开一个url都发生了哪些操作"><span class="toc-text">2.1、浏览器打开一个url都发生了哪些操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2、浏览器是怎样渲染页面的"><span class="toc-text">2.2、浏览器是怎样渲染页面的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、Ajax请求的五个步骤"><span class="toc-text">3、Ajax请求的五个步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、一次js请求一般情况下有哪些地方会有缓存处理"><span class="toc-text">4、一次js请求一般情况下有哪些地方会有缓存处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、主流浏览器及内核"><span class="toc-text">5、主流浏览器及内核</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、cookie、sessionStorage和localStorage的区别"><span class="toc-text">6、cookie、sessionStorage和localStorage的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7、HTTP支持的方法"><span class="toc-text">7、HTTP支持的方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8、GET和POST区别"><span class="toc-text">8、GET和POST区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9、HTTP返回的状态码"><span class="toc-text">9、HTTP返回的状态码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10、跨域"><span class="toc-text">10、跨域</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11、XSS和CSFR攻击，防御方法"><span class="toc-text">11、XSS和CSFR攻击，防御方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#12、CDN（内容分发网络）"><span class="toc-text">12、CDN（内容分发网络）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、HTML-CSS"><span class="toc-text">二、HTML&#x2F;CSS</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、什么是盒子模型"><span class="toc-text">1、什么是盒子模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、行内元素有哪些？块级元素有哪些？-空-void-元素有那些？"><span class="toc-text">2、行内元素有哪些？块级元素有哪些？ 空(void)元素有那些？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、表单中readonly和disabled区别"><span class="toc-text">3、表单中readonly和disabled区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、BFC规范"><span class="toc-text">4、BFC规范</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、src和href的区别"><span class="toc-text">5、src和href的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、px和em区别"><span class="toc-text">6、px和em区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7、link和-import的区别"><span class="toc-text">7、link和@import的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8、rbga-与opacity透明度区别"><span class="toc-text">8、rbga()与opacity透明度区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9、几种隐藏元素的方法"><span class="toc-text">9、几种隐藏元素的方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10、Doctype作用、区别"><span class="toc-text">10、Doctype作用、区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11、H5新特性"><span class="toc-text">11、H5新特性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#12、语义化"><span class="toc-text">12、语义化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#13、img中的alt和title属性"><span class="toc-text">13、img中的alt和title属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#14、清除浮动有哪些方式"><span class="toc-text">14、清除浮动有哪些方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#15、css选择符有哪些"><span class="toc-text">15、css选择符有哪些</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、JS"><span class="toc-text">三、JS</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、js中五种主要的数据类型"><span class="toc-text">1、js中五种主要的数据类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、节点操作"><span class="toc-text">2、节点操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、什么是伪数组、怎样转化为数组"><span class="toc-text">3、什么是伪数组、怎样转化为数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、判断一个变量是什么类型"><span class="toc-text">4、判断一个变量是什么类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、事件委托"><span class="toc-text">5、事件委托</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、如何解决异步回调地狱"><span class="toc-text">6、如何解决异步回调地狱</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7、window的五大对象"><span class="toc-text">7、window的五大对象</span></a></li></ol></li></ol>
     </div>
   </section>
 
