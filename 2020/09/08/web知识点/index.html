@@ -853,7 +853,13 @@
 
 <h4 id="7、window的五大对象"><a href="#7、window的五大对象" class="headerlink" title="7、window的五大对象"></a>7、window的五大对象</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Navigator、Screen、History、Location、Window</span><br></pre></td></tr></table></figure>
 
-<h4 id="8、闭包"><a href="#8、闭包" class="headerlink" title="8、闭包"></a>8、闭包</h4><ol>
+<h4 id="8、数组去重"><a href="#8、数组去重" class="headerlink" title="8、数组去重"></a>8、数组去重</h4><p>方法一、</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>];</span><br><span class="line"><span class="keyword">let</span> newArr = [...new <span class="built_in">Set</span>(arr)];</span><br><span class="line"><span class="comment">//结果：newArr = [1, 2, 3, 4, 5, 6]</span></span><br></pre></td></tr></table></figure>
+
+<p>方法二、</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">let</span> j=i+<span class="number">1</span>;j&lt;arr.length;j++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(arr[i]==arr[j])&#123;</span><br><span class="line">			arr.splice(j,<span class="number">1</span>);</span><br><span class="line">			j--;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="9、闭包"><a href="#9、闭包" class="headerlink" title="9、闭包"></a>9、闭包</h4><ol>
 <li><p>如何产生闭包？</p>
 <p>当一个嵌套的内部（子）函数引用了嵌套的外部（父）函数的变量/函数时，就产生了闭包。</p>
 </li>
@@ -868,8 +874,73 @@
 </ul>
 </li>
 </ol>
-<h4 id="9、数据的双向绑定MVVM"><a href="#9、数据的双向绑定MVVM" class="headerlink" title="9、数据的双向绑定MVVM"></a>9、数据的双向绑定MVVM</h4><p>利用 Object.defineProperty(obj, prop, descriptor) 中的<strong>get</strong>和<strong>set</strong>获取和修改属性值。</p>
-
+<h3 id="四、vue"><a href="#四、vue" class="headerlink" title="四、vue"></a>四、vue</h3><h4 id="1、VUE的响应式原理"><a href="#1、VUE的响应式原理" class="headerlink" title="1、VUE的响应式原理"></a>1、VUE的响应式原理</h4><h4 id="2、数据的双向绑定MVVM"><a href="#2、数据的双向绑定MVVM" class="headerlink" title="2、数据的双向绑定MVVM"></a>2、数据的双向绑定MVVM</h4><p>利用 Object.defineProperty(obj, prop, descriptor) 中的<strong>get</strong>和<strong>set</strong>获取和修改属性值。</p>
+<h4 id="3、VUE的生命周期"><a href="#3、VUE的生命周期" class="headerlink" title="3、VUE的生命周期"></a>3、VUE的生命周期</h4><ul>
+<li><strong>beforeCreate</strong>是new Vue()之后触发的第一个钩子，在当前阶段data、methods、computed以及watch上的数据和方法<code>都不能</code>被访问。</li>
+<li><strong>created</strong>在实例创建完成后发生，当前阶段已经完成了<code>数据观测</code>，也就是可以使用数据，更改数据，在这里更改数据不会触发<code>updated函数</code>。可以做一些初始数据的获取，在当前阶段<code>无法与Dom进行交互</code>，（如果非要想，可以通过<code>vm.$nextTick</code>来访问Dom）。</li>
+<li><strong>beforeMount</strong>发生在<code>挂载之前</code>，在这之前template模板已导入渲染函数编译。而当前阶段<code>虚拟Dom</code>已经创建完成，即将开始渲染。</li>
+<li><strong>mounted</strong>在<code>挂载完成后</code>发生，在当前阶段，真实的Dom<code>挂载完毕</code>，数据完成双向绑定，可以访问到<code>Dom节点</code>，使用$refs属性对Dom进行操作。</li>
+<li><strong>beforeUpdate</strong>发生在<code>更新之前</code>，也就是响应式数据发生更新，虚拟dom<code>重新渲染之前</code>被触发，你可以在当前阶段进行更改数据，不会造成重渲染。</li>
+<li><strong>updated</strong>发生在<code>更新完成之后</code>，当前阶段组件Dom已完成更新。要注意的是避免在此期间更改数据，因为这可能会导致<code>无限循环</code>的更新。</li>
+<li><strong>beforeDestroy</strong>发生在<code>实例销毁之前</code>，在当前阶段实例完全可以被使用，我们可以在这时进行善后收尾工作，比如清除计时器，销毁父组件对子组件的重复监听。beforeDestroy(){Bus.$off(“saveTheme”)}</li>
+<li><strong>destroyed</strong>发生在<code>实例销毁之后</code>，这个时候只剩下了<code>dom空壳</code>。组件已被拆解，数据绑定被卸除，监听被移出，子实例也统统被销毁。</li>
+</ul>
+<p>每个周期适合那个场景</p>
+<ul>
+<li><p><code>beforecreate</code> : 可以在这加个loading事件，在加载实例时触发</p>
+</li>
+<li><p><code>created</code> : 初始化完成时的事件写在这里，如在这结束loading事件，异步请求也适宜在这里调用</p>
+</li>
+<li><p><code>mounted</code> : 挂载元素，获取到DOM节点</p>
+</li>
+<li><p><code>updated</code> : 如果对数据统一处理，在这里写上相应函数</p>
+</li>
+<li><p><code>beforeDestroy</code> : 可以清除定时器</p>
+</li>
+<li><p><code>nextTick</code> : 更新数据后立即操作dom</p>
+</li>
+</ul>
+<h4 id="4、VUE路由"><a href="#4、VUE路由" class="headerlink" title="4、VUE路由"></a>4、VUE路由</h4><p>hash、history、abstract</p>
+<p><strong>hash</strong>：</p>
+<p>location.hash的值是url中#及后面的部分。</p>
+<p>实现主要基于的几个特性：</p>
+<ul>
+<li>url中hash值在向服务器端发送请求时，hash部分不会被发送。</li>
+<li>hash 值的改变，都会在浏览器的访问历史中增加一个记录</li>
+<li>通过a标签的href来改变hash的值</li>
+<li>通过hashchange来监听hash的值变化，从而对页面进行跳转</li>
+</ul>
+<p><strong>history</strong>：</p>
+<p>在不刷新页面的情况下，操作浏览器的历史记录。</p>
+<p>history.pushState() 新增一个历史记录</p>
+<p>history.repalceState() 直接替换当前的历史纪录</p>
+<p>实现主要基于的几个特性：</p>
+<ul>
+<li>pushState 和 repalceState 两个 API 来操作实现 URL 的变化 ；</li>
+<li>我们可以使用 popstate 事件来监听 url 的变化，从而对页面进行跳转（渲染）；</li>
+<li>history.pushState() 或 history.replaceState() 不会触发 popstate 事件，这时我们需要手动触发页面跳转（渲染）。</li>
+</ul>
+<h4 id="5、优化"><a href="#5、优化" class="headerlink" title="5、优化"></a>5、优化</h4><ol>
+<li>代码层面<ul>
+<li>区分v-if和v-show的使用场景</li>
+<li>v-for循环必须为item添加key，并避免同时使用v-if</li>
+<li>图片资源懒加载</li>
+</ul>
+</li>
+<li>webpack层面<ul>
+<li>webpack对图片进行压缩</li>
+<li>减少 ES6 转为 ES5 的冗余代码</li>
+<li>提取公共代码</li>
+</ul>
+</li>
+<li>基于web技术优化<ul>
+<li>开启gzip压缩</li>
+<li>浏览器缓存</li>
+<li>CDN的使用</li>
+</ul>
+</li>
+</ol>
+<h4 id="6、"><a href="#6、" class="headerlink" title="6、"></a>6、</h4>
           
             <div class='article_footer'>
               
@@ -942,10 +1013,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-14T22:50:19+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-18T23:06:29+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年10月14日</p>
+    <p>更新于：2020年10月18日</p>
   </a>
 </div>
 
@@ -1099,7 +1170,7 @@ JavaScript 的超集
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、HTTP-浏览器"><span class="toc-text">一、HTTP&#x2F;浏览器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、http与https协议"><span class="toc-text">1、http与https协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1、浏览器打开一个url都发生了哪些操作"><span class="toc-text">2.1、浏览器打开一个url都发生了哪些操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2、浏览器是怎样渲染页面的"><span class="toc-text">2.2、浏览器是怎样渲染页面的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、Ajax请求的五个步骤"><span class="toc-text">3、Ajax请求的五个步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、一次js请求一般情况下有哪些地方会有缓存处理"><span class="toc-text">4、一次js请求一般情况下有哪些地方会有缓存处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、主流浏览器及内核"><span class="toc-text">5、主流浏览器及内核</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、cookie、sessionStorage和localStorage的区别"><span class="toc-text">6、cookie、sessionStorage和localStorage的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7、HTTP支持的方法"><span class="toc-text">7、HTTP支持的方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8、GET和POST区别"><span class="toc-text">8、GET和POST区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9、HTTP返回的状态码"><span class="toc-text">9、HTTP返回的状态码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10、跨域"><span class="toc-text">10、跨域</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11、XSS和CSFR攻击，防御方法"><span class="toc-text">11、XSS和CSFR攻击，防御方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#12、CDN（内容分发网络）"><span class="toc-text">12、CDN（内容分发网络）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、HTML-CSS"><span class="toc-text">二、HTML&#x2F;CSS</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、什么是盒子模型"><span class="toc-text">1、什么是盒子模型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#使用"><span class="toc-text">使用</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、行内元素有哪些？块级元素有哪些？-空-void-元素有那些？"><span class="toc-text">2、行内元素有哪些？块级元素有哪些？ 空(void)元素有那些？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、表单中readonly和disabled区别"><span class="toc-text">3、表单中readonly和disabled区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、BFC规范"><span class="toc-text">4、BFC规范</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、src和href的区别"><span class="toc-text">5、src和href的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、px和em区别"><span class="toc-text">6、px和em区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7、link和-import的区别"><span class="toc-text">7、link和@import的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8、rbga-与opacity透明度区别"><span class="toc-text">8、rbga()与opacity透明度区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9、几种隐藏元素的方法"><span class="toc-text">9、几种隐藏元素的方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10、Doctype作用、区别"><span class="toc-text">10、Doctype作用、区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11、H5新特性"><span class="toc-text">11、H5新特性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#12、语义化"><span class="toc-text">12、语义化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#13、img中的alt和title属性"><span class="toc-text">13、img中的alt和title属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#14、清除浮动有哪些方式"><span class="toc-text">14、清除浮动有哪些方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#15、css选择符有哪些"><span class="toc-text">15、css选择符有哪些</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#16、画三角"><span class="toc-text">16、画三角</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#17、父子同时居中"><span class="toc-text">17、父子同时居中</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#18、画一条0-5px线"><span class="toc-text">18、画一条0.5px线</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#19、transition和animate"><span class="toc-text">19、transition和animate</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、JS"><span class="toc-text">三、JS</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、js中五种主要的数据类型"><span class="toc-text">1、js中五种主要的数据类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、节点操作"><span class="toc-text">2、节点操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、什么是伪数组、怎样转化为数组"><span class="toc-text">3、什么是伪数组、怎样转化为数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、判断一个变量是什么类型"><span class="toc-text">4、判断一个变量是什么类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、事件委托"><span class="toc-text">5、事件委托</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、如何解决异步回调地狱"><span class="toc-text">6、如何解决异步回调地狱</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7、window的五大对象"><span class="toc-text">7、window的五大对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8、闭包"><span class="toc-text">8、闭包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9、数据的双向绑定MVVM"><span class="toc-text">9、数据的双向绑定MVVM</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、HTTP-浏览器"><span class="toc-text">一、HTTP&#x2F;浏览器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、http与https协议"><span class="toc-text">1、http与https协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1、浏览器打开一个url都发生了哪些操作"><span class="toc-text">2.1、浏览器打开一个url都发生了哪些操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2、浏览器是怎样渲染页面的"><span class="toc-text">2.2、浏览器是怎样渲染页面的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、Ajax请求的五个步骤"><span class="toc-text">3、Ajax请求的五个步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、一次js请求一般情况下有哪些地方会有缓存处理"><span class="toc-text">4、一次js请求一般情况下有哪些地方会有缓存处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、主流浏览器及内核"><span class="toc-text">5、主流浏览器及内核</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、cookie、sessionStorage和localStorage的区别"><span class="toc-text">6、cookie、sessionStorage和localStorage的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7、HTTP支持的方法"><span class="toc-text">7、HTTP支持的方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8、GET和POST区别"><span class="toc-text">8、GET和POST区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9、HTTP返回的状态码"><span class="toc-text">9、HTTP返回的状态码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10、跨域"><span class="toc-text">10、跨域</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11、XSS和CSFR攻击，防御方法"><span class="toc-text">11、XSS和CSFR攻击，防御方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#12、CDN（内容分发网络）"><span class="toc-text">12、CDN（内容分发网络）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、HTML-CSS"><span class="toc-text">二、HTML&#x2F;CSS</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、什么是盒子模型"><span class="toc-text">1、什么是盒子模型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#使用"><span class="toc-text">使用</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、行内元素有哪些？块级元素有哪些？-空-void-元素有那些？"><span class="toc-text">2、行内元素有哪些？块级元素有哪些？ 空(void)元素有那些？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、表单中readonly和disabled区别"><span class="toc-text">3、表单中readonly和disabled区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、BFC规范"><span class="toc-text">4、BFC规范</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、src和href的区别"><span class="toc-text">5、src和href的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、px和em区别"><span class="toc-text">6、px和em区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7、link和-import的区别"><span class="toc-text">7、link和@import的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8、rbga-与opacity透明度区别"><span class="toc-text">8、rbga()与opacity透明度区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9、几种隐藏元素的方法"><span class="toc-text">9、几种隐藏元素的方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10、Doctype作用、区别"><span class="toc-text">10、Doctype作用、区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11、H5新特性"><span class="toc-text">11、H5新特性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#12、语义化"><span class="toc-text">12、语义化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#13、img中的alt和title属性"><span class="toc-text">13、img中的alt和title属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#14、清除浮动有哪些方式"><span class="toc-text">14、清除浮动有哪些方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#15、css选择符有哪些"><span class="toc-text">15、css选择符有哪些</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#16、画三角"><span class="toc-text">16、画三角</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#17、父子同时居中"><span class="toc-text">17、父子同时居中</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#18、画一条0-5px线"><span class="toc-text">18、画一条0.5px线</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#19、transition和animate"><span class="toc-text">19、transition和animate</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、JS"><span class="toc-text">三、JS</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、js中五种主要的数据类型"><span class="toc-text">1、js中五种主要的数据类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、节点操作"><span class="toc-text">2、节点操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、什么是伪数组、怎样转化为数组"><span class="toc-text">3、什么是伪数组、怎样转化为数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、判断一个变量是什么类型"><span class="toc-text">4、判断一个变量是什么类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、事件委托"><span class="toc-text">5、事件委托</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、如何解决异步回调地狱"><span class="toc-text">6、如何解决异步回调地狱</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7、window的五大对象"><span class="toc-text">7、window的五大对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8、数组去重"><span class="toc-text">8、数组去重</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9、闭包"><span class="toc-text">9、闭包</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、vue"><span class="toc-text">四、vue</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、VUE的响应式原理"><span class="toc-text">1、VUE的响应式原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、数据的双向绑定MVVM"><span class="toc-text">2、数据的双向绑定MVVM</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、VUE的生命周期"><span class="toc-text">3、VUE的生命周期</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、VUE路由"><span class="toc-text">4、VUE路由</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、优化"><span class="toc-text">5、优化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、"><span class="toc-text">6、</span></a></li></ol></li></ol>
     </div>
   </section>
 
