@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -18,9 +16,13 @@
 
   <!-- 页面元数据 -->
   
-  <title>标签：js -  </title>
+  <title>新建小程序 -  </title>
+  
+    <meta name="keywords" content="js">
   
 
+  
+    <meta name="description" content="这里记录新建一个小程序项目需要引入的各种文件及各种配置。">
   
 
   <!-- feed -->
@@ -70,7 +72,7 @@
   
   
   <div class="cover-wrapper">
-    <cover class='cover ' style="display: none;">
+    <cover class='cover post' style="display: none;">
       <div class='cover-body'>
   <div class='a'>
     
@@ -411,9 +413,12 @@
 
 
 <div id="pjax-data" style="display: none">
-  <div id="pjax-ispage">false</div>
-  <div id="pjax-pageTitle"></div>
+  <div id="pjax-ispage">true</div>
+  <div id="pjax-pageTitle">新建小程序</div>
   <div id="pjax-enable-cover">true</div>
+  
+  <div id="valine-path">none</div>
+  <div id="valine-placeholder">none</div>
   
   
 </div>
@@ -444,35 +449,12 @@
       
       
 
-
 <div class='l_main'>
   
-    
-      
-  <section class="post-list ">
-    
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
+
   
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
 
 
   <section class='meta'>
@@ -482,11 +464,11 @@
       <div class="meta" id="header-meta">
         
           
-  <h2 class="title">
+  <h1 class="title">
     <a href="/2020/11/18/%E6%96%B0%E5%BB%BA%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
       新建小程序
     </a>
-  </h2>
+  </h1>
 
 
         
@@ -530,55 +512,6 @@
           
             
               
-  <div class="new-meta-item wordcount">
-    <a class='notlink'>
-      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：509字</p>
-    </a>
-  </div>
-  <div class="new-meta-item readtime">
-    <a class='notlink'>
-      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：2分钟</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-  <div class="new-meta-item browse valine">
-    <a class='notlink'>
-      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
-      
-      <span id="/2020/11/18/%E6%96%B0%E5%BB%BA%E5%B0%8F%E7%A8%8B%E5%BA%8F/" class="leancloud_visitors" data-flag-title="新建小程序">
-      <p>
-        <span class="leancloud-visitors-count"></span>
-      </p>
-      </span>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-<div class="new-meta-item comments-count">
-  
-  <a href="/2020/11/18/%E6%96%B0%E5%BB%BA%E5%B0%8F%E7%A8%8B%E5%BA%8F/#comments">
-    <i class="fas fa-comment-dots fa-fw"></i>
-    <span class="valine-comment-count" data-xid="/2020/11/18/%E6%96%B0%E5%BB%BA%E5%B0%8F%E7%A8%8B%E5%BA%8F/">0</span>
-    <span class="leancloud-comments-count">&nbsp;</span>
-  </a>
-</div>
-
-
-            
-          
-            
-              
 
             
           
@@ -591,832 +524,87 @@
   </section>
 
 
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这里记录新建一个小程序项目需要引入的各种文件及各种配置。</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/11/18/%E6%96%B0%E5%BB%BA%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
           
-  <h2 class="title">
-    <a href="/2020/09/16/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
-      数据结构与算法
-    </a>
-  </h2>
+          
+          <p>这里记录新建一个小程序项目需要引入的各种文件及各种配置。</p>
+<a id="more"></a>
+
+<h4 id="1、新建"><a href="#1、新建" class="headerlink" title="1、新建"></a>1、新建</h4><p>选择路径、填写appid，appid可以先写自己的，之后可以再改成项目的appid。</p>
+<p>点击新建即完成小程序新项目的创建。</p>
+<img src="https://cdn.jsdelivr.net/gh/liebexiao/myImgs/20201118091237.png" alt="image-20201118091237291" style="zoom:50%;" />
 
 
-        
-        <div class='new-meta-box'>
+
+<h4 id="2、创建文件夹"><a href="#2、创建文件夹" class="headerlink" title="2、创建文件夹"></a>2、创建文件夹</h4><blockquote>
+<p> 与 <strong>pages</strong> 平级创建 <strong>static</strong> 文件夹，其中包括 <strong>css</strong> 、<strong>js</strong> 、<strong>images</strong> 文件夹，</p>
+<p>例如引入的 <strong>iconfont.wxss</strong> 就可以放入<strong>css</strong> 文件夹中，然后再在 <strong>app.wxss</strong> 中引入。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@import</span> <span class="string">"/static/css/iconfont.wxss"</span>;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="3、app-json配置"><a href="#3、app-json配置" class="headerlink" title="3、app.json配置"></a>3、app.json配置</h4><p>在app.json中配置 <strong>页面路径</strong>、<strong>顶部背景色和title</strong> 以及 <strong>底部tab</strong>。</p>
+<ul>
+<li><p>顶部背景色设置</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"window"</span>: &#123;</span><br><span class="line">  <span class="string">"backgroundTextStyle"</span>: <span class="string">"light"</span>,</span><br><span class="line">  <span class="string">"navigationBarBackgroundColor"</span>: <span class="string">"#EF2E30"</span>,</span><br><span class="line">  <span class="string">"navigationBarTitleText"</span>: <span class="string">"我的名字"</span>,</span><br><span class="line">  <span class="string">"navigationBarTextStyle"</span>: <span class="string">"white"</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>底部tab</p>
+<p>底部tab的图片必须是项目中图片路径。</p>
+<p><strong>selectedColor</strong> 表示选择之后的颜色。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/liebexiao/myImgs/20201118092212.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"tabBar"</span>: &#123;</span><br><span class="line">    <span class="string">"color"</span>: <span class="string">"#666666"</span>,</span><br><span class="line">    <span class="string">"selectedColor"</span>: <span class="string">"#F96C5D"</span>,</span><br><span class="line">    <span class="string">"list"</span>: [&#123;</span><br><span class="line">        <span class="string">"pagePath"</span>: <span class="string">"pages/home/homePage/homePage"</span>,</span><br><span class="line">        <span class="string">"text"</span>: <span class="string">"首页"</span>,</span><br><span class="line">        <span class="string">"iconPath"</span>: <span class="string">"/static/images/home_icon.png"</span>,</span><br><span class="line">        <span class="string">"selectedIconPath"</span>: <span class="string">"/static/images/home_icon1.png"</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="string">"pagePath"</span>: <span class="string">"pages/whole/newsList/newsList"</span>,</span><br><span class="line">        <span class="string">"text"</span>: <span class="string">"全部"</span>,</span><br><span class="line">        <span class="string">"iconPath"</span>: <span class="string">"/static/images/all_icon.png"</span>,</span><br><span class="line">        <span class="string">"selectedIconPath"</span>: <span class="string">"/static/images/all_icon1.png"</span></span><br><span class="line">      &#125;,</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id=""><a href="#" class="headerlink" title=""></a></h4><h4 id="4、在-app-wxss-中设置通用css"><a href="#4、在-app-wxss-中设置通用css" class="headerlink" title="4、在 app.wxss 中设置通用css"></a>4、在 app.wxss 中设置通用css</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">page</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#F7F7F7</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">28</span>rpx;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">"."</span>;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">clear</span>: both;</span><br><span class="line">  <span class="attribute">visibility</span>: hidden;</span><br><span class="line">  <span class="attribute">zoom</span>: <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="5、在-app-js-中放入封装好的ajax"><a href="#5、在-app-js-中放入封装好的ajax" class="headerlink" title="5、在 app.js 中放入封装好的ajax"></a>5、在 app.js 中放入封装好的ajax</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//封装ajax</span></span><br><span class="line">  ajaxRequest(url, type, data, upload) &#123;</span><br><span class="line">    <span class="keyword">let</span> that = <span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (upload == <span class="string">'upload'</span>) &#123;</span><br><span class="line">          wx.chooseImage(&#123;</span><br><span class="line">            count: <span class="number">1</span>,</span><br><span class="line">            sizeType: [<span class="string">'original'</span>, <span class="string">'compressed'</span>],</span><br><span class="line">            sourceType: [<span class="string">'album'</span>, <span class="string">'camera'</span>],</span><br><span class="line">            success(imgData) &#123;</span><br><span class="line">              <span class="keyword">let</span> resImg = imgData.tempFilePaths;</span><br><span class="line">              <span class="comment">// console.log(imgData)</span></span><br><span class="line">              wx.uploadFile(&#123;</span><br><span class="line">                url: that.globalData.url + url, <span class="comment">//接口地址</span></span><br><span class="line">                filePath: resImg[<span class="number">0</span>],</span><br><span class="line">                name: <span class="string">'file'</span>,</span><br><span class="line">                formData: &#123;</span><br><span class="line">                  <span class="string">'user'</span>: <span class="string">'test'</span></span><br><span class="line">                &#125;,</span><br><span class="line">                success(resData) &#123;</span><br><span class="line">                  <span class="keyword">let</span> dataStatus = <span class="built_in">JSON</span>.parse(resData.data);</span><br><span class="line">                  <span class="keyword">if</span> (dataStatus.status) &#123;</span><br><span class="line">                    resolve(resData);</span><br><span class="line">                  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    wx.showToast(&#123;</span><br><span class="line">                      title: dataStatus.message,</span><br><span class="line">                      icon: <span class="string">'none'</span>,</span><br><span class="line">                    &#125;)</span><br><span class="line">                  &#125;</span><br><span class="line">                &#125;,</span><br><span class="line">                fail: <span class="function"><span class="keyword">function</span> (<span class="params">errorData</span>) </span>&#123;</span><br><span class="line">                  reject(errorData);</span><br><span class="line">                &#125;,</span><br><span class="line">              &#125;)</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          wx.request(&#123;</span><br><span class="line">            url: that.globalData.url + url,</span><br><span class="line">            data: data,</span><br><span class="line">            method: type,</span><br><span class="line">            header: &#123;</span><br><span class="line">              <span class="string">'content-type'</span>: <span class="string">'application/x-www-form-urlencoded'</span></span><br><span class="line">            &#125;,</span><br><span class="line">            success: <span class="function"><span class="keyword">function</span> (<span class="params">resData</span>) </span>&#123;</span><br><span class="line">              <span class="keyword">let</span> dataStatus = resData.data;</span><br><span class="line">              <span class="comment">// console.log(resData)</span></span><br><span class="line">              <span class="keyword">if</span> (dataStatus.status) &#123;</span><br><span class="line">                resolve(resData);</span><br><span class="line">              &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                wx.showToast(&#123;</span><br><span class="line">                  title: dataStatus.message,</span><br><span class="line">                  icon: <span class="string">'none'</span>,</span><br><span class="line">                &#125;)</span><br><span class="line">              &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            fail: <span class="function"><span class="keyword">function</span> (<span class="params">errorData</span>) </span>&#123;</span><br><span class="line">              reject(errorData);</span><br><span class="line">            &#125;,</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">      &#125;)</span><br><span class="line">    &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(e);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="6、设置请求域名-在app-js中"><a href="#6、设置请求域名-在app-js中" class="headerlink" title="6、设置请求域名 在app.js中"></a>6、设置请求域名 在app.js中</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">globalData: &#123;</span><br><span class="line">    userInfo: <span class="literal">null</span>,</span><br><span class="line">    <span class="comment">// url: "http://192.1.1.1:8080"</span></span><br><span class="line">    url: <span class="string">"https://域名.com"</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+
           
-            
-          
-            
+            <div class='article_footer'>
               
-<div class='new-meta-item author'>
-  <a href="" rel="nofollow">
-    <img no-lazy src="https://s1.ax1x.com/2020/07/17/Us4aoF.jpg">
-    <p>晓晓</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/%E5%B8%B8%E7%94%A8/%E7%9F%A5%E8%AF%86%E7%82%B9/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>常用/知识点</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年9月16日</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  <div class="new-meta-item wordcount">
-    <a class='notlink'>
-      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：713字</p>
-    </a>
-  </div>
-  <div class="new-meta-item readtime">
-    <a class='notlink'>
-      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：3分钟</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-  <div class="new-meta-item browse valine">
-    <a class='notlink'>
-      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
-      
-      <span id="/2020/09/16/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" class="leancloud_visitors" data-flag-title="数据结构与算法">
-      <p>
-        <span class="leancloud-visitors-count"></span>
-      </p>
-      </span>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-<div class="new-meta-item comments-count">
-  
-  <a href="/2020/09/16/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/#comments">
-    <i class="fas fa-comment-dots fa-fw"></i>
-    <span class="valine-comment-count" data-xid="/2020/09/16/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">0</span>
-    <span class="leancloud-comments-count">&nbsp;</span>
-  </a>
-</div>
-
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一些常用算法。</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/09/16/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/2020/09/05/wx%E6%8E%88%E6%9D%83/">
-      wx授权
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="" rel="nofollow">
-    <img no-lazy src="https://s1.ax1x.com/2020/07/17/Us4aoF.jpg">
-    <p>晓晓</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/wx/wx%E6%8E%88%E6%9D%83/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>wx/wx授权</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年9月5日</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  <div class="new-meta-item wordcount">
-    <a class='notlink'>
-      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：1.4k字</p>
-    </a>
-  </div>
-  <div class="new-meta-item readtime">
-    <a class='notlink'>
-      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：7分钟</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-  <div class="new-meta-item browse valine">
-    <a class='notlink'>
-      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
-      
-      <span id="/2020/09/05/wx%E6%8E%88%E6%9D%83/" class="leancloud_visitors" data-flag-title="wx授权">
-      <p>
-        <span class="leancloud-visitors-count"></span>
-      </p>
-      </span>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-<div class="new-meta-item comments-count">
-  
-  <a href="/2020/09/05/wx%E6%8E%88%E6%9D%83/#comments">
-    <i class="fas fa-comment-dots fa-fw"></i>
-    <span class="valine-comment-count" data-xid="/2020/09/05/wx%E6%8E%88%E6%9D%83/">0</span>
-    <span class="leancloud-comments-count">&nbsp;</span>
-  </a>
-</div>
-
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>微信授权。</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/09/05/wx%E6%8E%88%E6%9D%83/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/2020/09/04/wx%E6%94%AF%E4%BB%98/">
-      wx支付
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="" rel="nofollow">
-    <img no-lazy src="https://s1.ax1x.com/2020/07/17/Us4aoF.jpg">
-    <p>晓晓</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/wx/wx%E6%94%AF%E4%BB%98/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>wx/wx支付</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年9月4日</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  <div class="new-meta-item wordcount">
-    <a class='notlink'>
-      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：400字</p>
-    </a>
-  </div>
-  <div class="new-meta-item readtime">
-    <a class='notlink'>
-      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：1分钟</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-  <div class="new-meta-item browse valine">
-    <a class='notlink'>
-      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
-      
-      <span id="/2020/09/04/wx%E6%94%AF%E4%BB%98/" class="leancloud_visitors" data-flag-title="wx支付">
-      <p>
-        <span class="leancloud-visitors-count"></span>
-      </p>
-      </span>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-<div class="new-meta-item comments-count">
-  
-  <a href="/2020/09/04/wx%E6%94%AF%E4%BB%98/#comments">
-    <i class="fas fa-comment-dots fa-fw"></i>
-    <span class="valine-comment-count" data-xid="/2020/09/04/wx%E6%94%AF%E4%BB%98/">0</span>
-    <span class="leancloud-comments-count">&nbsp;</span>
-  </a>
-</div>
-
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://cdn.jsdelivr.net/gh/liebexiao/myImgs/20200904220626.jpg" alt=""></p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/09/04/wx%E6%94%AF%E4%BB%98/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/2020/09/04/WxParse%E5%AF%8C%E6%96%87%E6%9C%AC%E8%A7%A3%E6%9E%90/">
-      WxParse富文本解析
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="" rel="nofollow">
-    <img no-lazy src="https://s1.ax1x.com/2020/07/17/Us4aoF.jpg">
-    <p>晓晓</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/wx%E5%B0%8F%E7%A8%8B%E5%BA%8F/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>wx小程序</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年9月4日</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  <div class="new-meta-item wordcount">
-    <a class='notlink'>
-      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：157字</p>
-    </a>
-  </div>
-  <div class="new-meta-item readtime">
-    <a class='notlink'>
-      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：1分钟</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-  <div class="new-meta-item browse valine">
-    <a class='notlink'>
-      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
-      
-      <span id="/2020/09/04/WxParse%E5%AF%8C%E6%96%87%E6%9C%AC%E8%A7%A3%E6%9E%90/" class="leancloud_visitors" data-flag-title="WxParse富文本解析">
-      <p>
-        <span class="leancloud-visitors-count"></span>
-      </p>
-      </span>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-<div class="new-meta-item comments-count">
-  
-  <a href="/2020/09/04/WxParse%E5%AF%8C%E6%96%87%E6%9C%AC%E8%A7%A3%E6%9E%90/#comments">
-    <i class="fas fa-comment-dots fa-fw"></i>
-    <span class="valine-comment-count" data-xid="/2020/09/04/WxParse%E5%AF%8C%E6%96%87%E6%9C%AC%E8%A7%A3%E6%9E%90/">0</span>
-    <span class="leancloud-comments-count">&nbsp;</span>
-  </a>
-</div>
-
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://cdn.jsdelivr.net/gh/liebexiao/myImgs/20200904214529.png" alt=""></p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/09/04/WxParse%E5%AF%8C%E6%96%87%E6%9C%AC%E8%A7%A3%E6%9E%90/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/2020/09/04/%E8%A7%86%E9%A2%91%E4%B8%8A%E4%BC%A0/">
-      视频上传
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="" rel="nofollow">
-    <img no-lazy src="https://s1.ax1x.com/2020/07/17/Us4aoF.jpg">
-    <p>晓晓</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/%E5%B8%B8%E7%94%A8/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>常用/常用工具</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年9月4日</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  <div class="new-meta-item wordcount">
-    <a class='notlink'>
-      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：1.8k字</p>
-    </a>
-  </div>
-  <div class="new-meta-item readtime">
-    <a class='notlink'>
-      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：10分钟</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-  <div class="new-meta-item browse valine">
-    <a class='notlink'>
-      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
-      
-      <span id="/2020/09/04/%E8%A7%86%E9%A2%91%E4%B8%8A%E4%BC%A0/" class="leancloud_visitors" data-flag-title="视频上传">
-      <p>
-        <span class="leancloud-visitors-count"></span>
-      </p>
-      </span>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-<div class="new-meta-item comments-count">
-  
-  <a href="/2020/09/04/%E8%A7%86%E9%A2%91%E4%B8%8A%E4%BC%A0/#comments">
-    <i class="fas fa-comment-dots fa-fw"></i>
-    <span class="valine-comment-count" data-xid="/2020/09/04/%E8%A7%86%E9%A2%91%E4%B8%8A%E4%BC%A0/">0</span>
-    <span class="leancloud-comments-count">&nbsp;</span>
-  </a>
-</div>
-
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>该视频上传至阿里云服务器。</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/09/04/%E8%A7%86%E9%A2%91%E4%B8%8A%E4%BC%A0/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-    
-  </section>
-  
-    
-      <br>
-      <div class="prev-next">
-        
-        <p class="current">
-          1 / 3
-        </p>
-        
-          <a class="next" rel="next" href="/tags/js/page/2/">
-            <section class="post next white-box shadow">
-              &nbsp;下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
-            </section>
-          </a>
-        
-      </div>
-    
-    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
-    
-    
-
-  
-
-
-    
-  
-</div>
-<aside class='l_side'>
-  
+                
   
     
     
 
-<section class="widget blogger shadow desktop mobile">
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
   <div class='content'>
     
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://s1.ax1x.com/2020/07/17/Us4aoF.jpg'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence"> </span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
+      <blockquote>
         
           
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
           
         
           
-            <a href="mailto:1184154937@qq.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
+            <p>本文永久链接是：<a href=http://liebexiao.github.io/2020/11/18/%E6%96%B0%E5%BB%BA%E5%B0%8F%E7%A8%8B%E5%BA%8F/>http://liebexiao.github.io/2020/11/18/%E6%96%B0%E5%BB%BA%E5%B0%8F%E7%A8%8B%E5%BA%8F/</a></p>
           
         
-          
-            <a href="https://github.com/liebexiao"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-          
-            <a href="https://music.163.com/#/playlist?id=706943256"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-      </div>
+      </blockquote>
     
   </div>
 </section>
@@ -1426,138 +614,177 @@
   
     
     
+
+<section class="widget qrcode  desktop mobile">
   
 
-  <section class="widget category shadow desktop">
+  <div class='content article-entry'>
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-11-18T11:29:15+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年11月18日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/js/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>js</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://liebexiao.github.io/2020/11/18/%E6%96%B0%E5%BB%BA%E5%B0%8F%E7%A8%8B%E5%BA%8F/&title=新建小程序 -  &summary=这里记录新建一个小程序项目需要引入的各种文件及各种配置。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://liebexiao.github.io/2020/11/18/%E6%96%B0%E5%BB%BA%E5%B0%8F%E7%A8%8B%E5%BA%8F/&title=新建小程序 -  &summary=这里记录新建一个小程序项目需要引入的各种文件及各种配置。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://liebexiao.github.io/2020/11/18/%E6%96%B0%E5%BB%BA%E5%B0%8F%E7%A8%8B%E5%BA%8F/&title=新建小程序 -  &summary=这里记录新建一个小程序项目需要引入的各种文件及各种配置。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+            
+              <a class='next' href='/2020/09/16/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/'>
+                <p class='title'>数据结构与算法<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>一些常用算法。
+
+
+一、常见算法1、冒泡排序
+相邻两个元素比较，如果前一个比后一个大，交换位置；
+对每一对相邻的元素进行重复工作
+重复上述操作直至数组有序。
+
+12345678910111213...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      <section id="comments">
+        <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+      </section>
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/ES6/" href="/categories/ES6/"
-            id="categoriesES6"
-            ><div class='name'>ES6</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/markdown/" href="/categories/markdown/"
-            id="categoriesmarkdown"
-            ><div class='name'>markdown</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/typeScript/" href="/categories/typeScript/"
-            id="categoriestypeScript"
-            ><div class='name'>typeScript</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/vue/" href="/categories/vue/"
-            id="categoriesvue"
-            ><div class='name'>vue</div><div class='badge'>(10)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/vue/%E5%8E%9F%E7%94%9F/" href="/categories/vue/%E5%8E%9F%E7%94%9F/"
-            id="categoriesvueE58E9FE7949F"
-            ><div class='name'>原生</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/vue/%E7%BB%84%E4%BB%B6/" href="/categories/vue/%E7%BB%84%E4%BB%B6/"
-            id="categoriesvueE7BB84E4BBB6"
-            ><div class='name'>组件</div><div class='badge'>(5)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/vue/%E9%85%8D%E7%BD%AE/" href="/categories/vue/%E9%85%8D%E7%BD%AE/"
-            id="categoriesvueE9858DE7BDAE"
-            ><div class='name'>配置</div><div class='badge'>(4)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/wx/" href="/categories/wx/"
-            id="categorieswx"
-            ><div class='name'>wx</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/wx/wx%E5%88%86%E4%BA%AB/" href="/categories/wx/wx%E5%88%86%E4%BA%AB/"
-            id="categorieswxwxE58886E4BAAB"
-            ><div class='name'>wx分享</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/wx/wx%E6%8E%88%E6%9D%83/" href="/categories/wx/wx%E6%8E%88%E6%9D%83/"
-            id="categorieswxwxE68E88E69D83"
-            ><div class='name'>wx授权</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/wx/wx%E6%94%AF%E4%BB%98/" href="/categories/wx/wx%E6%94%AF%E4%BB%98/"
-            id="categorieswxwxE694AFE4BB98"
-            ><div class='name'>wx支付</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/wx%E5%B0%8F%E7%A8%8B%E5%BA%8F/" href="/categories/wx%E5%B0%8F%E7%A8%8B%E5%BA%8F/"
-            id="categorieswxE5B08FE7A88BE5BA8F"
-            ><div class='name'>wx小程序</div><div class='badge'>(8)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" href="/categories/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"
-            id="categoriesE5898DE7ABAFE680A7E883BDE4BC98E58C96"
-            ><div class='name'>前端性能优化</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E5%B8%B8%E7%94%A8/" href="/categories/%E5%B8%B8%E7%94%A8/"
-            id="categoriesE5B8B8E794A8"
-            ><div class='name'>常用</div><div class='badge'>(12)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E5%B8%B8%E7%94%A8/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/" href="/categories/%E5%B8%B8%E7%94%A8/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/"
-            id="categoriesE5B8B8E794A8E5B8B8E794A8E5B7A5E585B7"
-            ><div class='name'>常用工具</div><div class='badge'>(6)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E5%B8%B8%E7%94%A8/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" href="/categories/%E5%B8%B8%E7%94%A8/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/"
-            id="categoriesE5B8B8E794A8E5B8B8E794A8E696B9E6B395"
-            ><div class='name'>常用方法</div><div class='badge'>(4)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E5%B8%B8%E7%94%A8/%E7%9F%A5%E8%AF%86%E7%82%B9/" href="/categories/%E5%B8%B8%E7%94%A8/%E7%9F%A5%E8%AF%86%E7%82%B9/"
-            id="categoriesE5B8B8E794A8E79FA5E8AF86E782B9"
-            ><div class='name'>知识点</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E9%98%BF%E9%87%8C%E4%BA%91/" href="/categories/%E9%98%BF%E9%87%8C%E4%BA%91/"
-            id="categoriesE998BFE9878CE4BA91"
-            ><div class='name'>阿里云</div><div class='badge'>(1)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、新建"><span class="toc-text">1、新建</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、创建文件夹"><span class="toc-text">2、创建文件夹</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、app-json配置"><span class="toc-text">3、app.json配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、在-app-wxss-中设置通用css"><span class="toc-text">4、在 app.wxss 中设置通用css</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、在-app-js-中放入封装好的ajax"><span class="toc-text">5、在 app.js 中放入封装好的ajax</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、设置请求域名-在app-js中"><span class="toc-text">6、设置请求域名 在app.js中</span></a></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/css/" style="font-size: 14px; color: #999">css</a> <a href="/tags/h5/" style="font-size: 14px; color: #999">h5</a> <a href="/tags/html/" style="font-size: 17.33px; color: #828282">html</a> <a href="/tags/js/" style="font-size: 24px; color: #555">js</a> <a href="/tags/js-html/" style="font-size: 14px; color: #999">js,html</a> <a href="/tags/js-html-css-http/" style="font-size: 14px; color: #999">js,html,css,http</a> <a href="/tags/markdown/" style="font-size: 14px; color: #999">markdown</a> <a href="/tags/pc/" style="font-size: 14px; color: #999">pc</a> <a href="/tags/ts/" style="font-size: 14px; color: #999">ts</a> <a href="/tags/vue/" style="font-size: 20.67px; color: #6c6c6c">vue</a> <a href="/tags/vue-js/" style="font-size: 14px; color: #999">vue js</a> <a href="/tags/vue-js/" style="font-size: 14px; color: #999">vue,js</a> <a href="/tags/wxml%E3%80%81js/" style="font-size: 17.33px; color: #828282">wxml、js</a> <a href="/tags/%E9%85%8D%E7%BD%AE/" style="font-size: 17.33px; color: #828282">配置</a>
-    </div>
-  </section>
-
-
-  
 
   
 
